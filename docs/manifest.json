@@ -1,0 +1,18 @@
+{
+  "name": "ESP32-CAM Multi-Sensor Firmware",
+  "version": "1.0.0",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": true,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/Full_Flash.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

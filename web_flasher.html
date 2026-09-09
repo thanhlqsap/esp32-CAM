@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP32-CAM 1-Click Web Installer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  
+  <!-- Espressif Official esptool-js Web Serial Library (Offline First + CDN Fallback) -->
+  <script src="esptool-bundle.js"></script>
+  <script>
+    if (typeof ESPLoader === 'undefined' && (typeof esptooljs === 'undefined' || !esptooljs.ESPLoader)) {
+      const cdn = document.createElement('script');
+      cdn.src = 'https://unpkg.com/esptool-js@0.5.4/bundle.js';
+      document.head.appendChild(cdn);
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --card-bg: #131b2e;
+      --card-border: #1e293b;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    body { background: var(--bg-dark); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 16px; }
+    .wrapper { width: 100%; max-width: 540px; }
+
+    /* Multi-language Engine via CSS */
+    body:not([data-lang="vi"]) .lang-vi { display: none !important; }
+    body:not([data-lang="en"]) .lang-en { display: none !important; }
+    body:not([data-lang="ja"]) .lang-ja { display: none !important; }
+    body:not([data-lang="zh"]) .lang-zh { display: none !important; }
+
+    /* Top Bar */
+    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 4px; }
+    .top-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.95rem; color: #fff; text-decoration: none; }
+    .lang-select { background: #0f172a; color: #cbd5e1; border: 1px solid var(--card-border); border-radius: 8px; padding: 6px 10px; font-size: 0.8rem; font-weight: 600; cursor: pointer; outline: none; }
+
+    /* Main Card */
+    .installer-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 32px 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); text-align: center; }
+    .cam-icon { width: 72px; height: 72px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 2.4rem; margin-bottom: 16px; box-shadow: 0 0 25px rgba(56, 189, 248, 0.15); }
+    
+    h1 { font-size: 1.45rem; font-weight: 800; color: #fff; margin-bottom: 6px; letter-spacing: -0.02em; }
+    p.subtitle { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
+
+    /* Version Picker */
+    .form-group { text-align: left; margin-bottom: 14px; }
+    .label-wrap { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    label { font-size: 0.85rem; font-weight: 600; color: #cbd5e1; }
+    .history-link { font-size: 0.8rem; color: var(--primary); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; cursor: pointer; transition: opacity 0.2s; }
+    .history-link:hover { text-decoration: underline; opacity: 0.9; }
+
+    select.version-select { width: 100%; padding: 13px 16px; background: #0f172a; border: 1px solid #334155; border-radius: 12px; color: #fff; font-size: 0.95rem; font-weight: 600; outline: none; cursor: pointer; transition: border-color 0.2s; }
+    select.version-select:focus { border-color: var(--primary); }
+
+    /* Version Description Box */
+    .version-desc-box { background: rgba(15, 23, 42, 0.75); border: 1px solid var(--card-border); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px; text-align: left; font-size: 0.82rem; line-height: 1.5; color: #cbd5e1; }
+    .version-desc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; font-weight: 700; color: var(--primary); }
+
+    /* Big Flash Button */
+    .btn-flash { width: 100%; padding: 16px; background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; border: none; border-radius: 14px; font-size: 1.05rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4); transition: all 0.2s; }
+    .btn-flash:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5); background: linear-gradient(135deg, #0369a1, #075985); }
+    .btn-flash:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* Progress UI */
+    .progress-section { margin-top: 22px; display: none; text-align: left; }
+    .progress-status { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: #cbd5e1; margin-bottom: 8px; }
+    .progress-bar-wrap { width: 100%; height: 10px; background: #0f172a; border-radius: 5px; overflow: hidden; border: 1px solid var(--card-border); }
+    .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #38bdf8, #10b981); transition: width 0.15s ease; }
+    
+    /* Status Messages */
+    .status-msg { margin-top: 14px; padding: 12px 14px; border-radius: 10px; font-size: 0.85rem; line-height: 1.4; display: none; }
+    .status-msg.success { background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); color: #6ee7b7; display: block; }
+    .status-msg.error { background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; display: block; }
+
+    /* 3 Simple Steps */
+    .steps-box { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--card-border); text-align: left; }
+    .steps-title { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
+    .step-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 0.88rem; color: #cbd5e1; }
+    .step-badge { width: 24px; height: 24px; border-radius: 50%; background: #0f172a; border: 1px solid #334155; color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .pin { background: #0f172a; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #facc15; font-weight: 600; }
+
+    /* Toggle Terminal */
+    .terminal-toggle { margin-top: 18px; text-align: center; }
+    .btn-link { background: none; border: none; color: var(--text-muted); font-size: 0.8rem; cursor: pointer; text-decoration: underline; }
+    .btn-link:hover { color: var(--primary); }
+    .terminal-box { margin-top: 12px; height: 160px; background: #050811; border: 1px solid #1e293b; border-radius: 10px; overflow-y: auto; padding: 10px 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; line-height: 1.5; color: #a5f3fc; text-align: left; display: none; white-space: pre-wrap; word-break: break-all; }
+
+    /* Modal Dialog for Version History */
+    .modal-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); z-index: 1000; align-items: center; justify-content: center; padding: 16px; }
+    .modal-backdrop.active { display: flex; }
+    .modal-card { background: #0f172a; border: 1px solid var(--card-border); border-radius: 20px; max-width: 580px; width: 100%; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+    .modal-header { padding: 18px 24px; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
+    .modal-title { font-size: 1.15rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .modal-close { background: none; border: none; font-size: 1.4rem; color: var(--text-muted); cursor: pointer; line-height: 1; }
+    .modal-close:hover { color: #fff; }
+    .modal-body { padding: 20px 24px; overflow-y: auto; font-size: 0.88rem; line-height: 1.6; color: #cbd5e1; }
+    .history-card { background: #131b2e; border: 1px solid var(--card-border); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
+    .history-tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3); margin-bottom: 6px; }
+    .history-card h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .history-card ul { margin: 0; padding-left: 18px; }
+    .history-card li { margin-bottom: 4px; }
+    .modal-footer { padding: 14px 24px; border-top: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
+
+    /* Browser Alert */
+    .browser-alert { background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 14px; padding: 16px; margin-bottom: 20px; font-size: 0.85rem; color: #fca5a5; line-height: 1.5; display: none; text-align: left; }
+  </style>
+</head>
+<body data-lang="vi">
+  <div class="wrapper">
+
+    <!-- Top Navigation -->
+    <div class="top-bar">
+      <a href="https://github.com/your-username/ESP32_cam" target="_blank" class="top-brand">
+        📷 <span>ESP32-CAM</span>
+      </a>
+      <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="zh">🇨🇳 简体中文</option>
+      </select>
+    </div>
+
+    <!-- Browser Serial Support Warning -->
+    <div id="browserAlert" class="browser-alert">
+      <b>⚠️ <span class="lang-vi">Trình duyệt chưa hỗ trợ nạp qua USB!</span>
+      <span class="lang-en">Browser does not support Web Serial!</span>
+      <span class="lang-ja">Web Serial 未対応ブラウザです！</span>
+      <span class="lang-zh">当前浏览器不支持 Web Serial！</span></b><br>
+      <span class="lang-vi">Vui lòng mở trang web này bằng <b>Google Chrome</b> hoặc <b>Microsoft Edge</b> trên máy tính để kết nối cáp nạp.</span>
+      <span class="lang-en">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
+      <span class="lang-ja">PC の <b>Google Chrome</b> または <b>Microsoft Edge</b> で開いてください。</span>
+      <span class="lang-zh">请在电脑端使用 <b>Google Chrome</b> 或 <b>Microsoft Edge</b> 打开。</span>
+    </div>
+
+    <!-- Main 1-Click Card -->
+    <div class="installer-card">
+      <div class="cam-icon">📷</div>
+      <h1>
+        <span class="lang-vi">Nạp Firmware ESP32-CAM</span>
+        <span class="lang-en">ESP32-CAM Web Flasher</span>
+        <span class="lang-ja">ESP32-CAM Web書き込み</span>
+        <span class="lang-zh">ESP32-CAM 固件一键烧录</span>
+      </h1>
+      <p class="subtitle">
+        <span class="lang-vi">Nạp trực tiếp firmware hoàn chỉnh (Bootloader + Partitions + App) từ GitHub chỉ với 1 click.</span>
+        <span class="lang-en">Flash Full Merged Firmware directly from GitHub with a single click.</span>
+        <span class="lang-ja">GitHub から最新の完全統合ファームウェアを1クリックで直接書き込み。</span>
+        <span class="lang-zh">无需安装任何软件，直接从 GitHub 一键烧录完整合并固件。</span>
+      </p>
+
+      <!-- 1. Version Selection or Local File -->
+      <div class="form-group">
+        <div class="label-wrap">
+          <label>
+            <span class="lang-vi">Nguồn Firmware:</span>
+            <span class="lang-en">Firmware Source:</span>
+            <span class="lang-ja">ファームウェアソース:</span>
+            <span class="lang-zh">固件来源:</span>
+          </label>
+          <a class="history-link" onclick="openHistoryModal()">
+            📜 <span class="lang-vi">Lịch sử phiên bản</span>
+            <span class="lang-en">Version History</span>
+            <span class="lang-ja">更新履歴</span>
+            <span class="lang-zh">版本历史</span>
+          </a>
+        </div>
+        <select id="sourceTypeSelect" class="version-select" onchange="onSourceTypeChange(this.value)" style="margin-bottom: 10px;">
+          <option value="local">📁 Chọn file Full_Flash.bin từ máy tính (Khuyên dùng / Offline)</option>
+          <option value="github">🌐 Tải từ GitHub Release (Online)</option>
+        </select>
+        
+        <!-- Local File Picker -->
+        <div id="localFileWrap" style="margin-bottom: 10px;">
+          <input type="file" id="localFileInput" accept=".bin" class="version-select" style="padding: 10px;" onchange="onLocalFileSelected(this)">
+          <p style="font-size:0.75rem; color:#38bdf8; margin-top:4px;">💡 Chọn file: <code>d:\Arduino\ESP32_cam\build\Full_Flash.bin</code></p>
+        </div>
+
+        <!-- GitHub Version Picker (hidden by default) -->
+        <div id="githubVersionWrap" style="display: none; margin-bottom: 10px;">
+          <select id="versionSelect" class="version-select" onchange="onVersionChange(this.value)">
+            <option value="v1.0.0" data-url="https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/Full_Flash.bin">
+              ⭐ v1.0.0 (Bản mới nhất / Latest Release)
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Baudrate & Config Picker -->
+      <div class="form-group" style="display:flex; gap:10px; text-align:left;">
+        <div style="flex:1;">
+          <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">Tốc độ nạp (Baudrate):</label>
+          <select id="baudSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
+            <option value="115200" selected>115200 (Ổn định nhất / Chống lỗi serial)</option>
+            <option value="460800">460800 (Tốc độ cao)</option>
+            <option value="921600">921600 (Siêu nhanh)</option>
+          </select>
+        </div>
+        <div style="flex:1;">
+          <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">Địa chỉ Flash (Offset):</label>
+          <select id="offsetSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
+            <option value="0x0000" selected>0x0000 (File Full_Flash.bin - Full Merged)</option>
+            <option value="0x10000">0x10000 (File OTA_Update.bin - Chỉ App)</option>
+            <option value="0x1000">0x1000 (Chỉ Bootloader)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Live Description of Selected Version -->
+      <div class="version-desc-box" id="versionDescBox">
+        <div class="version-desc-header">
+          <span id="descVerTag">v1.0.0 (Full Merged Firmware)</span>
+          <span id="descVerDate" style="font-size:0.75rem;color:var(--text-muted);">Latest Build</span>
+        </div>
+        <div id="descVerContent">
+          🚀 Tự động nhận diện đa cảm biến (OV2640, OV3660, OV5640,...), Live Stream MJPEG 25FPS, Quét Wi-Fi & Captive Portal, Hybrid OTA & Rollback bảo vệ, Xác thực Basic Auth.
+        </div>
+      </div>
+
+      <!-- 2. Big Flash Button -->
+      <button type="button" class="btn-flash" id="flashBtn" onclick="startSimpleFlash()">
+        <span id="btnIcon">⚡</span>
+        <span id="btnText">
+          <span class="lang-vi">Cài Đặt / Nạp Firmware Ngay</span>
+          <span class="lang-en">Install / Flash Firmware Now</span>
+          <span class="lang-ja">今すぐインストール / 書き込み</span>
+          <span class="lang-zh">立即安装 / 烧录固件</span>
+        </span>
+      </button>
+
+      <!-- 3. Progress Bar & Real-time Status -->
+      <div class="progress-section" id="progSection">
+        <div class="progress-status">
+          <span id="statusLabel">Đang chuẩn bị...</span>
+          <span id="percentLabel">0%</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progBar"></div>
+        </div>
+      </div>
+
+      <div id="statusAlert" class="status-msg"></div>
+
+      <!-- 4. Three Simple Steps -->
+      <div class="steps-box">
+        <div class="steps-title">
+          <span class="lang-vi">3 Bước đơn giản để nạp:</span>
+          <span class="lang-en">3 Simple Steps:</span>
+          <span class="lang-ja">書き込み手順:</span>
+          <span class="lang-zh">简易烧录步骤:</span>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">1</div>
+          <div>
+            <span class="lang-vi">Nối chân <span class="pin">IO0</span> vào <span class="pin">GND</span> rồi cắm cáp USB.</span>
+            <span class="lang-en">Bridge <span class="pin">IO0</span> to <span class="pin">GND</span>, then plug USB in.</span>
+            <span class="lang-ja"><span class="pin">IO0</span> を <span class="pin">GND</span> に接続し、USBを挿す。</span>
+            <span class="lang-zh">短接 <span class="pin">IO0</span> 与 <span class="pin">GND</span>，然后插入 USB 线。</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">2</div>
+          <div>
+            <span class="lang-vi">Nhấn nút <b>"Cài Đặt"</b> ở trên → Chọn cổng USB COM.</span>
+            <span class="lang-en">Click <b>"Install"</b> above → Select your USB COM Port.</span>
+            <span class="lang-ja">上の <b>「インストール」</b> をクリック → COMポート選択。</span>
+            <span class="lang-zh">点击上方 <b>“立即安装”</b> → 选择串口端口。</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">3</div>
+          <div>
+            <span class="lang-vi">Nạp xong: <b>Rút dây IO0 ra</b> và nhấn nút <span class="pin">RST</span> để chạy!</span>
+            <span class="lang-en">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
+            <span class="lang-ja">完了後: <b>IO0 を抜いて</b> <span class="pin">RST</span> ボタンを押す！</span>
+            <span class="lang-zh">完成后：<b>拔掉 IO0 短接线</b> 并按 <span class="pin">RST</span> 启动！</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional Log Viewer -->
+      <div class="terminal-toggle">
+        <button type="button" class="btn-link" onclick="toggleLog()">
+          <span id="toggleLogText">🔍 Xem log chi tiết</span>
+        </button>
+        <div class="terminal-box" id="termBox"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VERSION HISTORY MODAL DIALOG -->
+  <div class="modal-backdrop" id="historyModal" onclick="if(event.target === this) closeHistoryModal()">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          📜 <span class="lang-vi">Lịch Sử Phiên Bản Firmware (Changelog)</span>
+          <span class="lang-en">Firmware Version History (Changelog)</span>
+          <span class="lang-ja">ファームウェア更新履歴 (Changelog)</span>
+          <span class="lang-zh">固件更新历史记录 (Changelog)</span>
+        </div>
+        <button class="modal-close" onclick="closeHistoryModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalHistoryBody">
+        <!-- Rendered dynamically from changelog.json -->
+      </div>
+      <div class="modal-footer">
+        <a href="https://github.com/your-username/ESP32_cam/releases" target="_blank" class="btn-link" style="color:var(--primary);font-weight:600;">
+          🔗 <span class="lang-vi">Xem trên GitHub Releases</span>
+          <span class="lang-en">View on GitHub Releases</span>
+          <span class="lang-ja">GitHub Releases で見る</span>
+          <span class="lang-zh">前往 GitHub Releases 查看</span>
+        </a>
+        <button type="button" class="btn-flash" onclick="closeHistoryModal()" style="width:auto;padding:8px 18px;font-size:0.85rem;border-radius:8px;">
+          <span class="lang-vi">Đóng</span>
+          <span class="lang-en">Close</span>
+          <span class="lang-ja">閉じる</span>
+          <span class="lang-zh">关闭</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Global State & Fallback Changelog Data
+    let currentLang = 'vi';
+    let localFileBuffer = null;
+    let localFileName = '';
+    let changelogData = [
+      {
+        version: "v1.0.0",
+        date: "2026-09",
+        tag: "Latest Build",
+        url: "https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/Full_Flash.bin",
+        title: {
+          vi: "Bản phát hành chính thức - Đa cảm biến & Hybrid OTA",
+          en: "Official Release - Multi-Sensor & Hybrid OTA",
+          ja: "正式リリース - マルチセンサー＆Hybrid OTA",
+          zh: "官方正式版 - 多传感器兼容与混合OTA"
+        },
+        description: {
+          vi: "🚀 Tự động nhận diện đa cảm biến (OV2640, OV3660, OV5640,...), Live Stream MJPEG 25FPS, Quét Wi-Fi & Captive Portal, Hybrid OTA & Rollback bảo vệ, Xác thực Basic Auth.",
+          en: "🚀 Auto-detects multi-sensors (OV2640, OV3660, OV5640,...), 25FPS MJPEG Stream, Wi-Fi Scan & Captive Portal, Hybrid OTA & Rollback, Basic Auth.",
+          ja: "🚀 マルチセンサー自動検出 (OV2640, OV3660, OV5640等)、MJPEG 配信、Wi-Fi スキャン＆APポータル、OTA復旧保護、Basic認証。",
+          zh: "🚀 自动识别多款摄像头传感器 (OV2640, OV3660, OV5640等)、实时流畅直播、Wi-Fi 扫描配网、OTA 双模升级与防变砖回滚、Basic 密码保护。"
+        }
+      }
+    ];
+
+    function onSourceTypeChange(type) {
+      const localWrap = document.getElementById('localFileWrap');
+      const ghWrap = document.getElementById('githubVersionWrap');
+      if (type === 'local') {
+        localWrap.style.display = 'block';
+        ghWrap.style.display = 'none';
+      } else {
+        localWrap.style.display = 'none';
+        ghWrap.style.display = 'block';
+      }
+    }
+
+    function onLocalFileSelected(input) {
+      const file = input.files[0];
+      if (!file) {
+        localFileBuffer = null;
+        localFileName = '';
+        return;
+      }
+      localFileName = file.name;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        localFileBuffer = e.target.result;
+        log(`📁 Đã nạp file: ${file.name} (${Math.round(file.size / 1024)} KB)`);
+        
+        // Auto select offset based on filename
+        const offsetSel = document.getElementById('offsetSelect');
+        const fname = file.name.toLowerCase();
+        if (fname.includes('ota_update') || fname.includes('firmware') || fname.endsWith('.ino.bin')) {
+          offsetSel.value = '0x10000';
+          log('👉 Tự động gán Offset: 0x10000 (File Application OTA_Update.bin)');
+        } else if (fname.includes('bootloader')) {
+          offsetSel.value = '0x1000';
+          log('👉 Tự động gán Offset: 0x1000 (File Bootloader)');
+        } else if (fname.includes('partition')) {
+          offsetSel.value = '0x8000';
+          log('👉 Tự động gán Offset: 0x8000 (File Partitions)');
+        } else {
+          offsetSel.value = '0x0000';
+          log('👉 Tự động gán Offset: 0x0000 (File Full Merged Full_Flash.bin)');
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    // Language Controller
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.body.setAttribute('data-lang', lang);
+      const sel = document.getElementById('langSelect');
+      if (sel) sel.value = lang;
+      updateLiveDescription();
+    }
+
+    // Modal Controller
+    function openHistoryModal() {
+      const m = document.getElementById('historyModal');
+      if (m) m.classList.add('active');
+    }
+    function closeHistoryModal() {
+      const m = document.getElementById('historyModal');
+      if (m) m.classList.remove('active');
+    }
+
+    function updateLiveDescription() {
+      const tagEl = document.getElementById('descVerTag');
+      const contentEl = document.getElementById('descVerContent');
+      if (tagEl) tagEl.innerText = `v1.0.0 (Full Merged Firmware)`;
+      if (contentEl) contentEl.innerText = '🚀 Tự động nhận diện đa cảm biến, Live Stream MJPEG 25FPS, Quét Wi-Fi & Captive Portal, Hybrid OTA.';
+    }
+
+    // Check Web Serial Support
+    window.addEventListener('DOMContentLoaded', () => {
+      setLanguage('vi');
+      if (!('serial' in navigator)) {
+        const alertBox = document.getElementById('browserAlert');
+        if (alertBox) alertBox.style.display = 'block';
+        const flashBtn = document.getElementById('flashBtn');
+        if (flashBtn) flashBtn.disabled = true;
+      }
+    });
+
+    function toggleLog() {
+      const term = document.getElementById('termBox');
+      const isHidden = term.style.display === 'none' || !term.style.display;
+      term.style.display = isHidden ? 'block' : 'none';
+      document.getElementById('toggleLogText').innerText = isHidden ? 'Ẩn log chi tiết' : '🔍 Xem log chi tiết';
+    }
+
+    function log(msg) {
+      const term = document.getElementById('termBox');
+      if (term) {
+        term.textContent += msg + '\n';
+        term.scrollTop = term.scrollHeight;
+      }
+    }
+
+    function arrayBufferToBinaryString(buffer) {
+      const bytes = new Uint8Array(buffer);
+      const chunkSize = 8192;
+      let binary = '';
+      for (let i = 0; i < bytes.length; i += chunkSize) {
+        binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+      }
+      return binary;
+    }
+
+    // 1-Click Flash Engine
+    async function startSimpleFlash() {
+      const btn = document.getElementById('flashBtn');
+      const progSection = document.getElementById('progSection');
+      const progBar = document.getElementById('progBar');
+      const statusLabel = document.getElementById('statusLabel');
+      const percentLabel = document.getElementById('percentLabel');
+      const statusAlert = document.getElementById('statusAlert');
+      const baudrate = parseInt(document.getElementById('baudSelect').value) || 115200;
+      const offsetStr = document.getElementById('offsetSelect').value || '0x0000';
+      const flashAddress = parseInt(offsetStr, 16);
+      const sourceType = document.getElementById('sourceTypeSelect').value;
+
+      statusAlert.className = 'status-msg';
+      statusAlert.style.display = 'none';
+      progSection.style.display = 'block';
+      progBar.style.width = '0%';
+      percentLabel.innerText = '0%';
+      btn.disabled = true;
+
+      let esptoolTransport = null;
+
+      try {
+        let buffer = null;
+
+        if (sourceType === 'local') {
+          if (!localFileBuffer) {
+            throw new Error('Vui lòng bấm nút "Choose File" để chọn file build/Full_Flash.bin trên máy tính của bạn trước khi bấm Nạp!');
+          }
+          buffer = localFileBuffer;
+          log(`[1/3] Sử dụng file cục bộ: ${localFileName} (${Math.round(buffer.byteLength / 1024)} KB)`);
+        } else {
+          statusLabel.innerText = 'Đang tải firmware từ GitHub...';
+          const selOpt = document.getElementById('versionSelect').selectedOptions[0];
+          const url = selOpt.getAttribute('data-url') || selOpt.value;
+          log(`[1/3] Tải firmware từ: ${url}`);
+          const resp = await fetch(url);
+          if (!resp.ok) throw new Error(`Không thể tải firmware (HTTP ${resp.status})`);
+          buffer = await resp.arrayBuffer();
+          log(`[1/3] Đã tải thành công (${Math.round(buffer.byteLength / 1024)} KB).`);
+        }
+
+        // Step 2: Request Port & Connect
+        const ESPLoaderClass = window.ESPLoader || (window.esptooljs && window.esptooljs.ESPLoader);
+        const TransportClass = window.Transport || (window.esptooljs && window.esptooljs.Transport);
+
+        if (!ESPLoaderClass || !TransportClass) {
+          throw new Error('Không tìm thấy thư viện ESPLoader. Vui lòng tải lại trang web (F5).');
+        }
+
+        statusLabel.innerText = 'Đang kết nối ESP32-CAM...';
+        log(`[2/3] Mở kết nối Serial (Baudrate: ${baudrate})...`);
+        const port = await navigator.serial.requestPort();
+
+        esptoolTransport = new TransportClass(port);
+        const esptoolDevice = new ESPLoaderClass({
+          transport: esptoolTransport,
+          baudrate: baudrate,
+          terminal: {
+            clean() {},
+            writeLine(d) { log(d); },
+            write(d) { log(d); }
+          }
+        });
+
+        let chip = 'ESP32';
+        if (typeof esptoolDevice.main === 'function') {
+          chip = await esptoolDevice.main();
+        } else if (typeof esptoolDevice.main_fn === 'function') {
+          chip = await esptoolDevice.main_fn();
+        } else if (typeof esptoolDevice.connect === 'function') {
+          chip = await esptoolDevice.connect();
+        }
+        log(`[2/3] Đã nhận diện Chip: ${chip || 'ESP32'}`);
+
+        // Step 3: Flash Binary at selected address
+        statusLabel.innerText = `Đang nạp firmware vào Flash (Offset: 0x${flashAddress.toString(16)})...`;
+        log(`[3/3] Bắt đầu nạp firmware vào địa chỉ: 0x${flashAddress.toString(16)}`);
+
+        const flashOptions = {
+          fileArray: [{
+            data: arrayBufferToBinaryString(buffer),
+            address: flashAddress
+          }],
+          flashSize: '4MB',
+          flash_size: '4MB',
+          flashMode: 'dio',
+          flash_mode: 'dio',
+          flashFreq: '40m',
+          flash_freq: '40m',
+          eraseAll: false,
+          erase_all: false,
+          compress: true,
+          reportProgress: (fileIndex, written, total) => {
+            const p = Math.round((written / total) * 100);
+            progBar.style.width = p + '%';
+            percentLabel.innerText = p + '%';
+          }
+        };
+
+        if (typeof esptoolDevice.writeFlash === 'function') {
+          await esptoolDevice.writeFlash(flashOptions);
+        } else if (typeof esptoolDevice.write_flash === 'function') {
+          await esptoolDevice.write_flash(flashOptions);
+        }
+
+        // Finished
+        log('🎉 Nạp Firmware thành công 100%!');
+        statusAlert.className = 'status-msg success';
+        statusAlert.innerHTML = `
+          <b>🎉 Nạp Firmware Thành Công 100%!</b><br>
+          Hãy <b>rút dây IO0 khỏi GND</b> và nhấn nút <b>RST</b> trên ESP32-CAM để bắt đầu chạy Camera!
+        `;
+        statusLabel.innerText = 'Hoàn tất / Done 100%';
+
+      } catch (err) {
+        log(`❌ [Lỗi] ${err.message}`);
+        statusAlert.className = 'status-msg error';
+        statusAlert.innerHTML = `<b>❌ ${err.message}</b><br>Vui lòng đảm bảo chân IO0 đã nối GND và bấm RST 1 cái rồi thử lại.`;
+        statusLabel.innerText = 'Lỗi / Failed';
+      } finally {
+        btn.disabled = false;
+        if (esptoolTransport) {
+          try { await esptoolTransport.disconnect(); } catch (e) {}
+        }
+      }
+    }
+  </script>
+</body>
+</html>

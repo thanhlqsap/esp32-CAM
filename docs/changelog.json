@@ -1,0 +1,50 @@
+[
+  {
+    "version": "v1.0.0",
+    "date": "2026-09",
+    "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Bản phát hành chính thức - Đa cảm biến & Hybrid OTA",
+      "en": "Official Release - Multi-Sensor & Hybrid OTA",
+      "ja": "正式リリース - マルチセンサー＆Hybrid OTA",
+      "zh": "官方正式版 - 多传感器兼容与混合OTA"
+    },
+    "description": {
+      "vi": "🚀 Tự động nhận diện đa cảm biến (OV2640, OV3660, OV5640,...), Live Stream MJPEG 25FPS, Quét Wi-Fi & Captive Portal, Hybrid OTA & Rollback bảo vệ, Xác thực Basic Auth.",
+      "en": "🚀 Auto-detects multi-sensors (OV2640, OV3660, OV5640,...), 25FPS MJPEG Stream, Wi-Fi Scan & Captive Portal, Hybrid OTA & Rollback, Basic Auth.",
+      "ja": "🚀 マルチセンサー自動検出 (OV2640, OV3660, OV5640等)、MJPEG 配信、Wi-Fi スキャン＆APポータル、OTA復旧保護、Basic認証。",
+      "zh": "🚀 自动识别多款摄像头传感器 (OV2640, OV3660, OV5640等)、实时流畅直播、Wi-Fi 扫描配网、OTA 双模升级与防变砖回滚、Basic 密码保护。"
+    },
+    "changes": {
+      "vi": [
+        "Tự động nhận diện phần cứng: OV2640, OV3660, OV5640, OV7725, OV7670, GC2145, NT99141.",
+        "Live Stream & Chụp ảnh: MJPEG (15-25 FPS), chụp ảnh 0ms delay không ngắt luồng.",
+        "Wi-Fi Scan & Captive Portal: Quét tìm Wi-Fi và cấu hình mạng nhanh khi ở chế độ AP (192.168.4.1).",
+        "Hybrid OTA & Chống Brick: Web UI + GitHub Cloud OTA + Tự động Rollback về bản cũ nếu lỗi.",
+        "Bảo mật & Cứu hộ phần cứng: HTTP Basic Auth bảo vệ Dashboard + Cứu hộ nối chân IO13 xuống GND."
+      ],
+      "en": [
+        "Auto-detect hardware sensors: OV2640, OV3660, OV5640, OV7725, OV7670, GC2145, NT99141.",
+        "Live Stream & Snapshot: 15-25 FPS MJPEG stream, 0ms latency instant snapshots.",
+        "Wi-Fi Scan & Captive Portal: Scan nearby Wi-Fi networks in AP mode (192.168.4.1).",
+        "Hybrid OTA & Anti-Brick: Web UI + GitHub Cloud OTA + Auto-Rollback protection.",
+        "Security & Rescue: HTTP Basic Auth protection + Hardware pin IO13 GND rescue."
+      ],
+      "ja": [
+        "センサー自動認識: OV2640, OV3660, OV5640, OV7725 等に対応。",
+        "配信＆撮影: リアルタイム MJPEG ストリーミング (15〜25 FPS)、遅延ゼロ撮影。",
+        "Wi-Fi スキャン＆AP: 周辺 Wi-Fi スキャンと AP モードでの簡単配网に対応。",
+        "Hybrid OTA＆安全保護: Web OTA + GitHub クラウド更新 + 自動ロールバック。",
+        "セキュリティ＆復旧: HTTP Basic 認証 + IO13 GND 短絡による救助機能。"
+      ],
+      "zh": [
+        "传感器自适应: 兼容 OV2640, OV3660, OV5640, OV7725 等多种镜头。",
+        "直播与抓拍: 输出 15-25 FPS 实时视频流，0延时保存高品质截图。",
+        "Wi-Fi扫描与热点配网: 自动扫描周边 Wi-Fi 信号，AP 模式下免App快捷配置。",
+        "混合OTA与防变砖: 支持 Web 本地升级 + GitHub 云端自动更新 + 故障自动回滚。",
+        "安全保护与硬件应急: HTTP Basic 密码验证 + IO13 接地应急恢复出厂设置。"
+      ]
+    }
+  }
+]
