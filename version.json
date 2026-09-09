@@ -1,5 +1,5 @@
 {
-  "version": "1.0.003",
+  "version": "1.0.004",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.003: Added Custom Device Name (Hostname) configuration & Dynamic Dashboard Header Sync / Thêm tính năng tùy chỉnh đổi tên thiết bị và đồng bộ tiêu đề Dashboard"
+  "changelog": "Release v1.0.004: Added Network DHCP Hostname & mDNS Sync with Custom Device Name / Đồng bộ tên thiết bị lên DHCP Router và mDNS Domain"
 }
