@@ -11,7 +11,6 @@ Thư mục này tập hợp toàn bộ các tệp tin liên quan đến **GitHub
 | **[`HD_CAP_NHAT_SITE.html`](file:///d:/Arduino/ESP32_cam/Github/HD_CAP_NHAT_SITE.html)** | **⭐ Hướng dẫn chi tiết (HTML) cách cập nhật phiên bản mới & Changelog.** |
 | **[`docs/changelog.json`](file:///d:/Arduino/ESP32_cam/Github/docs/changelog.json)** | **File JSON chứa danh sách các phiên bản & nội dung Changelog hiển thị lên Web Flasher.** |
 | **[`version.json`](file:///d:/Arduino/ESP32_cam/Github/version.json)** | File cấu hình phiên bản dùng cho tính năng **Cloud Auto-Update** (ESP32 tự tải cập nhật từ xa). |
-| **[`web_flasher.html`](file:///d:/Arduino/ESP32_cam/Github/web_flasher.html)** | Giao diện nạp Firmware 1-Click qua Web Serial (mở trực tiếp trên máy tính để nạp qua cáp USB). |
 | **[`docs/index.html`](file:///d:/Arduino/ESP32_cam/Github/docs/index.html)** | Trang web nạp chính chạy trên dịch vụ **GitHub Pages** trực tuyến. |
 | **[`docs/manifest.json`](file:///d:/Arduino/ESP32_cam/Github/docs/manifest.json)** | File cấu hình nạp chuẩn **ESP Web Tools** cho Home Assistant / Web Installer. |
 
@@ -23,7 +22,7 @@ Thư mục này tập hợp toàn bộ các tệp tin liên quan đến **GitHub
 2. Vào **Settings** của repository → chọn mục **Pages**.
 3. Tại phần **Build and deployment > Branch**: Chọn nhánh **`main`** và thư mục **`/docs`** → bấm **Save**.
 4. Trang web nạp sẽ hoạt động tại:
-   `https://<your-username>.github.io/ESP32_cam/`
+   `https://thanhlqsap.github.io/esp32-CAM/`
 
 ---
 

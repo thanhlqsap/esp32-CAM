@@ -1,5 +1,5 @@
 {
   "version": "1.0.1",
-  "url": "https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/OTA_Update.bin",
+  "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog": "Release v1.0.1: Improved OV2640 camera streaming & faster OTA flash speed / Cải thiện tốc độ stream camera OV2640 và tăng tốc độ xử lý OTA"
 }
