@@ -1,5 +1,5 @@
 {
-  "version": "1.0.004",
+  "version": "1.0.005",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.004: Added Network DHCP Hostname & mDNS Sync with Custom Device Name / Đồng bộ tên thiết bị lên DHCP Router và mDNS Domain"
+  "changelog": "Release v1.0.005: Low-level NetIF Hostname injection & DHCP Hostname Option 12 support / Đồng bộ Hostname tầng sâu lwIP TCP/IP NetIF"
 }
