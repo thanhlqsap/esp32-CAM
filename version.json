@@ -1,5 +1,5 @@
 {
-  "version": "1.0.007",
+  "version": "1.0.008",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.007: Unified Single Save Action Bar for all Wi-Fi & System Settings / Gộp toàn bộ nút lưu cấu hình Wi-Fi và hệ thống thành 1 nút bấm duy nhất"
+  "changelog": "Release v1.0.008: Fix clipboard copy on HTTP/LAN (execCommand fallback) & Multi-language copy feedback / Sửa lỗi sao chép clipboard trên môi trường HTTP và mạng LAN"
 }
