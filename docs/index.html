@@ -178,8 +178,20 @@
           </a>
         </div>
         <select id="sourceTypeSelect" class="version-select" onchange="onSourceTypeChange(this.value)" style="margin-bottom: 10px;">
-          <option value="local">📁 Chọn file từ máy tính (Offline)</option>
-          <option value="github">🌐 Tải từ GitHub Release (Online)</option>
+          <option value="local"
+            data-text-vi="📁 Chọn file từ máy tính (Offline)"
+            data-text-en="📁 Select file from computer (Offline)"
+            data-text-ja="📁 PCからファイルを選択 (オフライン)"
+            data-text-zh="📁 从本地电脑选择固件 (离线)">
+            📁 Chọn file từ máy tính (Offline)
+          </option>
+          <option value="github"
+            data-text-vi="🌐 Tải từ GitHub Release (Online)"
+            data-text-en="🌐 Download from GitHub Release (Online)"
+            data-text-ja="🌐 GitHub Release からダウンロード (オンライン)"
+            data-text-zh="🌐 从 GitHub Release 下载 (在线)">
+            🌐 Tải từ GitHub Release (Online)
+          </option>
         </select>
         
         <!-- Local File Picker -->
@@ -191,7 +203,7 @@
         <div id="githubVersionWrap" style="display: none; margin-bottom: 10px;">
           <select id="versionSelect" class="version-select" onchange="onVersionChange(this.value)">
             <option value="v1.0.0" data-url="https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin">
-              ⭐ v1.0.0 (Bản mới nhất / Latest Release)
+              ⭐ v1.0.0 (Latest Release)
             </option>
           </select>
         </div>
@@ -200,21 +212,79 @@
       <!-- Baudrate & Config Picker -->
       <div class="form-group" style="display:flex; gap:10px; text-align:left;">
         <div style="flex:1;">
-          <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">Tốc độ nạp (Baudrate):</label>
+          <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">
+            <span class="lang-vi">Tốc độ nạp (Baudrate):</span>
+            <span class="lang-en">Baudrate:</span>
+            <span class="lang-ja">書き込み速度:</span>
+            <span class="lang-zh">烧录波特率 (Baudrate):</span>
+          </label>
           <select id="baudSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
-            <option value="115200" selected>115200 (Ổn định nhất / Chống lỗi serial)</option>
-            <option value="460800">460800 (Tốc độ cao)</option>
-            <option value="921600">921600 (Siêu nhanh)</option>
+            <option value="115200" selected
+              data-text-vi="115200 (Ổn định nhất / Chống lỗi serial)"
+              data-text-en="115200 (Most Stable / Anti-error)"
+              data-text-ja="115200 (最も安定 / エラー防止)"
+              data-text-zh="115200 (最稳定 / 防串口错误)">
+              115200 (Ổn định nhất / Chống lỗi serial)
+            </option>
+            <option value="460800"
+              data-text-vi="460800 (Tốc độ cao)"
+              data-text-en="460800 (High Speed)"
+              data-text-ja="460800 (高速)"
+              data-text-zh="460800 (高速)">
+              460800 (Tốc độ cao)
+            </option>
+            <option value="921600"
+              data-text-vi="921600 (Siêu nhanh)"
+              data-text-en="921600 (Ultra Fast)"
+              data-text-ja="921600 (超高速)"
+              data-text-zh="921600 (极速)">
+              921600 (Siêu nhanh)
+            </option>
           </select>
         </div>
         <div style="flex:1;">
-          <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">Địa chỉ Flash (Offset):</label>
+          <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">
+            <span class="lang-vi">Địa chỉ Flash (Offset):</span>
+            <span class="lang-en">Flash Offset:</span>
+            <span class="lang-ja">フラッシュアドレス:</span>
+            <span class="lang-zh">烧录地址 (Offset):</span>
+          </label>
           <select id="offsetSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
-            <option value="0x0000" selected>0x0000 (File Full_Flash.bin - Full Merged)</option>
-            <option value="0x10000">0x10000 (File OTA_Update.bin - Chỉ App)</option>
-            <option value="0x1000">0x1000 (Chỉ Bootloader)</option>
+            <option value="0x0000" selected
+              data-text-vi="0x0000 (File Full_Flash.bin - Toàn bộ)"
+              data-text-en="0x0000 (Full_Flash.bin - Full Merged)"
+              data-text-ja="0x0000 (Full_Flash.bin - 完全統合)"
+              data-text-zh="0x0000 (Full_Flash.bin - 完整合并固件)">
+              0x0000 (File Full_Flash.bin - Toàn bộ)
+            </option>
+            <option value="0x10000"
+              data-text-vi="0x10000 (File OTA_Update.bin - Chỉ App)"
+              data-text-en="0x10000 (OTA_Update.bin - App Only)"
+              data-text-ja="0x10000 (OTA_Update.bin - アプリのみ)"
+              data-text-zh="0x10000 (OTA_Update.bin - 仅应用程序)">
+              0x10000 (File OTA_Update.bin - Chỉ App)
+            </option>
+            <option value="0x1000"
+              data-text-vi="0x1000 (Chỉ Bootloader)"
+              data-text-en="0x1000 (Bootloader Only)"
+              data-text-ja="0x1000 (ブートローダーのみ)"
+              data-text-zh="0x1000 (仅引导程序)">
+              0x1000 (Chỉ Bootloader)
+            </option>
+            <option value="0x8000"
+              data-text-vi="0x8000 (Chỉ Partitions)"
+              data-text-en="0x8000 (Partitions Only)"
+              data-text-ja="0x8000 (パーティションのみ)"
+              data-text-zh="0x8000 (仅分区表)">
+              0x8000 (Chỉ Partitions)
+            </option>
           </select>
-          <div id="offsetLockNote" style="font-size:0.72rem;color:#facc15;margin-top:4px;display:none;">🔒 Cố định 0x0000 cho Full_Flash Online</div>
+          <div id="offsetLockNote" style="font-size:0.72rem;color:#facc15;margin-top:4px;display:none;">
+            <span class="lang-vi">🔒 Cố định 0x0000 cho Full_Flash Online</span>
+            <span class="lang-en">🔒 Fixed 0x0000 for Online Full_Flash</span>
+            <span class="lang-ja">🔒 オンライン完全版は 0x0000 固定</span>
+            <span class="lang-zh">🔒 在线完整固件固定为 0x0000</span>
+          </div>
         </div>
       </div>
 
@@ -293,7 +363,12 @@
       <!-- Optional Log Viewer -->
       <div class="terminal-toggle">
         <button type="button" class="btn-link" onclick="toggleLog()">
-          <span id="toggleLogText">🔍 Xem log chi tiết</span>
+          <span id="toggleLogText">
+            <span class="lang-vi">🔍 Xem log chi tiết</span>
+            <span class="lang-en">🔍 View detailed log</span>
+            <span class="lang-ja">🔍 詳細ログを表示</span>
+            <span class="lang-zh">🔍 查看详细日志</span>
+          </span>
         </button>
         <div class="terminal-box" id="termBox"></div>
       </div>
@@ -338,11 +413,81 @@
     let currentLang = 'vi';
     let localFileBuffer = null;
     let localFileName = '';
+    let isLogOpened = false;
+
+    const I18N_DICT = {
+      preparing: { vi: 'Đang chuẩn bị...', en: 'Preparing...', ja: '準備中...', zh: '准备中...' },
+      downloading: { vi: 'Đang tải firmware từ GitHub...', en: 'Downloading firmware from GitHub...', ja: 'GitHubからファームウェアをダウンロード中...', zh: '正在从 GitHub 下载固件...' },
+      downloadSuccess: {
+        vi: size => `[1/3] Đã tải thành công (${size} KB).`,
+        en: size => `[1/3] Download completed (${size} KB).`,
+        ja: size => `[1/3] ダウンロード完了 (${size} KB)。`,
+        zh: size => `[1/3] 下载完成 (${size} KB)。`
+      },
+      usingLocalFile: {
+        vi: (name, size) => `[1/3] Sử dụng file máy tính: ${name} (${size} KB)`,
+        en: (name, size) => `[1/3] Using local file: ${name} (${size} KB)`,
+        ja: (name, size) => `[1/3] ローカルファイルを使用: ${name} (${size} KB)`,
+        zh: (name, size) => `[1/3] 使用本地文件: ${name} (${size} KB)`
+      },
+      connecting: { vi: 'Đang kết nối ESP32-CAM...', en: 'Connecting to ESP32-CAM...', ja: 'ESP32-CAM に接続中...', zh: '正在连接 ESP32-CAM...' },
+      openingSerial: {
+        vi: baud => `[2/3] Mở kết nối Serial (Baudrate: ${baud})...`,
+        en: baud => `[2/3] Opening Serial port (Baudrate: ${baud})...`,
+        ja: baud => `[2/3] シリアルポートを開いています (Baudrate: ${baud})...`,
+        zh: baud => `[2/3] 打开串口通信 (波特率: ${baud})...`
+      },
+      detectedChip: {
+        vi: chip => `[2/3] Đã nhận diện Chip: ${chip}`,
+        en: chip => `[2/3] Detected Chip: ${chip}`,
+        ja: chip => `[2/3] チップを検出: ${chip}`,
+        zh: chip => `[2/3] 已识别芯片: ${chip}`
+      },
+      flashing: {
+        vi: addr => `Đang nạp firmware vào Flash (Offset: ${addr})...`,
+        en: addr => `Writing firmware to Flash (Offset: ${addr})...`,
+        ja: addr => `フラッシュに書き込み中 (Offset: ${addr})...`,
+        zh: addr => `正在烧录固件到 Flash (Offset: ${addr})...`
+      },
+      startFlashing: {
+        vi: addr => `[3/3] Bắt đầu nạp firmware vào địa chỉ: ${addr}`,
+        en: addr => `[3/3] Start writing firmware to address: ${addr}`,
+        ja: addr => `[3/3] アドレス ${addr} への書き込みを開始`,
+        zh: addr => `[3/3] 开始烧录固件到目标地址: ${addr}`
+      },
+      flashSuccess100: { vi: 'Hoàn tất 100%!', en: 'Completed 100%!', ja: '書き込み完了 100%!', zh: '烧录完成 100%!' },
+      flashSuccessAlert: {
+        vi: '<b>🎉 Nạp Firmware Thành Công 100%!</b><br>Hãy <b>rút dây IO0 khỏi GND</b> và nhấn nút <b>RST</b> trên ESP32-CAM để bắt đầu chạy Camera!',
+        en: '<b>🎉 Firmware Flashed Successfully (100%)!</b><br>Please <b>disconnect IO0 from GND</b> and press the <b>RST</b> button on ESP32-CAM to start the Camera!',
+        ja: '<b>🎉 ファームウェアの書き込みが成功しました (100%)！</b><br><b>IO0 の接続を外し</b>、ESP32-CAM の <b>RST</b> ボタンを押してカメラを起動してください！',
+        zh: '<b>🎉 固件烧录成功 (100%)！</b><br>请<b>拔掉 IO0 与 GND 的短接线</b>，然后按下 ESP32-CAM 上的 <b>RST</b> 按钮启动摄像头！'
+      },
+      flashFailedLabel: { vi: 'Lỗi / Thất bại', en: 'Failed / Error', ja: 'エラーが発生しました', zh: '烧录失败 / 发生错误' },
+      flashFailedHint: {
+        vi: 'Vui lòng đảm bảo chân IO0 đã nối GND và bấm RST 1 cái rồi thử lại.',
+        en: 'Please make sure IO0 is bridged to GND, press RST once and try again.',
+        ja: 'IO0 が GND に接続されていることを確認し、RST を1回押してから再試行してください。',
+        zh: '请确保 IO0 已短接到 GND，按一次 RST 复位键后再试。'
+      },
+      noLocalFile: {
+        vi: 'Vui lòng chọn file firmware .bin từ máy tính trước khi bấm Nạp!',
+        en: 'Please choose a .bin firmware file from your computer before flashing!',
+        ja: '書き込み前にパソコンから .bin ファームウェアファイルを選択してください！',
+        zh: '请在点击烧录前先选择本地 .bin 固件文件！'
+      },
+      libNotFound: {
+        vi: 'Không tìm thấy thư viện ESPLoader. Vui lòng tải lại trang web (F5).',
+        en: 'ESPLoader library not found. Please refresh the page (F5).',
+        ja: 'ESPLoader ライブラリが見つかりません。ページを再読み込み (F5) してください。',
+        zh: '未找到 ESPLoader 库，请刷新页面 (F5)。'
+      }
+    };
+
     let changelogData = [
       {
         version: "v1.0.0",
         date: "2026-09",
-        tag: "Latest Build",
+        tag: "Latest Release",
         url: "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
         title: {
           vi: "Bản phát hành chính thức - Đa cảm biến & Hybrid OTA",
@@ -389,37 +534,26 @@
       const reader = new FileReader();
       reader.onload = function(e) {
         localFileBuffer = e.target.result;
-        log(`📁 Đã nạp file: ${file.name} (${Math.round(file.size / 1024)} KB)`);
+        log(`📁 File: ${file.name} (${Math.round(file.size / 1024)} KB)`);
         
         // Auto select offset based on filename
         const offsetSel = document.getElementById('offsetSelect');
         const fname = file.name.toLowerCase();
         if (fname.includes('ota_update') || fname.includes('firmware') || fname.endsWith('.ino.bin')) {
           offsetSel.value = '0x10000';
-          log('👉 Tự động gán Offset: 0x10000 (File Application OTA_Update.bin)');
+          log('👉 Offset: 0x10000 (App OTA_Update.bin)');
         } else if (fname.includes('bootloader')) {
           offsetSel.value = '0x1000';
-          log('👉 Tự động gán Offset: 0x1000 (File Bootloader)');
+          log('👉 Offset: 0x1000 (Bootloader)');
         } else if (fname.includes('partition')) {
           offsetSel.value = '0x8000';
-          log('👉 Tự động gán Offset: 0x8000 (File Partitions)');
+          log('👉 Offset: 0x8000 (Partitions)');
         } else {
           offsetSel.value = '0x0000';
-          log('👉 Tự động gán Offset: 0x0000 (File Full Merged Full_Flash.bin)');
+          log('👉 Offset: 0x0000 (Full_Flash.bin)');
         }
       };
       reader.readAsArrayBuffer(file);
-    }
-
-    function downloadSelectedBinary() {
-      const selOpt = document.getElementById('versionSelect').selectedOptions[0];
-      const url = selOpt ? (selOpt.getAttribute('data-url') || selOpt.value) : '';
-      if (!url) {
-        alert('Không tìm thấy đường dẫn tải file!');
-        return;
-      }
-      log(`⬇️ Đang mở liên kết tải về: ${url}`);
-      window.open(url, '_blank');
     }
 
     function onVersionChange(val) {
@@ -430,9 +564,15 @@
     function renderVersionOptions() {
       const sel = document.getElementById('versionSelect');
       if (!sel || !changelogData || !changelogData.length) return;
+      const tagMap = {
+        vi: 'Bản mới nhất',
+        en: 'Latest Release',
+        ja: '最新リリース',
+        zh: '最新版本'
+      };
       sel.innerHTML = changelogData.map((item, idx) => {
         const star = (idx === 0) ? '⭐ ' : '📦 ';
-        const tagText = item.tag ? ` (${item.tag})` : '';
+        const tagText = (idx === 0) ? ` (${tagMap[currentLang] || 'Latest Release'})` : (item.tag ? ` (${item.tag})` : '');
         return `<option value="${item.version}" data-url="${item.url}">${star}${item.version}${tagText}</option>`;
       }).join('');
       updateLiveDescription();
@@ -442,6 +582,13 @@
     function renderHistoryModal() {
       const body = document.getElementById('modalHistoryBody');
       if (!body || !changelogData) return;
+      const downloadLabel = {
+        vi: ver => `⬇️ Tải file .bin (${ver})`,
+        en: ver => `⬇️ Download .bin (${ver})`,
+        ja: ver => `⬇️ .bin をダウンロード (${ver})`,
+        zh: ver => `⬇️ 下载 .bin 固件 (${ver})`
+      }[currentLang] || (ver => `⬇️ Download .bin (${ver})`);
+
       body.innerHTML = changelogData.map(item => {
         const title = (item.title && item.title[currentLang]) ? item.title[currentLang] : (item.title ? item.title.vi || item.title.en : item.version);
         const desc = (item.description && item.description[currentLang]) ? item.description[currentLang] : (item.description ? item.description.vi || item.description.en : '');
@@ -460,7 +607,7 @@
             ${changesHtml}
             <div style="margin-top:10px;">
               <a href="${item.url}" target="_blank" class="btn-link" style="color:var(--primary);font-size:0.8rem;font-weight:600;">
-                ⬇️ Tải file .bin (${item.version})
+                ${downloadLabel(item.version)}
               </a>
             </div>
           </div>
@@ -488,8 +635,43 @@
     function setLanguage(lang) {
       currentLang = lang;
       document.body.setAttribute('data-lang', lang);
+      try {
+        localStorage.setItem('esp32_cam_flasher_lang', lang);
+      } catch (e) {}
+
       const sel = document.getElementById('langSelect');
       if (sel) sel.value = lang;
+
+      // Update Page Title
+      const pageTitles = {
+        vi: 'ESP32-CAM 1-Click Web Installer',
+        en: 'ESP32-CAM 1-Click Web Installer',
+        ja: 'ESP32-CAM 1-Click Web Installer',
+        zh: 'ESP32-CAM 1-Click Web Installer'
+      };
+      document.title = pageTitles[lang] || pageTitles.vi;
+
+      // Update all <option data-text-vi/en/ja/zh>
+      document.querySelectorAll('option[data-text-vi]').forEach(opt => {
+        if (lang === 'en') opt.textContent = opt.dataset.textEn || opt.dataset.textVi;
+        else if (lang === 'ja') opt.textContent = opt.dataset.textJa || opt.dataset.textEn || opt.dataset.textVi;
+        else if (lang === 'zh') opt.textContent = opt.dataset.textZh || opt.dataset.textEn || opt.dataset.textVi;
+        else opt.textContent = opt.dataset.textVi;
+      });
+
+      // Update initial status label if still preparing
+      const statusLabel = document.getElementById('statusLabel');
+      if (statusLabel && (statusLabel.innerText.includes('chuẩn bị') || statusLabel.innerText.includes('Preparing') || statusLabel.innerText.includes('準備') || statusLabel.innerText.includes('准备'))) {
+        statusLabel.innerText = I18N_DICT.preparing[lang] || I18N_DICT.preparing.vi;
+      }
+
+      // Update Version Dropdown
+      renderVersionOptions();
+
+      // Update Toggle Log Text
+      updateToggleLogState();
+
+      // Update Live Description & Modal
       updateLiveDescription();
       renderHistoryModal();
     }
@@ -513,8 +695,14 @@
       const dateEl = document.getElementById('descVerDate');
       const contentEl = document.getElementById('descVerContent');
       if (item) {
-        if (tagEl) tagEl.innerText = `${item.version} (${item.tag || 'Full Merged Firmware'})`;
-        if (dateEl) dateEl.innerText = item.date || 'Latest Build';
+        const tagText = (currentLang === 'vi') ? 'Bản hoàn chỉnh Full Merged' :
+                        (currentLang === 'ja') ? '完全統合ファームウェア' :
+                        (currentLang === 'zh') ? '完整合并固件' : 'Full Merged Firmware';
+        const dateText = (currentLang === 'vi') ? 'Bản phát hành mới nhất' :
+                         (currentLang === 'ja') ? '最新リリース' :
+                         (currentLang === 'zh') ? '最新发布' : 'Latest Build';
+        if (tagEl) tagEl.innerText = `${item.version} (${tagText})`;
+        if (dateEl) dateEl.innerText = item.date ? `${item.date} (${dateText})` : dateText;
         if (contentEl) {
           contentEl.innerText = (item.description && item.description[currentLang]) ? item.description[currentLang] : (item.description ? item.description.vi || item.description.en : '');
         }
@@ -523,7 +711,11 @@
 
     // Check Web Serial Support
     window.addEventListener('DOMContentLoaded', () => {
-      setLanguage('vi');
+      let savedLang = 'vi';
+      try {
+        savedLang = localStorage.getItem('esp32_cam_flasher_lang') || 'vi';
+      } catch (e) {}
+      setLanguage(savedLang);
       loadChangelogAndVersions();
       if (!('serial' in navigator)) {
         const alertBox = document.getElementById('browserAlert');
@@ -535,9 +727,29 @@
 
     function toggleLog() {
       const term = document.getElementById('termBox');
-      const isHidden = term.style.display === 'none' || !term.style.display;
-      term.style.display = isHidden ? 'block' : 'none';
-      document.getElementById('toggleLogText').innerText = isHidden ? 'Ẩn log chi tiết' : '🔍 Xem log chi tiết';
+      isLogOpened = !isLogOpened;
+      term.style.display = isLogOpened ? 'block' : 'none';
+      updateToggleLogState();
+    }
+
+    function updateToggleLogState() {
+      const el = document.getElementById('toggleLogText');
+      if (!el) return;
+      if (isLogOpened) {
+        el.innerHTML = `
+          <span class="lang-vi">Ẩn log chi tiết</span>
+          <span class="lang-en">Hide detailed log</span>
+          <span class="lang-ja">詳細ログを隠す</span>
+          <span class="lang-zh">隐藏详细日志</span>
+        `;
+      } else {
+        el.innerHTML = `
+          <span class="lang-vi">🔍 Xem log chi tiết</span>
+          <span class="lang-en">🔍 View detailed log</span>
+          <span class="lang-ja">🔍 詳細ログを表示</span>
+          <span class="lang-zh">🔍 查看详细日志</span>
+        `;
+      }
     }
 
     function log(msg) {
@@ -590,19 +802,19 @@
 
         if (sourceType === 'local') {
           if (!localFileBuffer) {
-            throw new Error('Vui lòng bấm nút "Choose File" để chọn file build/Full_Flash.bin trên máy tính của bạn trước khi bấm Nạp!');
+            throw new Error(I18N_DICT.noLocalFile[currentLang] || I18N_DICT.noLocalFile.vi);
           }
           buffer = localFileBuffer;
-          log(`[1/3] Sử dụng file cục bộ: ${localFileName} (${Math.round(buffer.byteLength / 1024)} KB)`);
+          log(I18N_DICT.usingLocalFile[currentLang](localFileName, Math.round(buffer.byteLength / 1024)));
         } else {
-          statusLabel.innerText = 'Đang tải firmware từ GitHub...';
+          statusLabel.innerText = I18N_DICT.downloading[currentLang] || I18N_DICT.downloading.vi;
           const selOpt = document.getElementById('versionSelect').selectedOptions[0];
-          const url = selOpt.getAttribute('data-url') || selOpt.value;
-          log(`[1/3] Tải firmware từ: ${url}`);
+          const url = selOpt ? (selOpt.getAttribute('data-url') || selOpt.value) : 'https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin';
+          log(`[1/3] GET: ${url}`);
           const resp = await fetch(url);
-          if (!resp.ok) throw new Error(`Không thể tải firmware (HTTP ${resp.status})`);
+          if (!resp.ok) throw new Error(`HTTP ${resp.status} - Download Error`);
           buffer = await resp.arrayBuffer();
-          log(`[1/3] Đã tải thành công (${Math.round(buffer.byteLength / 1024)} KB).`);
+          log(I18N_DICT.downloadSuccess[currentLang](Math.round(buffer.byteLength / 1024)));
         }
 
         // Step 2: Request Port & Connect
@@ -610,11 +822,11 @@
         const TransportClass = window.Transport || (window.esptooljs && window.esptooljs.Transport);
 
         if (!ESPLoaderClass || !TransportClass) {
-          throw new Error('Không tìm thấy thư viện ESPLoader. Vui lòng tải lại trang web (F5).');
+          throw new Error(I18N_DICT.libNotFound[currentLang] || I18N_DICT.libNotFound.vi);
         }
 
-        statusLabel.innerText = 'Đang kết nối ESP32-CAM...';
-        log(`[2/3] Mở kết nối Serial (Baudrate: ${baudrate})...`);
+        statusLabel.innerText = I18N_DICT.connecting[currentLang] || I18N_DICT.connecting.vi;
+        log(I18N_DICT.openingSerial[currentLang](baudrate));
         const port = await navigator.serial.requestPort();
 
         esptoolTransport = new TransportClass(port);
@@ -636,11 +848,12 @@
         } else if (typeof esptoolDevice.connect === 'function') {
           chip = await esptoolDevice.connect();
         }
-        log(`[2/3] Đã nhận diện Chip: ${chip || 'ESP32'}`);
+        log(I18N_DICT.detectedChip[currentLang](chip || 'ESP32'));
 
         // Step 3: Flash Binary at selected address
-        statusLabel.innerText = `Đang nạp firmware vào Flash (Offset: 0x${flashAddress.toString(16)})...`;
-        log(`[3/3] Bắt đầu nạp firmware vào địa chỉ: 0x${flashAddress.toString(16)}`);
+        const addrHex = '0x' + flashAddress.toString(16).toUpperCase();
+        statusLabel.innerText = I18N_DICT.flashing[currentLang](addrHex);
+        log(I18N_DICT.startFlashing[currentLang](addrHex));
 
         const flashOptions = {
           fileArray: [{
@@ -670,19 +883,17 @@
         }
 
         // Finished
-        log('🎉 Nạp Firmware thành công 100%!');
+        log('🎉 100% OK!');
         statusAlert.className = 'status-msg success';
-        statusAlert.innerHTML = `
-          <b>🎉 Nạp Firmware Thành Công 100%!</b><br>
-          Hãy <b>rút dây IO0 khỏi GND</b> và nhấn nút <b>RST</b> trên ESP32-CAM để bắt đầu chạy Camera!
-        `;
-        statusLabel.innerText = 'Hoàn tất / Done 100%';
+        statusAlert.innerHTML = I18N_DICT.flashSuccessAlert[currentLang] || I18N_DICT.flashSuccessAlert.vi;
+        statusLabel.innerText = I18N_DICT.flashSuccess100[currentLang] || I18N_DICT.flashSuccess100.vi;
 
       } catch (err) {
-        log(`❌ [Lỗi] ${err.message}`);
+        log(`❌ [Error] ${err.message}`);
         statusAlert.className = 'status-msg error';
-        statusAlert.innerHTML = `<b>❌ ${err.message}</b><br>Vui lòng đảm bảo chân IO0 đã nối GND và bấm RST 1 cái rồi thử lại.`;
-        statusLabel.innerText = 'Lỗi / Failed';
+        const hint = I18N_DICT.flashFailedHint[currentLang] || I18N_DICT.flashFailedHint.vi;
+        statusAlert.innerHTML = `<b>❌ ${err.message}</b><br>${hint}`;
+        statusLabel.innerText = I18N_DICT.flashFailedLabel[currentLang] || I18N_DICT.flashFailedLabel.vi;
       } finally {
         btn.disabled = false;
         if (esptoolTransport) {
