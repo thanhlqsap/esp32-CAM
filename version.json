@@ -1,5 +1,5 @@
 {
-  "version": "1.0.005",
+  "version": "1.0.007",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.005: Low-level NetIF Hostname injection & DHCP Hostname Option 12 support / Đồng bộ Hostname tầng sâu lwIP TCP/IP NetIF"
+  "changelog": "Release v1.0.007: Unified Single Save Action Bar for all Wi-Fi & System Settings / Gộp toàn bộ nút lưu cấu hình Wi-Fi và hệ thống thành 1 nút bấm duy nhất"
 }
