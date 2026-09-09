@@ -1,5 +1,5 @@
 {
-  "version": "1.0.002",
+  "version": "1.0.003",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.002: Refined OTA wording (Local File vs Cloud Update) & UI improvements / Chuẩn hóa câu chữ nạp file cục bộ và trực tuyến"
+  "changelog": "Release v1.0.003: Added Custom Device Name (Hostname) configuration & Dynamic Dashboard Header Sync / Thêm tính năng tùy chỉnh đổi tên thiết bị và đồng bộ tiêu đề Dashboard"
 }
