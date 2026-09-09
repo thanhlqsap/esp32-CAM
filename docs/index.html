@@ -190,11 +190,22 @@
 
         <!-- GitHub Version Picker (hidden by default) -->
         <div id="githubVersionWrap" style="display: none; margin-bottom: 10px;">
-          <select id="versionSelect" class="version-select" onchange="onVersionChange(this.value)">
-            <option value="v1.0.0" data-url="https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/Full_Flash.bin">
-              ⭐ v1.0.0 (Bản mới nhất / Latest Release)
-            </option>
-          </select>
+          <div style="display:flex; gap:8px;">
+            <select id="versionSelect" class="version-select" onchange="onVersionChange(this.value)" style="flex:1;">
+              <option value="v1.0.0" data-url="https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/Full_Flash.bin">
+                ⭐ v1.0.0 (Bản mới nhất / Latest Release)
+              </option>
+            </select>
+            <button type="button" class="btn-link" onclick="downloadSelectedBinary()" title="Tải file .bin về máy tính" style="background:#0f172a; border:1px solid #334155; border-radius:12px; padding:0 14px; font-weight:700; color:var(--primary); text-decoration:none; display:flex; align-items:center; gap:6px; cursor:pointer;">
+              ⬇️ <span class="lang-vi">Tải về</span><span class="lang-en">Download</span><span class="lang-ja">保存</span><span class="lang-zh">下载</span>
+            </button>
+          </div>
+          <p style="font-size:0.75rem; color:#94a3b8; margin-top:4px;">
+            <span class="lang-vi">💡 URL tải cấu hình trong file <code>docs/changelog.json</code> trên GitHub</span>
+            <span class="lang-en">💡 Download URL configured in <code>docs/changelog.json</code> on GitHub</span>
+            <span class="lang-ja">💡 GitHub上の <code>docs/changelog.json</code> で設定されたURL</span>
+            <span class="lang-zh">💡 下载地址配置于 GitHub 的 <code>docs/changelog.json</code> 文件</span>
+          </p>
         </div>
       </div>
 
@@ -215,6 +226,7 @@
             <option value="0x10000">0x10000 (File OTA_Update.bin - Chỉ App)</option>
             <option value="0x1000">0x1000 (Chỉ Bootloader)</option>
           </select>
+          <div id="offsetLockNote" style="font-size:0.72rem;color:#facc15;margin-top:4px;display:none;">🔒 Cố định 0x0000 cho Full_Flash Online</div>
         </div>
       </div>
 
@@ -362,12 +374,19 @@
     function onSourceTypeChange(type) {
       const localWrap = document.getElementById('localFileWrap');
       const ghWrap = document.getElementById('githubVersionWrap');
+      const offsetSel = document.getElementById('offsetSelect');
+      const lockNote = document.getElementById('offsetLockNote');
       if (type === 'local') {
         localWrap.style.display = 'block';
         ghWrap.style.display = 'none';
+        offsetSel.disabled = false;
+        if (lockNote) lockNote.style.display = 'none';
       } else {
         localWrap.style.display = 'none';
         ghWrap.style.display = 'block';
+        offsetSel.value = '0x0000';
+        offsetSel.disabled = true;
+        if (lockNote) lockNote.style.display = 'block';
       }
     }
 
@@ -404,6 +423,79 @@
       reader.readAsArrayBuffer(file);
     }
 
+    function downloadSelectedBinary() {
+      const selOpt = document.getElementById('versionSelect').selectedOptions[0];
+      const url = selOpt ? (selOpt.getAttribute('data-url') || selOpt.value) : '';
+      if (!url) {
+        alert('Không tìm thấy đường dẫn tải file!');
+        return;
+      }
+      log(`⬇️ Đang mở liên kết tải về: ${url}`);
+      window.open(url, '_blank');
+    }
+
+    function onVersionChange(val) {
+      updateLiveDescription();
+    }
+
+    // Render Version Options in Select Dropdown
+    function renderVersionOptions() {
+      const sel = document.getElementById('versionSelect');
+      if (!sel || !changelogData || !changelogData.length) return;
+      sel.innerHTML = changelogData.map((item, idx) => {
+        const star = (idx === 0) ? '⭐ ' : '📦 ';
+        const tagText = item.tag ? ` (${item.tag})` : '';
+        return `<option value="${item.version}" data-url="${item.url}">${star}${item.version}${tagText}</option>`;
+      }).join('');
+      updateLiveDescription();
+    }
+
+    // Render Version History Modal Body
+    function renderHistoryModal() {
+      const body = document.getElementById('modalHistoryBody');
+      if (!body || !changelogData) return;
+      body.innerHTML = changelogData.map(item => {
+        const title = (item.title && item.title[currentLang]) ? item.title[currentLang] : (item.title ? item.title.vi || item.title.en : item.version);
+        const desc = (item.description && item.description[currentLang]) ? item.description[currentLang] : (item.description ? item.description.vi || item.description.en : '');
+        let changesHtml = '';
+        if (item.changes) {
+          const list = item.changes[currentLang] || item.changes.vi || item.changes.en || [];
+          if (Array.isArray(list) && list.length > 0) {
+            changesHtml = `<ul>${list.map(c => `<li>${c}</li>`).join('')}</ul>`;
+          }
+        }
+        return `
+          <div class="history-card">
+            <div class="history-tag">${item.version} - ${item.date || ''} (${item.tag || 'Release'})</div>
+            <h4>${title}</h4>
+            <p style="margin-bottom:8px;font-size:0.85rem;color:#cbd5e1;">${desc}</p>
+            ${changesHtml}
+            <div style="margin-top:10px;">
+              <a href="${item.url}" target="_blank" class="btn-link" style="color:var(--primary);font-size:0.8rem;font-weight:600;">
+                ⬇️ Tải file .bin (${item.version})
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function loadChangelogAndVersions() {
+      try {
+        const res = await fetch('changelog.json');
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            changelogData = data;
+          }
+        }
+      } catch (e) {
+        // Local file fallback
+      }
+      renderVersionOptions();
+      renderHistoryModal();
+    }
+
     // Language Controller
     function setLanguage(lang) {
       currentLang = lang;
@@ -411,10 +503,12 @@
       const sel = document.getElementById('langSelect');
       if (sel) sel.value = lang;
       updateLiveDescription();
+      renderHistoryModal();
     }
 
     // Modal Controller
     function openHistoryModal() {
+      renderHistoryModal();
       const m = document.getElementById('historyModal');
       if (m) m.classList.add('active');
     }
@@ -424,15 +518,25 @@
     }
 
     function updateLiveDescription() {
+      const sel = document.getElementById('versionSelect');
+      const curVer = sel ? sel.value : 'v1.0.0';
+      const item = changelogData.find(c => c.version === curVer) || changelogData[0];
       const tagEl = document.getElementById('descVerTag');
+      const dateEl = document.getElementById('descVerDate');
       const contentEl = document.getElementById('descVerContent');
-      if (tagEl) tagEl.innerText = `v1.0.0 (Full Merged Firmware)`;
-      if (contentEl) contentEl.innerText = '🚀 Tự động nhận diện đa cảm biến, Live Stream MJPEG 25FPS, Quét Wi-Fi & Captive Portal, Hybrid OTA.';
+      if (item) {
+        if (tagEl) tagEl.innerText = `${item.version} (${item.tag || 'Full Merged Firmware'})`;
+        if (dateEl) dateEl.innerText = item.date || 'Latest Build';
+        if (contentEl) {
+          contentEl.innerText = (item.description && item.description[currentLang]) ? item.description[currentLang] : (item.description ? item.description.vi || item.description.en : '');
+        }
+      }
     }
 
     // Check Web Serial Support
     window.addEventListener('DOMContentLoaded', () => {
       setLanguage('vi');
+      loadChangelogAndVersions();
       if (!('serial' in navigator)) {
         const alertBox = document.getElementById('browserAlert');
         if (alertBox) alertBox.style.display = 'block';
@@ -475,9 +579,14 @@
       const percentLabel = document.getElementById('percentLabel');
       const statusAlert = document.getElementById('statusAlert');
       const baudrate = parseInt(document.getElementById('baudSelect').value) || 115200;
-      const offsetStr = document.getElementById('offsetSelect').value || '0x0000';
-      const flashAddress = parseInt(offsetStr, 16);
       const sourceType = document.getElementById('sourceTypeSelect').value;
+      let flashAddress = 0x0000;
+      if (sourceType === 'local') {
+        const offsetStr = document.getElementById('offsetSelect').value || '0x0000';
+        flashAddress = parseInt(offsetStr, 16);
+      } else {
+        flashAddress = 0x0000; // Tự động cố định 0x0000 tuyệt đối cho bản Online Full_Flash
+      }
 
       statusAlert.className = 'status-msg';
       statusAlert.style.display = 'none';
