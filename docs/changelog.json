@@ -3,7 +3,7 @@
     "version": "v1.0.0",
     "date": "2026-09",
     "tag": "Latest Release",
-    "url": "https://raw.githubusercontent.com/thanhlqsap/ESP32-cam/main/build/Full_Flash.bin",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Bản phát hành chính thức - Đa cảm biến & Hybrid OTA",
       "en": "Official Release - Multi-Sensor & Hybrid OTA",

@@ -122,7 +122,7 @@
 
     <!-- Top Navigation -->
     <div class="top-bar">
-      <a href="https://github.com/your-username/ESP32_cam" target="_blank" class="top-brand">
+      <a href="https://github.com/thanhlqsap/esp32-CAM" target="_blank" class="top-brand">
         📷 <span>ESP32-CAM</span>
       </a>
       <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
@@ -178,34 +178,22 @@
           </a>
         </div>
         <select id="sourceTypeSelect" class="version-select" onchange="onSourceTypeChange(this.value)" style="margin-bottom: 10px;">
-          <option value="local">📁 Chọn file Full_Flash.bin từ máy tính (Khuyên dùng / Offline)</option>
+          <option value="local">📁 Chọn file từ máy tính (Offline)</option>
           <option value="github">🌐 Tải từ GitHub Release (Online)</option>
         </select>
         
         <!-- Local File Picker -->
         <div id="localFileWrap" style="margin-bottom: 10px;">
           <input type="file" id="localFileInput" accept=".bin" class="version-select" style="padding: 10px;" onchange="onLocalFileSelected(this)">
-          <p style="font-size:0.75rem; color:#38bdf8; margin-top:4px;">💡 Chọn file: <code>d:\Arduino\ESP32_cam\build\Full_Flash.bin</code></p>
         </div>
 
         <!-- GitHub Version Picker (hidden by default) -->
         <div id="githubVersionWrap" style="display: none; margin-bottom: 10px;">
-          <div style="display:flex; gap:8px;">
-            <select id="versionSelect" class="version-select" onchange="onVersionChange(this.value)" style="flex:1;">
-              <option value="v1.0.0" data-url="https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/Full_Flash.bin">
-                ⭐ v1.0.0 (Bản mới nhất / Latest Release)
-              </option>
-            </select>
-            <button type="button" class="btn-link" onclick="downloadSelectedBinary()" title="Tải file .bin về máy tính" style="background:#0f172a; border:1px solid #334155; border-radius:12px; padding:0 14px; font-weight:700; color:var(--primary); text-decoration:none; display:flex; align-items:center; gap:6px; cursor:pointer;">
-              ⬇️ <span class="lang-vi">Tải về</span><span class="lang-en">Download</span><span class="lang-ja">保存</span><span class="lang-zh">下载</span>
-            </button>
-          </div>
-          <p style="font-size:0.75rem; color:#94a3b8; margin-top:4px;">
-            <span class="lang-vi">💡 URL tải cấu hình trong file <code>docs/changelog.json</code> trên GitHub</span>
-            <span class="lang-en">💡 Download URL configured in <code>docs/changelog.json</code> on GitHub</span>
-            <span class="lang-ja">💡 GitHub上の <code>docs/changelog.json</code> で設定されたURL</span>
-            <span class="lang-zh">💡 下载地址配置于 GitHub 的 <code>docs/changelog.json</code> 文件</span>
-          </p>
+          <select id="versionSelect" class="version-select" onchange="onVersionChange(this.value)">
+            <option value="v1.0.0" data-url="https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin">
+              ⭐ v1.0.0 (Bản mới nhất / Latest Release)
+            </option>
+          </select>
         </div>
       </div>
 
@@ -329,7 +317,7 @@
         <!-- Rendered dynamically from changelog.json -->
       </div>
       <div class="modal-footer">
-        <a href="https://github.com/your-username/ESP32_cam/releases" target="_blank" class="btn-link" style="color:var(--primary);font-weight:600;">
+        <a href="https://github.com/thanhlqsap/esp32-CAM/releases" target="_blank" class="btn-link" style="color:var(--primary);font-weight:600;">
           🔗 <span class="lang-vi">Xem trên GitHub Releases</span>
           <span class="lang-en">View on GitHub Releases</span>
           <span class="lang-ja">GitHub Releases で見る</span>
@@ -355,7 +343,7 @@
         version: "v1.0.0",
         date: "2026-09",
         tag: "Latest Build",
-        url: "https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/Full_Flash.bin",
+        url: "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
         title: {
           vi: "Bản phát hành chính thức - Đa cảm biến & Hybrid OTA",
           en: "Official Release - Multi-Sensor & Hybrid OTA",

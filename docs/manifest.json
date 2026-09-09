@@ -9,7 +9,7 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "https://raw.githubusercontent.com/your-username/ESP32_cam/main/build/Full_Flash.bin",
+          "path": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
           "offset": 0
         }
       ]
