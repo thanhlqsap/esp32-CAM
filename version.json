@@ -1,5 +1,5 @@
 {
-  "version": "1.0.001",
+  "version": "1.0.002",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.001: Multi-language real-time status & optimized Cloud OTA background engine / Đồng bộ đa ngôn ngữ thời gian thực và tối ưu giao diện OTA"
+  "changelog": "Release v1.0.002: Refined OTA wording (Local File vs Cloud Update) & UI improvements / Chuẩn hóa câu chữ nạp file cục bộ và trực tuyến"
 }
