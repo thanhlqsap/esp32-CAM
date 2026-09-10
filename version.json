@@ -1,7 +1,5 @@
 {
-  "version": "1.0.011",
+  "version": "1.0.013",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.011: Fix GPIO 4 Flash LED flickering during SD write, enforce pure 1-Bit mode & lock Flash LOW / Khắc phục triệt để đèn Flash nhấp nháy khi ghi thẻ nhớ"
+  "changelog": "Release v1.0.013: Fixed AVI MJPEG header & playback, accurate video storage statistics, separated Clear Videos vs Deep SD Format, and added Web Video Player / Sửa lỗi file AVI, thống kê dung lượng video chính xác, tách riêng Xóa video và Format thẻ nhớ, bổ sung Web Video Player"
 }
-
-

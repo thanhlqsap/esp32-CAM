@@ -1,8 +1,100 @@
 [
   {
-    "version": "v1.0.011",
+    "version": "v1.0.013",
     "date": "2026-09",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.013 - Sửa lỗi File AVI, Thống kê dung lượng video chính xác & Web Video Player",
+      "en": "Release v1.0.013 - Fixed AVI Header, Accurate Storage Stats, Clear vs Format & Web Player",
+      "ja": "リリース v1.0.013 - AVI再生修復・動画容量正確化・動画一括削除と初期化分離＆Web動画再生",
+      "zh": "发布 v1.0.013 - 修复 AVI 播放故障、精准统计录像空间、分离清空与格式化及集成Web播放器"
+    },
+    "description": {
+      "vi": "🚀 Khắc phục triệt để cấu trúc AVI MJPEG 224-byte Header giúp mở mượt mà trên VLC/Windows Media Player, hiển thị chính xác dung lượng video đã ghi, tách riêng chức năng 'Xóa tất cả video' và 'Định dạng thẻ nhớ', đồng thời tích hợp Web Video Player xem trực tiếp.",
+      "en": "🚀 Fully resolved 224-byte RIFF AVI MJPEG Header offsets for flawless playback in VLC/Windows Media Player, accurate video storage statistics, separated 'Clear All Videos' and 'Format SD Card', and built-in Web Video Player.",
+      "ja": "🚀 224バイトAVIヘッダーのオフセット修正によりVLC/Windows Media Playerでの正常再生を実現、録画ファイル容量の正確な表示、動画一括削除とSD初期化の分離、Web上での動画再生モーダルを搭載。",
+      "zh": "🚀 彻底修正 224 字节 AVI MJPEG 视频头偏移，完美支持 VLC/Windows Media Player 播放，精准统计视频占用容量，独立拆分“清空录像”与“格式化SD卡”，并集成网页端即时视频回放播放器。"
+    },
+    "changes": {
+      "vi": [
+        "Sửa hoàn chỉnh offset Header AVI (offset 216 cho movi list size, 140 cho strh length, 48 cho avih total frames, 4 cho RIFF size) giúp file video mở được 100% trên các trình phát.",
+        "Tự động đồng bộ độ phân giải chiều rộng x chiều cao (fb->width, fb->height) của khung hình thực tế vào Header AVI.",
+        "Bổ sung Web Video Player Modal trên /sd: Bấm nút '👁️ Xem' để xem lại video trực tiếp trên trình duyệt mà không cần tải về.",
+        "Thống kê dung lượng thông minh: Hiển thị chi tiết số lượng video và dung lượng video trong thư mục /videos (tự động format B/KB/MB/GB).",
+        "Tách riêng 2 chức năng: 'Xóa tất cả video' (chỉ dọn /videos) và 'Định dạng thẻ nhớ' (xóa sạch root / và khởi tạo lại FATFS)."
+      ],
+      "en": [
+        "Fixed AVI Header offsets (offset 216 for movi size, 140 for strh length, 48 for avih frames, 4 for RIFF size) for 100% reliable playback.",
+        "Dynamically synchronized real JPEG dimensions (fb->width, fb->height) into the AVI container header.",
+        "Added Web Video Player Modal on /sd: Click '👁️ Play' to stream and preview recorded videos directly in browser.",
+        "Intelligent Storage Statistics: Displays exact video count and storage usage in /videos folder with smart B/KB/MB/GB units.",
+        "Separated functions: 'Clear All Videos' (cleans /videos only) vs 'Format SD Card' (deep wipe from root / and remounts FATFS)."
+      ],
+      "ja": [
+        "AVIヘッダーオフセット（moviサイズ216、strh長140、avihフレーム数48、RIFFサイズ4）を完全修正し再生互換性を100%確保。",
+        "実際のカメラフレーム解像度 (fb->width, fb->height) をAVIヘッダーに動的同期。",
+        "/sd にWeb動画再生モーダルを追加：「👁️ 再生」ボタンでブラウザから直接プレビュー可能。",
+        "スマート容量統計：/videos 内の録画ファイル数と使用容量を詳細表示（B/KB/MB/GB自動フォーマット）。",
+        "機能を分離：「動画を一括削除」（/videos内のみ）と「SDカードを初期化」（root全消去＆再初期化）。"
+      ],
+      "zh": [
+        "修复标准 AVI Header 偏移（movi 大小 216、strh 长度 140、avih 帧数 48、RIFF 大小 4），确保各播放器100%秒开播放。",
+        "将拍摄帧的实际真实分辨率 (fb->width, fb->height) 动态写入 AVI 视频头。",
+        "在 /sd 页面新增网页视频播放器：点击“👁️ 播放”即可在浏览器中即时回放录像。",
+        "精准智能存储统计：详细统计 /videos 目录下的录像个数与总占用大小（自动转换 B/KB/MB/GB 单位）。",
+        "清晰分离功能：“清空所有录像”（仅清理 /videos）与“格式化SD卡”（深度清理根目录并重建FATFS）。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.012",
+    "date": "2026-09",
+    "tag": "Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.012 - Màn hình xem Camera Trực tiếp & Giám sát Chuyển động trên /sd",
+      "en": "Release v1.0.012 - Live Camera View & Real-time Motion Monitor on /sd",
+      "ja": "リリース v1.0.012 - /sd 画面にリアルタイムカメラ監視＆動体検知HUDを追加",
+      "zh": "发布 v1.0.012 - 在 /sd 画廊中集成实时视频监控与动态移动侦测屏幕"
+    },
+    "description": {
+      "vi": "🚀 Bổ sung Card Màn Hình Trực Tiếp (Live Stream) ngay trên trang /sd, tích hợp HUD cảnh báo chuyển động nhấp nháy, đo lường điểm số SAD, nút Tạm dừng/Bật stream, Chụp ảnh và Toàn màn hình (4 ngôn ngữ).",
+      "en": "🚀 Added Live Camera Stream Monitor Card on /sd, integrated real-time motion pulse HUD, SAD activity score meter, Pause/Resume stream, Snapshot and Fullscreen controls (4 languages).",
+      "ja": "🚀 /sd 管理画面にリアルタイム映像モニターを追加、動体検知パルスHUD、SADスコアメーター、映像一時停止/再開、スナップショット、全画面表示に対応（4言語対応）。",
+      "zh": "🚀 在 /sd 管理页面新增实时视频监控屏幕卡片，集成动态移动侦测报警光圈、SAD 活动分值仪表、暂停/开启画面、拍照与全屏功能（4国语言）。"
+    },
+    "changes": {
+      "vi": [
+        "Thêm Card Màn Hình Camera Live Stream MJPEG 25FPS ngay trên trang Web Thẻ Nhớ /sd.",
+        "Tích hợp HUD cảnh báo chuyển động thời gian thực (🚨 MOTION DETECTED) với viền phát sáng nhấp nháy.",
+        "Hiển thị điểm số biến đổi ảnh SAD Score và thời gian ghi hình REC 00:00 trực tiếp trên khung video.",
+        "Bổ sung nút điều khiển: Tạm dừng/Bật stream (tiết kiệm băng thông), Chụp ảnh nhanh (Snapshot), Toàn màn hình."
+      ],
+      "en": [
+        "Added 25FPS MJPEG Live Camera Stream Monitor Card directly on /sd Web UI.",
+        "Integrated real-time motion detection alert HUD with glowing animated pulse borders.",
+        "Displays real-time frame SAD activity score and REC recording timer over video stream.",
+        "Added controls: Pause/Resume stream to save bandwidth, Instant Snapshot, and Fullscreen."
+      ],
+      "ja": [
+        "SDカード管理画面 (/sd) 上にリアルタイム MJPEG カメラ映像モニターを追加。",
+        "動体検知アラートHUD（🚨 MOTION DETECTED）と発光パルスアニメーションを搭載。",
+        "リアルタイムSAD変化スコアおよび録画時間 (REC 00:00) を映像上にオーバーレイ表示。",
+        "映像の一時停止/再開（帯域節約）、スナップショット撮影、全画面表示ボタンを追加。"
+      ],
+      "zh": [
+        "在 /sd 页面顶部新增 25FPS MJPEG 实时摄像头监控屏幕卡片。",
+        "集成实时移动侦测报警 HUD (🚨 检测到移动！) 及炫彩发光脉冲报警边框。",
+        "在画面上直接叠加显示 SAD 画面变化分值及 REC 录像计时器。",
+        "新增控制组件：暂停/恢复画面（节约带宽）、即时抓拍保存、全屏查看。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.011",
+    "date": "2026-09",
+    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.011 - Khắc phục triệt để Đèn Flash nhấp nháy khi ghi Thẻ Nhớ",
