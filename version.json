@@ -1,5 +1,5 @@
 {
-  "version": "1.0.014",
+  "version": "1.0.015",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.014: Fixed format hang/crash with non-blocking safe directory wipe & watchdog protection / Sửa lỗi treo board khi Format thẻ nhớ với cơ chế xóa an toàn và bảo vệ watchdog"
+  "changelog": "Release v1.0.015: HTML5 Canvas AVI MJPEG Player for in-browser video playback & continuous 3-minute motion recording without slicing / Trình phát video HTML5 Canvas AVI MJPEG xem trực tiếp trên trình duyệt & Ghi hình liên tục trọn vẹn 3 phút khi phát hiện chuyển động không ngắt quãng"
 }
