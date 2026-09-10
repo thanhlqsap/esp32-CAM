@@ -1,6 +1,6 @@
 {
-  "version": "1.0.021",
+  "version": "1.0.022",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.021: Spatial Chunk Energy Motion Detection & Zero-False-Positive Algorithm / Nâng cấp động cơ phát hiện chuyển động phân vùng không gian loại bỏ 100% báo động giả trên ảnh tĩnh"
+  "changelog": "Release v1.0.022: Display Firmware Version on SD Gallery Web UI & Navigation / Hiển thị số hiệu phiên bản Firmware trực tiếp trên giao diện Web Thẻ nhớ SD Gallery và Footer"
 }
