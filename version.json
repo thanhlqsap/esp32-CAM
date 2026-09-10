@@ -1,6 +1,6 @@
 {
-  "version": "1.0.020",
+  "version": "1.0.021",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.020: Event-Driven Transient Video Discard & Auto-Cleanup / Cơ chế hướng sự kiện tự động hủy file rác dưới 3 frame khi kết thúc ghi hình không tốn CPU quét nền"
+  "changelog": "Release v1.0.021: Spatial Chunk Energy Motion Detection & Zero-False-Positive Algorithm / Nâng cấp động cơ phát hiện chuyển động phân vùng không gian loại bỏ 100% báo động giả trên ảnh tĩnh"
 }
