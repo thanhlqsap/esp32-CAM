@@ -1,5 +1,6 @@
 {
-  "version": "1.0.009",
+  "version": "1.0.010",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.009: MicroSD Card & Motion Video Recording (AVI MJPG), Smart Duration & SD Video Gallery / Ghi Video vào thẻ nhớ MicroSD khi có chuyển động & Quản lý Thẻ nhớ"
+  "changelog": "Release v1.0.010: Fix SD_MMC Pull-ups, Multi-try Retry & Dynamic Re-scan SD Card on demand / Tối ưu trở kéo thẻ nhớ, tự động quét lại và sửa lỗi chưa gắn thẻ"
 }
+

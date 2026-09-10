@@ -1,8 +1,52 @@
 [
   {
-    "version": "v1.0.009",
+    "version": "v1.0.010",
     "date": "2026-09",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.010 - Nâng cấp nhận diện Thẻ nhớ MicroSD & Quét lại tức thời",
+      "en": "Release v1.0.010 - MicroSD Stability, Internal Pull-ups & Dynamic Re-scan",
+      "ja": "リリース v1.0.010 - SDカード認識安定化＆再スキャン機能追加",
+      "zh": "发布 v1.0.010 - 优化内存卡识别与即时重新扫描"
+    },
+    "description": {
+      "vi": "🚀 Tối ưu điện trở kéo lên nội (Pull-up) cho bus SD_MMC, bổ sung cơ chế thử lại 3 lần + fallback 4-bit, tự động quét lại thẻ khi cắm sau khi boot và thêm nút 'Quét lại thẻ' trên Web /sd.",
+      "en": "🚀 Optimized SD_MMC internal pull-ups, added 3-stage retry + 4-bit fallback, hot-plug auto-detection and 'Re-scan SD' Web UI button.",
+      "ja": "🚀 SD_MMCバスの内部プルアップ最適化、3回リトライ＆4-Bitフォールバック、ホットプラグ自動検出およびWeb上の「カード再スキャン」ボタンを追加。",
+      "zh": "🚀 优化 SD_MMC 内部上拉电阻、新增 3 次重试与 4-Bit 兼容模式、热插拔动态识别及 Web 界面一键“重新扫描卡”功能。"
+    },
+    "changes": {
+      "vi": [
+        "Bật trở kéo nội INPUT_PULLUP trên GPIO 14, 15, 2, 13, 12, 4 giúp chống nhiễu bus thẻ nhớ.",
+        "Bổ sung vòng lặp thử 3 lần kèm delay cấp nguồn cho thẻ nhớ; hỗ trợ fallback 4-bit mode.",
+        "Thêm API /sd_mount và nút 'Quét lại thẻ' trên giao diện Web /sd để nhận diện thẻ ngay sau khi cắm.",
+        "Bổ sung khung hướng dẫn xử lý lỗi thẻ nhớ và cảnh báo định dạng FAT32 trên giao diện Web."
+      ],
+      "en": [
+        "Enabled INPUT_PULLUP on GPIO 14, 15, 2, 13, 12, 4 to prevent bus floating noise.",
+        "Added 3-stage initialization retry loop with stabilization delay and 4-bit fallback.",
+        "Added /sd_mount API and 'Re-scan SD' button on /sd Web UI for instant hot-plug detection.",
+        "Added troubleshooting alert box and FAT32 format guidelines on Web UI."
+      ],
+      "ja": [
+        "GPIO 14, 15, 2, 13, 12, 4 の内部プルアップを有効化し、バスノイズを低減。",
+        "3回のリトライループと安定化ディレイ、4-Bitフォールバック機構を追加。",
+        "API /sd_mount と Web上の「カード再スキャン」ボタンによる即時認識に対応。",
+        "Web画面にFAT32フォーマットの案内とトラブルシューティングを追加。"
+      ],
+      "zh": [
+        "启用 GPIO 14, 15, 2, 13, 12, 4 内部上拉电阻，彻底消除总线浮空杂波。",
+        "新增 3 次初始化重试循环、电压延时及 4-Bit 兼容回退机制。",
+        "新增 /sd_mount 接口及 Web 界面“重新扫描卡”按钮，支持热插拔即时连接。",
+        "Web 界面新增 FAT32 格式指引及故障排查提示卡片。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.009",
+    "date": "2026-09",
+    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.009 - Ghi Video Thẻ Nhớ MicroSD khi có chuyển động & SD Gallery",
