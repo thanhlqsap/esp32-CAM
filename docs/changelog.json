@@ -1,8 +1,52 @@
 [
   {
-    "version": "v1.0.013",
+    "version": "v1.0.014",
     "date": "2026-09",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.014 - Sửa lỗi treo board khi Format thẻ nhớ & Cơ chế xóa an toàn",
+      "en": "Release v1.0.014 - Fixed Format Hang/Crash with Safe Non-blocking Wiping",
+      "ja": "リリース v1.0.014 - SDカード初期化時のハング/クラッシュを修正・安全な非同期削除",
+      "zh": "发布 v1.0.014 - 修复格式化内存卡导致的死机崩溃问题・非阻塞安全清理"
+    },
+    "description": {
+      "vi": "🚀 Loại bỏ hoàn toàn lỗi đệ quy gây tràn bộ nhớ Stack và Watchdog Timeout khi Format thẻ, áp dụng cơ chế dọn dẹp bộ đệm an toàn và bảo vệ hoạt động liên tục của bo mạch.",
+      "en": "🚀 Completely eliminated recursive stack overflow and Task Watchdog Timeout during SD format, applied safe path-buffering and watchdog yielding.",
+      "ja": "🚀 SD初期化時の再帰スタックオーバーフローおよびTask Watchdogタイムアウトを完全解消し、安全なパスバッファリングとCPU解放を実装。",
+      "zh": "🚀 彻底消除格式化时的递归栈溢出与看门狗超时异常，采用安全的路径预收集与 CPU 及时让渡机制，保障系统永不死机。"
+    },
+    "changes": {
+      "vi": [
+        "Thu thập danh sách file trước khi xóa và đóng handle thư mục để không làm hỏng con trỏ FATFS.",
+        "Chèn yield() trong toàn bộ vòng lặp xóa file giúp Task Watchdog Timer (TWDT) không bị kích hoạt.",
+        "Loại bỏ lệnh unmount/remount trong lúc WebServer đang xử lý request để chống xung đột và treo CPU.",
+        "Bảo đảm an toàn tuyệt đối cho hệ thống file thẻ nhớ và duy trì hoạt động ổn định của Camera."
+      ],
+      "en": [
+        "Pre-collect file paths before deletion and properly close directory handles to protect FATFS iterators.",
+        "Inserted yield() in all file deletion loops to prevent FreeRTOS Task Watchdog Timer (TWDT) triggers.",
+        "Removed unmount/remount calls during WebServer request handling to eliminate lockups.",
+        "Guaranteed 100% stability for SD card filesystem and uninterrupted camera operation."
+      ],
+      "ja": [
+        "削除前にファイルパスを事前収集し、ディレクトリハンドルを正しく閉じることでFATFSイテレータを保護。",
+        "ファイル削除ループ内に yield() を挿入し、FreeRTOS Task Watchdog Timer の誤作動を防止。",
+        "WebServerリクエスト処理中のアンマウント/再マウントを廃止し、デッドロックを防止。",
+        "SDカードファイルシステムの完全な安定性とカメラの連続稼働を保証。"
+      ],
+      "zh": [
+        "在删除前预先收集文件列表并及时关闭目录句柄，避免破坏 FATFS 遍历指针。",
+        "在所有文件循环删除中插入 yield() 及时喂狗，防止触发 FreeRTOS 任务看门狗复位。",
+        "移除 WebServer 处理请求过程中的卸载与重挂载调用，消除死锁卡死。",
+        "确保内存卡文件系统 100% 稳定，保障摄像头持续无阻运行。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.013",
+    "date": "2026-09",
+    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.013 - Sửa lỗi File AVI, Thống kê dung lượng video chính xác & Web Video Player",
@@ -266,7 +310,7 @@
         "传感器自适应: 兼容 OV2640, OV3660, OV5640, OV7725 等多种镜头。",
         "直播与抓拍: 输出 15-25 FPS 实时视频流，0延时保存高品质截图。",
         "Wi-Fi扫描与热点配网: 自动扫描周边 Wi-Fi 信号，AP 模式下免App快捷配置。",
-        "混合OTA与防变砖: 支持 Web 本地升级 + GitHub 云端自动更新 + 故障自动回滚。",
+        "混合OTA与防变砖: 支持 Web 本地升级 + GitHub 云端自动更新 + 故障异常回滚。",
         "安全保护与硬件应急: HTTP Basic 密码验证 + IO13 接地应急恢复出厂设置。"
       ]
     }

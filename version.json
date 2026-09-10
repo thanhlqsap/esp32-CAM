@@ -1,5 +1,5 @@
 {
-  "version": "1.0.013",
+  "version": "1.0.014",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.013: Fixed AVI MJPEG header & playback, accurate video storage statistics, separated Clear Videos vs Deep SD Format, and added Web Video Player / Sửa lỗi file AVI, thống kê dung lượng video chính xác, tách riêng Xóa video và Format thẻ nhớ, bổ sung Web Video Player"
+  "changelog": "Release v1.0.014: Fixed format hang/crash with non-blocking safe directory wipe & watchdog protection / Sửa lỗi treo board khi Format thẻ nhớ với cơ chế xóa an toàn và bảo vệ watchdog"
 }
