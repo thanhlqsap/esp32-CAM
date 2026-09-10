@@ -1,6 +1,7 @@
 {
-  "version": "1.0.010",
+  "version": "1.0.011",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.010: Fix SD_MMC Pull-ups, Multi-try Retry & Dynamic Re-scan SD Card on demand / Tối ưu trở kéo thẻ nhớ, tự động quét lại và sửa lỗi chưa gắn thẻ"
+  "changelog": "Release v1.0.011: Fix GPIO 4 Flash LED flickering during SD write, enforce pure 1-Bit mode & lock Flash LOW / Khắc phục triệt để đèn Flash nhấp nháy khi ghi thẻ nhớ"
 }
+
 

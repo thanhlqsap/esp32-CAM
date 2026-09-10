@@ -1,8 +1,48 @@
 [
   {
-    "version": "v1.0.010",
+    "version": "v1.0.011",
     "date": "2026-09",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.011 - Khắc phục triệt để Đèn Flash nhấp nháy khi ghi Thẻ Nhớ",
+      "en": "Release v1.0.011 - Complete Fix for Flash LED Flickering During SD Write",
+      "ja": "リリース v1.0.011 - SD書き込み時のFlash LED点滅バグを完全修正",
+      "zh": "发布 v1.0.011 - 彻底修复写入内存卡时补光灯闪烁问题"
+    },
+    "description": {
+      "vi": "🚀 Khóa cứng chế độ 1-Bit thuần túy cho SD_MMC, loại bỏ kéo trở nội trên chân GPIO 4 và khóa Flash LED ở mức LOW 0V để chống nháy hoàn toàn khi đọc/ghi video vào thẻ nhớ.",
+      "en": "🚀 Enforced pure 1-Bit mode for SD_MMC, removed pull-up from GPIO 4 and locked Flash LED to LOW to completely eliminate flickering during video recording.",
+      "ja": "🚀 SD_MMCを純粋な1-Bitモードに固定、GPIO 4のプルアップを排除し、LED出力をLOWに固定して動画保存時の不要な点滅を完全解消。",
+      "zh": "🚀 强制锁定 SD_MMC 为纯 1-Bit 模式，剔除 GPIO 4 内部上拉并锁定 Flash LED 为 LOW，彻底杜绝录制视频时补光灯异常闪烁。"
+    },
+    "changes": {
+      "vi": [
+        "Loại bỏ pinMode INPUT_PULLUP trên GPIO 4 (chân kích transistor đèn Flash LED).",
+        "Khóa cứng GPIO 4 về OUTPUT mức LOW (0V) ngay sau khi khởi tạo SD_MMC và trong suốt quá trình ghi file.",
+        "Bỏ hoàn toàn cơ chế 4-Bit fallback để tránh việc SD MMC chiếm dụng GPIO 4 làm đường truyền dữ liệu D1."
+      ],
+      "en": [
+        "Removed pinMode INPUT_PULLUP from GPIO 4 (Flash LED transistor trigger pin).",
+        "Locked GPIO 4 to OUTPUT LOW (0V) right after SD_MMC initialization and throughout video file writing.",
+        "Removed 4-Bit fallback to prevent SD_MMC from occupying GPIO 4 as D1 data line."
+      ],
+      "ja": [
+        "GPIO 4 (Flash LEDトリガーピン) から INPUT_PULLUP を完全削除。",
+        "SD_MMC初期化後および動画書き込み中、GPIO 4をOUTPUT LOW(0V)に固定。",
+        "SD_MMCによるGPIO 4(D1データ線)の占有を防ぐため、4-Bitフォールバックを完全廃止。"
+      ],
+      "zh": [
+        "从 GPIO 4 (补光灯晶体管触发引脚) 中移除 INPUT_PULLUP 模式。",
+        "在 SD_MMC 初始化后及写入视频的全程将 GPIO 4 锁定为 OUTPUT LOW (0V)。",
+        "彻底移除 4-Bit 回退机制，避免 SD_MMC 占用 GPIO 4 作为 D1 数据传输线导致闪灯。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.010",
+    "date": "2026-09",
+    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.010 - Nâng cấp nhận diện Thẻ nhớ MicroSD & Quét lại tức thời",
