@@ -1,6 +1,6 @@
 {
-  "version": "1.0.019",
+  "version": "1.0.020",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.019: Anti-Fragmentation Auto-Motion Recording Engine & Dual Baseline Detection / Nâng cấp động cơ ghi hình chuyển động chống phân mảnh video, lọc nhiễu AGC 2 tầng và đệm lưu trữ 15s"
+  "changelog": "Release v1.0.020: Event-Driven Transient Video Discard & Auto-Cleanup / Cơ chế hướng sự kiện tự động hủy file rác dưới 3 frame khi kết thúc ghi hình không tốn CPU quét nền"
 }
