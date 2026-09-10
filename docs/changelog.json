@@ -1,9 +1,53 @@
 [
   {
-    "version": "v1.0.018",
+    "version": "v1.0.019",
     "date": "2026-09",
     "tag": "Latest Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.019 - Động cơ Ghi hình Chống Phân mảnh & Lọc nhiễu Chuyển động Kép",
+      "en": "Release v1.0.019 - Anti-Fragmentation Motion Engine & Dual Baseline Detection",
+      "ja": "リリース v1.0.019 - 断片化防止録画エンジン＆デュアル基準動体検知",
+      "zh": "发布 v1.0.019 - 防碎片化录像引擎 & 双基准动态侦测"
+    },
+    "description": {
+      "vi": "🚀 Khắc phục triệt để tình trạng video bị phân mảnh thành nhiều đoạn ngắn khi bật Tự động ghi chuyển động, nâng bộ đệm lưu trữ lên 15s sau chuyển động, tối thiểu 20s/clip và tích hợp bộ lọc chống nhiễu AGC 2 tầng.",
+      "en": "🚀 Completely eliminated fragmented short video clips during Auto Motion Recording with 15s post-motion buffer, 20s minimum clip length, and dual-layer AGC anti-noise filtering.",
+      "ja": "🚀 動体検知自動録画時の動画断片化を完全解消。動体停止後15秒バッファ、最小20秒/クリップ、および2段階AGCノイズフィルタを搭載。",
+      "zh": "🚀 彻底消除自动移动侦测录像时的视频碎片化短片段问题，升级为停止后15秒缓冲、单段保底20秒及双层AGC抗噪滤波。"
+    },
+    "changes": {
+      "vi": [
+        "Động cơ chống phân mảnh video: Tăng thời gian đệm sau chuyển động lên 15 giây và thời lượng tối thiểu 20 giây/clip giúp toàn bộ diễn biến được gom vào 1 file duy nhất.",
+        "Thuật toán phát hiện chuyển động kép: Kết hợp so sánh frame tức thời (Velocity Delta) và so sánh nền tĩnh (Presence Delta) giúp nhận diện cả khi đối tượng di chuyển chậm hoặc dừng lại.",
+        "Lọc nhiễu AGC camera 2 tầng: Yêu cầu 2 frame liên tiếp hoặc độ biến động lớn để loại bỏ 100% hiện tượng tự kích hoạt ghi hình do cảm biến tự cân bằng sáng.",
+        "Chuyển tiếp clip liền mạch: Tự động nối tiếp sang file mới ngay lập tức khi chuyển động kéo dài vượt quá thời lượng tối đa mà không tạo khoảng trống."
+      ],
+      "en": [
+        "Anti-Fragmentation Recording Engine: Increased post-motion buffer to 15s and minimum clip duration to 20s to consolidate events into single videos.",
+        "Dual-Baseline Motion Algorithm: Combines instant frame delta and static background presence delta to track subtle or slowing movements.",
+        "2-Stage AGC Anti-Noise Filter: Requires 2 consecutive motion frames or major delta to eliminate false triggers from camera auto-exposure hunting.",
+        "Seamless File Rollover: Automatically continues recording into a new segment when continuous motion exceeds maximum duration without gaps."
+      ],
+      "ja": [
+        "断片化防止録画エンジン: 動体停止後バッファを15秒、最小録画を20秒に拡張し、1つの連続ファイルに集約。",
+        "デュアル基準動体検知: 瞬間差分と背景基準差分を組み合わせ、静止・低速移動時でも検知を維持。",
+        "2段階AGCノイズフィルタ: 2フレーム連続確認により、カメラ自動露出調整による誤検知を完全排除。",
+        "シームレスなファイル引き継ぎ: 最大録画時間を超えて動体が継続する場合、途切れなく次のファイルへ自動移行。"
+      ],
+      "zh": [
+        "防碎片化录像引擎: 延长动静缓冲至15秒、保底录像20秒，将同一事件完整收录在单一视频中。",
+        "双基准动态侦测算法: 融合帧间瞬时差分与静态背景存在感差分，物体慢速移动或短暂停留亦不漏录。",
+        "双层AGC抗噪滤波: 需连续2帧确认或剧烈变化才触发，彻底杜绝摄像头自动曝光闪烁误触发。",
+        "无缝分段接续: 持续移动超过单段上限时，自动无缝开启下一分段继续录制。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.018",
+    "date": "2026-09",
+    "tag": "Previous Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.018.bin",
     "title": {
       "vi": "Phát hành v1.0.018 - Sửa lỗi Video 1 Frame & Tối ưu hóa Trạng thái Thẻ nhớ",
       "en": "Release v1.0.018 - Multi-frame Video Recording Fix & SD Card Status Optimization",

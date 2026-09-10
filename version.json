@@ -1,6 +1,6 @@
 {
-  "version": "1.0.018",
+  "version": "1.0.019",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.018: Multi-frame Video Recording Fix & SD Card Status Non-blocking Optimization / Khắc phục triệt để lỗi video 1 frame, bổ sung chốt file thông minh khi hết chuyển động và tối ưu hóa không nghẽn kiểm tra thẻ nhớ"
+  "changelog": "Release v1.0.019: Anti-Fragmentation Auto-Motion Recording Engine & Dual Baseline Detection / Nâng cấp động cơ ghi hình chuyển động chống phân mảnh video, lọc nhiễu AGC 2 tầng và đệm lưu trữ 15s"
 }
