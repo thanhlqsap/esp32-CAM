@@ -1,6 +1,6 @@
 {
   "name": "ESP32-CAM Multi-Sensor Firmware",
-  "version": "1.0.017",
+  "version": "1.0.018",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": true,
   "new_install_improv_wait_time": 0,

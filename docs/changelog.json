@@ -1,9 +1,53 @@
 [
   {
-    "version": "v1.0.017",
+    "version": "v1.0.018",
     "date": "2026-09",
     "tag": "Latest Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.018 - Sửa lỗi Video 1 Frame & Tối ưu hóa Trạng thái Thẻ nhớ",
+      "en": "Release v1.0.018 - Multi-frame Video Recording Fix & SD Card Status Optimization",
+      "ja": "リリース v1.0.018 - 1フレーム動画バグの修正＆SDカード状態の非ブロッキング最適化",
+      "zh": "发布 v1.0.018 - 修复单帧录像异常 & 优化SD卡状态非阻塞查询"
+    },
+    "description": {
+      "vi": "🚀 Khắc phục triệt để lỗi video chỉ lưu 1 frame, bổ sung cơ chế tự động chốt file thông minh sau khi hết chuyển động, ghi đệm an toàn 1s flush và tối ưu kiểm tra thẻ nhớ không gây nghẽn Web Server.",
+      "en": "🚀 Completely resolved 1-frame video bug with intelligent post-motion auto-finalization, 1s periodic SD buffer flush, and non-blocking SD card status polling.",
+      "ja": "🚀 動画が1フレームのみ保存される不具合を完全解決。動体検知終了後のスマート自動確定、1秒ごとの定期的SDフラッシュ、およびWebサーバーをブロックしないSD状態確認を実装。",
+      "zh": "🚀 彻底修复视频仅保存1帧的问题，新增移动停止后智能自动封包结算机制、1秒周期性SD卡数据落盘，以及非阻塞SD状态轮询优化。"
+    },
+    "changes": {
+      "vi": [
+        "Sửa dứt điểm lỗi Video 1 Frame: Bổ sung bộ đếm timeout tự động đóng gói file chuẩn AVI (kèm bảng chỉ mục idx1 và cập nhật header) khi hết chuyển động quá 8 giây.",
+        "Ghi đệm an toàn định kỳ: Flush dữ liệu xuống thẻ SD mỗi 1 giây (10 frames) bảo toàn toàn bộ video ngay cả khi mất nguồn đột ngột.",
+        "Sửa lỗi treo trạng thái thẻ nhớ: Tối ưu isSDCardReady() trả về tức thì không chặn Web Server, bổ sung cache 5s và hoàn thiện xử lý lỗi trên UI.",
+        "Tự động giải phóng Stream: Ngắt và chuyển giao luồng camera ngay lập tức khi chuyển tab hoặc back giữa Dashboard và Thẻ nhớ."
+      ],
+      "en": [
+        "Fixed 1-Frame Video Recording: Added automatic AVI finalization timeout (with idx1 index table and header updates) 8s after motion stops.",
+        "Periodic SD Flush: Automatically flushes frame buffers to SD card every 1 second (10 frames) to protect recorded data.",
+        "Resolved SD Status Freeze: Made isSDCardReady() non-blocking with 5s storage stats cache and proper UI error states.",
+        "Seamless Stream Preemption: Automatically releases camera stream when navigating between Dashboard and SD Gallery."
+      ],
+      "ja": [
+        "1フレーム動画の不具合修正: 動体停止から8秒後に自動的にAVIファイル（idx1インデックス付与）をクローズして完了。",
+        "定期的なSDフラッシュ: 1秒（10フレーム）ごとにSDカードへ安全に書き込みを確定。",
+        "SD状態フリーズの解消: isSDCardReady()を非ブロッキング化し、5秒キャッシュとエラーバッジ更新を追加。",
+        "ストリームの自動解放: ギャラリーとダッシュボードの移動時に即座にストリームを切断・引き渡し。"
+      ],
+      "zh": [
+        "修复单帧录像问题: 新增移动停止8秒后自动封包完成AVI文件（附带idx1索引表及头部信息更新）。",
+        "周期性SD数据落盘: 每1秒（10帧）执行一次SD卡flush操作，确保数据安全写入。",
+        "解决SD状态假死: 将 isSDCardReady() 改造为非阻塞模式，增加5秒统计缓存并修复前端UI错误处理。",
+        "无缝抢占视频流: 在仪表盘与SD相册之间切换时自动释放旧连接。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.017",
+    "date": "2026-09",
+    "tag": "Previous Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.017.bin",
     "title": {
       "vi": "Phát hành v1.0.017 - Chuẩn hóa tên file Video VID_ddmmyyyy_hhmmss & Đồng bộ giờ SNTP",
       "en": "Release v1.0.017 - Standard Video Naming (VID_ddmmyyyy_hhmmss.avi) & SNTP Time Sync",

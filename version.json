@@ -1,5 +1,5 @@
 {
-  "version": "1.0.017",
-  "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.017: Real-Time NTP Time Synchronization (UTC+7) & Standard Video Naming Convention (VID_ddmmyyyy_hhmmss.avi) / Tích hợp đồng bộ giờ thế giới SNTP UTC+7 và chuẩn hóa tên file video theo ngày giờ thực tế (VID_ddmmyyyy_hhmmss.avi)"
+  "version": "1.0.018",
+  "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
+  "changelog": "Release v1.0.018: Multi-frame Video Recording Fix & SD Card Status Non-blocking Optimization / Khắc phục triệt để lỗi video 1 frame, bổ sung chốt file thông minh khi hết chuyển động và tối ưu hóa không nghẽn kiểm tra thẻ nhớ"
 }
