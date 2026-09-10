@@ -1,8 +1,52 @@
 [
   {
-    "version": "v1.0.016",
+    "version": "v1.0.017",
     "date": "2026-09",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.017 - Chuẩn hóa tên file Video VID_ddmmyyyy_hhmmss & Đồng bộ giờ SNTP",
+      "en": "Release v1.0.017 - Standard Video Naming (VID_ddmmyyyy_hhmmss.avi) & SNTP Time Sync",
+      "ja": "リリース v1.0.017 - 録画ファイル名の標準化 (VID_ddmmyyyy_hhmmss)＆SNTP時刻同期",
+      "zh": "发布 v1.0.017 - 视频文件名标准化 (VID_ddmmyyyy_hhmmss.avi) 与 SNTP 网络授时"
+    },
+    "description": {
+      "vi": "🚀 Tích hợp tự động đồng bộ thời gian thực SNTP (Múi giờ Việt Nam UTC+7) khi kết nối Wi-Fi, chuẩn hóa quy tắc đặt tên video thành VID_ddmmyyyy_hhmmss.avi và khắc phục triệt để tình trạng phân mảnh video ngắn.",
+      "en": "🚀 Integrated automatic SNTP real-time clock synchronization (UTC+7) on Wi-Fi connection, standardized video filenames to VID_ddmmyyyy_hhmmss.avi, and prevented fragmented short video recordings.",
+      "ja": "🚀 Wi-Fi接続時のSNTP自動時刻同期 (UTC+7) を搭載。動画ファイル名を VID_ddmmyyyy_hhmmss.avi に標準化し、短い断片動画の多発を防止。",
+      "zh": "🚀 接入 SNTP 自动网络时间同步 (UTC+7)，全面规范视频文件命名规则为 VID_ddmmyyyy_hhmmss.avi，并优化移动侦测持续录像机制杜绝碎片短视频。"
+    },
+    "changes": {
+      "vi": [
+        "Đồng bộ thời gian thực SNTP: Tự động lấy giờ chuẩn qua pool.ntp.org và time.google.com ngay khi ESP32 kết nối Wi-Fi.",
+        "Quy tắc đặt tên file chuẩn: Lưu video theo định dạng VID_ddmmyyyy_hhmmss.avi (ví dụ: VID_10092026_204500.avi) giúp dễ dàng nhận biết chính xác thời điểm xảy ra sự kiện.",
+        "Hiển thị chi tiết trên Web Gallery: Danh sách video tự động phân tích và hiển thị nhãn ngày giờ rõ ràng (📅 10/09/2026 ⏰ 20:45:00).",
+        "Nâng bộ đệm Index PSRAM lên 3600 frames: Đảm bảo ghi hình liên tục trọn vẹn lên đến 6 phút @ 10 FPS mà không bị ngắt quãng."
+      ],
+      "en": [
+        "SNTP Real-Time Sync: Automatically retrieves accurate clock via pool.ntp.org and time.google.com upon Wi-Fi connection.",
+        "Standardized File Naming: Videos are saved as VID_ddmmyyyy_hhmmss.avi (e.g. VID_10092026_204500.avi) for instant time tracking.",
+        "Enhanced Web Gallery: Video list automatically displays formatted human-readable date & time tags (📅 10/09/2026 ⏰ 20:45:00).",
+        "Increased PSRAM Index Buffer to 3600 frames: Guarantees full continuous recording up to 6 minutes @ 10 FPS without interruption."
+      ],
+      "ja": [
+        "SNTPリアルタイム同期: Wi-Fi接続時に pool.ntp.org / time.google.com から正確な現在時刻を取得。",
+        "ファイル名の標準化: VID_ddmmyyyy_hhmmss.avi（例: VID_10092026_204500.avi）形式で保存し、発生時刻を一目で特定可能。",
+        "Webギャラリーの視認性向上: 動画一覧に日付と時刻（📅 10/09/2026 ⏰ 20:45:00）を分かりやすく表示。",
+        "PSRAM Indexバッファを3600フレームに拡張: 10 FPSで最長6分間の完全連続録画に対応。"
+      ],
+      "zh": [
+        "SNTP 网络授时: ESP32 连接 Wi-Fi 后自动向 pool.ntp.org 和 time.google.com 同步北京/越南标准时间。",
+        "标准化文件命名: 视频文件统一命名为 VID_ddmmyyyy_hhmmss.avi（如 VID_10092026_204500.avi），一眼识别事件时间。",
+        "Web 播放画廊体验升级: 文件列表自动解析并高亮显示年月日与具体时分秒（📅 10/09/2026 ⏰ 20:45:00）。",
+        "PSRAM 索引缓冲区提升至 3600 帧: 完美支持 10 FPS 下长达 6 分钟的单文件完整连续录像。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.016",
+    "date": "2026-09",
+    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.016 - Cơ chế chống kẹt luồng Stream 2 tầng (Preemption Guard) khi Back trình duyệt",
