@@ -1,8 +1,48 @@
 [
   {
-    "version": "v1.0.015",
+    "version": "v1.0.016",
     "date": "2026-09",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.016 - Cơ chế chống kẹt luồng Stream 2 tầng (Preemption Guard) khi Back trình duyệt",
+      "en": "Release v1.0.016 - 2-Layer Stream Preemption Guard for Instant Back Navigation Recovery",
+      "ja": "リリース v1.0.016 - 2層ストリーム横取りガードによるブラウザ「戻る」時の即時復帰",
+      "zh": "发布 v1.0.016 - 双层流媒体智能抢占机制（2-Layer Preemption Guard）彻底解决返回卡死"
+    },
+    "description": {
+      "vi": "🚀 Khắc phục triệt để lỗi không mở được Live Stream trên Dashboard khi nhấn nút Back từ trang Thẻ nhớ (sd_gallery.html) nhờ cơ chế nhường quyền kết nối mới (Preemption) phía Firmware và giải phóng socket (pagehide) phía Client.",
+      "en": "🚀 Completely eliminated stream lockup when navigating back from SD Gallery to Dashboard via firmware-level connection preemption and client-side pagehide lifecycle cleanup.",
+      "ja": "🚀 ファームウェア側の新規接続優先切替（Preemption）とクライアント側の pagehide ソケット解放により、SDギャラリーからダッシュボードへの「戻る」操作時の配信ロックを完全解決。",
+      "zh": "🚀 深度优化流媒体生命周期管理，通过固件端新连接抢占机制与前端 pagehide 事件主动释放，彻底解决从SD卡画廊返回仪表板时无法开启直播的问题。"
+    },
+    "changes": {
+      "vi": [
+        "Firmware Preemption Guard: streamTask (Port 81) tự động phát hiện kết nối mới (streamServer.hasClient()) để lập tức ngắt client cũ và phục vụ ngay trang mới với độ trễ 0s.",
+        "Frontend Lifecycle Cleanup: Bổ sung sự kiện 'pagehide' và 'beforeunload' trên cả sd_gallery.html và dashboard.html để xóa img.src và gọi window.stop() ngay khi rời trang.",
+        "Trải nghiệm mượt mà: Chuyển đổi qua lại giữa Dashboard và SD Gallery nhanh chóng, không lo xung đột cổng phát stream."
+      ],
+      "en": [
+        "Firmware Preemption Guard: streamTask (Port 81) automatically detects new incoming clients (streamServer.hasClient()) to immediately disconnect stale streams and serve new connections with 0s latency.",
+        "Frontend Lifecycle Cleanup: Added 'pagehide' and 'beforeunload' listeners across sd_gallery.html and dashboard.html to clear img.src and execute window.stop() on page exit.",
+        "Seamless Navigation: Instant back-and-forth switching between Dashboard and SD Gallery without stream port lockouts."
+      ],
+      "ja": [
+        "ファームウェア横取りガード: streamTask (Port 81) が新規接続を即座に検知し、古いクライアントを切断して遅延ゼロで新しい画面に映像を切り替え。",
+        "フロントエンド解放処理: sd_gallery.html および dashboard.html に 'pagehide' / 'beforeunload' を追加し、ページ遷移時に img.src のクリアと window.stop() を実行。",
+        "シームレスな画面遷移: ダッシュボードとSDギャラリー間の自由な行き来が可能になり、接続詰まりを完全防止。"
+      ],
+      "zh": [
+        "固件端智能抢占保护: streamTask (81端口) 实时监听新连接请求，自动中断旧连接并以 0 延迟秒开新页面直播流。",
+        "前端生命周期主动释放: 在 sd_gallery.html 与 dashboard.html 中注册 'pagehide' 与 'beforeunload' 事件，离开页面时即时清空 img.src 并执行 window.stop()。",
+        "丝滑导航体验: 仪表板与 SD 画廊之间来回自由切换，彻底告别端口被占用的烦恼。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.015",
+    "date": "2026-09",
+    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.015 - Xem lại Video AVI Canvas trên Web & Ghi hình chuyển động 3 phút liên tục",
@@ -354,7 +394,7 @@
         "传感器自适应: 兼容 OV2640, OV3660, OV5640, OV7725 等多种镜头。",
         "直播与抓拍: 输出 15-25 FPS 实时视频流，0延时保存高品质截图。",
         "Wi-Fi扫描与热点配网: 自动扫描周边 Wi-Fi 信号，AP 模式下免App快捷配置。",
-        "混合OTA与防变砖: 支持 Web 本地升级 + GitHub 云端自动更新 + 故障异常回滚。",
+        "混合OTA与防变砖: 支持 Web 本地升级 + GitHub 云端自动更新 + 故障自动回滚。",
         "安全保护与硬件应急: HTTP Basic 密码验证 + IO13 接地应急恢复出厂设置。"
       ]
     }

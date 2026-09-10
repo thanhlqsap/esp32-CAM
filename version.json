@@ -1,5 +1,5 @@
 {
-  "version": "1.0.015",
+  "version": "1.0.016",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.015: HTML5 Canvas AVI MJPEG Player for in-browser video playback & continuous 3-minute motion recording without slicing / Trình phát video HTML5 Canvas AVI MJPEG xem trực tiếp trên trình duyệt & Ghi hình liên tục trọn vẹn 3 phút khi phát hiện chuyển động không ngắt quãng"
+  "changelog": "Release v1.0.016: 2-Layer Stream Preemption Guard - Fix stream lockout when navigating back from SD Gallery to Dashboard / Cơ chế chống kẹt luồng stream 2 tầng - Sửa lỗi không mở được Live Stream trên Dashboard khi nhấn Back từ trang Thẻ nhớ"
 }
