@@ -1,6 +1,6 @@
 {
-  "version": "1.0.026",
+  "version": "1.0.027",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.026: Ultra-Fast Matrix SAD Motion Detection & Real-Time Live HUD Monitor / Thuật toán phát hiện chuyển động ma trận SAD siêu tốc & Giám sát HUD thời gian thực"
+  "changelog": "Release v1.0.027: Noise Floor Guard & Adaptive Energy Motion Detector (Zero False Alarm on Dark/Covered Lens) / Thuật toán bảo vệ chống báo động giả khi đậy nắp hoặc trong bóng tối"
 }
