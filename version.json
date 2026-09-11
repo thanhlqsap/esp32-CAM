@@ -1,6 +1,6 @@
 {
-  "version": "1.0.023",
+  "version": "1.0.024",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.023: Deterministic JPEG Dynamics Motion Engine & Zero False Alarms / Động cơ nhận diện chuyển động biến thiên JPEG triệt tiêu 100% báo động giả khi tĩnh lặng"
+  "changelog": "Release v1.0.024: High-Performance Zero-Leak SD Video Player Engine & Anti-Freeze Architecture / Nâng cấp Trình phát video Thẻ nhớ Hiệu năng cao, Chống treo Web & ESP32"
 }
