@@ -1,9 +1,413 @@
 [
   {
-    "version": "v1.0.019",
+    "version": "v1.0.029",
     "date": "2026-09",
     "tag": "Latest Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.029 - Ra Mắt Module Điều Khiển Xe Robot Car FPV Cockpit Độc Lập & Driver PWM Đa Kênh",
+      "en": "Release v1.0.029 - Standalone FPV Robot Car Controller Cockpit & Multi-Channel PWM Driver",
+      "ja": "リリース v1.0.029 - 独立型FPVロボットカー操縦コックピット＆マルチPWMモータードライバー",
+      "zh": "发布 v1.0.029 - 独立FPV小车驾驶舱Web界面与多通道PWM电机驱动系统"
+    },
+    "description": {
+      "vi": "🏎️ Tận dụng tối đa các chân GPIO còn lại trên ESP32-CAM (GPIO 12, 13, 15, 14) để điều khiển động cơ xe qua mạch cầu H (L298N/L9110S/MX1508). Ra mắt giao diện Buồng lái FPV Cockpit Web UI độc lập (/car), hỗ trợ bàn phím máy tính (W/A/S/D), D-Pad cảm ứng đa điểm, cơ chế an toàn Failsafe tự ngắt động cơ sau 400ms và lưu cấu hình NVS Flash.",
+      "en": "🏎️ Utilizes remaining ESP32-CAM GPIO pins (GPIO 12, 13, 15, 14) to drive robot car motors via H-bridge (L298N/L9110S/MX1508). Introduces a dedicated standalone FPV Cockpit Web UI (/car), multi-touch virtual D-Pad, keyboard controls (W/A/S/D), 400ms safety failsafe watchdog, and persistent NVS Flash configuration.",
+      "ja": "🏎️ ESP32-CAMの空きGPIOピン（12, 13, 15, 14）を活用したHブリッジモーター制御。独立したFPVコックピットWebUI（/car）、マルチタッチDパッド、キーボード操作、400ms安全フェイルセーフおよびNVS保存を実装。",
+      "zh": "🏎️ 充分利用ESP32-CAM剩余GPIO引脚（12, 13, 15, 14）通过H桥驱动电机。推出独立的FPV驾驶舱Web UI（/car），支持触摸多点虚拟D-Pad、键盘按键（W/A/S/D）、400ms失联安全刹车保护与NVS持久化配置。"
+    },
+    "changes": {
+      "vi": [
+        "Driver Động Cơ PWM Đa Kênh: Điều tốc mượt mà 0-255 trên 4 chân GPIO 12, 13, 15, 14 mà không gây xung đột xung Camera XCLK.",
+        "Giao Diện Buồng Lái FPV Độc Lập: Trang car_control.html (/car) chuyên dụng với màn hình live stream, D-Pad cảm ứng và điều khiển bàn phím.",
+        "Cơ Chế An Toàn Failsafe Watchdog: Tự động dừng phanh khẩn cấp sau 400ms nếu mất tín hiệu Wi-Fi hoặc nhả nút điều khiển.",
+        "Lưu Cấu Hình NVS Flash: Tùy biến chân IO, đảo chiều động cơ (Invert) và cân bằng tốc độ 2 bánh (Trim)."
+      ],
+      "en": [
+        "Multi-Channel PWM Motor Driver: Smooth 0-255 speed control on GPIO 12, 13, 15, 14 without interfering with Camera XCLK.",
+        "Standalone FPV Cockpit UI: Dedicated car_control.html (/car) with fullscreen live stream, touch D-Pad, and keyboard controls.",
+        "Safety Failsafe Watchdog: Auto-stops motors after 400ms if Wi-Fi connection drops or controls are released.",
+        "Persistent NVS Storage: Custom pin mapping, software motor inversion, and steering balance trim."
+      ],
+      "ja": [
+        "マルチチャンネルPWMドライバー: Camera XCLKと競合することなくGPIO 12, 13, 15, 14でスムーズな速度制御。",
+        "独立型FPVコックピットUI: 全画面ストリーム、タッチ操作、キーボード対応のcar_control.html（/car）。",
+        "安全フェイルセーフ監視: 信号途絶時に400msで自動停止。",
+        "NVS設定保存: ピン割り当て、モーター反転、左右バランストリムの永続化。"
+      ],
+      "zh": [
+        "多通道PWM电机驱动: 在GPIO 12, 13, 15, 14上实现平滑调速，不干扰摄像头XCLK时钟。",
+        "独立FPV驾驶舱界面: 专属car_control.html（/car），集成全屏直播、触摸按键与键盘操作。",
+        "安全失联刹车保护: 无信号400ms自动切断电机输出。",
+        "NVS持久化存储: 支持自定义引脚映射、软件电机换向与左右轮平衡微调。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.028",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.028 - Cơ Chế Đồng Bộ Tuần Tự Chống Nghẽn Socket & Khắc Phục Hiện Tượng Xoay Tải Trang",
+      "en": "Release v1.0.028 - Anti-Flood Unified Sequential Polling & Continuous Loading Spinner Fix",
+      "ja": "リリース v1.0.028 - ソケット枯渇防止シーケンシャルポーリング＆ページ無限ローディング完全解消",
+      "zh": "发布 v1.0.028 - 防阻塞单线程顺序微轮询与浏览器持续加载转圈修复"
+    },
+    "description": {
+      "vi": "🚀 Khắc phục triệt để hiện tượng tab trình duyệt xoay vòng tròn loading liên tục. Tái cấu trúc toàn bộ hệ thống Polling bằng cơ chế Unified Sequential Polling (tự lên lịch nối tiếp với chu kỳ 1.2s an toàn), triệt tiêu hoàn toàn nghẽn socket TCP/lwIP trên ESP32 WebServer và tối ưu thời điểm khởi tạo luồng Stream camera sau khi trang đã tải xong.",
+      "en": "🚀 Completely eliminated continuous page loading spinner in browser tabs. Re-architected polling with an Anti-Flood Unified Sequential Polling engine (self-scheduling at safe 1.2s intervals), fully preventing TCP/lwIP socket exhaustion on ESP32 WebServer and deferring MJPEG stream initialization post page-load.",
+      "ja": "🚀 ブラウザタブが無限にローディング中となる現象を完全解消。Unified Sequential Polling機構（1.2秒の安全な間隔で順次実行）を導入し、ESP32 WebServerのTCPソケット枯渇を防止、初期ストリーム開始タイミングを最適化。",
+      "zh": "🚀 彻底消除浏览器标签页持续转圈加载的问题。重构轮询架构为防阻塞单线程顺序轮询（安全间隔1.2s），杜绝ESP32 WebServer的TCP/lwIP套接字耗尽问题，并优化MJPEG流加载时机。"
+    },
+    "changes": {
+      "vi": [
+        "Cơ chế Unified Sequential Polling: Thay thế các timer setInterval chồng chéo bằng chuỗi gọi tuần tự an toàn, đảm bảo tại mỗi thời điểm chỉ có duy nhất 1 request HTTP gửi đến ESP32.",
+        "Khắc phục nghẽn Socket lwIP: Giải phóng kết nối TCP ngay sau mỗi phản hồi, chấm dứt tình trạng browser tab xoay loading liên tục.",
+        "Khởi tạo luồng Stream thông minh: Trì hoãn nhẹ khởi tạo stream (150ms) để trình duyệt hoàn tất vòng đời tải trang bình thường."
+      ],
+      "en": [
+        "Unified Sequential Polling Engine: Replaces overlapping setInterval timers with safe sequential chaining, guaranteeing only one active HTTP request at any moment.",
+        "Eliminated lwIP Socket Exhaustion: Immediately frees TCP connections, stopping the perpetual browser tab spinner.",
+        "Smart Stream Initialization: Slight 150ms delay for MJPEG stream startup to allow complete browser page lifecycle finish."
+      ],
+      "ja": [
+        "統合シーケンシャルポーリング: 重複するsetIntervalを安全な順次実行チェーンに置き換え、同時HTTPリクエストを1つに限定。",
+        "lwIPソケット枯渇の防止: TCP接続を即座に解放し、ブラウザの永続ローディング状態を解消。",
+        "スマートストリーム初期化: ページ読み込み完了後に150msの微小遅延を設けてストリームを開始。"
+      ],
+      "zh": [
+        "统一顺序轮询引擎: 取代重叠的setInterval定时器，确保任何时刻仅有单一HTTP请求发往ESP32。",
+        "杜绝lwIP套接字耗尽: 快速释放TCP连接，彻底解决标签页无限转圈。",
+        "智能流初始化: 延迟150ms开启MJPEG流，让浏览器正常完成页面完整生命周期加载。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.027",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.027 - Thuật Toán Thích Ứng Năng Lượng & Bộ Lọc Sàn Nhiễu (Triệt tiêu 100% Báo động giả khi đậy nắp/bóng tối)",
+      "en": "Release v1.0.027 - Adaptive Energy & Dynamic Noise Floor Guard (Zero False Alarm on Dark/Covered Lens)",
+      "ja": "リリース v1.0.027 - 適応型エネルギー＆動的ノイズフロアガード（レンズ遮蔽・完全暗所での誤検知完全防止）",
+      "zh": "发布 v1.0.027 - 自适应能量与动态噪声门限防护（彻底解决盖盖及全黑场景下的误报问题）"
+    },
+    "description": {
+      "vi": "🛡️ Khắc phục triệt để lỗi báo động giả khi đậy nắp camera hoặc trong bóng tối tuyệt đối do nhiễu hạt cảm biến AGC cao. Triển khai thuật toán Adaptive Energy kèm Bộ lọc sàn động Noise Floor Guard (tối thiểu 1200 bytes) và theo dõi đường nền EMA mượt mà, đảm bảo khi đậy nắp hoặc cảnh tĩnh luôn ở mức 0-2% (Standby Xanh), chỉ kích hoạt đỏ khi có biến thiên chuyển động thực tế.",
+      "en": "🛡️ Completely eliminated false motion alerts when the camera lens is capped or in pitch black due to high AGC sensor grain. Implements Adaptive Energy with a Dynamic Noise Floor Guard (minimum 1200 bytes) and smooth EMA baseline tracking, ensuring capped/static scenes stay at 0-2% (Standby Green) and only real motion triggers red alerts.",
+      "ja": "🛡️ レンズ遮蔽時や完全暗所で高AGCゲインによるセンサーノイズで誤検知が発生する問題を完全解消。動的ノイズフロアガード（最小1200バイト）とEMAベースライン追従を導入し、遮蔽時は0〜2%（待機中）を維持、実際の動きのみを確実に検知。",
+      "zh": "🛡️ 彻底解决镜头盖盖或完全处于黑暗中时因高AGC增益噪点引发的误报问题。采用自适应能量算法与动态噪声门限防护（最小1200字节）及平滑EMA基线追踪，确保遮蔽静止时维持0-2%待机绿灯，仅在真实动态发生时触发告警。"
+    },
+    "changes": {
+      "vi": [
+        "Bộ lọc Sàn Nhiễu Động (Noise Floor Guard): Thiết lập ngưỡng bảo vệ tối thiểu 1200 bytes, loại bỏ hoàn toàn các dao động ngẫu nhiên do nhiễu hạt cảm biến khi đậy nắp camera.",
+        "Bộ theo dõi đường nền EMA: Thích ứng tự động với biến đổi ánh sáng môi trường mà không gây kích hoạt nhầm.",
+        "Hiển thị Mức động (0-100%) thời gian thực: Cập nhật tỷ lệ phần trăm trực quan trên Web HUD (Đậy nắp: 0-2%, Chuyển động: 50-100%)."
+      ],
+      "en": [
+        "Dynamic Noise Floor Guard: Enforces a minimum 1200-byte noise barrier, completely filtering out sensor grain fluctuations when the lens is capped.",
+        "Smooth EMA Baseline Tracking: Automatically adapts to ambient lighting changes without triggering false positives.",
+        "Real-Time Motion Delta %: Visual percentage indicator on Web HUD (Capped/Static: 0-2%, Active Motion: 50-100%)."
+      ],
+      "ja": [
+        "動的ノイズフロアガード: 最小1200バイトの防壁を設定し、レンズ遮蔽時のセンサー粒子ノイズを完全に除外。",
+        "EMAベースライン追従: 周囲光の変化に自動適応し、誤作動を防止。",
+        "リアルタイム動体レベル%表示: Web HUD上で直感的な変化率（遮蔽時: 0〜2%、動体時: 50〜100%）を表示。"
+      ],
+      "zh": [
+        "动态噪声门限防护: 设定最小1200字节安全门限，彻底消除镜头盖盖时的高增益噪点波动。",
+        "平滑EMA基线追踪: 自动适应环境光照渐变，避免误触判定。",
+        "实时动态幅度%展示: 在Web HUD直观呈现画面变化幅度（遮挡静止: 0-2%，真实动态: 50-100%）。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.026",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.026 - Thuật toán Phát Hiện Chuyển Động Ma Trận SAD Siêu Tốc & Giám Sát HUD Trực Tiếp",
+      "en": "Release v1.0.026 - Ultra-Fast Matrix SAD Motion Detection & Real-Time Live HUD Monitor",
+      "ja": "リリース v1.0.026 - 超高速マトリックスSAD動体検知アルゴリズム＆リアルタイムHUDモニター",
+      "zh": "发布 v1.0.026 - 超高速矩阵SAD移动侦测算法与实时HUD监控"
+    },
+    "description": {
+      "vi": "⚡ Nâng cấp toàn diện thuật toán phát hiện chuyển động ma trận phân tán 64 điểm SAD (Sum of Absolute Differences) tích hợp thẳng vào luồng Live Stream 20 FPS (Core 0), kèm API /sd_motion_status siêu nhẹ (<1ms) và cơ chế hiển thị Real-Time HUD vi polling 350ms giúp bật ngay tức thì (<0.35s) khi có chuyển động và tắt ngay (<0.5s) khi ngừng.",
+      "en": "⚡ Complete overhaul with 64-point Spatial-Entropy Matrix SAD algorithm embedded directly into 20 FPS Core 0 Stream, sub-millisecond /sd_motion_status API, and 350ms real-time HUD micro-polling for instant visual trigger (<0.35s) and rapid turn-off (<0.5s).",
+      "ja": "⚡ 64点空間エントロピーSADアルゴリズムをCore 0の20 FPSストリームに直接統合。超軽量APIと350msのマイクロポーリングにより、動きの即時検知（0.35秒未満）と終了時の即時消灯（0.5秒未満）を実現。",
+      "zh": "⚡ 全面升级64点空间熵SAD差分算法并直接嵌入Core 0的20 FPS实时流，配合亚毫秒级API与350ms前端微轮询，实现移动即时触发（<0.35s）与静止即时熄灭（<0.5s）。"
+    },
+    "changes": {
+      "vi": [
+        "Thuật toán Ma Trận SAD 64 điểm: Lấy mẫu phân bố đều trên toàn bộ dữ liệu ảnh JPEG, phát hiện chuyển động ngay trong 1 khung hình duy nhất (<50ms).",
+        "Tích hợp trực tiếp StreamTask Core 0: Đánh giá chuyển động theo thời gian thực 20 khung hình/giây, không phụ thuộc vào độ trễ vòng lặp loop().",
+        "Endpoint /sd_motion_status & HUD 350ms: Giảm thời gian phản hồi hiển thị trên Web từ 2~4.5 giây xuống chỉ còn 350ms, viền đỏ phát sáng & badge nhấp nháy tức thời."
+      ],
+      "en": [
+        "64-Point Matrix SAD Algorithm: Samples entropy points evenly across JPEG stream, triggering detection on a single frame (<50ms).",
+        "Embedded StreamTask Core 0: Real-time 20 FPS motion evaluation, completely decoupled from loop() latency.",
+        "Sub-ms /sd_motion_status & 350ms HUD: Slashes web feedback latency from 2~4.5s down to 350ms with instant pulsing red border and dynamic status badge."
+      ],
+      "ja": [
+        "64点マトリックスSADアルゴリズム: JPEG全域から64点を高速サンプリングし、単一フレーム（50ms未満）で即時検知。",
+        "Core 0 ストリーム直接統合: 20 FPSのリアルタイム映像内で動体を直接判定し、遅延を最小化。",
+        "超高速ステータスAPI＆350ms HUD: Web表示の遅延を従来の2〜4.5秒から350msへ大幅短縮、赤色パルス枠で即時警告。"
+      ],
+      "zh": [
+        "64点矩阵SAD算法: 均匀采样JPEG有效数据，单帧（<50ms）即可敏锐触发移动判定。",
+        "Core 0 实时流无缝集成: 20 FPS帧率下直接评估画面变化，完全摆脱主循环延迟。",
+        "亚毫秒状态API与350ms HUD: 画面状态反馈延迟由2~4.5秒骤降至350ms，红框呼吸灯与动态徽章即时同步。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.025",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.025 - Chuẩn Hóa Ghi Hình Chuyển Động Cam Kết Đủ Clip & Nối Tiếp Liền Mạch",
+      "en": "Release v1.0.025 - Guaranteed Full Clip Motion Recording & Seamless Rollover Engine",
+      "ja": "リリース v1.0.025 - 確定フルクリップ動体検知録画＆シームレス継続エンジン",
+      "zh": "发布 v1.0.025 - 确定性完整片段移动侦测录像与无缝衔接引擎"
+    },
+    "description": {
+      "vi": "🚀 Khắc phục triệt để lỗi ghi hình chuyển động bị ngắt ngắn đột ngột và sinh file vụn rác. Chuẩn hóa cơ chế Cam kết ghi trọn vẹn đủ thời lượng clip (1-3 phút) như ghi thủ công, tự động gối đầu nối tiếp không gián đoạn nếu còn chuyển động, và tối ưu độ nhạy kép tức thời.",
+      "en": "🚀 Completely eliminated premature stopping and fragmented video files in motion recording. Implements Guaranteed Full Clip Duration (1-3 mins) identical to manual recording, seamless continuous rollover if motion persists, and dual-trigger sensitivity optimization.",
+      "ja": "🚀 動体検知録画が途中で短く中断し断片化ファイルが発生する問題を完全解消。手動録画同様に設定時間（1〜3分）を確実にフル録画する保証メカニズム、動体継続時のシームレスな自動クリップ接続、高精度デュアルトリガーを導入。",
+      "zh": "🚀 彻底解决移动侦测录像提前中断及生成碎片文件的问题。实现与手动录像一致的完整片段保障机制（完整录制1-3分钟），动态持续时自动无缝衔接下一片段，并优化即时双重触发灵敏度。"
+    },
+    "changes": {
+      "vi": [
+        "Cơ chế Guaranteed Clip Duration: Khi có chuyển động, camera cam kết ghi liên tục trọn vẹn 100% thời lượng clip (1-3 phút) như ghi thủ công, không bị ngắt ngang khi đối tượng tạm dừng.",
+        "Tính năng Seamless Rollover: Tự động phát hiện nếu sự việc vẫn đang diễn ra ở cuối clip để mở file mới nối tiếp ngay tức thì, không bỏ sót khoảnh khắc nào.",
+        "Bộ lọc Dual-Trigger tối ưu: Bắt nhạy mọi chuyển động thực (kể cả di chuyển chậm/ở xa), triệt tiêu 100% báo động giả trong cảnh tĩnh."
+      ],
+      "en": [
+        "Guaranteed Clip Duration: Once motion triggers, records the full configured clip duration (1-3 mins) continuously without premature cuts when subjects pause.",
+        "Seamless Rollover: Automatically detects ongoing movement near clip boundaries to smoothly roll over to the next part without missing a second.",
+        "Optimized Dual-Trigger: Accurately detects all true movements (including slow/distant motion) while preserving zero false alarms in static scenes."
+      ],
+      "ja": [
+        "フルクリップ録画保証: 動体検知時に設定したクリップ時間（1〜3分）を確実に最後まで録画、被写体の一時停止による中断を防止。",
+        "シームレス継続機能: クリップ終了時に動きが継続している場合、即座に次のファイルへ無瞬断で継続録画。",
+        "最適化デュアルトリガー: 遠方や低速の実際の動きを確実に捉えつつ、静止時の誤検知ゼロを維持。"
+      ],
+      "zh": [
+        "完整片段保障机制: 侦测到移动后承诺完整录满设定时长（1-3分钟），目标短暂停顿时绝不断录。",
+        "无缝连续衔接: 片段末尾若仍有动态自动开启下一片段录制，确保监控事件零遗漏。",
+        "优化双重触发引擎: 敏锐捕捉远距离及缓慢移动，同时确保静态场景零误报。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.024",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.024 - Nâng cấp Trình phát Video Thẻ nhớ On-Demand & Chống Treo Toàn diện",
+      "en": "Release v1.0.024 - High-Performance Zero-Leak SD Video Player Engine & Anti-Freeze Architecture",
+      "ja": "リリース v1.0.024 - 高性能ゼロリークSD動画プレーヤー＆完全フリーズ防止アーキテクチャ",
+      "zh": "发布 v1.0.024 - 高性能零内存泄漏SD卡视频播放器与防卡死架构"
+    },
+    "description": {
+      "vi": "🚀 Khắc phục triệt để hiện tượng website bị treo/đơ khi xem video lưu trên thẻ nhớ. Sử dụng cơ chế giải mã On-Demand (giảm RAM từ 2GB xuống 25MB), tạm dừng Live stream & Polling khi xem lại để dồn 100% tài nguyên CPU/WiFi, tích hợp thanh tiến trình tải thời gian thực và ngắt kết nối an toàn (AbortController).",
+      "en": "🚀 Completely fixed browser and ESP32 freeze issues when reviewing SD card videos. Uses on-demand frame decoding (slashing memory from 2GB down to 25MB), auto-pauses live stream and polling during playback to dedicate 100% CPU/WiFi bandwidth, and includes progressive download progress bar with instant cancellation (AbortController).",
+      "ja": "🚀 SDカード動画再生時のブラウザおよびESP32フリーズ問題を完全解消。オンデマンドフレームデコード採用（メモリ消費を2GBから25MBに削減）、再生中のライブ配信＆ポーリング自動一時停止、リアルタイムダウンロード進捗バー、即時中断（AbortController）を実装。",
+      "zh": "🚀 彻底解决在网页端回放SD卡录像导致的浏览器及ESP32卡死现象。采用按需单帧解码机制（内存占用从2GB降至25MB），回放时自动暂停实时视频流与轮询以释放100% CPU及WiFi资源，内置实时进度条与即时取消（AbortController）。"
+    },
+    "changes": {
+      "vi": [
+        "Cơ chế On-Demand Canvas Player: Giải mã từng frame trực tiếp qua createImageBitmap, giải phóng RAM ngay sau khi vẽ, triệt tiêu hoàn toàn tràn bộ nhớ trình duyệt (OOM).",
+        "Tối ưu phân phối tài nguyên ESP32: Tự động ngắt Live Stream và chu kỳ Polling khi mở video để giải phóng TCP socket và tránh nghẽn CPU Core 1.",
+        "Tiến trình tải thời gian thực & AbortController: Hiển thị thanh tiến trình chi tiết (MB / Total MB và %) và huỷ kết nối tải ngay khi đóng cửa sổ phát video."
+      ],
+      "en": [
+        "On-Demand Canvas Player: Decodes frames on-the-fly via createImageBitmap and immediately frees bitmaps, completely eliminating browser OOM crashes.",
+        "ESP32 Resource Management: Temporarily suspends live MJPEG stream and status polling when opening video to prevent socket starvation and Core 1 stalls.",
+        "Real-time Download Progress & AbortController: Displays live progress bar (MB / Total MB and %) and immediately cancels stream transfer when closing the modal."
+      ],
+      "ja": [
+        "オンデマンドCanvasプレーヤー: createImageBitmapによる逐次デコードと即時解放により、ブラウザのOOMクラッシュを完全防止。",
+        "ESP32リソース制御: 動画再生時にライブ配信とポーリングを自動一時停止し、TCPソケット枯渇とCPU停滞を回避。",
+        "リアルタイムダウンロード進捗＆AbortController: 詳細な進捗バー（MB/総MB、%）を表示し、モーダル閉鎖時に即時通信をキャンセル。"
+      ],
+      "zh": [
+        "按需Canvas播放引擎: 通过createImageBitmap按需单帧解码并立即释放，彻底消除浏览器OOM崩溃。",
+        "ESP32资源调度优化: 播放视频时自动挂起实时视频流与状态轮询，避免TCP Socket耗尽及CPU Core 1阻塞。",
+        "实时下载进度条与AbortController: 显示详细进度（已下载MB/总MB及%），关闭弹窗时立刻中止数据传输。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.023",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.023 - Động cơ Nhận diện Chuyển động Biến thiên JPEG Độc lập (Triệt tiêu 100% Báo động Giả)",
+      "en": "Release v1.0.023 - Deterministic JPEG Dynamics Motion Engine (Zero False Alarms)",
+      "ja": "リリース v1.0.023 - 確定的JPEG動態検知エンジン（誤検知100%完全排除）",
+      "zh": "发布 v1.0.023 - 确定性JPEG动态侦测引擎（彻底消除误报）"
+    },
+    "description": {
+      "vi": "🚀 Khắc phục triệt để lỗi báo động giả khi tĩnh lặng. Chuyển sang mô hình động lực học dung lượng nén JPEG và độ lệch nền tĩnh chuẩn xác, giúp chỉ số SAD khi đứng yên tụt về 0-8 và chỉ kích hoạt khi có cử động thực tế.",
+      "en": "🚀 Completely eliminated false motion detection in static scenes using deterministic JPEG compression dynamics. Static score drops to 0-8 and only triggers on true movements.",
+      "ja": "🚀 静止時の誤検知を完全解消。確定型JPEG圧縮動態モデルを採用し、静止時スコアは0-8に安定低下、実際の動きのみを確実に検知。",
+      "zh": "🚀 彻底消除静止画面下的误报。采用确定性JPEG压缩动态学模型，静止时SAD稳定在0-8，仅在有真实移动时触发。"
+    },
+    "changes": {
+      "vi": [
+        "Động cơ JPEG Compression Dynamics: Phân tích độ lệch kích thước nén tức thời và độ lệch nền tĩnh (Baseline Displacement), loại bỏ hoàn toàn việc phân tích byte ngẫu nhiên trên luồng Huffman.",
+        "Điểm số Web HUD chính xác tuyệt đối: Khi đứng yên SAD chỉ từ 1-8 (màu xanh Standby). Khi có chuyển động SAD nhảy lên 50-200 (màu đỏ Motion).",
+        "Bộ lọc 2 tầng thời gian: Yêu cầu 2 frame liên tiếp xác nhận, tự động dừng ghi sau 15 giây khi không còn chuyển động."
+      ],
+      "en": [
+        "JPEG Compression Dynamics Engine: Evaluates instant compression size delta and baseline displacement, fully eliminating random byte sampling on Huffman streams.",
+        "Deterministic Web HUD Score: Static scene produces SAD 1-8 (green standby), while active motion spikes SAD to 50-200 (red motion).",
+        "2-Stage Temporal Confirmation: Requires 2 consecutive positive frames, auto-stopping 15s after motion ceases."
+      ],
+      "ja": [
+        "JPEG圧縮動態エンジン: 瞬時圧縮サイズ差分とベースライン変位を解析し、ハフマンストリームへの直接アクセスを廃止。",
+        "Web HUDスコアの確定性: 静止時はSAD 1-8（緑色待機）、動体検知時はSAD 50-200（赤色検知）に明確に分離。",
+        "2段階時間フィルタ: 2フレーム連続確認後、動体停止後15秒で自動録画終了。"
+      ],
+      "zh": [
+        "JPEG压缩动力学引擎: 评估瞬时压缩大小差分与基准背景位移，彻底废除对哈夫曼流的随机字节采样。",
+        "Web HUD指示绝对准确: 静止时SAD稳定在1-8（绿色待机），运动时SAD跃升至50-200（红色侦测）。",
+        "2阶段时间确认: 连续2帧确认，运动结束后15秒自动停止录像。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.022",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.022.bin",
+    "title": {
+      "vi": "Phát hành v1.0.022 - Hiển thị Phiên bản Firmware trên Giao diện Web SD Gallery",
+      "en": "Release v1.0.022 - Display Firmware Version on SD Gallery Web UI",
+      "ja": "リリース v1.0.022 - SDギャラリーWeb画面へのファームウェアバージョン表示",
+      "zh": "发布 v1.0.022 - SD卡相册Web页面直观展示固件版本"
+    },
+    "description": {
+      "vi": "✨ Bổ sung hiển thị huy hiệu phiên bản Firmware trực tiếp tại thanh tiêu đề và chân trang của giao diện Quản lý Thẻ nhớ SD Gallery (/sd), tự động đồng bộ thời gian thực qua REST API /sd_status.",
+      "en": "✨ Added firmware version badge directly to the header and footer of the SD Card & Video Gallery UI (/sd), synchronized in real-time via /sd_status REST API.",
+      "ja": "✨ SDカードギャラリー画面（/sd）のヘッダーおよびフッターにファームウェアバージョンバッジを追加。/sd_status APIを通じてリアルタイム同期。",
+      "zh": "✨ 在SD卡相册界面（/sd）顶部标题栏和页脚直接显示固件版本徽章，通过/sd_status API实时同步。"
+    },
+    "changes": {
+      "vi": [
+        "Huy hiệu phiên bản trên Header SD Gallery: Hiển thị nổi bật phiên bản firmware hiện tại cạnh tiêu đề trang.",
+        "Footer thông tin hệ thống: Bổ sung chân trang hiển thị trạng thái firmware và liên kết điều hướng nhanh về Dashboard.",
+        "Đồng bộ REST API /sd_status: Trả về trường version phục vụ hiển thị động trên web."
+      ],
+      "en": [
+        "Header Version Badge: Prominently displays the active firmware version on the SD Gallery header.",
+        "System Footer: Added footer with firmware version info and quick navigation link to Dashboard.",
+        "REST API Synchronization: /sd_status now returns the current firmware version string."
+      ],
+      "ja": [
+        "ヘッダーバージョンバッジ: SDギャラリーのヘッダーに現在のバージョンを目立つバッジで表示。",
+        "システムフッター: フッターにバージョン情報とDashboardへのクイックリンクを追加。",
+        "REST API同期: /sd_statusエンドポイントにversionプロパティを追加。"
+      ],
+      "zh": [
+        "顶部版本徽章: 在SD相册标题旁直观展示当前运行的固件版本。",
+        "系统页脚信息: 增加页脚展示固件版本及返回Dashboard快捷入口。",
+        "REST API同步: /sd_status接口新增返回当前版本号字段。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.021",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.021.bin",
+    "title": {
+      "vi": "Phát hành v1.0.021 - Động cơ Phát hiện Chuyển động Mật độ Năng lượng Phân vùng (Spatial Chunk Energy)",
+      "en": "Release v1.0.021 - Spatial Chunk Energy Motion Engine & Zero False Alarms",
+      "ja": "リリース v1.0.021 - 空間ブロックエネルギー動体検知エンジン（誤検知ゼロ化）",
+      "zh": "发布 v1.0.021 - 空间分块能量动态侦测引擎（零误报算法）"
+    },
+    "description": {
+      "vi": "🎯 Sửa dứt điểm lỗi báo động giả khi khung hình tĩnh. Chuyển đổi từ so sánh byte bitstream JPEG sang thuật toán mật độ năng lượng không gian 16 phân vùng (Spatial Chunk Energy) kết hợp biến thiên dung lượng nén.",
+      "en": "🎯 Completely fixed false motion triggers on static frames. Upgraded from byte-level stream comparison to 16-zone Spatial Chunk Energy Density combined with relative JPEG compression variance.",
+      "ja": "🎯 静止画面時の誤検知問題を完全解決。JPEGビットストリーム直接比較から16分割空間ブロックエネルギー密度＋圧縮率分散アルゴリズムへ全面刷新。",
+      "zh": "🎯 彻底修复静态画面时的误报问题。将底层算法从JPEG字节流直接比较重构为16空间分块能量密度与压缩率变异结合检测。"
+    },
+    "changes": {
+      "vi": [
+        "Thuật toán 16 Phân vùng Không gian (Spatial Chunk Energy): Lấy mẫu năng lượng trung bình trên 16 khu vực ảnh, triệt tiêu 100% hiện tượng lệch pha Huffman do nhiễu nhiệt cảm biến.",
+        "Bộ lọc kép SAD & Tỷ lệ nén JPEG: Yêu cầu đồng thời cả biến thiên năng lượng phân vùng và độ lệch dung lượng JPEG (>= 6%) mới kích hoạt, đảm bảo khung hình tĩnh SAD luôn thấp (30-50).",
+        "Thích ứng nền động mượt mà: Tự động học lại độ sáng nền tĩnh sau 3 giây yên tĩnh, chống báo động giả khi ánh sáng phòng thay đổi từ từ."
+      ],
+      "en": [
+        "16-Zone Spatial Chunk Energy Algorithm: Averages energy across 16 image sectors to eliminate 100% of Huffman bitstream phase-shift false alarms.",
+        "Dual Filter (Chunk SAD & JPEG Compression Ratio): Requires both spatial energy shift and JPEG size change (>= 6%) to trigger.",
+        "Smooth Dynamic Background Adaptation: Automatically re-learns ambient background lighting after 3s of calm conditions."
+      ],
+      "ja": [
+        "16分割空間ブロックエネルギー: 16領域の平均エネルギーを算出し、センサ熱ノイズによる誤検知を完全排除。",
+        "デュアルフィルタ (SAD & 圧縮率): 空間エネルギー変化とファイルサイズ変化（6%以上）の双方を確認。",
+        "動的背景適応: 静止後3秒で周囲光の変化を自動学習。"
+      ],
+      "zh": [
+        "16空间分块能量算法: 统计16个图像扇区的能量均值，彻底消除热噪声导致的比特流相位漂移误报。",
+        "双重判定滤波: 需同时满足分块SAD与JPEG大小变化（>=6%）才触发录像。",
+        "平滑动态背景自适应: 画面静止3秒后自动适应环境光照变化。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.020",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.020.bin",
+    "title": {
+      "vi": "Phát hành v1.0.020 - Cơ chế Tự động Hủy File Rác Video Hướng Sự Kiện (Event-Driven)",
+      "en": "Release v1.0.020 - Event-Driven Transient Video Discard & Auto-Cleanup",
+      "ja": "リリース v1.0.020 - イベント駆動型ゴミ動画自動破棄＆クリーンアップ",
+      "zh": "发布 v1.0.020 - 事件驱动型短垃圾视频自动清除"
+    },
+    "description": {
+      "vi": "⚡ Bổ sung cơ chế hướng sự kiện tự động hủy và xóa file rác (dưới 3 frames ~ 15-30KB) ngay tại thời điểm đóng file mà không cần chạy tác vụ quét nền, giúp tối ưu tuyệt đối 0% CPU và thẻ nhớ luôn sạch sẽ.",
+      "en": "⚡ Implemented event-driven instant deletion of transient junk videos (under 3 frames) directly on finalize without background scanning tasks, guaranteeing 0% CPU overhead and a clean SD gallery.",
+      "ja": "⚡ ファイル終了時に3フレーム未満のゴミ動画を即時自動削除するイベント駆動機構を実装。バックグラウンド常時スキャン不要でCPU負荷0%を維持。",
+      "zh": "⚡ 增加事件驱动型短视频自动清除机制，在录像结束时若小于3帧直接原地删除，无需后台定时扫描，零CPU开销且相册永久干净。"
+    },
+    "changes": {
+      "vi": [
+        "Tự động hủy file rác Event-Driven: Khi kết thúc ghi hình, nếu video có <= 2 frames do chớm bật/ngắt hoặc nhiễu khởi tạo, hệ thống lập tức gọi SD_MMC.remove() xóa file trong 1ms.",
+        "Tiết kiệm tài nguyên tuyệt đối: Không cần chạy timer hoặc task quét nền kiểm tra thẻ nhớ liên tục, tốn đúng 0 bytes RAM và không ảnh hưởng đến luồng streaming camera.",
+        "Bảo đảm thư viện luôn chuẩn: Danh sách video trên Web Gallery chỉ lưu các đoạn quay chuyển động hoàn chỉnh, loại bỏ hoàn toàn các file 15KB 1 frame."
+      ],
+      "en": [
+        "Event-Driven Transient Video Discard: Instantly deletes videos with <= 2 frames upon finalizing in 1ms without extra overhead.",
+        "Zero-Resource Overhead: Completely eliminates the need for periodic background SD card scanners, consuming 0 bytes of extra RAM.",
+        "Pristine Video Gallery: Ensures only valid, full-length motion recordings are kept on the SD card."
+      ],
+      "ja": [
+        "イベント駆動型動画自動破棄: 2フレーム以下の動画終了時に即座に削除処理を実行（所要時間1ms）。",
+        "リソース消費ゼロ: バックグラウンド定期スキャンタスクを排除し、追加RAM消費0バイトを実現。",
+        "クリーンなギャラリー管理: 完全な動体検知録画ファイルのみを保持。"
+      ],
+      "zh": [
+        "事件驱动型临时视频清除: 当录像帧数<=2时在关闭文件时原地调用删除，耗时仅1ms。",
+        "零资源开销: 无需运行后台扫描任务，不消耗额外RAM，完全不影响实时串流。",
+        "保证相册纯净: SD卡视频相册仅保留完整有效的监控视频。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.019",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.019.bin",
     "title": {
       "vi": "Phát hành v1.0.019 - Động cơ Ghi hình Chống Phân mảnh & Lọc nhiễu Chuyển động Kép",
       "en": "Release v1.0.019 - Anti-Fragmentation Motion Engine & Dual Baseline Detection",

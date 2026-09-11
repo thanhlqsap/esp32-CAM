@@ -1,6 +1,6 @@
 {
-  "version": "1.0.028",
+  "version": "1.0.029",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.028: Anti-Flood Unified Sequential Polling & Smooth Stream Initialization (Fix continuous loading spinner) / Đột phá Cơ chế đồng bộ tuần tự chống nghẽn Socket & Tối ưu khởi tạo luồng"
+  "changelog": "Release v1.0.029: Standalone FPV Robot Car Controller & Multi-Motor PWM Driver / Ra mắt tính năng Xe điều khiển FPV Cockpit Web UI độc lập và driver điều tốc PWM đa kênh"
 }
