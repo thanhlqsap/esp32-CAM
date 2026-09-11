@@ -1,6 +1,6 @@
 {
-  "version": "1.0.024",
+  "version": "1.0.025",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.024: High-Performance Zero-Leak SD Video Player Engine & Anti-Freeze Architecture / Nâng cấp Trình phát video Thẻ nhớ Hiệu năng cao, Chống treo Web & ESP32"
+  "changelog": "Release v1.0.025: Guaranteed Full Clip Motion Recording & Seamless Rollover Engine / Chuẩn hóa Ghi hình chuyển động Cam kết trọn vẹn thời lượng clip & Tự động nối tiếp"
 }
