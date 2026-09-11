@@ -1,6 +1,6 @@
 {
-  "version": "1.0.027",
+  "version": "1.0.028",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.027: Noise Floor Guard & Adaptive Energy Motion Detector (Zero False Alarm on Dark/Covered Lens) / Thuật toán bảo vệ chống báo động giả khi đậy nắp hoặc trong bóng tối"
+  "changelog": "Release v1.0.028: Anti-Flood Unified Sequential Polling & Smooth Stream Initialization (Fix continuous loading spinner) / Đột phá Cơ chế đồng bộ tuần tự chống nghẽn Socket & Tối ưu khởi tạo luồng"
 }
