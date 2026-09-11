@@ -1,6 +1,6 @@
 {
-  "version": "1.0.025",
+  "version": "1.0.026",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.025: Guaranteed Full Clip Motion Recording & Seamless Rollover Engine / Chuẩn hóa Ghi hình chuyển động Cam kết trọn vẹn thời lượng clip & Tự động nối tiếp"
+  "changelog": "Release v1.0.026: Ultra-Fast Matrix SAD Motion Detection & Real-Time Live HUD Monitor / Thuật toán phát hiện chuyển động ma trận SAD siêu tốc & Giám sát HUD thời gian thực"
 }
