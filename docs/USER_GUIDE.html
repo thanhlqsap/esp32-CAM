@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP32-CAM Multi-Sensor, Hybrid OTA & Robot Car - User Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #64748b;
+      --success: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --code-bg: #0f172a;
+      --code-text: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* Đa ngôn ngữ CSS-driven (4 Languages) */
+    body:not([data-lang="vi"]) .lang-vi { display: none !important; }
+    body:not([data-lang="en"]) .lang-en { display: none !important; }
+    body:not([data-lang="ja"]) .lang-ja { display: none !important; }
+    body:not([data-lang="zh"]) .lang-zh { display: none !important; }
+
+    /* Floating Action Bar (Screen Only) */
+    .action-bar {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      padding: 8px 14px;
+      border-radius: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      border: 1px solid var(--border);
+    }
+
+    .lang-select {
+      background: #0f172a;
+      color: #fff;
+      border: 1px solid #334155;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .lang-select:hover {
+      border-color: var(--primary);
+    }
+
+    .btn-action {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-action:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .btn-secondary-action {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+    .btn-secondary-action:hover {
+      background: #cbd5e1;
+    }
+
+    /* Container Layout */
+    .layout {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* Header Cover */
+    .doc-header {
+      text-align: center;
+      padding: 40px 20px 30px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #fff;
+      border-radius: 16px;
+      margin-bottom: 36px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .doc-header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+    }
+    .doc-title {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: #f8fafc;
+    }
+    .doc-subtitle {
+      font-size: 15.5px;
+      color: #94a3b8;
+      max-width: 780px;
+      margin: 0 auto 18px;
+    }
+    .doc-meta {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      font-size: 13px;
+      color: #38bdf8;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+    .meta-tag {
+      background: rgba(56, 189, 248, 0.15);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    /* Table of Contents */
+    .toc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 36px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .toc-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 8px;
+    }
+    .toc-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+      display: block;
+    }
+    .toc-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 600;
+      padding-left: 14px;
+    }
+
+    /* Sections */
+    .section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title span.num {
+      background: var(--primary);
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0 10px;
+      color: #1e293b;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: #334155;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 16px;
+      color: #334155;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+    }
+    th, td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+    }
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Code Blocks & ASCII */
+    pre, code {
+      font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+    }
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 16px 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 14px 0 18px;
+    }
+    p code, li code, td code {
+      background: #f1f5f9;
+      color: #0369a1;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Callouts / Alerts */
+    .callout {
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-size: 14px;
+      border-left: 4px solid;
+    }
+    .callout-info {
+      background: #f0f9ff;
+      border-color: #0284c7;
+      color: #0369a1;
+    }
+    .callout-warning {
+      background: #fefce8;
+      border-color: #ca8a04;
+      color: #854d0e;
+    }
+    .callout-danger {
+      background: #fef2f2;
+      border-color: #dc2626;
+      color: #991b1b;
+    }
+    .callout-success {
+      background: #f0fdf4;
+      border-color: #16a34a;
+      color: #166534;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-pill.green { background: #dcfce7; color: #15803d; }
+    .badge-pill.blue { background: #e0f2fe; color: #0369a1; }
+    .badge-pill.red { background: #fee2e2; color: #b91c1c; }
+    .badge-pill.yellow { background: #fef3c7; color: #b45309; }
+
+    /* Wiring Diagram Container */
+    .diagram-container {
+      background: #0b1120;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 20px 0 24px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .diagram-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .diagram-caption {
+      margin-top: 12px;
+      font-size: 13.5px;
+      color: #94a3b8;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .doc-footer {
+      text-align: center;
+      padding-top: 30px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ==========================================================================
+       PRINT STYLESHEET (CHUẨN IN ẤN TRÊN GIẤY A4 / PDF EXPORT)
+       ========================================================================== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 15mm;
+      }
+
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 10.5pt;
+        line-height: 1.45;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .layout {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .doc-header {
+        background: #f1f5f9 !important;
+        color: #000 !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        padding: 20px !important;
+        margin-bottom: 20px !important;
+        page-break-after: avoid;
+      }
+      .doc-title {
+        color: #0f172a !important;
+        font-size: 18pt !important;
+      }
+      .doc-subtitle {
+        color: #475569 !important;
+        font-size: 10.5pt !important;
+      }
+      .meta-tag {
+        border-color: #cbd5e1 !important;
+        color: #0f172a !important;
+      }
+
+      .toc-card {
+        border: 1px solid #94a3b8 !important;
+        box-shadow: none !important;
+        page-break-after: auto;
+      }
+
+      .section {
+        background: #fff !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        padding: 16px !important;
+        margin-bottom: 20px !important;
+        page-break-inside: avoid;
+      }
+
+      .section-title {
+        color: #0f172a !important;
+        border-bottom: 1.5px solid #000 !important;
+        page-break-after: avoid;
+      }
+
+      table {
+        font-size: 9pt !important;
+        page-break-inside: avoid;
+      }
+      th {
+        background: #e2e8f0 !important;
+        color: #000 !important;
+      }
+      th, td {
+        border: 1px solid #64748b !important;
+      }
+
+      pre {
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1 !important;
+        font-size: 8.5pt !important;
+        white-space: pre-wrap !important;
+        word-break: break-all;
+        page-break-inside: avoid;
+      }
+
+      p code, li code {
+        background: #f1f5f9 !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+
+      .callout {
+        border-left: 4px solid #000 !important;
+        background: #f8fafc !important;
+        color: #000 !important;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body data-lang="vi">
+
+  <!-- Floating Screen Buttons -->
+  <div class="action-bar">
+    <select class="lang-select" id="langSelect" onchange="changeLang(this.value)">
+      <option value="vi">🇻🇳 Tiếng Việt</option>
+      <option value="en">🇬🇧 English</option>
+      <option value="ja">🇯🇵 日本語</option>
+      <option value="zh">🇨🇳 简体中文</option>
+    </select>
+    <a href="#sec11" class="btn-action" style="background:#059669;">
+      <span class="lang-vi">📖 Tra Cứu API</span>
+      <span class="lang-en">📖 REST API Docs</span>
+      <span class="lang-ja">📖 REST API 検索</span>
+      <span class="lang-zh">📖 REST API 查询</span>
+    </a>
+    <button class="btn-action" onclick="window.print()">
+      <span class="lang-vi">🖨️ In / PDF</span>
+      <span class="lang-en">🖨️ Print / PDF</span>
+      <span class="lang-ja">🖨️ 印刷 / PDF</span>
+      <span class="lang-zh">🖨️ 打印 / PDF</span>
+    </button>
+  </div>
+
+  <div class="layout">
+
+    <!-- HEADER -->
+    <header class="doc-header">
+      <h1 class="doc-title">
+        <span class="lang-vi">SÁCH HƯỚNG DẪN SỬ DỤNG HỆ THỐNG ESP32-CAM</span>
+        <span class="lang-en">ESP32-CAM SYSTEM USER MANUAL</span>
+        <span class="lang-ja">ESP32-CAM システム ユーザーマニュアル</span>
+        <span class="lang-zh">ESP32-CAM 系统用户使用指南</span>
+      </h1>
+      <p class="doc-subtitle">
+        <span class="lang-vi">Cẩm nang toàn diện: Multi-Sensor Camera, Hybrid Dual-OTA, Quản lý Thẻ nhớ & Video Chuyển động, Xe Điều Khiển FPV Cockpit và Bảng Tra Cứu Toàn Bộ REST API</span>
+        <span class="lang-en">Comprehensive Guide: Multi-Sensor Camera, Hybrid Dual-OTA, MicroSD Motion Video, FPV Robot Car Cockpit, and Complete REST API Reference</span>
+        <span class="lang-ja">完全ガイド：マルチセンサーカメラ、ハイブリッドDual-OTA、SDカード動体検知録画、FPVロボットカー操縦、全REST APIリファレンス</span>
+        <span class="lang-zh">全功能手册：多传感器摄像头、双OTA固件升级、SD卡动态录像、FPV遥控小车驾驶舱及完整REST API参考</span>
+      </p>
+      <div class="doc-meta">
+        <span class="meta-tag">🏷️ <span class="lang-vi">Phiên bản</span><span class="lang-en">Version</span><span class="lang-ja">バージョン</span><span class="lang-zh">版本</span>: v1.0.033</span>
+        <span class="meta-tag">📦 AI-Thinker ESP32-CAM + PSRAM 4MB</span>
+        <span class="meta-tag">🚀 Dual-OTA (ota_0 / ota_1)</span>
+        <span class="meta-tag">🏎️ FPV Robot Car Controller</span>
+      </div>
+    </header>
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc-card">
+      <div class="toc-title">
+        <span>📑</span>
+        <span class="lang-vi">MỤC LỤC TÀI LIỆU HỆ THỐNG</span>
+        <span class="lang-en">TABLE OF CONTENTS</span>
+        <span class="lang-ja">ドキュメント目次</span>
+        <span class="lang-zh">文档目录</span>
+      </div>
+      <div class="toc-grid">
+        <a href="#sec1" class="toc-link"><b>1.</b> <span class="lang-vi">Sơ Đồ Chân GPIO & Phần Cứng</span><span class="lang-en">GPIO Pinout & Hardware</span><span class="lang-ja">GPIOピン配置＆ハードウェア</span><span class="lang-zh">GPIO引脚图与硬件结构</span></a>
+        <a href="#sec2" class="toc-link"><b>2.</b> <span class="lang-vi">Cấp Nguồn & Chống Sụt Áp</span><span class="lang-en">Power Supply & Brownout Guard</span><span class="lang-ja">電源供給＆電圧降下対策</span><span class="lang-zh">供电方案与防掉电重启</span></a>
+        <a href="#sec3" class="toc-link"><b>3.</b> <span class="lang-vi">Khởi Động & Wi-Fi Captive Portal</span><span class="lang-en">First Boot & Wi-Fi Captive Portal</span><span class="lang-ja">初回起動＆Wi-Fiポータル設定</span><span class="lang-zh">首次启动与Wi-Fi配网页面</span></a>
+        <a href="#sec4" class="toc-link"><b>4.</b> <span class="lang-vi">Dashboard & Điều Chỉnh Camera</span><span class="lang-en">Dashboard & Camera Tuning</span><span class="lang-ja">ダッシュボード＆カメラ調整</span><span class="lang-zh">控制台与摄像头画质调节</span></a>
+        <a href="#sec5" class="toc-link"><b>5.</b> <span class="lang-vi">Thẻ Nhớ & Ghi Video Chuyển Động</span><span class="lang-en">MicroSD & Motion Recording</span><span class="lang-ja">SDカード＆動体検知録画</span><span class="lang-zh">SD卡存储与动态录像</span></a>
+        <a href="#sec6" class="toc-link"><b>6.</b> <span class="lang-vi">Xe Điều Khiển FPV Robot Car</span><span class="lang-en">FPV Robot Car Controller</span><span class="lang-ja">FPVロボットカー操縦</span><span class="lang-zh">FPV遥控小车控制器</span></a>
+        <a href="#sec7" class="toc-link"><b>7.</b> <span class="lang-vi">Cấu Hình Điểm Phát Wi-Fi AP</span><span class="lang-en">SoftAP Wi-Fi Configuration</span><span class="lang-ja">SoftAP Wi-Fi設定</span><span class="lang-zh">SoftAP热点配置</span></a>
+        <a href="#sec8" class="toc-link"><b>8.</b> <span class="lang-vi">Bảo Mật & Tích Hợp Home Assistant</span><span class="lang-en">Security & Integration</span><span class="lang-ja">認証セキュリティ＆外部統合</span><span class="lang-zh">身份验证与第三方集成</span></a>
+        <a href="#sec9" class="toc-link"><b>9.</b> <span class="lang-vi">Cứu Hộ Khẩn Cấp (GPIO13)</span><span class="lang-en">Emergency Rescue (GPIO13)</span><span class="lang-ja">緊急救助リセット (GPIO13)</span><span class="lang-zh">硬件紧急恢复 (GPIO13)</span></a>
+        <a href="#sec10" class="toc-link"><b>10.</b> <span class="lang-vi">Nâng Cấp Firmware (Hybrid OTA)</span><span class="lang-en">Firmware Upgrade (Hybrid OTA)</span><span class="lang-ja">ファームウェア更新 (Hybrid OTA)</span><span class="lang-zh">固件无缝升级 (Hybrid OTA)</span></a>
+        <a href="#sec11" class="toc-link" style="color:#0284c7; font-weight:700;"><b>11.</b> <span class="lang-vi">BẢNG TRA CỨU REST API TOÀN DIỆN</span><span class="lang-en">FULL REST API REFERENCE</span><span class="lang-ja">全REST APIリファレンス</span><span class="lang-zh">完整REST API查询手册</span></a>
+        <a href="#sec12" class="toc-link"><b>12.</b> <span class="lang-vi">Xử Lý Sự Cố (Troubleshooting)</span><span class="lang-en">Troubleshooting & FAQ</span><span class="lang-ja">トラブルシューティング</span><span class="lang-zh">常见问题排查与解决</span></a>
+      </div>
+    </nav>
+
+    <!-- SECTION 1 -->
+    <section class="section" id="sec1">
+      <h2 class="section-title"><span class="num">1</span>
+        <span class="lang-vi">Sơ Đồ Chân GPIO & Phần Cứng Bo Mạch</span>
+        <span class="lang-en">GPIO Pinout & Hardware Architecture</span>
+        <span class="lang-ja">GPIOピン配置＆ハードウェア構造</span>
+        <span class="lang-zh">GPIO引脚图与硬件结构说明</span>
+      </h2>
+      <p>
+        <span class="lang-vi">Bo mạch <b>AI-Thinker ESP32-CAM</b> sở hữu 16 chân cắm Header vật lý (2 hàng x 8 chân). Việc nắm rõ phân bổ chân là yếu tố then chốt để kết nối ngoại vi an toàn:</span>
+        <span class="lang-en">The <b>AI-Thinker ESP32-CAM</b> board features 16 physical header pins (2 rows x 8 pins). Understanding the exact pin allocation is critical for safe peripheral integration:</span>
+        <span class="lang-ja"><b>AI-Thinker ESP32-CAM</b>ボードには16本の物理ヘッダーピン（2列×8ピン）があります。周辺機器を安全に接続するためにピン割り当てを理解することが極めて重要です：</span>
+        <span class="lang-zh"><b>AI-Thinker ESP32-CAM</b> 开发板包含 16 个物理排针引脚（2排×8针）。掌握引脚分配是安全扩展外设的关键：</span>
+      </p>
+
+      <!-- Pinout ASCII Vietnamese -->
+      <pre class="lang-vi">
+                        ┌─────────────────────────┐
+                        │      [Antenna PCB]      │
+                        │                         │
+                        │     [Camera OV2640]     │
+                        │     ┌─────────────┐     │
+                        │     │  Lens FPC   │     │
+                        │     └─────────────┘     │
+                        │                         │
+      [Nguồn vào 5V] ───┤ 5V                  3V3 ├─── [Nguồn ra 3.3V LDO]
+          [Mass GND] ───┤ GND                IO16 ├─── [PSRAM CS - CẤM DÙNG ⛔]
+     [GPIO12 / IN1] ───┤ IO12                IO0 ├─── [Boot Flash / Camera XCLK]
+     [GPIO13 / IN2] ───┤ IO13                GND ├─── [Mass GND]
+     [GPIO15 / IN3] ───┤ IO15                VCC ├─── [Nguồn ra VCC (3.3V)]
+     [GPIO14 / IN4] ───┤ IO14                U0R ├─── [GPIO3 / UART0 RX]
+      [GPIO2 / Servo] ──┤ IO2                 U0T ├─── [GPIO1 / UART0 TX]
+   [GPIO4 / Flash LED] ─┤ IO4                 GND ├─── [Mass GND]
+                        │                         │
+                        │  [MicroSD Slot (Back)]  │
+                        │       [RST Button]      │
+                        └─────────────────────────┘
+      </pre>
+
+      <!-- Pinout ASCII English -->
+      <pre class="lang-en">
+                        ┌─────────────────────────┐
+                        │      [Antenna PCB]      │
+                        │                         │
+                        │     [Camera OV2640]     │
+                        │     ┌─────────────┐     │
+                        │     │  Lens FPC   │     │
+                        │     └─────────────┘     │
+                        │                         │
+      [5V Power In]  ───┤ 5V                  3V3 ├─── [3.3V LDO Output]
+        [Ground GND] ───┤ GND                IO16 ├─── [PSRAM CS - RESTRICTED ⛔]
+     [GPIO12 / IN1]  ───┤ IO12                IO0 ├─── [Boot Flash / Camera XCLK]
+     [GPIO13 / IN2]  ───┤ IO13                GND ├─── [Ground GND]
+     [GPIO15 / IN3]  ───┤ IO15                VCC ├─── [VCC Power Out (3.3V)]
+     [GPIO14 / IN4]  ───┤ IO14                U0R ├─── [GPIO3 / UART0 RX]
+     [GPIO2 / Servo] ───┤ IO2                 U0T ├─── [GPIO1 / UART0 TX]
+   [GPIO4 / Flash LED] ─┤ IO4                 GND ├─── [Ground GND]
+                        │                         │
+                        │  [MicroSD Slot (Back)]  │
+                        │       [RST Button]      │
+                        └─────────────────────────┘
+      </pre>
+
+      <!-- Pinout ASCII Japanese -->
+      <pre class="lang-ja">
+                        ┌─────────────────────────┐
+                        │      [Antenna PCB]      │
+                        │                         │
+                        │     [Camera OV2640]     │
+                        │     ┌─────────────┐     │
+                        │     │  Lens FPC   │     │
+                        │     └─────────────┘     │
+                        │                         │
+        [5V電源入力] ───┤ 5V                  3V3 ├─── [3.3V LDO出力]
+        [グランドGND] ──┤ GND                IO16 ├─── [PSRAM CS - 使用禁止 ⛔]
+     [GPIO12 / IN1]  ───┤ IO12                IO0 ├─── [Boot Flash / Camera XCLK]
+     [GPIO13 / IN2]  ───┤ IO13                GND ├─── [グランドGND]
+     [GPIO15 / IN3]  ───┤ IO15                VCC ├─── [VCC出力 (3.3V)]
+     [GPIO14 / IN4]  ───┤ IO14                U0R ├─── [GPIO3 / UART0 RX]
+     [GPIO2 / サーボ] ──┤ IO2                 U0T ├─── [GPIO1 / UART0 TX]
+   [GPIO4 / フラッシュ] ┤ IO4                 GND ├─── [グランドGND]
+                        │                         │
+                        │  [MicroSD Slot (Back)]  │
+                        │       [RST Button]      │
+                        └─────────────────────────┘
+      </pre>
+
+      <!-- Pinout ASCII Chinese -->
+      <pre class="lang-zh">
+                        ┌─────────────────────────┐
+                        │      [板载天线 PCB]     │
+                        │                         │
+                        │     [摄像头 OV2640]     │
+                        │     ┌─────────────┐     │
+                        │     │  Lens FPC   │     │
+                        │     └─────────────┘     │
+                        │                         │
+      [5V 电源输入]  ───┤ 5V                  3V3 ├─── [3.3V LDO 稳压输出]
+        [电源地 GND] ───┤ GND                IO16 ├─── [PSRAM 芯片片选 - 严禁占用 ⛔]
+     [GPIO12 / IN1]  ───┤ IO12                IO0 ├─── [固件烧录 / 摄像头 XCLK 时钟]
+     [GPIO13 / IN2]  ───┤ IO13                GND ├─── [电源地 GND]
+     [GPIO15 / IN3]  ───┤ IO15                VCC ├─── [VCC 输出 (3.3V)]
+     [GPIO14 / IN4]  ───┤ IO14                U0R ├─── [GPIO3 / 串口 UART0 接收 RX]
+     [GPIO2 / 舵机]  ───┤ IO2                 U0T ├─── [GPIO1 / 串口 UART0 发送 TX]
+   [GPIO4 / 闪光灯]  ───┤ IO4                 GND ├─── [电源地 GND]
+                        │                         │
+                        │  [背面 MicroSD 卡槽]    │
+                        │      [RST 复位按键]     │
+                        └─────────────────────────┘
+      </pre>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><span class="lang-vi">Chân GPIO</span><span class="lang-en">GPIO Pin</span><span class="lang-ja">GPIOピン</span><span class="lang-zh">GPIO引脚</span></th>
+              <th><span class="lang-vi">Vị Trí</span><span class="lang-en">Header</span><span class="lang-ja">位置</span><span class="lang-zh">排针位置</span></th>
+              <th><span class="lang-vi">Chức Năng Mặc Định / Đề Xuất</span><span class="lang-en">Function / Allocation</span><span class="lang-ja">デフォルト機能 / 用途</span><span class="lang-zh">默认功能 / 推荐用途</span></th>
+              <th><span class="lang-vi">Lưu Ý Kỹ Thuật Quan Trọng</span><span class="lang-en">Engineering Notes</span><span class="lang-ja">技術的な注意事項</span><span class="lang-zh">重要工程注意事项</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b><code>GPIO 12</code></b></td>
+              <td>IO12</td>
+              <td><span class="lang-vi">Motor Trái - Tiến (IN1) / Digital I/O</span><span class="lang-en">Left Motor Fwd (IN1) / Digital I/O</span><span class="lang-ja">左モーター前進 (IN1) / Digital I/O</span><span class="lang-zh">左电机正转 (IN1) / 数字IO</span></td>
+              <td>⚠️ <b><span class="lang-vi">Chân Strapping (MTDI):</span><span class="lang-en">Strapping Pin (MTDI):</span><span class="lang-ja">Strappingピン (MTDI):</span><span class="lang-zh">启动配置引脚 (MTDI):</span></b> <span class="lang-vi">Phải ở mức <code>LOW</code> khi khởi động nguồn.</span><span class="lang-en">Must be <code>LOW</code> during power-on boot.</span><span class="lang-ja">起動時にLOW必須。</span><span class="lang-zh">上电启动时必须保持低电平。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 13</code></b></td>
+              <td>IO13</td>
+              <td><span class="lang-vi">Motor Trái - Lùi (IN2) / Cứu Hộ Factory Reset</span><span class="lang-en">Left Motor Bwd (IN2) / Rescue Pin</span><span class="lang-ja">左モーター後退 (IN2) / リセット救助</span><span class="lang-zh">左电机反转 (IN2) / 硬件恢复引脚</span></td>
+              <td>⭐ <span class="lang-vi">Nối <code>GND</code> lúc bật nguồn để khôi phục cài đặt gốc AP mặc định.</span><span class="lang-en">Ground during boot to trigger Factory Reset.</span><span class="lang-ja">起動時にGND短絡で初期化。</span><span class="lang-zh">开机接地触发恢复出厂设置。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 15</code></b></td>
+              <td>IO15</td>
+              <td><span class="lang-vi">Motor Phải - Tiến (IN3) / I2C SDA / PWM</span><span class="lang-en">Right Motor Fwd (IN3) / I2C SDA / PWM</span><span class="lang-ja">右モーター前進 (IN3) / PWM</span><span class="lang-zh">右电机正转 (IN3) / I2C SDA / PWM</span></td>
+              <td>⭐ <span class="lang-vi">Phát xung ROM debug lúc boot, sau đó hoạt động I/O bình thường.</span><span class="lang-en">ROM debug pulse on boot, normal I/O afterwards.</span><span class="lang-ja">起動後正常IO動作。</span><span class="lang-zh">启动后正常输出PWM与IO。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 14</code></b></td>
+              <td>IO14</td>
+              <td><span class="lang-vi">Motor Phải - Lùi (IN4) / I2C SCL / PWM</span><span class="lang-en">Right Motor Bwd (IN4) / I2C SCL / PWM</span><span class="lang-ja">右モーター後退 (IN4) / PWM</span><span class="lang-zh">右电机反转 (IN4) / I2C SCL / PWM</span></td>
+              <td>⭐ <span class="lang-vi">An toàn tuyệt đối, xuất xung PWM điều tốc động cơ hoặc Servo.</span><span class="lang-en">Fully safe, ideal for PWM motor speed or servo.</span><span class="lang-ja">完全安全、モーターPWM・サーボに最適。</span><span class="lang-zh">完全安全，输出平滑PWM调速。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 2</code></b></td>
+              <td>IO2</td>
+              <td><span class="lang-vi">Chân mở rộng / Servo Pan-Tilt / Buzzer</span><span class="lang-en">Expansion / Pan-Tilt Servo / Buzzer</span><span class="lang-ja">拡張ピン / サーボ / ブザー</span><span class="lang-zh">扩展引脚 / 云台舵机 / 蜂鸣器</span></td>
+              <td><span class="lang-vi">Đã có trở kéo xuống 10k trên mạch. Lúc boot ở mức <code>LOW</code>.</span><span class="lang-en">10k pull-down onboard. Stays LOW during boot.</span><span class="lang-ja">基板上10kプルダウン有。</span><span class="lang-zh">板载10k下拉电阻，启动保持LOW。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 4</code></b></td>
+              <td>IO4</td>
+              <td><span class="lang-vi">Đèn Flash LED Trắng / Đèn Pha Xe</span><span class="lang-en">Flash LED / Headlight</span><span class="lang-ja">フラッシュLED / ヘッドライト</span><span class="lang-zh">高亮闪光灯 / 车前大灯</span></td>
+              <td><span class="lang-vi">Nối transistor điều khiển LED trắng. Xuất <code>HIGH</code> là BẬT.</span><span class="lang-en">Drives onboard white LED. HIGH = ON.</span><span class="lang-ja">HIGH出力で点灯。</span><span class="lang-zh">驱动板载高亮LED，输出HIGH点亮。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 33</code></b></td>
+              <td>Onboard</td>
+              <td><span class="lang-vi">LED Đỏ Mặt Lưng / Đèn Hậu Xe</span><span class="lang-en">Red Status LED / Taillight</span><span class="lang-ja">赤色ステータスLED / テールランプ</span><span class="lang-zh">背部红色指示灯 / 车尾灯</span></td>
+              <td><span class="lang-vi">Kích hoạt mức <b>Active-LOW</b> (<code>LOW</code> là Sáng).</span><span class="lang-en"><b>Active-LOW</b> (LOW = ON, HIGH = OFF).</span><span class="lang-ja">Active-LOW（LOWで点灯）。</span><span class="lang-zh">低电平有效（LOW 点亮）。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 16, 17</code></b></td>
+              <td>Internal</td>
+              <td><span class="lang-vi">Bộ nhớ đệm PSRAM 4MB</span><span class="lang-en">PSRAM Memory (4MB)</span><span class="lang-ja">PSRAM 4MB</span><span class="lang-zh">PSRAM 4MB 专用</span></td>
+              <td>⛔ <b><span class="lang-vi">CẤM DÙNG:</span><span class="lang-en">RESTRICTED:</span><span class="lang-ja">使用禁止:</span><span class="lang-zh">严禁使用:</span></b> <span class="lang-vi">Can thiệp sẽ làm crash PSRAM và treo toàn bộ Camera.</span><span class="lang-en">Touching this will crash PSRAM and lock the camera.</span><span class="lang-ja">PSRAMクラッシュの原因となります。</span><span class="lang-zh">触碰会导致系统崩溃与摄像头死锁。</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section" id="sec2">
+      <h2 class="section-title"><span class="num">2</span>
+        <span class="lang-vi">Hướng Dẫn Cấp Nguồn & Chống Sụt Áp</span>
+        <span class="lang-en">Power Supply & Brownout Prevention</span>
+        <span class="lang-ja">電源供給＆電圧降下（Brownout）対策</span>
+        <span class="lang-zh">供电方案与防掉电重启（Brownout）</span>
+      </h2>
+      <p>
+        <span class="lang-vi">Khi bật đồng thời Wi-Fi công suất cao, stream video MJPEG và kích hoạt động cơ, dòng điện tức thời có thể vượt <b>600mA - 1.5A</b>. Nguồn cấp yếu là nguyên nhân hàng đầu gây ra lỗi <code>Brownout detector was triggered</code> hoặc <code>Camera init failed</code>.</span>
+        <span class="lang-en">When Wi-Fi transmission, MJPEG streaming, and motor drive operate simultaneously, peak current may exceed <b>600mA - 1.5A</b>. Weak power causes <code>Brownout detector was triggered</code> or <code>Camera init failed</code>.</span>
+        <span class="lang-ja">Wi-Fi送信、MJPEG配信、モーター駆動が同時に動作すると、ピーク電流が<b>600mA〜1.5A</b>を超える場合があります。電源不足は<code>Brownout detector was triggered</code>エラーの主原因です。</span>
+        <span class="lang-zh">当Wi-Fi高速传输、MJPEG实时视频流与电机同时工作时，瞬态电流可能超过 <b>600mA - 1.5A</b>。供电不足是导致 <code>Brownout detector was triggered</code> 掉电重启的主要原因。</span>
+      </p>
+
+      <div class="callout callout-warning">
+        <b>⚡ <span class="lang-vi">Nguyên Tắc Cấp Nguồn Chuẩn:</span><span class="lang-en">Standard Power Rules:</span><span class="lang-ja">標準電源ルール:</span><span class="lang-zh">标准供电规范:</span></b>
+        <ul>
+          <li><span class="lang-vi">Cấp nguồn <b>5V DC độc lập ≥ 2A</b> vào chân <code>5V</code> của ESP32-CAM.</span><span class="lang-en">Supply independent <b>5V DC ≥ 2A</b> to the <code>5V</code> pin.</span><span class="lang-ja">5Vピンに独立した<b>5V DC ≥ 2A</b>を給電。</span><span class="lang-zh">为 <code>5V</code> 引脚提供独立且稳定的 <b>5V DC ≥ 2A</b> 电源。</span></li>
+          <li><span class="lang-vi">Hàn thêm 1 tụ hóa <b>100µF - 470µF / 16V</b> song song giữa chân <code>5V</code> và <code>GND</code> ngay tại đầu header.</span><span class="lang-en">Solder a <b>100µF - 470µF / 16V</b> capacitor across <code>5V</code> and <code>GND</code>.</span><span class="lang-ja">5VとGND間に<b>100µF〜470µF</b>の電解コンデンサを並列接続。</span><span class="lang-zh">在 <code>5V</code> 与 <code>GND</code> 引脚之间并联一颗 <b>100µF - 470µF / 16V</b> 电解电容滤波。</span></li>
+          <li><span class="lang-vi">Khi gắn vào khung xe Robot Car, <b>tách riêng nguồn động cơ</b> (dùng 2 cell 18650 qua module Buck 5V) và nối chung Mass GND.</span><span class="lang-en">For Robot Cars, <b>separate motor power</b> (2x 18650 via Buck converter) and share common GND.</span><span class="lang-ja">ロボットカーではモーター電源を分離し、共通GNDを接続。</span><span class="lang-zh">制作遥控小车时，<b>电机需独立供电</b>（如2节18650经降压模块），并必须共用GND地线。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section" id="sec3">
+      <h2 class="section-title"><span class="num">3</span>
+        <span class="lang-vi">Khởi Động Lần Đầu & Cấu Hình Wi-Fi (Captive Portal)</span>
+        <span class="lang-en">First Boot & Wi-Fi Setup (Captive Portal)</span>
+        <span class="lang-ja">初回起動＆Wi-Fiポータル設定 (Captive Portal)</span>
+        <span class="lang-zh">首次启动与Wi-Fi配网 (Captive Portal)</span>
+      </h2>
+      <ol>
+        <li><span class="lang-vi">Cấp nguồn cho ESP32-CAM. Khi chưa có Wi-Fi lưu sẵn, thiết bị tự phát Wi-Fi tên: <b><code>ESP32-CAM-Setup</code></b> (Mật khẩu mặc định: <b><code>12345678</code></b>).</span><span class="lang-en">Power on the board. In AP mode, it broadcasts: <b><code>ESP32-CAM-Setup</code></b> (Default password: <b><code>12345678</code></b>).</span><span class="lang-ja">電源を投入します。未設定時は<b><code>ESP32-CAM-Setup</code></b>（パスワード: <b><code>12345678</code></b>）のWi-Fiを発信します。</span><span class="lang-zh">接通电源。未配网时自动发出热点：<b><code>ESP32-CAM-Setup</code></b>（默认密码：<b><code>12345678</code></b>）。</span></li>
+        <li><span class="lang-vi">Dùng điện thoại kết nối vào mạng Wi-Fi này. Cửa sổ cấu hình sẽ tự động bật lên (hoặc mở trình duyệt truy cập <b><code>http://192.168.4.1</code></b>).</span><span class="lang-en">Connect from mobile/PC. The portal pops up automatically (or browse to <b><code>http://192.168.4.1</code></b>).</span><span class="lang-ja">スマホから接続すると自動的に設定画面が開きます（または <b><code>http://192.168.4.1</code></b> にアクセス）。</span><span class="lang-zh">使用手机连接该热点，会自动弹出配网页面（或在浏览器打开 <b><code>http://192.168.4.1</code></b>）。</span></li>
+        <li><span class="lang-vi">Bấm <b>"🔍 Quét Mạng Wi-Fi"</b>, chọn Wi-Fi nhà bạn, nhập mật khẩu và bấm <b>"💾 Lưu & Kết Nối"</b>.</span><span class="lang-en">Click <b>"Scan Wi-Fi"</b>, select your network, enter the password, and click <b>"Save & Connect"</b>.</span><span class="lang-ja"><b>「Wi-Fiスキャン」</b>を押し、自宅のWi-Fiを選択してパスワードを入力後<b>「保存して接続」</b>をクリック。</span><span class="lang-zh">点击 <b>“扫描 Wi-Fi”</b>，选择家中无线网络并输入密码，点击 <b>“保存并连接”</b>。</span></li>
+        <li><span class="lang-vi">ESP32-CAM sẽ tự khởi động lại và kết nối vào mạng Wi-Fi của bạn.</span><span class="lang-en">The device reboots and connects to your local network.</span><span class="lang-ja">ESP32が再起動し、指定のWi-Fiに接続します。</span><span class="lang-zh">设备将自动重启并接入您的局域网。</span></li>
+      </ol>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section" id="sec4">
+      <h2 class="section-title"><span class="num">4</span>
+        <span class="lang-vi">Giao Diện Dashboard & Tùy Chỉnh Camera</span>
+        <span class="lang-en">Web Dashboard & Camera Tuning</span>
+        <span class="lang-ja">ダッシュボード＆カメラ画質調整</span>
+        <span class="lang-zh">控制台与摄像头参数调节</span>
+      </h2>
+      <p>
+        <span class="lang-vi">Truy cập địa chỉ IP của ESP32 (ví dụ: <code>http://192.168.1.100/</code>) để mở giao diện Web Dashboard quản trị hiện đại:</span>
+        <span class="lang-en">Access the IP address (e.g. <code>http://192.168.1.100/</code>) to open the modern Web Dashboard:</span>
+        <span class="lang-ja">ESP32のIPアドレス（例: <code>http://192.168.1.100/</code>）にアクセスして管理画面を開きます：</span>
+        <span class="lang-zh">在浏览器输入设备局域网 IP（例如：<code>http://192.168.1.100/</code>）即可打开全功能监控控制台：</span>
+      </p>
+
+      <ul>
+        <li><b>🔴 <span class="lang-vi">Live Stream Video (MJPEG):</span><span class="lang-en">Live Stream Video (MJPEG):</span><span class="lang-ja">リアルタイム動画配信 (MJPEG):</span><span class="lang-zh">实时视频流 (MJPEG):</span></b> <span class="lang-vi">Phát luồng video trực tiếp độ trễ cực thấp trên cổng 81 (Core 0 chuyên dụng) và cổng 80 fallback.</span><span class="lang-en">Ultra-low latency live stream on dedicated Core 0 Port 81 (Port 80 fallback).</span><span class="lang-ja">Core 0専用ポート81による超低遅延MJPEGライブストリーム。</span><span class="lang-zh">基于独立 Core 0 端口 81 的超低延迟 MJPEG 实时视频流（80 端口自动回退）。</span></li>
+        <li><b>📸 <span class="lang-vi">Chụp Ảnh (Snapshot):</span><span class="lang-en">Snapshot:</span><span class="lang-ja">写真撮影 (Snapshot):</span><span class="lang-zh">抓拍摄像 (Snapshot):</span></b> <span class="lang-vi">Chụp ảnh tức thời độ phân giải cao tải về máy tính/điện thoại.</span><span class="lang-en">Capture instant high-resolution JPEG photos directly.</span><span class="lang-ja">高解像度JPEG写真をワンクリックで撮影・保存。</span><span class="lang-zh">高清抓拍并即时下载 JPEG 图像。</span></li>
+        <li><b>💡 <span class="lang-vi">Đèn Flash LED:</span><span class="lang-en">Flash LED:</span><span class="lang-ja">フラッシュLED:</span><span class="lang-zh">闪光灯控制:</span></b> <span class="lang-vi">Bật/tắt đèn Flash LED trắng chiếu sáng phía trước.</span><span class="lang-en">Toggle front white Flash LED illumination.</span><span class="lang-ja">前面高輝度フラッシュLEDの点灯/消灯。</span><span class="lang-zh">快速开关正面高亮补光闪光灯。</span></li>
+        <li><b>⚙️ <span class="lang-vi">Điều Chỉnh Camera:</span><span class="lang-en">Camera Tuning:</span><span class="lang-ja">カメラ調整:</span><span class="lang-zh">摄像头画质调节:</span></b> <span class="lang-vi">Tùy chỉnh Framesize (QVGA - UXGA), Quality, Brightness, Contrast, Saturation, Special Effect, Lật ảnh (V-Flip, H-Mirror) - Lưu vĩnh viễn NVS.</span><span class="lang-en">Adjust Framesize, Quality, Brightness, Contrast, WB, Flip/Mirror - Auto-saved to NVS.</span><span class="lang-ja">解像度、画質、明るさ、コントラスト、ホワイトバランス、反転を調整（NVS自動保存）。</span><span class="lang-zh">实时调节分辨率、画质、亮度、对比度、白平衡与画面翻转（自动持久化到 NVS）。</span></li>
+      </ul>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="section" id="sec5">
+      <h2 class="section-title"><span class="num">5</span>
+        <span class="lang-vi">Quản Lý Thẻ Nhớ & Ghi Video Chuyển Động</span>
+        <span class="lang-en">MicroSD Card & Motion Video Recording</span>
+        <span class="lang-ja">SDカード管理＆動体検知録画</span>
+        <span class="lang-zh">SD卡管理与动态移动侦测录像</span>
+      </h2>
+      <p>
+        <span class="lang-vi">Firmware tích hợp trình quản lý thẻ nhớ MicroSD ở chế độ <b>SD_MMC 1-Bit thuần túy</b> (sử dụng chân GPIO 14, 15, 2) giúp hoàn toàn không gây nhấp nháy đèn Flash LED (GPIO 4):</span>
+        <span class="lang-en">Firmware utilizes pure <b>SD_MMC 1-Bit mode</b> (GPIO 14, 15, 2), completely eliminating Flash LED blinking (GPIO 4) during read/write:</span>
+        <span class="lang-ja">純粋な<b>SD_MMC 1-Bitモード</b>（GPIO 14, 15, 2）を採用し、読み書き時にフラッシュLED（GPIO 4）が点滅しない設計です：</span>
+        <span class="lang-zh">固件采用纯净 <b>SD_MMC 1-Bit 模式</b>（占用 GPIO 14, 15, 2），彻底消除读写卡时闪光灯（GPIO 4）异常频闪问题：</span>
+      </p>
+
+      <ul>
+        <li><b><span class="lang-vi">Truy cập Gallery:</span><span class="lang-en">Open Gallery:</span><span class="lang-ja">ギャラリー表示:</span><span class="lang-zh">访问媒体库:</span></b> <code>http://&lt;IP&gt;/sd</code> <span class="lang-vi">hoặc</span><span class="lang-en">or</span><span class="lang-ja">または</span><span class="lang-zh">或</span> <code>http://&lt;IP&gt;/gallery</code>.</li>
+        <li><b><span class="lang-vi">Phát hiện chuyển động thông minh (Luminance Grid):</span><span class="lang-en">Smart Motion Detection:</span><span class="lang-ja">動体検知アルゴリズム:</span><span class="lang-zh">智能移动侦测:</span></b> <span class="lang-vi">Phân tích lưới 8x8 với bộ lọc sàn nhiễu thích ứng, chống 100% báo động giả trong bóng tối.</span><span class="lang-en">8x8 luminance grid with Adaptive Noise Floor Guard, 0% false alarms in pitch black.</span><span class="lang-ja">8x8グリッドと適応型ノイズ除去により暗所での誤検知を完全防止。</span><span class="lang-zh">基于 8x8 亮度网格与动态噪声门限，彻底杜绝全黑环境下的误报。</span></li>
+        <li><b><span class="lang-vi">Trình phát Video Web HTML5:</span><span class="lang-en">HTML5 Video Player:</span><span class="lang-ja">Web動画再生:</span><span class="lang-zh">网页端视频播放:</span></b> <span class="lang-vi">Xem trực tiếp video AVI trên thẻ nhớ, tải về hoặc xóa tệp từ xa.</span><span class="lang-en">Play AVI videos directly in browser, download, or delete remotely.</span><span class="lang-ja">ブラウザ上で直接AVI動画を再生、ダウンロード、遠隔削除可能。</span><span class="lang-zh">支持在线流畅播放 AVI 视频，支持批量下载与远程安全删除。</span></li>
+      </ul>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="section" id="sec6">
+      <h2 class="section-title"><span class="num">6</span>
+        <span class="lang-vi">Hệ Thống Xe Điều Khiển FPV Robot Car & Sơ Đồ Đấu Nối 4WD (v1.0.033)</span>
+        <span class="lang-en">FPV Robot Car Controller & 4WD Wiring Guide (v1.0.033)</span>
+        <span class="lang-ja">FPVロボットカー操縦システム＆4WD配線ガイド (v1.0.033)</span>
+        <span class="lang-zh">FPV 遥控小车控制器与 4WD 接线图指南 (v1.0.033)</span>
+      </h2>
+      <p>
+        <span class="lang-vi">Hệ thống tận dụng 4 chân GPIO còn lại trên header (<b>GPIO 12, 13, 15, 14</b>) để xuất xung PWM điều tốc mượt mà, hỗ trợ kết nối trực tiếp với các module cầu H phổ biến (<b>L298N, L9110S, MX1508, DRV8833, TB6612FNG</b>). Hệ thống tương thích hoàn hảo cho cả khung xe 2 bánh (2WD) và 4 bánh (4WD vi sai / Skid-Steer):</span>
+        <span class="lang-en">The system utilizes 4 remaining header GPIOs (<b>GPIO 12, 13, 15, 14</b>) for smooth PWM motor speed control, interfacing directly with popular dual H-bridge drivers (<b>L298N, L9110S, MX1508, DRV8833</b>). Fully supports both 2-Wheel Drive (2WD) and 4-Wheel Drive (4WD Skid-Steer) chassis:</span>
+        <span class="lang-ja">空きGPIOピン（<b>GPIO 12, 13, 15, 14</b>）を活用してスムーズなPWM速度制御を実現し、主要なHブリッジドライバー（<b>L298N, L9110S, MX1508, DRV8833</b>）に直結可能。2輪駆動（2WD）および4輪駆動（4WDスキッドステア）に完全対応：</span>
+        <span class="lang-zh">系统充分利用剩余 4 个 GPIO 引脚（<b>GPIO 12, 13, 15, 14</b>）输出平滑 PWM 调速信号，直连主流双路 H 桥驱动板（<b>L298N, L9110S, MX1508, DRV8833</b>），完美支持两驱 (2WD) 与四驱差速转向 (4WD Skid-Steer) 底盘：</span>
+      </p>
+
+      <!-- 4WD WIRING DIAGRAM ILLUSTRATION -->
+      <div class="diagram-container">
+        <img src="esp32cam_4wd_wiring.jpg" alt="ESP32-CAM 4WD Robot Car Wiring Diagram" class="diagram-img">
+        <div class="diagram-caption">
+          <span class="lang-vi">📷 <b>Hình 6.1:</b> Sơ đồ đấu nối chi tiết ESP32-CAM với Mạch cầu H L298N, 4 Động cơ DC (4WD), Mạch hạ áp Buck DC-DC và Nguồn Pin 2S 18650</span>
+          <span class="lang-en">📷 <b>Figure 6.1:</b> Complete wiring diagram for ESP32-CAM, L298N Dual H-Bridge Driver, 4 DC Motors (4WD), Step-Down Buck Converter, and 2S 18650 Battery Pack</span>
+          <span class="lang-ja">📷 <b>図 6.1:</b> ESP32-CAM、L298N Hブリッジ、4基のDCモーター（4WD）、降圧DC-DCコンバーター、2S 18650バッテリー接続配線図</span>
+          <span class="lang-zh">📷 <b>图 6.1:</b> ESP32-CAM、L298N 双路 H 桥驱动板、4路减速电机 (4WD)、降压模块与 2S 18650 锂电池完整接线图</span>
+        </div>
+      </div>
+
+      <h3>🔌 6.1. <span class="lang-vi">Bảng Chi Tiết Đấu Nối Chân & Khối Nguồn (Wiring Pinout Table)</span><span class="lang-en">Hardware Pinout & Power Wiring Table</span><span class="lang-ja">配線ピンアサイン＆電源構成表</span><span class="lang-zh">硬件引脚分配与供电接线表</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><span class="lang-vi">Nhóm Kết Nối</span><span class="lang-en">Connection Group</span><span class="lang-ja">接続グループ</span><span class="lang-zh">连接分组</span></th>
+              <th><span class="lang-vi">Chân ESP32-CAM</span><span class="lang-en">ESP32 Pin</span><span class="lang-ja">ESP32ピン</span><span class="lang-zh">ESP32引脚</span></th>
+              <th><span class="lang-vi">Chân Driver L298N / Nguồn</span><span class="lang-en">Driver Pin / Power</span><span class="lang-ja">ドライバー端子/電源</span><span class="lang-zh">驱动端子 / 电源</span></th>
+              <th><span class="lang-vi">Chức Năng Điều Khiển & Lưu Ý</span><span class="lang-en">Function & Engineering Notes</span><span class="lang-ja">機能＆注意事項</span><span class="lang-zh">控制功能与注意事项</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4"><b><span class="lang-vi">Tín Hiệu Điều Khiển Motor</span><span class="lang-en">Motor Logic Signals</span><span class="lang-ja">モーター制御信号</span><span class="lang-zh">电机逻辑控制信号</span></b></td>
+              <td><b><code>GPIO 12</code></b></td>
+              <td><code>IN1</code></td>
+              <td><span class="lang-vi">Động cơ bên <b>Trái - Tiến</b> (Left Fwd). Chân Strapping (phải LOW lúc boot).</span><span class="lang-en"><b>Left Motors Forward</b>. Strapping pin (must be LOW on boot).</span><span class="lang-ja"><b>左モーター前進</b>。Strappingピン（起動時LOW必須）。</span><span class="lang-zh"><b>左侧电机正转</b>。启动配置引脚（开机必须保持LOW）。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 13</code></b></td>
+              <td><code>IN2</code></td>
+              <td><span class="lang-vi">Động cơ bên <b>Trái - Lùi</b> (Left Bwd). Tích hợp chân Cứu Hộ Reset.</span><span class="lang-en"><b>Left Motors Backward</b>. Also functions as Rescue Reset pin.</span><span class="lang-ja"><b>左モーター後退</b>。初期化救助ピン兼用。</span><span class="lang-zh"><b>左侧电机反转</b>。兼具硬件出厂恢复功能。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 15</code></b></td>
+              <td><code>IN3</code></td>
+              <td><span class="lang-vi">Động cơ bên <b>Phải - Tiến</b> (Right Fwd). Xuất xung PWM mượt mà.</span><span class="lang-en"><b>Right Motors Forward</b>. Smooth PWM output.</span><span class="lang-ja"><b>右モーター前進</b>。PWM出力。</span><span class="lang-zh"><b>右侧电机正转</b>。平滑PWM调速输出。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GPIO 14</code></b></td>
+              <td><code>IN4</code></td>
+              <td><span class="lang-vi">Động cơ bên <b>Phải - Lùi</b> (Right Bwd). Xuất xung PWM mượt mà.</span><span class="lang-en"><b>Right Motors Backward</b>. Smooth PWM output.</span><span class="lang-ja"><b>右モーター後退</b>。PWM出力。</span><span class="lang-zh"><b>右侧电机反转</b>。平滑PWM调速输出。</span></td>
+            </tr>
+            <tr>
+              <td rowspan="2"><b><span class="lang-vi">Cầu Đấu 4 Động Cơ (4WD)</span><span class="lang-en">4WD Motor Channels</span><span class="lang-ja">4基モーター出力</span><span class="lang-zh">4路电机并联输出</span></b></td>
+              <td><i>N/A</i></td>
+              <td><code>OUT1</code>, <code>OUT2</code></td>
+              <td><span class="lang-vi">Đấu <b>song song</b> 2 động cơ bên Trái (Trước-Trái + Sau-Trái).</span><span class="lang-en">Wire 2 Left Motors (Front-Left + Rear-Left) in <b>parallel</b>.</span><span class="lang-ja">左側2基のモーター（前左＋後左）を<b>並列接続</b>。</span><span class="lang-zh">左侧 2 个电机（前左 + 后左）<b>并联</b>接入。</span></td>
+            </tr>
+            <tr>
+              <td><i>N/A</i></td>
+              <td><code>OUT3</code>, <code>OUT4</code></td>
+              <td><span class="lang-vi">Đấu <b>song song</b> 2 động cơ bên Phải (Trước-Phải + Sau-Phải).</span><span class="lang-en">Wire 2 Right Motors (Front-Right + Rear-Right) in <b>parallel</b>.</span><span class="lang-ja">右側2基のモーター（前右＋後右）を<b>並列接続</b>。</span><span class="lang-zh">右侧 2 个电机（前右 + 后右）<b>并联</b>接入。</span></td>
+            </tr>
+            <tr>
+              <td rowspan="3"><b><span class="lang-vi">Khối Nguồn Độc Lập</span><span class="lang-en">Isolated Power Supply</span><span class="lang-ja">独立電源系統</span><span class="lang-zh">独立供电回路</span></b></td>
+              <td><b><code>5V</code></b></td>
+              <td>Buck <code>VOUT+ (5V)</code></td>
+              <td><span class="lang-vi">Cấp nguồn <b>5V sạch</b> (≥ 2A) từ module hạ áp Buck (LM2596/Mini560) cho ESP32.</span><span class="lang-en">Feed clean <b>5V (≥2A)</b> from DC-DC Buck converter into ESP32-CAM.</span><span class="lang-ja">降圧コンバーターから<b>クリーンな5V（2A以上）</b>をESP32に給電。</span><span class="lang-zh">由降压模块（LM2596/Mini560）提供纯净 <b>5V (≥2A)</b> 供电。</span></td>
+            </tr>
+            <tr>
+              <td><i>N/A</i></td>
+              <td>L298N <code>12V / VCC</code></td>
+              <td><span class="lang-vi">Nối trực tiếp cực <code>(+) 7.4V</code> của khối Pin 2S 18650 vào cọc nguồn L298N.</span><span class="lang-en">Connect <code>(+) 7.4V</code> of 2S Li-ion battery pack directly to L298N power terminal.</span><span class="lang-ja">2Sバッテリー（7.4V）のプラス極をL298Nの電源端子に直結。</span><span class="lang-zh">将 2S 锂电池（7.4V）正极直连 L298N 动力供电端子。</span></td>
+            </tr>
+            <tr>
+              <td><b><code>GND</code></b></td>
+              <td><code>GND</code> Chung</td>
+              <td>⚠️ <b><span class="lang-vi">Bắt buộc nối chung Mass:</span><span class="lang-en">Mandatory Common Ground:</span><span class="lang-ja">共通GND必須:</span><span class="lang-zh">必须共地连接:</span></b> <span class="lang-vi">Nối chung toàn bộ cực âm (-) của Pin, Buck, L298N và ESP32-CAM.</span><span class="lang-en">Link all (-) terminals of Battery, Buck, Driver, and ESP32-CAM together.</span><span class="lang-ja">バッテリー、降圧器、L298N、ESP32の全マイナス極を共通接続。</span><span class="lang-zh">将电池负极、降压板、L298N 与 ESP32-CAM 的 GND 全部相连。</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>🎮 6.2. <span class="lang-vi">Giao Diện Buồng Lái FPV Cockpit & Thao Tác Điều Khiển</span><span class="lang-en">FPV Cockpit Web UI & Driving Operations</span><span class="lang-ja">FPVコックピットWeb画面＆操作方法</span><span class="lang-zh">FPV 驾驶舱网页界面与操控指南</span></h3>
+      <p>
+        <span class="lang-vi">Mở buồng lái điều khiển xe độc lập tại: <b><code>http://&lt;IP&gt;/car</code></b> hoặc <b><code>http://&lt;IP&gt;/car_control</code></b>:</span>
+        <span class="lang-en">Open the dedicated standalone driving cockpit at: <b><code>http://&lt;IP&gt;/car</code></b> or <b><code>http://&lt;IP&gt;/car_control</code></b>:</span>
+        <span class="lang-ja">独立型コックピット操縦画面を開く: <b><code>http://&lt;IP&gt;/car</code></b> または <b><code>http://&lt;IP&gt;/car_control</code></b>:</span>
+        <span class="lang-zh">访问独立 FPV 驾驶舱控制页面：<b><code>http://&lt;IP&gt;/car</code></b> 或 <b><code>http://&lt;IP&gt;/car_control</code></b>：</span>
+      </p>
+
+      <ul>
+        <li><b><span class="lang-vi">Bố Cục Gamepad 2 Cánh (Dual-Pod):</span><span class="lang-en">Ergonomic Dual-Pod Layout:</span><span class="lang-ja">人間工学デュアルポッド配置:</span><span class="lang-zh">双翼游戏手柄人体工学布局:</span></b>
+          <span class="lang-vi">Toàn bộ cụm D-Pad 9 nút đặt trọn vẹn ở cánh bên <b>Trái</b> cho ngón cái tay trái; Cụm ga điều tốc, presets 40%-MAX, đèn pha và phanh khẩn cấp đặt ở cánh bên <b>Phải</b>; Khu vực trung tâm thông thoáng tuyệt đối cho video FPV.</span>
+          <span class="lang-en">Full 9-button D-Pad placed on the <b>Left</b> for natural left-thumb control; Throttle slider, 40%-MAX presets, headlight, and brake on the <b>Right</b>; Center is completely clear for driving stream.</span>
+          <span class="lang-ja">9ボタンDパッドを<b>左側</b>に集約、スロットル・速度プリセット・ライト・ブレーキを<b>右側</b>に配置し、中央の視界を最大限確保。</span>
+          <span class="lang-zh">完整的 9 键 D-Pad 设于<b>左侧</b>便于左手拇指操控；调速滑块、40%-MAX 档位、大灯与刹车按键设于<b>右侧</b>；中央完整呈现 FPV 实时视野。</span>
+        </li>
+        <li><b><span class="lang-vi">Nâng Cao 10% Khi Xoay Ngang (Landscape):</span><span class="lang-en">Elevated by 10% in Landscape:</span><span class="lang-ja">横画面時10%リフトアップ:</span><span class="lang-zh">横屏模式整体抬升 10%:</span></b>
+          <span class="lang-vi">Khi xoay ngang điện thoại, cụm nút tự động nâng cao hơn 10% chiều cao màn hình so với mép dưới, tránh hoàn toàn thanh điều hướng ảo/home indicator cấn tay.</span>
+          <span class="lang-en">In phone landscape mode, controls are elevated by 10% viewport height above the bottom edge, preventing virtual navigation bars from obscuring buttons.</span>
+          <span class="lang-ja">横画面時に操作パネルが10%自動で上方にシフトし、ナビゲーションバーによる被りや誤操作を完全防止。</span>
+          <span class="lang-zh">手机横屏时按键区域自动向上抬升 10% 屏幕高度，彻底避免虚拟手势栏与底边遮挡按键。</span>
+        </li>
+        <li><b><span class="lang-vi">Đảo Chiều Động Cơ (Invert) & Cân Bằng Bánh (Trim):</span><span class="lang-en">Software Invert & Steering Trim:</span><span class="lang-ja">モーター反転＆トリム調整:</span><span class="lang-zh">软件电机换向与平衡微调:</span></b>
+          <span class="lang-vi">Nếu bánh xe quay ngược chiều, mở Modal <b>⚙️ Cài đặt</b> để bật đảo chiều động cơ (Invert Left / Right) trực tiếp qua phần mềm mà không cần đổi dây vật lý. Tinh chỉnh độ cân bằng 2 bánh qua thanh trượt <b>⚖️ Trim</b>.</span>
+          <span class="lang-en">If wheels spin in reverse, open <b>⚙️ Settings Modal</b> to invert motor directions via software without rewiring. Fine-tune straight-line balance via <b>⚖️ Steering Trim</b> slider.</span>
+          <span class="lang-ja">タイヤが逆回転する場合、<b>⚙️ 設定モーダル</b>からソフトウェア上で簡単にモーター反転（Invert）可能。<b>⚖️ トリム</b>で直進バランスを微調整。</span>
+          <span class="lang-zh">若电机转向相反，无需重新插拔电线，在 <b>⚙️ 参数设置</b> 弹窗中即可一键开启软件换向（Invert），并通过 <b>⚖️ 平衡微调 (Trim)</b> 消除偏向跑偏。</span>
+        </li>
+      </ul>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><span class="lang-vi">Phím Bấm</span><span class="lang-en">Key</span><span class="lang-ja">キー</span><span class="lang-zh">按键</span></th>
+              <th><span class="lang-vi">Hành Động Di Chuyển</span><span class="lang-en">Movement Action</span><span class="lang-ja">動作</span><span class="lang-zh">行驶动作</span></th>
+              <th><span class="lang-vi">Ghi Chú Kỹ Thuật (4WD Skid-Steer)</span><span class="lang-en">Technical Notes (4WD Skid-Steer)</span><span class="lang-ja">4WD動作説明</span><span class="lang-zh">4WD差速动作说明</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>W</code> / <code>▲</code></td><td><b><span class="lang-vi">Tiến</span><span class="lang-en">Forward</span><span class="lang-ja">前進</span><span class="lang-zh">前进</span></b></td><td><span class="lang-vi">Cả 4 bánh cùng quay đồng tốc về phía trước.</span><span class="lang-en">All 4 wheels spin forward synchronously.</span><span class="lang-ja">全4輪が同期して前進回転。</span><span class="lang-zh">全车 4 轮同步正转前行。</span></td></tr>
+            <tr><td><code>S</code> / <code>▼</code></td><td><b><span class="lang-vi">Lùi</span><span class="lang-en">Backward</span><span class="lang-ja">後退</span><span class="lang-zh">后退</span></b></td><td><span class="lang-vi">Cả 4 bánh cùng quay đồng tốc về phía sau.</span><span class="lang-en">All 4 wheels spin backward synchronously.</span><span class="lang-ja">全4輪が同期して後退回転。</span><span class="lang-zh">全车 4 轮同步反转倒车。</span></td></tr>
+            <tr><td><code>A</code> / <code>◄</code></td><td><b><span class="lang-vi">Rẽ Trái</span><span class="lang-en">Turn Left</span><span class="lang-ja">左折</span><span class="lang-zh">左转</span></b></td><td><span class="lang-vi">2 bánh trái giảm tốc độ, 2 bánh phải chạy tốc độ cao để cua êm.</span><span class="lang-en">Slow left wheels, accelerate right wheels for smooth turn.</span><span class="lang-ja">左側2輪を減速、右側2輪を高速駆動して旋回。</span><span class="lang-zh">左侧 2 轮减速，右侧 2 轮加速平稳过弯。</span></td></tr>
+            <tr><td><code>D</code> / <code>►</code></td><td><b><span class="lang-vi">Rẽ Phải</span><span class="lang-en">Turn Right</span><span class="lang-ja">右折</span><span class="lang-zh">右转</span></b></td><td><span class="lang-vi">2 bánh phải giảm tốc độ, 2 bánh trái chạy tốc độ cao để cua êm.</span><span class="lang-en">Slow right wheels, accelerate left wheels for smooth turn.</span><span class="lang-ja">右側2輪を減速、左側2輪を高速駆動して旋回。</span><span class="lang-zh">右侧 2 轮减速，左侧 2 轮加速平稳过弯。</span></td></tr>
+            <tr><td><code>Q</code></td><td><b><span class="lang-vi">Xoay Trái 360°</span><span class="lang-en">Spin Left</span><span class="lang-ja">左旋回</span><span class="lang-zh">原地左旋转</span></b></td><td><span class="lang-vi">2 bánh trái quay lùi, 2 bánh phải quay tiến (xoay tròn tại chỗ 360°).</span><span class="lang-en">Left wheels reverse, right wheels forward (360° in-place spin).</span><span class="lang-ja">左輪後退・右輪前進（360度その場旋回）。</span><span class="lang-zh">左轮反转、右轮正转（360°原地原地掉头）。</span></td></tr>
+            <tr><td><code>E</code></td><td><b><span class="lang-vi">Xoay Phải 360°</span><span class="lang-en">Spin Right</span><span class="lang-ja">右旋回</span><span class="lang-zh">原地右旋转</span></b></td><td><span class="lang-vi">2 bánh trái quay tiến, 2 bánh phải quay lùi (xoay tròn tại chỗ 360°).</span><span class="lang-en">Left wheels forward, right wheels reverse (360° in-place spin).</span><span class="lang-ja">左輪前進・右輪後退（360度その場旋回）。</span><span class="lang-zh">左轮正转、右轮反转（360°原地原地掉头）。</span></td></tr>
+            <tr><td><code>Z</code> / <code>C</code></td><td><b><span class="lang-vi">Lùi Chéo Trái / Phải</span><span class="lang-en">Backward Diagonal</span><span class="lang-ja">後退斜め</span><span class="lang-zh">斜向倒车</span></b></td><td><span class="lang-vi">Lùi vi sai góc chéo giúp dễ dàng lùi chuồng hẹp.</span><span class="lang-en">Differential reverse for tight parking and cornering.</span><span class="lang-ja">狭小スペースでの駐車や切り返しに便利。</span><span class="lang-zh">差速斜向倒车，适用于狭窄空间倒车入库。</span></td></tr>
+            <tr><td><code>Space</code></td><td><b><span class="lang-vi">Phanh Khẩn Cấp</span><span class="lang-en">Emergency Brake</span><span class="lang-ja">緊急ブレーキ</span><span class="lang-zh">紧急刹车</span></b></td><td><span class="lang-vi">Ngắt toàn bộ động cơ ngay lập tức, ghì hãm quán tính.</span><span class="lang-en">Immediate full motor cut-off and electronic brake.</span><span class="lang-ja">全モーターを即時遮断しブレーキ停止。</span><span class="lang-zh">瞬间切断所有电机动力并紧急制动。</span></td></tr>
+            <tr><td><code>F</code></td><td><b><span class="lang-vi">Đèn Pha Flash</span><span class="lang-en">Headlight Toggle</span><span class="lang-ja">ライト点灯/消灯</span><span class="lang-zh">车前大灯开关</span></b></td><td><span class="lang-vi">Bật/tắt đèn LED Flash trắng công suất cao phía trước xe.</span><span class="lang-en">Toggle front high-power white Flash LED headlight.</span><span class="lang-ja">前面高輝度フラッシュLEDヘッドライトをON/OFF。</span><span class="lang-zh">开关车头高亮白色闪光大灯。</span></td></tr>
+            <tr><td><code>1 - 4</code></td><td><b><span class="lang-vi">Chọn Tốc Độ</span><span class="lang-en">Speed Preset</span><span class="lang-ja">速度プリセット</span><span class="lang-zh">快速档位</span></b></td><td><span class="lang-vi">40% (100 PWM), 65% (160 PWM), 80% (200 PWM), MAX (255 PWM).</span><span class="lang-en">40% (100 PWM), 65% (160 PWM), 80% (200 PWM), MAX (255 PWM).</span><span class="lang-ja">40%、65%、80%、MAX（全開）。</span><span class="lang-zh">40%（慢速）、65%（标准）、80%（快速）、MAX（全速）。</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-info">
+        <b>🛡️ <span class="lang-vi">Cơ Chế An Toàn Failsafe Watchdog (400ms):</span><span class="lang-en">Safety Failsafe Watchdog (400ms):</span><span class="lang-ja">安全フェイルセーフ監視 (400ms):</span><span class="lang-zh">失联自动刹车保护 (400ms):</span></b>
+        <span class="lang-vi">Khi lái xe qua điện thoại hoặc máy tính, hệ thống duy trì heartbeat liên tục mỗi 150ms. Nếu mất kết nối Wi-Fi hoặc người dùng nhả nút điều khiển, xe sẽ <b>tự động dừng phanh sau 400ms</b> để bảo vệ phần cứng và chống va chạm.</span>
+        <span class="lang-en">Heartbeat packets are continuously transmitted every 150ms during control. If Wi-Fi drops or controls are released, the car <b>auto-brakes within 400ms</b> to protect hardware from collisions.</span>
+        <span class="lang-ja">操縦中は150msごとに継続してハートビートを送信。Wi-Fi途絶や指を離すと<b>400ms以内に自動緊急停止</b>して機体と周辺の安全を確保します。</span>
+        <span class="lang-zh">在控制过程中系统每 150ms 持续发送心跳握手包。一旦 Wi-Fi 信号中断或手指松开按键，小车将在 <b>400ms 内自动刹停</b>，防止失控碰撞。</span>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="section" id="sec7">
+      <h2 class="section-title"><span class="num">7</span>
+        <span class="lang-vi">Cấu Hình Điểm Phát Wi-Fi AP & Đổi Tên Thiết Bị</span>
+        <span class="lang-en">SoftAP Wi-Fi Configuration & Device Name</span>
+        <span class="lang-ja">SoftAP Wi-Fi設定＆デバイス名変更</span>
+        <span class="lang-zh">SoftAP 热点配置与设备重命名</span>
+      </h2>
+      <ol>
+        <li><span class="lang-vi">Mở Dashboard → Vào <b>Tab 4 (📶 Cấu hình Wi-Fi & Hệ thống)</b>.</span><span class="lang-en">Open Dashboard → Go to <b>Tab 4 (Wi-Fi & System Settings)</b>.</span><span class="lang-ja">ダッシュボードを開き、<b>Tab 4（Wi-Fi設定）</b>へ移動。</span><span class="lang-zh">打开控制台 → 进入 <b>Tab 4（Wi-Fi与系统设置）</b>。</span></li>
+        <li><span class="lang-vi">Đổi <b>Tên thiết bị</b> (Device Name) và cấu hình <b>Tên AP / Mật khẩu AP</b> (tối thiểu 8 ký tự).</span><span class="lang-en">Set custom <b>Device Name</b> and <b>AP SSID / Password</b> (min 8 chars).</span><span class="lang-ja"><b>デバイス名</b>や<b>AP SSID / パスワード</b>（8文字以上）を変更。</span><span class="lang-zh">修改 <b>设备名称</b> 与 <b>热点 SSID / 密码</b>（至少8位字符）。</span></li>
+        <li><span class="lang-vi">Bấm <b>"💾 Lưu Cấu Hình"</b>. Thông tin được ghi nhớ vĩnh viễn vào NVS Flash.</span><span class="lang-en">Click <b>"Save Settings"</b> to persist permanently in NVS Flash.</span><span class="lang-ja"><b>「設定を保存」</b>を押すとNVS Flashに永続化されます。</span><span class="lang-zh">点击 <b>“保存设置”</b>，配置将永久保存在 NVS Flash 中。</span></li>
+      </ol>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="section" id="sec8">
+      <h2 class="section-title"><span class="num">8</span>
+        <span class="lang-vi">Bảo Mật Xác Thực & Tích Hợp Hệ Thống Ngoài</span>
+        <span class="lang-en">Security Auth & Third-Party Integration</span>
+        <span class="lang-ja">認証セキュリティ＆外部システム統合</span>
+        <span class="lang-zh">身份验证与第三方系统集成</span>
+      </h2>
+      <p>
+        <span class="lang-vi">Mặc định tính năng bảo mật ở trạng thái <b>TẮT</b>. Khi kích hoạt <b>HTTP Basic Auth</b> trong Tab 4, toàn bộ luồng video, ảnh chụp và điều khiển xe đều được bảo vệ bằng mật khẩu:</span>
+        <span class="lang-en">Default authentication is <b>DISABLED</b>. When enabled in Tab 4, all streams, snapshots, and driving endpoints require HTTP Basic Auth:</span>
+        <span class="lang-ja">デフォルトは認証<b>無効</b>です。Tab 4で有効化すると、ストリーム・撮影・操縦がパスワード保護されます：</span>
+        <span class="lang-zh">默认处于<b>免密开放</b>状态。在 Tab 4 中启用 <b>HTTP Basic Auth</b> 后，所有视频流、抓拍与控制接口均受密码保护：</span>
+      </p>
+
+      <pre class="lang-vi">
+# Stream video trực tiếp trên VLC / Home Assistant:
+http://admin:admin123@192.168.1.100/stream
+
+# Chụp ảnh định kỳ qua Python / Node-RED:
+http://admin:admin123@192.168.1.100/capture
+
+# Gửi lệnh điều khiển xe từ Python / Home Assistant:
+http://admin:admin123@192.168.1.100/car_cmd?action=forward&speed=220
+      </pre>
+
+      <pre class="lang-en">
+# Live video stream in VLC / Home Assistant:
+http://admin:admin123@192.168.1.100/stream
+
+# Periodic snapshot in Python / Node-RED:
+http://admin:admin123@192.168.1.100/capture
+
+# Send driving command from Python / Home Assistant:
+http://admin:admin123@192.168.1.100/car_cmd?action=forward&speed=220
+      </pre>
+
+      <pre class="lang-ja">
+# VLC / Home Assistant でのリアルタイム動画ストリーム:
+http://admin:admin123@192.168.1.100/stream
+
+# Python / Node-RED による定期写真撮影:
+http://admin:admin123@192.168.1.100/capture
+
+# Python / Home Assistant からの車両操縦コマンド送信:
+http://admin:admin123@192.168.1.100/car_cmd?action=forward&speed=220
+      </pre>
+
+      <pre class="lang-zh">
+# 在 VLC / Home Assistant 中点播实时视频流:
+http://admin:admin123@192.168.1.100/stream
+
+# 通过 Python / Node-RED 定时抓拍高清图片:
+http://admin:admin123@192.168.1.100/capture
+
+# 从 Python / Home Assistant 发送遥控小车行驶指令:
+http://admin:admin123@192.168.1.100/car_cmd?action=forward&speed=220
+      </pre>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="section" id="sec9">
+      <h2 class="section-title"><span class="num">9</span>
+        <span class="lang-vi">Cơ Chế Cứu Hộ Khẩn Cấp Phần Cứng (GPIO13)</span>
+        <span class="lang-en">Hardware Emergency Rescue (GPIO13 Reset)</span>
+        <span class="lang-ja">ハードウェア緊急救助リセット (GPIO13)</span>
+        <span class="lang-zh">硬件紧急恢复出厂设置 (GPIO13)</span>
+      </h2>
+      <div class="callout callout-danger">
+        <b>🚨 <span class="lang-vi">Các Bước Khôi Phục Cài Đặt Gốc (Factory Reset):</span><span class="lang-en">Factory Reset Steps:</span><span class="lang-ja">初期化手順:</span><span class="lang-zh">出厂恢复步骤:</span></b>
+        <ol>
+          <li><span class="lang-vi"><b>Rút nguồn</b> của ESP32-CAM.</span><span class="lang-en"><b>Power off</b> the ESP32-CAM.</span><span class="lang-ja">ESP32の<b>電源を切断</b>。</span><span class="lang-zh"><b>断开</b> ESP32-CAM 的电源。</span></li>
+          <li><span class="lang-vi">Dùng 1 sợi dây cắm nối tắt chân <b><code>IO13</code> xuống <code>GND</code></b>.</span><span class="lang-en">Jumper pin <b><code>IO13</code> to <code>GND</code></b>.</span><span class="lang-ja"><b><code>IO13</code>ピンを<code>GND</code>に短絡</b>。</span><span class="lang-zh">使用导线将 <b><code>IO13</code> 与 <code>GND</code> 短接</b>。</span></li>
+          <li><span class="lang-vi"><b>Cấp nguồn lại</b> cho ESP32-CAM.</span><span class="lang-en"><b>Power on</b> the board.</span><span class="lang-ja">電源を再投入。</span><span class="lang-zh"><b>重新接通电源</b>。</span></li>
+          <li><span class="lang-vi">Khi khởi động, chip phát hiện <code>GPIO13 == LOW</code> sẽ tự động: <b>TẮT mật khẩu</b>, khôi phục AP gốc <code>ESP32-CAM-Setup</code> (pass: <code>12345678</code>), đèn Flash nháy 3 lần.</span><span class="lang-en">When detecting GPIO13 LOW, it automatically: <b>DISABLES auth</b>, restores AP <code>ESP32-CAM-Setup</code> (pass: <code>12345678</code>), flashes LED 3 times.</span><span class="lang-ja">認証を無効化し、デフォルトAP（パス: 12345678）に復元、LEDが3回点滅。</span><span class="lang-zh">芯片检测到低电平后将自动：<b>关闭密码保护</b>、恢复默认热点 <code>ESP32-CAM-Setup</code>（密码 <code>12345678</code>），闪光灯连闪3次提示。</span></li>
+          <li><span class="lang-vi">Tháo dây nối <code>IO13</code> ra để sử dụng bình thường.</span><span class="lang-en">Remove the jumper wire.</span><span class="lang-ja">短絡線を外します。</span><span class="lang-zh">拔除短接线，即可正常使用。</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="section" id="sec10">
+      <h2 class="section-title"><span class="num">10</span>
+        <span class="lang-vi">Nâng Cấp Firmware Không Dây (Hybrid OTA)</span>
+        <span class="lang-en">Firmware Upgrade Engine (Hybrid OTA)</span>
+        <span class="lang-ja">無線ファームウェア更新 (Hybrid OTA)</span>
+        <span class="lang-zh">无线固件升级引擎 (Hybrid OTA)</span>
+      </h2>
+      <p>
+        <span class="lang-vi">Hệ thống phân vùng kép <b>Dual-OTA 1.9MB (ota_0 / ota_1)</b> kèm cơ chế <b>Tự động Rollback 30 giây</b> chống brick tuyệt đối:</span>
+        <span class="lang-en">Dual-OTA partition scheme (<b>1.9MB ota_0 / ota_1</b>) with <b>30-second Auto-Rollback</b> anti-brick protection:</span>
+        <span class="lang-ja"><b>Dual-OTA（1.9MB ota_0/ota_1）</b>と<b>30秒自動ロールバック機能</b>により文鎮化を完全防止：</span>
+        <span class="lang-zh">具备 <b>Dual-OTA 双分区（1.9MB ota_0 / ota_1）</b> 与 <b>30秒自动回退防变砖机制</b>：</span>
+      </p>
+
+      <ul>
+        <li><b><span class="lang-vi">Web Upload OTA:</span><span class="lang-en">Manual Web OTA:</span><span class="lang-ja">Web手動OTA:</span><span class="lang-zh">网页手动上传 OTA:</span></b> <span class="lang-vi">Vào Tab 3 → Chọn tệp <code>OTA_Update.bin</code> → Bấm nạp OTA.</span><span class="lang-en">Go to Tab 3 → Select <code>OTA_Update.bin</code> → Flash.</span><span class="lang-ja">Tab 3で<code>OTA_Update.bin</code>を選択し更新。</span><span class="lang-zh">进入 Tab 3 → 选择 <code>OTA_Update.bin</code> 固件 → 点击一键刷入。</span></li>
+        <li><b><span class="lang-vi">Cloud Auto-OTA:</span><span class="lang-en">Cloud GitHub OTA:</span><span class="lang-ja">クラウドGitHub OTA:</span><span class="lang-zh">云端 GitHub 自动 OTA:</span></b> <span class="lang-vi">Nhập URL <code>version.json</code> trên GitHub → Bấm kiểm tra & tự động nâng cấp nền.</span><span class="lang-en">Enter GitHub <code>version.json</code> URL → Auto-downloads and flashes in background.</span><span class="lang-ja">GitHubの<code>version.json</code> URLを入力して自動更新。</span><span class="lang-zh">输入 GitHub 上的 <code>version.json</code> 链接 → 自动比对并在后台下载升级。</span></li>
+      </ul>
+    </section>
+
+    <!-- SECTION 11: FULL REST API REFERENCE (AT THE END AS REQUESTED) -->
+    <section class="section" id="sec11">
+      <h2 class="section-title"><span class="num">11</span>
+        <span class="lang-vi">BẢNG TRA CỨU TOÀN DIỆN REST API & HƯỚNG DẪN SỬ DỤNG</span>
+        <span class="lang-en">COMPREHENSIVE REST API REFERENCE & USAGE GUIDE</span>
+        <span class="lang-ja">全REST APIリファレンス＆開発ガイド</span>
+        <span class="lang-zh">完整 REST API 查询手册与开发指南</span>
+      </h2>
+      <p>
+        <span class="lang-vi">Toàn bộ tính năng của ESP32-CAM đều được điều khiển thông qua hệ thống <b>HTTP REST API</b> chuẩn mực với độ trễ cực thấp:</span>
+        <span class="lang-en">All features can be monitored, configured, and driven via standard low-latency <b>HTTP REST APIs</b>:</span>
+        <span class="lang-ja">ESP32-CAMの全機能は標準的な低遅延<b>HTTP REST API</b>経由で制御可能です：</span>
+        <span class="lang-zh">ESP32-CAM 的所有核心功能均可通过超低延迟的 <b>HTTP REST API</b> 进行监控、配置与二次开发：</span>
+      </p>
+
+      <!-- 11.1 SYSTEM -->
+      <h3>📡 11.1. <span class="lang-vi">Hệ Thống & Trạng Thái</span><span class="lang-en">System & Status</span><span class="lang-ja">システム＆ステータス</span><span class="lang-zh">系统状态与控制</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Method</th>
+              <th><span class="lang-vi">Tham Số</span><span class="lang-en">Parameters</span><span class="lang-ja">パラメータ</span><span class="lang-zh">参数</span></th>
+              <th><span class="lang-vi">Mô Tả</span><span class="lang-en">Description</span><span class="lang-ja">説明</span><span class="lang-zh">说明</span></th>
+              <th><span class="lang-vi">Dữ Liệu Trả Về (JSON)</span><span class="lang-en">Response</span><span class="lang-ja">返却値</span><span class="lang-zh">返回值</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/status</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Lấy thông tin hệ thống (IP, RSSI, Free RAM/PSRAM, Version)</span><span class="lang-en">Get system telemetry (IP, RSSI, RAM/PSRAM, Version)</span><span class="lang-ja">システム情報（IP、RSSI、メモリ空き容量）</span><span class="lang-zh">获取系统信息（IP、信号、剩余内存、版本号）</span></td>
+              <td><code>{"version":"1.0.031","ip":"192.168.1.100","rssi":-55,"free_heap":275000,"free_psram":4194000}</code></td>
+            </tr>
+            <tr>
+              <td><code>/get_device_name</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Lấy tên thiết bị tùy chỉnh</span><span class="lang-en">Get custom device name</span><span class="lang-ja">カスタムデバイス名取得</span><span class="lang-zh">获取设备自定义名称</span></td>
+              <td><code>{"device_name":"ESP32-CAM"}</code></td>
+            </tr>
+            <tr>
+              <td><code>/save_device_name</code></td>
+              <td><span class="badge-pill green">POST</span></td>
+              <td><code>device_name=TenMoi</code></td>
+              <td><span class="lang-vi">Lưu tên thiết bị mới</span><span class="lang-en">Save new device name</span><span class="lang-ja">デバイス名を保存</span><span class="lang-zh">保存新设备名称</span></td>
+              <td><code>{"success":true,"device_name":"TenMoi"}</code></td>
+            </tr>
+            <tr>
+              <td><code>/restart</code></td>
+              <td><span class="badge-pill green">POST</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Khởi động lại ESP32 từ xa</span><span class="lang-en">Reboot device remotely</span><span class="lang-ja">遠隔再起動</span><span class="lang-zh">远程重启设备</span></td>
+              <td><code>{"status":"restarting"}</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 11.2 CAMERA -->
+      <h3>📷 11.2. <span class="lang-vi">Camera, Flash LED & Video Stream</span><span class="lang-en">Camera, Flash & Stream</span><span class="lang-ja">カメラ＆ストリーム</span><span class="lang-zh">摄像头、闪光灯与视频流</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Method</th>
+              <th><span class="lang-vi">Tham Số</span><span class="lang-en">Parameters</span><span class="lang-ja">パラメータ</span><span class="lang-zh">参数</span></th>
+              <th><span class="lang-vi">Mô Tả</span><span class="lang-en">Description</span><span class="lang-ja">説明</span><span class="lang-zh">说明</span></th>
+              <th><span class="lang-vi">Định Dạng Trả Về</span><span class="lang-en">Content-Type</span><span class="lang-ja">データ形式</span><span class="lang-zh">返回格式</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/capture</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Chụp ảnh tĩnh JPEG từ cảm biến</span><span class="lang-en">Capture high-res JPEG photo</span><span class="lang-ja">静止画撮影</span><span class="lang-zh">拍摄单张高清 JPEG 照片</span></td>
+              <td><code>image/jpeg</code></td>
+            </tr>
+            <tr>
+              <td><code>/stream</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Phát luồng video MJPEG</span><span class="lang-en">Live MJPEG video stream</span><span class="lang-ja">リアルタイムMJPEG配信</span><span class="lang-zh">实时 MJPEG 视频流</span></td>
+              <td><code>multipart/x-mixed-replace</code></td>
+            </tr>
+            <tr>
+              <td><code>/flash</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><code>state=1/0</code></td>
+              <td><span class="lang-vi">Bật/Tắt đèn Flash LED (GPIO 4)</span><span class="lang-en">Toggle Flash LED (GPIO 4)</span><span class="lang-ja">フラッシュ点灯/消灯</span><span class="lang-zh">开关高亮闪光灯 (GPIO 4)</span></td>
+              <td><code>{"status":"ok","flash":1}</code></td>
+            </tr>
+            <tr>
+              <td><code>/control</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><code>var=...&val=...</code></td>
+              <td><span class="lang-vi">Cập nhật thông số camera (framesize, quality,...)</span><span class="lang-en">Set camera parameter</span><span class="lang-ja">カメラ設定変更</span><span class="lang-zh">修改摄像头参数并持久化</span></td>
+              <td><code>{"status":"ok","var":"framesize","val":9}</code></td>
+            </tr>
+            <tr>
+              <td><code>/cam_status</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Lấy toàn bộ thông số cấu hình cảm biến</span><span class="lang-en">Get full camera settings JSON</span><span class="lang-ja">全カメラ設定JSON取得</span><span class="lang-zh">获取全部摄像头设置 JSON</span></td>
+              <td><code>{"sensor_name":"OV2640","framesize":9,...}</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 11.3 ROBOT CAR -->
+      <h3>🏎️ 11.3. <span class="lang-vi">Xe Điều Khiển Robot Car</span><span class="lang-en">Robot Car Driving API</span><span class="lang-ja">ロボットカー操縦API</span><span class="lang-zh">遥控小车控制 API</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Method</th>
+              <th><span class="lang-vi">Tham Số (action / speed)</span><span class="lang-en">Parameters</span><span class="lang-ja">パラメータ</span><span class="lang-zh">参数</span></th>
+              <th><span class="lang-vi">Chức Năng Điều Khiển</span><span class="lang-en">Action Description</span><span class="lang-ja">動作内容</span><span class="lang-zh">控制动作说明</span></th>
+              <th><span class="lang-vi">Dữ Liệu Trả Về (JSON)</span><span class="lang-en">Response</span><span class="lang-ja">返却値</span><span class="lang-zh">返回值</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/car</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Giao diện buồng lái FPV Cockpit Web UI</span><span class="lang-en">Standalone FPV Driving Cockpit</span><span class="lang-ja">独立型FPV操縦画面</span><span class="lang-zh">独立 FPV 驾驶舱网页</span></td>
+              <td><code>text/html</code></td>
+            </tr>
+            <tr>
+              <td><code>/car_cmd</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td>
+                <code>action=forward</code> (<span class="lang-vi">Tiến</span><span class="lang-en">Fwd</span><span class="lang-ja">前進</span><span class="lang-zh">前进</span>)<br>
+                <code>action=backward</code> (<span class="lang-vi">Lùi</span><span class="lang-en">Bwd</span><span class="lang-ja">後退</span><span class="lang-zh">后退</span>)<br>
+                <code>action=left</code> (<span class="lang-vi">Rẽ trái</span><span class="lang-en">Left</span><span class="lang-ja">左折</span><span class="lang-zh">左转</span>)<br>
+                <code>action=right</code> (<span class="lang-vi">Rẽ phải</span><span class="lang-en">Right</span><span class="lang-ja">右折</span><span class="lang-zh">右转</span>)<br>
+                <code>action=spin_left</code> (<span class="lang-vi">Xoay trái</span><span class="lang-en">Spin L</span><span class="lang-ja">左旋回</span><span class="lang-zh">左旋转</span>)<br>
+                <code>action=spin_right</code> (<span class="lang-vi">Xoay phải</span><span class="lang-en">Spin R</span><span class="lang-ja">右旋回</span><span class="lang-zh">右旋转</span>)<br>
+                <code>action=stop</code> (<span class="lang-vi">Phanh dừng</span><span class="lang-en">Stop</span><span class="lang-ja">停止</span><span class="lang-zh">刹停</span>)<br>
+                <code>action=light&state=1</code> (<span class="lang-vi">Đèn pha</span><span class="lang-en">Headlight</span><span class="lang-ja">ライト</span><span class="lang-zh">大灯</span>)<br>
+                <i><span class="lang-vi">Tùy chọn:</span><span class="lang-en">Optional:</span><span class="lang-ja">オプション:</span><span class="lang-zh">可选:</span></i> <code>speed=0..255</code>
+              </td>
+              <td><span class="lang-vi">Gửi lệnh điều khiển xe tức thời. Tự động ngắt Failsafe sau 400ms.</span><span class="lang-en">Instant car movement. 400ms Failsafe watchdog.</span><span class="lang-ja">即時車両操縦。400msフェイルセーフ対応。</span><span class="lang-zh">即时毫秒级车辆控制，内置 400ms 失联安全刹车保护。</span></td>
+              <td><code>{"status":"ok","action":"FORWARD","speed":220,"light":1}</code></td>
+            </tr>
+            <tr>
+              <td><code>/car_status</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Lấy trạng thái di chuyển, tốc độ, Trim, cấu hình chân IN1-IN4</span><span class="lang-en">Get movement status, speed, trim, pin mapping</span><span class="lang-ja">車両状態、速度、トリム、ピン構成</span><span class="lang-zh">获取运动状态、速度、平衡微调与引脚配置</span></td>
+              <td><code>{"enabled":true,"action_str":"FORWARD","speed":200,"trim":0,"pin_in1":12,"pin_in2":13,"pin_in3":15,"pin_in4":14}</code></td>
+            </tr>
+            <tr>
+              <td><code>/car_config</code></td>
+              <td><span class="badge-pill green">POST</span></td>
+              <td><code>enabled=1&pin_in1=12&pin_in2=13&pin_in3=15&pin_in4=14&invert_left=0&invert_right=0&speed=200&trim=0&failsafe_ms=400</code></td>
+              <td><span class="lang-vi">Lưu cấu hình chân IO, đảo chiều motor, Trim vào NVS</span><span class="lang-en">Save pin mapping, motor inversion, trim to NVS</span><span class="lang-ja">ピン割り当て、反転、トリムをNVSに保存</span><span class="lang-zh">保存引脚映射、电机反向与平衡值至 NVS</span></td>
+              <td><code>{"status":"ok","message":"Car configuration saved!"}</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 11.4 SD & MOTION -->
+      <h3>💾 11.4. <span class="lang-vi">Thẻ Nhớ & Video Chuyển Động</span><span class="lang-en">MicroSD & Video Motion</span><span class="lang-ja">SDカード＆動体録画</span><span class="lang-zh">SD卡存储与动态录像</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Method</th>
+              <th><span class="lang-vi">Tham Số</span><span class="lang-en">Parameters</span><span class="lang-ja">パラメータ</span><span class="lang-zh">参数</span></th>
+              <th><span class="lang-vi">Mô Tả Chức Năng</span><span class="lang-en">Description</span><span class="lang-ja">説明</span><span class="lang-zh">说明</span></th>
+              <th><span class="lang-vi">Định Dạng</span><span class="lang-en">Content-Type</span><span class="lang-ja">データ形式</span><span class="lang-zh">返回格式</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/sd</code> / <code>/gallery</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Mở trang Web Gallery quản lý video</span><span class="lang-en">Open SD Video Gallery UI</span><span class="lang-ja">SD動画ギャラリーを開く</span><span class="lang-zh">访问 SD 卡媒体库页面</span></td>
+              <td><code>text/html</code></td>
+            </tr>
+            <tr>
+              <td><code>/sd_status</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Dung lượng thẻ nhớ, số lượng video</span><span class="lang-en">SD card storage telemetry</span><span class="lang-ja">SDカード容量・動画本数</span><span class="lang-zh">SD卡容量与视频统计信息</span></td>
+              <td><code>{"ready":true,"totalMB":14900,"usedMB":120}</code></td>
+            </tr>
+            <tr>
+              <td><code>/sd_list</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Danh sách tệp video AVI đã ghi</span><span class="lang-en">List recorded AVI video files</span><span class="lang-ja">録画済みAVI動画一覧</span><span class="lang-zh">获取已录制 AVI 视频列表</span></td>
+              <td><code>[{"name":"motion_xxx.avi","size":1450000}]</code></td>
+            </tr>
+            <tr>
+              <td><code>/sd_play</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><code>file=/videos/motion_xxx.avi</code></td>
+              <td><span class="lang-vi">Phát lại video trực tiếp</span><span class="lang-en">Stream video playback</span><span class="lang-ja">動画ストリーム再生</span><span class="lang-zh">在线点播流媒体播放</span></td>
+              <td><code>video/x-msvideo</code></td>
+            </tr>
+            <tr>
+              <td><code>/sd_delete</code></td>
+              <td><span class="badge-pill red">POST</span></td>
+              <td><code>file=/videos/motion_xxx.avi</code></td>
+              <td><span class="lang-vi">Xóa video khỏi thẻ nhớ</span><span class="lang-en">Delete video file</span><span class="lang-ja">動画削除</span><span class="lang-zh">删除指定视频文件</span></td>
+              <td><code>{"status":"ok"}</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 11.5 CODE EXAMPLES -->
+      <h3>💻 11.5. <span class="lang-vi">Ví Dụ Lập Trình Tích Hợp Đa Ngôn Ngữ</span><span class="lang-en">Code Examples & Integration</span><span class="lang-ja">プログラミング統合例</span><span class="lang-zh">多语言开发集成示例</span></h3>
+
+      <p><b>1. cURL (Terminal / Command Line):</b></p>
+      
+      <pre class="lang-vi">
+# Gửi lệnh xe tiến thẳng với tốc độ 220:
+curl -X GET "http://192.168.1.100/car_cmd?action=forward&speed=220"
+
+# Gửi lệnh dừng xe phanh khẩn cấp:
+curl -X GET "http://192.168.1.100/car_cmd?action=stop"
+
+# Bật đèn pha xe (kèm tài khoản nếu đã bật bảo mật):
+curl -u admin:admin123 -X GET "http://192.168.1.100/car_cmd?action=light&state=1"
+      </pre>
+
+      <pre class="lang-en">
+# Move forward with speed 220:
+curl -X GET "http://192.168.1.100/car_cmd?action=forward&speed=220"
+
+# Emergency brake / stop:
+curl -X GET "http://192.168.1.100/car_cmd?action=stop"
+
+# Turn on headlight (with HTTP Basic Auth):
+curl -u admin:admin123 -X GET "http://192.168.1.100/car_cmd?action=light&state=1"
+      </pre>
+
+      <pre class="lang-ja">
+# 速度220で前進コマンドを送信:
+curl -X GET "http://192.168.1.100/car_cmd?action=forward&speed=220"
+
+# 緊急停止ブレーキコマンドを送信:
+curl -X GET "http://192.168.1.100/car_cmd?action=stop"
+
+# ヘッドライト点灯（認証が有効な場合）:
+curl -u admin:admin123 -X GET "http://192.168.1.100/car_cmd?action=light&state=1"
+      </pre>
+
+      <pre class="lang-zh">
+# 发送以 220 速度前进指令:
+curl -X GET "http://192.168.1.100/car_cmd?action=forward&speed=220"
+
+# 发送紧急刹车停止指令:
+curl -X GET "http://192.168.1.100/car_cmd?action=stop"
+
+# 打开前大灯（若开启身份认证则附带账号密码）:
+curl -u admin:admin123 -X GET "http://192.168.1.100/car_cmd?action=light&state=1"
+      </pre>
+
+      <p><b>2. JavaScript (Fetch API):</b></p>
+      <pre class="lang-vi">
+// Điều khiển xe di chuyển qua JavaScript
+async function driveCar(action, speed = 200) {
+  try {
+    const res = await fetch(`http://192.168.1.100/car_cmd?action=${action}&speed=${speed}`);
+    const data = await res.json();
+    console.log("ESP32 Trả về:", data);
+  } catch (err) {
+    console.error("Lỗi điều khiển:", err);
+  }
+}
+      </pre>
+
+      <pre class="lang-en">
+// Drive car via JavaScript Fetch API
+async function driveCar(action, speed = 200) {
+  try {
+    const res = await fetch(`http://192.168.1.100/car_cmd?action=${action}&speed=${speed}`);
+    const data = await res.json();
+    console.log("ESP32 Response:", data);
+  } catch (err) {
+    console.error("Drive error:", err);
+  }
+}
+      </pre>
+
+      <pre class="lang-ja">
+// JavaScript Fetch API による車両操縦
+async function driveCar(action, speed = 200) {
+  try {
+    const res = await fetch(`http://192.168.1.100/car_cmd?action=${action}&speed=${speed}`);
+    const data = await res.json();
+    console.log("ESP32 応答:", data);
+  } catch (err) {
+    console.error("操縦エラー:", err);
+  }
+}
+      </pre>
+
+      <pre class="lang-zh">
+// 通过 JavaScript Fetch API 发送小车控制指令
+async function driveCar(action, speed = 200) {
+  try {
+    const res = await fetch(`http://192.168.1.100/car_cmd?action=${action}&speed=${speed}`);
+    const data = await res.json();
+    console.log("ESP32 返回结果:", data);
+  } catch (err) {
+    console.error("控制异常:", err);
+  }
+}
+      </pre>
+
+      <p><b>3. Python (OpenCV Computer Vision & Autonomous Control):</b></p>
+      <pre>
+import cv2
+import requests
+
+ESP32_IP = "192.168.1.100"
+STREAM_URL = f"http://{ESP32_IP}:81/"
+
+def send_cmd(action, speed=200):
+    try:
+        requests.get(f"http://{ESP32_IP}/car_cmd?action={action}&speed={speed}", timeout=0.2)
+    except:
+        pass
+
+cap = cv2.VideoCapture(STREAM_URL)
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret: break
+    cv2.imshow("ESP32 AI FPV", frame)
+    k = cv2.waitKey(1) & 0xFF
+    if k == ord('w'): send_cmd("forward", 220)
+    elif k == ord('s'): send_cmd("backward", 220)
+    elif k == ord('a'): send_cmd("left", 200)
+    elif k == ord('d'): send_cmd("right", 200)
+    elif k == ord(' '): send_cmd("stop")
+    elif k == 27: break
+
+cap.release()
+cv2.destroyAllWindows()
+      </pre>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="section" id="sec12">
+      <h2 class="section-title"><span class="num">12</span>
+        <span class="lang-vi">Xử Lý Sự Cố Thường Gặp (Troubleshooting)</span>
+        <span class="lang-en">Troubleshooting & FAQ</span>
+        <span class="lang-ja">よくある質問＆トラブルシューティング</span>
+        <span class="lang-zh">常见问题排查与解决</span>
+      </h2>
+      <ul>
+        <li>
+          <b>
+            <span class="lang-vi">Lỗi `Brownout detector was triggered` / ESP32 liên tục reset:</span>
+            <span class="lang-en">Error `Brownout detector was triggered` / Continuous ESP32 Reset:</span>
+            <span class="lang-ja">エラー `Brownout detector was triggered` / ESP32連続リセット:</span>
+            <span class="lang-zh">报错 `Brownout detector was triggered` / ESP32频繁重启:</span>
+          </b>
+          <br>→ <i><span class="lang-vi">Nguyên nhân:</span><span class="lang-en">Cause:</span><span class="lang-ja">原因:</span><span class="lang-zh">原因:</span></i> <span class="lang-vi">Sụt áp nguồn khi bật Wi-Fi, nén ảnh hoặc khởi động động cơ.</span><span class="lang-en">Voltage drop during Wi-Fi burst, image compression, or motor startup.</span><span class="lang-ja">Wi-Fi送信やモーター起動時の電圧降下。</span><span class="lang-zh">Wi-Fi 高功率发射或电机启动瞬间造成供电电压跌落。</span>
+          <br>→ <i><span class="lang-vi">Khắc phục:</span><span class="lang-en">Fix:</span><span class="lang-ja">対策:</span><span class="lang-zh">解决方案:</span></i> <span class="lang-vi">Cấp nguồn 5V ≥ 2A chất lượng cao; hàn tụ hóa 470uF/16V song song giữa chân <code>5V</code> và <code>GND</code>; tách riêng nguồn nuôi động cơ xe.</span><span class="lang-en">Use 5V ≥ 2A power supply, add 470uF capacitor across 5V and GND, isolate motor power.</span><span class="lang-ja">5V 2A以上の電源を使用、470uFコンデンサを追加、モーター電源を分離。</span><span class="lang-zh">使用优质 5V 2A 独立电源，并联 470uF 滤波电容，小车电机务必单独供电。</span>
+        </li>
+        <li>
+          <b>
+            <span class="lang-vi">Lỗi `Camera init failed` / Không nhận diện được cảm biến:</span>
+            <span class="lang-en">Error `Camera init failed` / Camera Sensor Not Detected:</span>
+            <span class="lang-ja">エラー `Camera init failed` / カメラセンサー認識失敗:</span>
+            <span class="lang-zh">报错 `Camera init failed` / 无法识别摄像头传感器:</span>
+          </b>
+          <br>→ <i><span class="lang-vi">Khắc phục:</span><span class="lang-en">Fix:</span><span class="lang-ja">対策:</span><span class="lang-zh">解决方案:</span></i> <span class="lang-vi">Kiểm tra cáp bẹ FPC của camera đã cắm chặt và đúng chiều vào socket chưa; kiểm tra nguồn 5V có đủ dòng không.</span><span class="lang-en">Check FPC ribbon cable orientation and socket latch. Ensure adequate 5V power supply.</span><span class="lang-ja">FPCリボンケーブルの向きと挿入状態を確認。</span><span class="lang-zh">检查摄像头 FPC 排线是否插紧且方向正确，锁扣是否锁好。</span>
+        </li>
+        <li>
+          <b>
+            <span class="lang-vi">Động cơ xe chạy ngược chiều hoặc không đều tốc độ:</span>
+            <span class="lang-en">Car Motors Running in Reverse or Uneven Speed:</span>
+            <span class="lang-ja">車両モーターが逆回転または速度が不揃い:</span>
+            <span class="lang-zh">小车电机旋转方向相反或左右轮转速不均:</span>
+          </b>
+          <br>→ <i><span class="lang-vi">Khắc phục:</span><span class="lang-en">Fix:</span><span class="lang-ja">対策:</span><span class="lang-zh">解决方案:</span></i> <span class="lang-vi">Mở trang <code>/car</code> → Bấm <b>⚙️ Cài đặt</b> → Tích chọn <b>"Đảo chiều động cơ"</b> hoặc chỉnh thanh <b>Trim Cân Bằng Bánh</b> mà không cần hàn lại dây.</span><span class="lang-en">Open <code>/car</code> → Click <b>Settings</b> → Toggle <b>Invert Motor</b> or adjust <b>Trim Balance slider</b>.</span><span class="lang-ja"><code>/car</code>画面の設定から「モーター反転」または「トリム調整」を設定。</span><span class="lang-zh">进入 <code>/car</code> 控制页 → 点击 <b>设置</b> → 勾选 <b>“电机反向”</b> 或微调 <b>“平衡 Trim”</b> 滑块。</span>
+        </li>
+        <li>
+          <b>
+            <span class="lang-vi">Quên mật khẩu đăng nhập Dashboard hoặc Wi-Fi AP:</span>
+            <span class="lang-en">Forgot Dashboard Login or Wi-Fi AP Password:</span>
+            <span class="lang-ja">管理画面またはWi-Fi APのパスワードを忘れた場合:</span>
+            <span class="lang-zh">遗忘控制台登录密码或 Wi-Fi AP 热点密码:</span>
+          </b>
+          <br>→ <i><span class="lang-vi">Khắc phục:</span><span class="lang-en">Fix:</span><span class="lang-ja">対策:</span><span class="lang-zh">解决方案:</span></i> <span class="lang-vi">Tắt nguồn, nối chân <code>IO13</code> xuống <code>GND</code> rồi bật nguồn lại. Thiết bị sẽ tự động khôi phục về cài đặt gốc.</span><span class="lang-en">Power off, short <code>IO13</code> to <code>GND</code>, power on to trigger Hardware Factory Reset.</span><span class="lang-ja">電源を切り、<code>IO13</code>を<code>GND</code>に接続して再起動し工場出荷時リセットを実行。</span><span class="lang-zh">断电后将 <code>IO13</code> 与 <code>GND</code> 短接，重新上电即可一键恢复出厂设置。</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+      <p><b>ESP32-CAM Multi-Sensor, Hybrid OTA & Robot Car</b> • <span class="lang-vi">Tài liệu hướng dẫn sử dụng chính thức v1.0.031</span><span class="lang-en">Official System Manual v1.0.031</span><span class="lang-ja">公式システムマニュアル v1.0.031</span><span class="lang-zh">官方系统技术手册 v1.0.031</span></p>
+      <p style="margin-top:4px;">
+        <span class="lang-vi">Nhấn nút <b>"🖨️ In / PDF"</b> ở góc trên để in ra giấy A4 hoặc lưu thành file PDF chuẩn hóa.</span>
+        <span class="lang-en">Click <b>"🖨️ Print / PDF"</b> above to export formatted A4 PDF or print.</span>
+        <span class="lang-ja">画面右上の<b>「🖨️ 印刷 / PDF」</b>ボタンでA4印刷またはPDF保存が可能です。</span>
+        <span class="lang-zh">点击右上角 <b>“🖨️ 打印 / PDF”</b> 按钮可直接导出标准 A4 格式 PDF 或打印。</span>
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    function changeLang(lang) {
+      document.body.setAttribute('data-lang', lang);
+      localStorage.setItem('esp32_user_guide_lang', lang);
+      document.getElementById('langSelect').value = lang;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('esp32_user_guide_lang') || 'vi';
+      changeLang(savedLang);
+    });
+  </script>
+</body>
+</html>

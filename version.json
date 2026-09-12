@@ -1,6 +1,6 @@
 {
-  "version": "1.0.033",
+  "version": "1.0.034",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.033: Elevated Landscape Cockpit Controls by 10% & Safe-Area Clearance for Mobile Phones / Nâng cao cụm điều khiển xe hơn 10% khi xoay ngang điện thoại, chống tràn mép và che khuất phím"
+  "changelog": "Release v1.0.034: Hardware Mode Selector (SD Gallery vs Robot Car) with Auto-Disable UI & 1-Click Fast Switching / Bộ chọn chế độ phần cứng GPIO chống xung đột chân kèm cơ chế tự động khóa nút khi sai mode và chuyển đổi 1-click"
 }
