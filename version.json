@@ -1,6 +1,6 @@
 {
-  "version": "1.0.029",
+  "version": "1.0.032",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.029: Standalone FPV Robot Car Controller & Multi-Motor PWM Driver / Ra mắt tính năng Xe điều khiển FPV Cockpit Web UI độc lập và driver điều tốc PWM đa kênh"
+  "changelog": "Release v1.0.032: Redesigned Ergonomic Responsive Gamepad Cockpit UI for Phones & Tablets with Left-Hand D-Pad Controls / Tái thiết kế giao diện điều khiển xe FPV Cockpit công thái học thích ứng đa màn hình với cụm phím điều hướng D-Pad bên trái"
 }

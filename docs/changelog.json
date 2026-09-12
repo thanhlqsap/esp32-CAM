@@ -1,8 +1,52 @@
 [
   {
-    "version": "v1.0.029",
+    "version": "v1.0.032",
     "date": "2026-09",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.032 - Tái Thiết Kế Giao Diện FPV Cockpit Công Thái Học Đa Thiết Bị (Mobile & Tablet) Với Cụm D-Pad Bên Trái",
+      "en": "Release v1.0.032 - Redesigned Ergonomic Responsive Gamepad Cockpit UI for Mobile & Tablet with Left-Hand D-Pad",
+      "ja": "リリース v1.0.032 - 左手Dパッド配置＆マルチデバイス（スマホ・タブレット）対応コックピットUI刷新",
+      "zh": "发布 v1.0.032 - 重新设计左侧D-Pad全设备自适应人体工程学FPV驾驶舱Web界面"
+    },
+    "description": {
+      "vi": "🎮 Nâng cấp toàn diện giao diện điều khiển robot xe (/car) theo bố cục Gamepad Dual-Pod 2 cánh công thái học. Đưa toàn bộ cụm phím điều hướng D-Pad 9 nút sang bên trái để thuận tiện điều khiển bằng ngón cái trái, bố trí cụm ga điều tốc/đèn pha/phanh khẩn cấp/trim sang bên phải, co giãn tự động linh hoạt trên mọi kích thước màn hình (điện thoại ngang/dọc, iPad, tablet, PC) và hỗ trợ phản hồi rung cảm ứng haptic.",
+      "en": "🎮 Complete overhaul of the robot car cockpit interface (/car) into an ergonomic dual-pod gamepad layout. Moves full 9-button directional D-Pad cluster to the left side for natural left-thumb control, places speed throttle/headlight/brake/trim on the right pod, provides seamless responsive scaling across phones (portrait/landscape), tablets, and PCs, and integrates haptic vibration touch feedback.",
+      "ja": "🎮 ロボットカー操縦画面（/car）を人間工学に基づいたデュアルポッドゲームパッドレイアウトへ刷新。左手親指で直感操作できるよう9ボタンDパッドを左側に配置、スロットル・ライト・ブレーキ・トリムを右側に集約。スマホ（縦・横）、タブレット、PCに対応し、ハプティック触覚フィードバックを追加。",
+      "zh": "🎮 全面升级小车驾驶舱界面（/car）为双翼游戏手柄人体工学布局。将完整的9键D-Pad方向键移至左侧以方便左手拇指操控，右侧集成调速滑块、大灯、紧急刹车与平衡微调，完美适配手机（横/竖屏）、平板及电脑，并新增触控震动反馈。"
+    },
+    "changes": {
+      "vi": [
+        "Bố Cục Dual-Pod Công Thái Học: Cụm điều hướng D-Pad đặt trọn vẹn bên trái, cụm điều tốc và nút chức năng đặt bên phải, để trống toàn bộ khu vực trung tâm cho tầm nhìn FPV tối đa.",
+        "Thích Ứng Đa Kích Thước (Responsive): Tự động co giãn kích thước nút bấm linh hoạt bằng clamp() cho điện thoại mọi phân giải và máy tính bảng (iPad, Android Tablet).",
+        "Tối Ưu Hai Chế Độ Xoay: Chế độ ngang (Landscape) neo 2 góc dưới chuẩn tay cầm game; Chế độ dọc (Portrait) chia 2 cột đều thuận tiện 2 tay.",
+        "Phản Hồi Rung Haptic & Chống Trượt: Thêm cơ chế rung haptic khi chạm nút và khóa cử chỉ cuộn ngoài ý muốn (touch-action: none)."
+      ],
+      "en": [
+        "Ergonomic Dual-Pod Layout: Directional D-Pad placed on the left side, throttle and action triggers on the right side, leaving center unobstructed for clear FPV driving.",
+        "Universal Responsive Scaling: Dynamic clamp() scaling for seamless fit across all smartphone screen sizes and tablets (iPads, Android tablets).",
+        "Dual-Orientation Optimization: Landscape mode pins controls to lower corners like a gamepad; Portrait mode splits cleanly into two balanced columns.",
+        "Haptic Touch Feedback: Tactile vibration response on button presses with full touch-action locking to prevent accidental scrolling."
+      ],
+      "ja": [
+        "デュアルポッド人間工学レイアウト: 左側にDパッド、右側にスロットルと操作ボタンを配置し、中央の視界を最大限確保。",
+        "マルチ画面レスポンシブ: clamp()による柔軟なサイズ自動調整でスマートフォンおよびタブレットに対応。",
+        "縦横両画面の最適化: 横画面はゲーム機スタイル、縦画面は2カラムで両手操作に最適化。",
+        "ハプティック振動フィードバック: ボタン押下時の触覚振動と画面スクロール防止処理（touch-action: none）。"
+      ],
+      "zh": [
+        "双翼人体工程学布局: D-Pad方向键置于左侧，调速与功能键置于右侧，中央无遮挡呈现开阔FPV视野。",
+        "全屏幕自适应: 采用clamp()自适应缩放，无缝适配各种尺寸手机与平板电脑。",
+        "横竖屏深度优化: 横屏模式双角握持手柄体验，竖屏模式双列对称舒适操控。",
+        "触控震动反馈与防滑手: 按钮按下提供轻微震动反馈，完全锁定页面非预期滑动。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.029",
+    "date": "2026-09",
+    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.029 - Ra Mắt Module Điều Khiển Xe Robot Car FPV Cockpit Độc Lập & Driver PWM Đa Kênh",
