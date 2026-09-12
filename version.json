@@ -1,6 +1,6 @@
 {
-  "version": "1.0.036",
+  "version": "1.0.037",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.036: Integrated Real-Time Web AI Person Detection (TensorFlow.js COCO-SSD) in SD Gallery & Live Stream / Tích hợp AI nhận diện người thời gian thực trên Web SD Gallery"
+  "changelog": "Release v1.0.037: Optimized Web AI Person Detection Engine, Dual-Mode CORS Stream & Letterbox Adaptive HUD Bounding Boxes / Tối ưu hóa bộ nhận diện người AI, Dual-Mode Stream & Tự động bù trừ tỷ lệ khung hình HUD"
 }
