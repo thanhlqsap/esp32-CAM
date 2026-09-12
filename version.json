@@ -1,6 +1,6 @@
 {
-  "version": "1.0.034",
+  "version": "1.0.036",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.034: Hardware Mode Selector (SD Gallery vs Robot Car) with Auto-Disable UI & 1-Click Fast Switching / Bộ chọn chế độ phần cứng GPIO chống xung đột chân kèm cơ chế tự động khóa nút khi sai mode và chuyển đổi 1-click"
+  "changelog": "Release v1.0.036: Integrated Real-Time Web AI Person Detection (TensorFlow.js COCO-SSD) in SD Gallery & Live Stream / Tích hợp AI nhận diện người thời gian thực trên Web SD Gallery"
 }
