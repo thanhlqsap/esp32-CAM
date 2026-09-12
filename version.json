@@ -1,6 +1,6 @@
 {
-  "version": "1.0.032",
+  "version": "1.0.033",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.032: Redesigned Ergonomic Responsive Gamepad Cockpit UI for Phones & Tablets with Left-Hand D-Pad Controls / Tái thiết kế giao diện điều khiển xe FPV Cockpit công thái học thích ứng đa màn hình với cụm phím điều hướng D-Pad bên trái"
+  "changelog": "Release v1.0.033: Elevated Landscape Cockpit Controls by 10% & Safe-Area Clearance for Mobile Phones / Nâng cao cụm điều khiển xe hơn 10% khi xoay ngang điện thoại, chống tràn mép và che khuất phím"
 }

@@ -1,8 +1,48 @@
 [
   {
-    "version": "v1.0.032",
+    "version": "v1.0.033",
     "date": "2026-09",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.033 - Nâng Cao 10% Cụm Điều Khiển Xe Ở Chế Độ Xoay Ngang & Chống Che Khuất Mép Màn Hình",
+      "en": "Release v1.0.033 - Elevated Landscape Cockpit Controls by 10% & Bottom Safe-Area Margin Optimization",
+      "ja": "リリース v1.0.033 - 横画面時の操作ボタン群10%リフトアップ＆下部ナビバー被り解消",
+      "zh": "发布 v1.0.033 - 横屏模式控制按键群整体抬高10%与防底栏遮挡优化"
+    },
+    "description": {
+      "vi": "📱 Khắc phục triệt để hiện tượng cụm nút điều khiển bị đặt quá thấp sát đáy màn hình khi xoay ngang điện thoại dẫn đến bị thanh điều hướng ảo/home indicator che khuất hoặc mất hàng phím dưới. Nâng vị trí cụm D-Pad và cụm tốc độ/chức năng lên cao hơn 10% chiều cao màn hình (10vh), áp dụng khoảng đệm an toàn Safe-Area Inset và tối ưu kích thước nút bấm giúp cầm lái cực kỳ thoải mái.",
+      "en": "📱 Completely resolved control pods positioned too low in phone landscape mode which caused buttons to be obscured by virtual navigation bars or home indicators. Elevated D-Pad and throttle/action pods by 10% viewport height (10vh) with enhanced safe-area margin clearance and optimized button sizing for superior thumb comfort.",
+      "ja": "📱 スマホ横画面時に操作パネルが画面最下部に近すぎてナビゲーションバーに隠れたりボタンが見切れる問題を解消。Dパッドおよびアクションパネルを画面高さの10%（10vh）上方に引き上げ、セーフエリアマージンとボタンサイズを最適化。",
+      "zh": "📱 彻底解决手机横屏时控制面板过于贴近屏幕底部导致被虚拟导航栏/手势条遮挡按键的问题。将D-Pad与调速功能面板整体向上抬高10%屏幕高度（10vh），结合Safe-Area安全边距与优化按钮尺寸，带来绝佳的横屏握持操控体验。"
+    },
+    "changes": {
+      "vi": [
+        "Nâng cao cụm điều khiển 10%: Thiết lập bottom offset tối thiểu 10vh kèm Safe Area Insets, giải phóng hoàn toàn hàng nút dưới (Z/S/C và Trim) khỏi mép màn hình.",
+        "Tối ưu kích thước nút bấm xoay ngang: Tự động điều chỉnh kích thước nút D-Pad bằng clamp() phù hợp với chiều cao màn hình ngang (360-450px) mà không che khuất tâm ngắm camera.",
+        "Đồng bộ chuẩn 100dvh/100dvw: Sử dụng dynamic viewport units giúp giao diện luôn cố định chuẩn xác khi thanh địa chỉ trình duyệt tự động ẩn/hiện."
+      ],
+      "en": [
+        "Elevated Controls by 10%: Added minimum 10vh bottom clearance with safe area insets, fully clearing the bottom button row (Z/S/C and Trim) from screen edges.",
+        "Landscape Button Scaling: Automatically adapts D-Pad button sizes via clamp() for landscape heights (360-450px) while maintaining full vision on camera crosshairs.",
+        "Unified 100dvh/100dvw: Uses dynamic viewport units ensuring rock-solid layout stability when browser URL bars collapse or expand."
+      ],
+      "ja": [
+        "コントロール群10%上部シフト: 10vhの下部クリアランスとセーフエリアを適用し、最下段ボタン（Z/S/Cおよびトリム）の視認性と押しやすさを確保。",
+        "横画面ボタンサイズ最適化: 横画面の高さ（360〜450px）に合わせてclamp()でボタンサイズを最適化し、カメラ視野を邪魔しない配置を実現。",
+        "100dvh/100dvw対応: ブラウザのアドレスバー開閉時にもレイアウトが崩れない動的ビューポート単位を採用。"
+      ],
+      "zh": [
+        "控制区域整体抬升10%: 设置最小10vh底部安全悬空与Safe Area边距，彻底避免底部按键（Z/S/C与平衡微调）被边缘遮挡。",
+        "横屏按键比例优化: 针对手机横屏高度（360-450px）通过clamp()智能调整按键比例，不遮挡摄像头中心十字准心。",
+        "全屏动态视口100dvh/100dvw: 采用动态视口单位，浏览器地址栏收起展开时页面布局依然纹丝不动。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.032",
+    "date": "2026-09",
+    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.032 - Tái Thiết Kế Giao Diện FPV Cockpit Công Thái Học Đa Thiết Bị (Mobile & Tablet) Với Cụm D-Pad Bên Trái",
