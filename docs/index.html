@@ -41,6 +41,20 @@
     body:not([data-lang="en"]) .lang-en { display: none !important; }
     body:not([data-lang="ja"]) .lang-ja { display: none !important; }
     body:not([data-lang="zh"]) .lang-zh { display: none !important; }
+    body:not([data-lang="fr"]) .lang-fr { display: none !important; }
+    body:not([data-lang="de"]) .lang-de { display: none !important; }
+    body:not([data-lang="es"]) .lang-es { display: none !important; }
+    body:not([data-lang="ru"]) .lang-ru { display: none !important; }
+    body:not([data-lang="ko"]) .lang-ko { display: none !important; }
+
+    /* CSS Fallback: Khi chọn ngôn ngữ mới mà container chưa có span riêng, tự động fallback sang lang-en */
+    body[data-lang="fr"] :not(:has(> .lang-fr)) > .lang-en,
+    body[data-lang="de"] :not(:has(> .lang-de)) > .lang-en,
+    body[data-lang="es"] :not(:has(> .lang-es)) > .lang-en,
+    body[data-lang="ru"] :not(:has(> .lang-ru)) > .lang-en,
+    body[data-lang="ko"] :not(:has(> .lang-ko)) > .lang-en {
+      display: inline !important;
+    }
 
     /* Top Bar */
     .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 4px; }
@@ -126,11 +140,16 @@
         📷 <span>ESP32-CAM</span>
       </a>
       <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
-        <option value="vi">🇻🇳 Tiếng Việt</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="ja">🇯🇵 日本語</option>
-        <option value="zh">🇨🇳 简体中文</option>
-      </select>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="zh">🇨🇳 简体中文</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="ko">🇰🇷 한국어</option>
+        </select>
     </div>
 
     <!-- Browser Serial Support Warning -->
