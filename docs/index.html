@@ -797,10 +797,19 @@
     }
 
     // Check Web Serial Support
+    
+    window.addEventListener('storage', (e) => {
+      if (['esp32_cam_global_lang', 'esp32_lang', 'esp32_cam_lang', 'esp32_sd_lang', 'esp32_car_lang'].includes(e.key) && e.newValue) {
+        if (typeof setLanguage === 'function') setLanguage(e.newValue);
+        else if (typeof changeLanguage === 'function') changeLanguage(e.newValue);
+        else if (typeof changeLang === 'function') changeLang(e.newValue);
+      }
+    });
+
     window.addEventListener('DOMContentLoaded', () => {
       let savedLang = 'vi';
       try {
-        savedLang = localStorage.getItem('esp32_cam_flasher_lang') || 'vi';
+        savedLang = localStorage.getItem('esp32_cam_global_lang') || localStorage.getItem('esp32_lang') || localStorage.getItem('esp32_cam_lang') || localStorage.getItem('esp32_sd_lang') || localStorage.getItem('esp32_car_lang') || 'vi';
       } catch (e) {}
       setLanguage(savedLang);
       loadChangelogAndVersions();

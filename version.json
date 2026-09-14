@@ -1,7 +1,7 @@
 {
-  "version": "1.0.052",
+  "version": "1.0.053",
   "release_date": "2026-09-14",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "notes": "Đồng bộ hóa toàn bộ nội dung tin nhắn cảnh báo Telegram & Gmail theo 9 ngôn ngữ, chuẩn hóa nội dung gửi cảnh báo thử nghiệm giống hệt gửi thực tế kèm theo định dạng chuẩn."
+  "notes": "Đồng bộ hóa ngôn ngữ toàn hệ thống (Universal Cross-Site Language Sync) giữa tất cả các trang web Dashboard, SD Gallery, FPV Car, Captive Portal, User Guide và Web Flasher."
 }

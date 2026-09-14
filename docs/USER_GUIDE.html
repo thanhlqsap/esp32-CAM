@@ -3215,8 +3215,17 @@ cv2.destroyAllWindows()
       document.getElementById('langSelect').value = lang;
     }
 
+    
+    window.addEventListener('storage', (e) => {
+      if (['esp32_cam_global_lang', 'esp32_lang', 'esp32_cam_lang', 'esp32_sd_lang', 'esp32_car_lang'].includes(e.key) && e.newValue) {
+        if (typeof setLanguage === 'function') setLanguage(e.newValue);
+        else if (typeof changeLanguage === 'function') changeLanguage(e.newValue);
+        else if (typeof changeLang === 'function') changeLang(e.newValue);
+      }
+    });
+
     window.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('esp32_user_guide_lang') || 'vi';
+      const savedLang = localStorage.getItem('esp32_cam_global_lang') || localStorage.getItem('esp32_lang') || localStorage.getItem('esp32_cam_lang') || localStorage.getItem('esp32_sd_lang') || localStorage.getItem('esp32_car_lang') || 'vi';
       changeLang(savedLang);
     });
   </script>
