@@ -1,8 +1,8 @@
 {
-  "version": "1.0.045",
+  "version": "1.0.046",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Tối ưu hợp nhất 1 nút lưu duy nhất trên SD Gallery và sửa triệt để nút bật chế độ Xe Robot trên Cockpit",
+  "changelog": "Khắc phục triệt để nút bật chế độ Xe Robot từ Cockpit và mở rộng hỗ trợ 9 ngôn ngữ toàn cầu",
   "release_date": "2026-09-14",
-  "download_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/OTA_Update_v1.0.045.bin"
+  "download_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/OTA_Update_v1.0.046.bin"
 }
