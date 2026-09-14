@@ -1,8 +1,8 @@
 {
-  "version": "1.0.048",
+  "version": "1.0.049",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "v1.0.048: Vô hiệu hóa đồng bộ toàn bộ 2 thẻ mới (Cảnh báo Telegram/Gmail & Nút Lưu Toàn Bộ Cấu Hình) khi ở Chế Độ Xe Robot (Car Mode).",
+  "changelog": "v1.0.049: Hoàn thiện cấu trúc HTML thẻ span tĩnh và từ điển đa ngôn ngữ chuẩn mực cho 5 ngôn ngữ mới (Pháp, Đức, Tây Ban Nha, Nga, Hàn Quốc) trên toàn bộ hệ thống.",
   "release_date": "2026-09-14",
-  "download_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/OTA_Update_v1.0.048.bin"
+  "download_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/OTA_Update_v1.0.049.bin"
 }
