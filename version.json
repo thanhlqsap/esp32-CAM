@@ -1,6 +1,8 @@
 {
-  "version": "1.0.042",
+  "version": "1.0.045",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.042: Integrated Instant Motion Alert Snapshots via Telegram Bot & Gmail SMTP SSL (/sd) / Tích hợp gửi ảnh chụp cảnh báo chuyển động tức thì qua Telegram Bot và Gmail SMTP"
+  "changelog": "Tối ưu hợp nhất 1 nút lưu duy nhất trên SD Gallery và sửa triệt để nút bật chế độ Xe Robot trên Cockpit",
+  "release_date": "2026-09-14",
+  "download_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/OTA_Update_v1.0.045.bin"
 }
