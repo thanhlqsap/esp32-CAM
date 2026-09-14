@@ -1,6 +1,6 @@
 {
-  "version": "1.0.041",
+  "version": "1.0.042",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "changelog": "Release v1.0.041: Added Motion Detection Source Selector (Camera Image vs External PIR Sensor on GPIO 3) in SD Gallery / Tùy chọn nguồn kích hoạt chuyển động (Xử lý hình ảnh hoặc Cảm biến ngoài GPIO 3)"
+  "changelog": "Release v1.0.042: Integrated Instant Motion Alert Snapshots via Telegram Bot & Gmail SMTP SSL (/sd) / Tích hợp gửi ảnh chụp cảnh báo chuyển động tức thì qua Telegram Bot và Gmail SMTP"
 }

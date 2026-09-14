@@ -527,10 +527,12 @@
         <span class="lang-zh">全功能手册：多传感器摄像头、双OTA固件升级、SD卡动态录像、FPV遥控小车驾驶舱及完整REST API参考</span>
       </p>
       <div class="doc-meta">
-        <span class="meta-tag">🏷️ <span class="lang-vi">Phiên bản</span><span class="lang-en">Version</span><span class="lang-ja">バージョン</span><span class="lang-zh">版本</span>: v1.0.033</span>
+        <span class="meta-tag">🏷️ <span class="lang-vi">Phiên bản</span><span class="lang-en">Version</span><span class="lang-ja">バージョン</span><span class="lang-zh">版本</span>: v1.0.042</span>
         <span class="meta-tag">📦 AI-Thinker ESP32-CAM + PSRAM 4MB</span>
+        <span class="meta-tag">🧠 Web AI Person Detection (TFJS)</span>
         <span class="meta-tag">🚀 Dual-OTA (ota_0 / ota_1)</span>
         <span class="meta-tag">🏎️ FPV Robot Car Controller</span>
+        <span class="meta-tag">⚡ Hardware GPIO Mode Multiplexer</span>
       </div>
     </header>
 
@@ -815,18 +817,40 @@
 
       <ul>
         <li><b><span class="lang-vi">Truy cập Gallery:</span><span class="lang-en">Open Gallery:</span><span class="lang-ja">ギャラリー表示:</span><span class="lang-zh">访问媒体库:</span></b> <code>http://&lt;IP&gt;/sd</code> <span class="lang-vi">hoặc</span><span class="lang-en">or</span><span class="lang-ja">または</span><span class="lang-zh">或</span> <code>http://&lt;IP&gt;/gallery</code>.</li>
-        <li><b><span class="lang-vi">Phát hiện chuyển động thông minh (Luminance Grid):</span><span class="lang-en">Smart Motion Detection:</span><span class="lang-ja">動体検知アルゴリズム:</span><span class="lang-zh">智能移动侦测:</span></b> <span class="lang-vi">Phân tích lưới 8x8 với bộ lọc sàn nhiễu thích ứng, chống 100% báo động giả trong bóng tối.</span><span class="lang-en">8x8 luminance grid with Adaptive Noise Floor Guard, 0% false alarms in pitch black.</span><span class="lang-ja">8x8グリッドと適応型ノイズ除去により暗所での誤検知を完全防止。</span><span class="lang-zh">基于 8x8 亮度网格与动态噪声门限，彻底杜绝全黑环境下的误报。</span></li>
-        <li><b><span class="lang-vi">Trình phát Video Web HTML5:</span><span class="lang-en">HTML5 Video Player:</span><span class="lang-ja">Web動画再生:</span><span class="lang-zh">网页端视频播放:</span></b> <span class="lang-vi">Xem trực tiếp video AVI trên thẻ nhớ, tải về hoặc xóa tệp từ xa.</span><span class="lang-en">Play AVI videos directly in browser, download, or delete remotely.</span><span class="lang-ja">ブラウザ上で直接AVI動画を再生、ダウンロード、遠隔削除可能。</span><span class="lang-zh">支持在线流畅播放 AVI 视频，支持批量下载与远程安全删除。</span></li>
+        <li><b>🎯 <span class="lang-vi">AI Nhận Diện Khuôn Mặt Thời Gian Thực (BlazeFace Web AI):</span><span class="lang-en">Real-Time Face AI Detection (BlazeFace Web AI):</span><span class="lang-ja">リアルタイム顔認識AI (BlazeFace Web AI):</span><span class="lang-zh">实时人脸AI识别 (BlazeFace Web AI):</span></b> 
+          <span class="lang-vi">Nhận diện khuôn mặt chuẩn xác bằng mô hình BlazeFace (~200KB) chạy trực tiếp trên GPU/WebGL của trình duyệt, tự động thu nhỏ khung ôm trọn khuôn mặt, định vị 6 điểm mốc ngũ quan phát quang và tâm ngắm Tactical Face HUD với 0 byte RAM tiêu hao trên ESP32.</span>
+          <span class="lang-en">Ultra-precise face detection using the lightweight BlazeFace model (~200KB) running on client GPU/WebGL, automatically snapping bounding boxes directly onto faces with 6 glowing landmarks and tactical HUD crosshairs with zero ESP32 RAM overhead.</span>
+          <span class="lang-ja">ブラウザ側GPU/WebGLを活用した超軽量BlazeFaceモデル（約200KB）により、人物の顔領域に正確に枠をフィットさせ、6つの発光特徴点とタクティカルHUD枠をESP32のメモリ消費ゼロで描画。</span>
+          <span class="lang-zh">采用基于浏览器 GPU/WebGL 硬件加速的超轻量 BlazeFace 深度学习模型（约200KB），识别框精准收束贴合人脸轮廓，并实时标定6处发光五官特征点与战术准星，零占用 ESP32 芯片内存。</span>
+        </li>
+        <li><b>⚡ <span class="lang-vi">Nguồn Kích Hoạt Chuyển Động Đa Năng (Image Analytics / Hardware GPIO 3):</span><span class="lang-en">Dual Motion Trigger Sources (Image / Hardware GPIO 3):</span><span class="lang-ja">デュアル動体検知トリガー（映像解析 / GPIO 3外部センサー）:</span><span class="lang-zh">双模移动侦测触发源（画面算法 / GPIO 3 外部传感器）:</span></b>
+          <span class="lang-vi">Hỗ trợ 2 chế độ kích hoạt ghi hình linh hoạt: (1) <b>📷 Xử lý hình ảnh:</b> Thuật toán phân tích biến thiên năng lượng khung hình động (Adaptive Energy & EMA), chống 100% báo động giả trong bóng tối; hoặc (2) <b>⚡ Cảm biến ngoài GPIO 3 (RX0):</b> Kết nối trực tiếp cảm biến PIR (AM312, HC-SR501) hoặc radar vi sóng (RCWL-0516) nhận diện thân nhiệt ban đêm tức thì.</span>
+          <span class="lang-en">Offers 2 flexible triggering modes: (1) <b>📷 Camera Image:</b> Adaptive Energy & EMA difference algorithm, 100% false-alarm proof in darkness; or (2) <b>⚡ External Sensor (GPIO 3):</b> Direct interface with PIR (AM312, HC-SR501) or Microwave Radar (RCWL-0516) for instant thermal human detection even in pitch black.</span>
+          <span class="lang-ja">2つの検知モードに対応：(1) <b>📷 映像解析：</b> 適応型エネルギー＆EMAフレーム差分アルゴリズム（暗所誤検知完全防止）、または (2) <b>⚡ 外部センサー（GPIO 3）：</b> PIR（AM312/HC-SR501）やマイクロ波レーダー（RCWL-0516）を直結し暗闇でも人体を即座に感知。</span>
+          <span class="lang-zh">支持 2 种灵活触发模式：(1) <b>📷 图像分析：</b> 动态能量自适应与 EMA 背景差分算法，全黑环境零误报；或 (2) <b>⚡ 外部传感器 (GPIO 3)：</b> 直连 PIR 人体红外（AM312/HC-SR501）或微波雷达（RCWL-0516），在完全无光环境下依然秒级抓拍。</span>
+        </li>
+        <li><b>🔔 <span class="lang-vi">Gửi Ảnh Cảnh Báo Tức Thì Qua Telegram Bot & Gmail SMTP SSL:</span><span class="lang-en">Instant Photo Alert Push via Telegram Bot & Gmail SMTP SSL:</span><span class="lang-ja">Telegram Bot＆Gmail SMTP経由の写真アラート自動送信:</span><span class="lang-zh">Telegram Bot 与 Gmail SMTP SSL 实时抓拍报警推送:</span></b>
+          <span class="lang-vi">Khi phát hiện chuyển động, hệ thống tự động chụp 1 frame ảnh JPEG độ nét cao và gửi đến <b>Telegram Bot</b> (&lt; 1.5s) hoặc <b>Gmail SMTP (SSL Cổng 465)</b>. Chạy bất đồng bộ trên FreeRTOS Core 1 (Zero Stream Lag), tích hợp giãn cách chống spam Cooldown (15s - 5m) và nút gửi thử nghiệm trực quan.</span>
+          <span class="lang-en">Upon motion, captures a high-resolution JPEG frame and pushes it to <b>Telegram Bot</b> (&lt; 1.5s) or <b>Gmail SMTP (SSL Port 465)</b>. Executes asynchronously on FreeRTOS Core 1 (Zero Stream Lag) with anti-spam cooldown (15s - 5m) and one-click test dispatching.</span>
+          <span class="lang-ja">動体検知時に高画質JPEGを撮影し、<b>Telegram Bot</b>（1.5秒以内）または<b>Gmail SMTP（SSLポート465）</b>へ自動送信。FreeRTOS Core 1非同期タスク処理により動画配信を妨げず、スパム防止クールダウン（15秒〜5分）とテスト送信機能を搭載。</span>
+          <span class="lang-zh">侦测到移动时自动抓拍高清 JPEG 图片并秒级推送到 <b>Telegram Bot</b> (&lt; 1.5秒) 或 <b>Gmail SMTP (SSL 465 端口)</b>。在 FreeRTOS Core 1 异步多任务执行，绝不卡顿视频流，支持防刷屏冷却时间（15秒至5分钟）与一键测试发送。</span>
+        </li>
+        <li><b>🎬 <span class="lang-vi">Trình phát Video Web HTML5 Canvas:</span><span class="lang-en">HTML5 Canvas Video Player:</span><span class="lang-ja">Web動画再生エンジン:</span><span class="lang-zh">网页端视频流畅播放:</span></b> 
+          <span class="lang-vi">Xem trực tiếp video AVI trên thẻ nhớ, tải về hoặc xóa tệp từ xa.</span>
+          <span class="lang-en">Play AVI videos directly in browser, download, or delete remotely.</span>
+          <span class="lang-ja">ブラウザ上で直接AVI動画を再生、ダウンロード、遠隔削除可能。</span>
+          <span class="lang-zh">支持在线流畅播放 AVI 视频，支持批量下载与远程安全删除。</span>
+        </li>
       </ul>
     </section>
 
     <!-- SECTION 6 -->
     <section class="section" id="sec6">
       <h2 class="section-title"><span class="num">6</span>
-        <span class="lang-vi">Hệ Thống Xe Điều Khiển FPV Robot Car & Sơ Đồ Đấu Nối 4WD (v1.0.033)</span>
-        <span class="lang-en">FPV Robot Car Controller & 4WD Wiring Guide (v1.0.033)</span>
-        <span class="lang-ja">FPVロボットカー操縦システム＆4WD配線ガイド (v1.0.033)</span>
-        <span class="lang-zh">FPV 遥控小车控制器与 4WD 接线图指南 (v1.0.033)</span>
+        <span class="lang-vi">Hệ Thống Xe Điều Khiển FPV Robot Car & Sơ Đồ Đấu Nối 4WD (v1.0.042)</span>
+        <span class="lang-en">FPV Robot Car Controller & 4WD Wiring Guide (v1.0.042)</span>
+        <span class="lang-ja">FPVロボットカー操縦システム＆4WD配線ガイド (v1.0.042)</span>
+        <span class="lang-zh">FPV 遥控小车控制器与 4WD 接线图指南 (v1.0.042)</span>
       </h2>
       <p>
         <span class="lang-vi">Hệ thống tận dụng 4 chân GPIO còn lại trên header (<b>GPIO 12, 13, 15, 14</b>) để xuất xung PWM điều tốc mượt mà, hỗ trợ kết nối trực tiếp với các module cầu H phổ biến (<b>L298N, L9110S, MX1508, DRV8833, TB6612FNG</b>). Hệ thống tương thích hoàn hảo cho cả khung xe 2 bánh (2WD) và 4 bánh (4WD vi sai / Skid-Steer):</span>
@@ -936,6 +960,12 @@
           <span class="lang-en">If wheels spin in reverse, open <b>⚙️ Settings Modal</b> to invert motor directions via software without rewiring. Fine-tune straight-line balance via <b>⚖️ Steering Trim</b> slider.</span>
           <span class="lang-ja">タイヤが逆回転する場合、<b>⚙️ 設定モーダル</b>からソフトウェア上で簡単にモーター反転（Invert）可能。<b>⚖️ トリム</b>で直進バランスを微調整。</span>
           <span class="lang-zh">若电机转向相反，无需重新插拔电线，在 <b>⚙️ 参数设置</b> 弹窗中即可一键开启软件换向（Invert），并通过 <b>⚖️ 平衡微调 (Trim)</b> 消除偏向跑偏。</span>
+        </li>
+        <li><b><span class="lang-vi">Đổi Nhanh Độ Phân Giải Camera (Top HUD):</span><span class="lang-en">Quick Resolution Selector (Top HUD):</span><span class="lang-ja">解像度クイック切替 (Top HUD):</span><span class="lang-zh">顶部HUD快速切换分辨率:</span></b>
+          <span class="lang-vi">Tích hợp menu chọn độ phân giải ngay trên thanh Top HUD của buồng lái FPV, cho phép chuyển đổi tức thì giữa các mức: ⚡ <b>QVGA (320x240)</b> độ trễ thấp & 25-30 FPS siêu mượt cho đua xe tốc độ cao, 🏎️ <b>VGA (640x480)</b> cân bằng mượt mà, và 🎥 <b>SVGA/HD</b> rõ nét chi tiết mà không cần quay lại Dashboard.</span>
+          <span class="lang-en">Quick resolution dropdown directly on the FPV Top HUD bar, allowing instant switching between: ⚡ <b>QVGA (320x240)</b> for ultra-low latency 25-30 FPS racing, 🏎️ <b>VGA (640x480)</b> for smooth balance, and 🎥 <b>SVGA/HD</b> for sharp clarity without navigating back to Dashboard.</span>
+          <span class="lang-ja">Top HUDバーから直接カメラ解像度を切り替え可能：高速走行用 ⚡ <b>QVGA (320x240)</b> 低遅延・高FPS、標準バランス 🏎️ <b>VGA (640x480)</b>、高精細 🎥 <b>SVGA/HD</b> を操縦中に即時変更可能。</span>
+          <span class="lang-zh">在 FPV 顶部 HUD 栏直接集成画质切换下拉框：支持在 ⚡ <b>QVGA (320x240)</b> 低延迟高帧率竞速、🏎️ <b>VGA (640x480)</b> 均衡平滑与 🎥 <b>SVGA/HD</b> 高清细节模式之间随心切换。</span>
         </li>
       </ul>
 
@@ -1202,6 +1232,38 @@ http://admin:admin123@192.168.1.100/car_cmd?action=forward&speed=220
         </table>
       </div>
 
+      <!-- 11.2B HARDWARE MODE MULTIPLEXER -->
+      <h3>⚡ 11.2B. <span class="lang-vi">Bộ Chuyển Đổi Chế Độ Phần Cứng GPIO</span><span class="lang-en">Hardware GPIO Mode Multiplexer API</span><span class="lang-ja">ハードウェアGPIOモード切替API</span><span class="lang-zh">硬件 GPIO 模式切换 API</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Method</th>
+              <th><span class="lang-vi">Tham Số</span><span class="lang-en">Parameters</span><span class="lang-ja">パラメータ</span><span class="lang-zh">参数</span></th>
+              <th><span class="lang-vi">Mô Tả Chức Năng</span><span class="lang-en">Description</span><span class="lang-ja">説明</span><span class="lang-zh">说明</span></th>
+              <th><span class="lang-vi">Dữ Liệu Trả Về (JSON)</span><span class="lang-en">Response</span><span class="lang-ja">返却値</span><span class="lang-zh">返回值</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/get_mode</code></td>
+              <td><span class="badge-pill blue">GET</span></td>
+              <td><i>None</i></td>
+              <td><span class="lang-vi">Đọc chế độ phần cứng GPIO hiện tại (sd_gallery hoặc car_control)</span><span class="lang-en">Get active GPIO hardware mode (sd_gallery or car_control)</span><span class="lang-ja">現在のハードウェアGPIO動作モードを取得</span><span class="lang-zh">获取当前 GPIO 硬件工作模式</span></td>
+              <td><code>{"mode":"sd_gallery","name":"Thẻ nhớ MicroSD","is_sd":true,"is_car":false}</code></td>
+            </tr>
+            <tr>
+              <td><code>/set_mode</code></td>
+              <td><span class="badge-pill green">POST</span></td>
+              <td><code>mode=sd_gallery</code> / <code>mode=car_control</code> (<span class="lang-vi">hoặc</span> <code>mode=car</code>)</td>
+              <td><span class="lang-vi">Chuyển đổi tức thì quyền sử dụng 4 chân GPIO 12, 13, 14, 15 giữa Thẻ nhớ và Động cơ Xe, lưu NVS Flash</span><span class="lang-en">Instantly multiplex GPIO 12, 13, 14, 15 between MicroSD and Motor PWM with NVS persistence</span><span class="lang-ja">GPIO 12, 13, 14, 15の用途をSDカードとモーターPWMの間で即座に切り替え（NVS保存）</span><span class="lang-zh">平滑切换 GPIO 12, 13, 14, 15 引脚用途（SD卡或电机PWM）并保存至 NVS</span></td>
+              <td><code>{"success":true,"mode":"car_control","message":"Switched to Car mode successfully"}</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <!-- 11.3 ROBOT CAR -->
       <h3>🏎️ 11.3. <span class="lang-vi">Xe Điều Khiển Robot Car</span><span class="lang-en">Robot Car Driving API</span><span class="lang-ja">ロボットカー操縦API</span><span class="lang-zh">遥控小车控制 API</span></h3>
       <div class="table-wrap">
@@ -1306,6 +1368,27 @@ http://admin:admin123@192.168.1.100/car_cmd?action=forward&speed=220
               <td><code>file=/videos/motion_xxx.avi</code></td>
               <td><span class="lang-vi">Xóa video khỏi thẻ nhớ</span><span class="lang-en">Delete video file</span><span class="lang-ja">動画削除</span><span class="lang-zh">删除指定视频文件</span></td>
               <td><code>{"status":"ok"}</code></td>
+            </tr>
+            <tr>
+              <td><code>/motion_config</code></td>
+              <td><span class="badge-pill blue">GET</span> / <span class="badge-pill red">POST</span></td>
+              <td><code>enabled, source (0:Img, 1:PIR), sensitivity, framesize, maxDuration</code></td>
+              <td><span class="lang-vi">Đọc / Lưu cấu hình phát hiện chuyển động</span><span class="lang-en">Get / Set motion detection settings</span><span class="lang-ja">動体検知設定の取得/保存</span><span class="lang-zh">获取/保存移动侦测参数</span></td>
+              <td><code>{"enabled":true,"source":0,"sensitivity":2}</code></td>
+            </tr>
+            <tr>
+              <td><code>/alert_config</code></td>
+              <td><span class="badge-pill blue">GET</span> / <span class="badge-pill red">POST</span></td>
+              <td><code>enabled, channel (0:TG, 1:GM), tg_token, tg_chat_id, gmail_user, gmail_pass, gmail_recipient, cooldown</code></td>
+              <td><span class="lang-vi">Đọc / Lưu cấu hình cảnh báo Telegram & Gmail</span><span class="lang-en">Get / Set Telegram & Gmail alert config</span><span class="lang-ja">Telegram＆Gmailアラート設定の取得/保存</span><span class="lang-zh">获取/保存 Telegram 与 Gmail 报警参数</span></td>
+              <td><code>{"enabled":true,"channel":0,"cooldown":30}</code></td>
+            </tr>
+            <tr>
+              <td><code>/alert_test</code></td>
+              <td><span class="badge-pill red">POST</span></td>
+              <td><code>channel, tg_token, tg_chat_id, gmail_user, gmail_pass, gmail_recipient</code></td>
+              <td><span class="lang-vi">Chụp và gửi thử nghiệm 1 ảnh cảnh báo</span><span class="lang-en">Capture and send a test alert photo</span><span class="lang-ja">テストアラート写真を撮影して送信</span><span class="lang-zh">即时抓拍并发送测试报警照片</span></td>
+              <td><code>{"success":true,"message":"OK"}</code></td>
             </tr>
           </tbody>
         </table>
@@ -1496,7 +1579,7 @@ cv2.destroyAllWindows()
 
     <!-- FOOTER -->
     <footer class="doc-footer">
-      <p><b>ESP32-CAM Multi-Sensor, Hybrid OTA & Robot Car</b> • <span class="lang-vi">Tài liệu hướng dẫn sử dụng chính thức v1.0.031</span><span class="lang-en">Official System Manual v1.0.031</span><span class="lang-ja">公式システムマニュアル v1.0.031</span><span class="lang-zh">官方系统技术手册 v1.0.031</span></p>
+      <p><b>ESP32-CAM Multi-Sensor, Hybrid OTA & Robot Car</b> • <span class="lang-vi">Tài liệu hướng dẫn sử dụng chính thức v1.0.042</span><span class="lang-en">Official System Manual v1.0.042</span><span class="lang-ja">公式システムマニュアル v1.0.042</span><span class="lang-zh">官方系统技术手册 v1.0.042</span></p>
       <p style="margin-top:4px;">
         <span class="lang-vi">Nhấn nút <b>"🖨️ In / PDF"</b> ở góc trên để in ra giấy A4 hoặc lưu thành file PDF chuẩn hóa.</span>
         <span class="lang-en">Click <b>"🖨️ Print / PDF"</b> above to export formatted A4 PDF or print.</span>
