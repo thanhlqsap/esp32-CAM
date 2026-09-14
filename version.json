@@ -1,6 +1,7 @@
 {
   "version": "1.0.052",
   "release_date": "2026-09-14",
-  "firmware_url": "https://raw.githubusercontent.com/tathanhngu/ESP32_CAM/main/build/ESP32_CAM_v1.0.052.bin",
+  "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
+  "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "notes": "Đồng bộ hóa toàn bộ nội dung tin nhắn cảnh báo Telegram & Gmail theo 9 ngôn ngữ, chuẩn hóa nội dung gửi cảnh báo thử nghiệm giống hệt gửi thực tế kèm theo định dạng chuẩn."
 }
