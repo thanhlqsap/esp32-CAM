@@ -47,14 +47,7 @@
     body:not([data-lang="ru"]) .lang-ru { display: none !important; }
     body:not([data-lang="ko"]) .lang-ko { display: none !important; }
 
-    /* CSS Fallback: Khi chọn ngôn ngữ mới mà container chưa có span riêng, tự động fallback sang lang-en */
-    body[data-lang="fr"] :not(:has(> .lang-fr)) > .lang-en,
-    body[data-lang="de"] :not(:has(> .lang-de)) > .lang-en,
-    body[data-lang="es"] :not(:has(> .lang-es)) > .lang-en,
-    body[data-lang="ru"] :not(:has(> .lang-ru)) > .lang-en,
-    body[data-lang="ko"] :not(:has(> .lang-ko)) > .lang-en {
-      display: inline !important;
-    }
+    
 
     /* Top Bar */
     .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 4px; }
@@ -155,76 +148,71 @@
     <!-- Browser Serial Support Warning -->
     <div id="browserAlert" class="browser-alert">
       <b>⚠️ <span class="lang-vi">Trình duyệt chưa hỗ trợ nạp qua USB!</span>
-      <span class="lang-en">Browser does not support Web Serial!</span>
-      <span class="lang-ja">Web Serial 未対応ブラウザです！</span>
-      <span class="lang-zh">当前浏览器不支持 Web Serial！</span>
-      <span class="lang-fr">Browser does not support Web Serial!</span>
-      <span class="lang-de">Browser does not support Web Serial!</span>
-      <span class="lang-es">Browser does not support Web Serial!</span>
-      <span class="lang-ru">Browser does not support Web Serial!</span>
-      <span class="lang-ko">Browser does not support Web Serial!</span></b><br>
+<span class="lang-en">Browser does not support Web Serial!</span>
+<span class="lang-ja">Web Serial 未対応ブラウザです！</span>
+<span class="lang-zh">当前浏览器不支持 Web Serial！</span>
+<span class="lang-fr">Browser does not support Web Serial!</span>
+<span class="lang-de">Browser does not support Web Serial!</span>
+<span class="lang-es">Browser does not support Web Serial!</span>
+<span class="lang-ru">Browser does not support Web Serial!</span>
+<span class="lang-ko">Browser does not support Web Serial!</span></b><br>
       <span class="lang-vi">Vui lòng mở trang web này bằng <b>Google Chrome</b> hoặc <b>Microsoft Edge</b> trên máy tính để kết nối cáp nạp.</span>
-      <span class="lang-en">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-      <span class="lang-ja">PC の <b>Google Chrome</b> または <b>Microsoft Edge</b> で開いてください。</span>
-      <span class="lang-zh">请在电脑端使用 <b>Google Chrome</b> 或 <b>Microsoft Edge</b> 打开。</span>
-      <span class="lang-fr">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-      <span class="lang-de">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-      <span class="lang-es">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-      <span class="lang-ru">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-      <span class="lang-ko">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-    </div>
+<span class="lang-en">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
+<span class="lang-ja">PC の <b>Google Chrome</b> または <b>Microsoft Edge</b> で開いてください。</span>
+<span class="lang-zh">请在电脑端使用 <b>Google Chrome</b> 或 <b>Microsoft Edge</b> 打开。</span>
+<span class="lang-fr">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
+<span class="lang-de">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
+<span class="lang-es">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
+<span class="lang-ru">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
+<span class="lang-ko">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span></div>
 
     <!-- Main 1-Click Card -->
     <div class="installer-card">
       <div class="cam-icon">📷</div>
       <h1>
         <span class="lang-vi">Nạp Firmware ESP32-CAM</span>
-        <span class="lang-en">ESP32-CAM Web Flasher</span>
-        <span class="lang-ja">ESP32-CAM Web書き込み</span>
-        <span class="lang-zh">ESP32-CAM 固件一键烧录</span>
-        <span class="lang-fr">ESP32-CAM Web Flasher</span>
-        <span class="lang-de">ESP32-CAM Web Flasher</span>
-        <span class="lang-es">ESP32-CAM Web Flasher</span>
-        <span class="lang-ru">ESP32-CAM Web Flasher</span>
-        <span class="lang-ko">ESP32-CAM Web Flasher</span>
-      </h1>
+<span class="lang-en">ESP32-CAM Web Flasher</span>
+<span class="lang-ja">ESP32-CAM Web書き込み</span>
+<span class="lang-zh">ESP32-CAM 固件一键烧录</span>
+<span class="lang-fr">ESP32-CAM Web Flasher</span>
+<span class="lang-de">ESP32-CAM Web Flasher</span>
+<span class="lang-es">ESP32-CAM Web Flasher</span>
+<span class="lang-ru">ESP32-CAM Web Flasher</span>
+<span class="lang-ko">ESP32-CAM Web Flasher</span></h1>
       <p class="subtitle">
         <span class="lang-vi">Nạp trực tiếp firmware hoàn chỉnh (Bootloader + Partitions + App) từ GitHub chỉ với 1 click.</span>
-        <span class="lang-en">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-        <span class="lang-ja">GitHub から最新の完全統合ファームウェアを1クリックで直接書き込み。</span>
-        <span class="lang-zh">无需安装任何软件，直接从 GitHub 一键烧录完整合并固件。</span>
-        <span class="lang-fr">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-        <span class="lang-de">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-        <span class="lang-es">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-        <span class="lang-ru">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-        <span class="lang-ko">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-      </p>
+<span class="lang-en">Flash Full Merged Firmware directly from GitHub with a single click.</span>
+<span class="lang-ja">GitHub から最新の完全統合ファームウェアを1クリックで直接書き込み。</span>
+<span class="lang-zh">无需安装任何软件，直接从 GitHub 一键烧录完整合并固件。</span>
+<span class="lang-fr">Flash Full Merged Firmware directly from GitHub with a single click.</span>
+<span class="lang-de">Flash Full Merged Firmware directly from GitHub with a single click.</span>
+<span class="lang-es">Flash Full Merged Firmware directly from GitHub with a single click.</span>
+<span class="lang-ru">Flash Full Merged Firmware directly from GitHub with a single click.</span>
+<span class="lang-ko">Flash Full Merged Firmware directly from GitHub with a single click.</span></p>
 
       <!-- 1. Version Selection or Local File -->
       <div class="form-group">
         <div class="label-wrap">
           <label>
             <span class="lang-vi">Nguồn Firmware:</span>
-            <span class="lang-en">Firmware Source:</span>
-            <span class="lang-ja">ファームウェアソース:</span>
-            <span class="lang-zh">固件来源:</span>
-            <span class="lang-fr">Firmware Source:</span>
-            <span class="lang-de">Firmware Source:</span>
-            <span class="lang-es">Firmware Source:</span>
-            <span class="lang-ru">Firmware Source:</span>
-            <span class="lang-ko">Firmware Source:</span>
-          </label>
+<span class="lang-en">Firmware Source:</span>
+<span class="lang-ja">ファームウェアソース:</span>
+<span class="lang-zh">固件来源:</span>
+<span class="lang-fr">Firmware Source:</span>
+<span class="lang-de">Firmware Source:</span>
+<span class="lang-es">Firmware Source:</span>
+<span class="lang-ru">Firmware Source:</span>
+<span class="lang-ko">Firmware Source:</span></label>
           <a class="history-link" onclick="openHistoryModal()">
             📜 <span class="lang-vi">Lịch sử phiên bản</span>
-            <span class="lang-en">Version History</span>
-            <span class="lang-ja">更新履歴</span>
-            <span class="lang-zh">版本历史</span>
-            <span class="lang-fr">Version History</span>
-            <span class="lang-de">Version History</span>
-            <span class="lang-es">Version History</span>
-            <span class="lang-ru">Version History</span>
-            <span class="lang-ko">Version History</span>
-          </a>
+<span class="lang-en">Version History</span>
+<span class="lang-ja">更新履歴</span>
+<span class="lang-zh">版本历史</span>
+<span class="lang-fr">Version History</span>
+<span class="lang-de">Version History</span>
+<span class="lang-es">Version History</span>
+<span class="lang-ru">Version History</span>
+<span class="lang-ko">Version History</span></a>
         </div>
         <select id="sourceTypeSelect" class="version-select" onchange="onSourceTypeChange(this.value)" style="margin-bottom: 10px;">
           <option value="local"
@@ -263,15 +251,14 @@
         <div style="flex:1;">
           <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">
             <span class="lang-vi">Tốc độ nạp (Baudrate):</span>
-            <span class="lang-en">Baudrate:</span>
-            <span class="lang-ja">書き込み速度:</span>
-            <span class="lang-zh">烧录波特率 (Baudrate):</span>
-            <span class="lang-fr">Baudrate:</span>
-            <span class="lang-de">Baudrate:</span>
-            <span class="lang-es">Baudrate:</span>
-            <span class="lang-ru">Baudrate:</span>
-            <span class="lang-ko">Baudrate:</span>
-          </label>
+<span class="lang-en">Baudrate:</span>
+<span class="lang-ja">書き込み速度:</span>
+<span class="lang-zh">烧录波特率 (Baudrate):</span>
+<span class="lang-fr">Baudrate:</span>
+<span class="lang-de">Baudrate:</span>
+<span class="lang-es">Baudrate:</span>
+<span class="lang-ru">Baudrate:</span>
+<span class="lang-ko">Baudrate:</span></label>
           <select id="baudSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
             <option value="115200" selected
               data-text-vi="115200 (Ổn định nhất / Chống lỗi serial)"
@@ -299,15 +286,14 @@
         <div style="flex:1;">
           <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">
             <span class="lang-vi">Địa chỉ Flash (Offset):</span>
-            <span class="lang-en">Flash Offset:</span>
-            <span class="lang-ja">フラッシュアドレス:</span>
-            <span class="lang-zh">烧录地址 (Offset):</span>
-            <span class="lang-fr">Flash Offset:</span>
-            <span class="lang-de">Flash Offset:</span>
-            <span class="lang-es">Flash Offset:</span>
-            <span class="lang-ru">Flash Offset:</span>
-            <span class="lang-ko">Flash Offset:</span>
-          </label>
+<span class="lang-en">Flash Offset:</span>
+<span class="lang-ja">フラッシュアドレス:</span>
+<span class="lang-zh">烧录地址 (Offset):</span>
+<span class="lang-fr">Flash Offset:</span>
+<span class="lang-de">Flash Offset:</span>
+<span class="lang-es">Flash Offset:</span>
+<span class="lang-ru">Flash Offset:</span>
+<span class="lang-ko">Flash Offset:</span></label>
           <select id="offsetSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
             <option value="0x0000" selected
               data-text-vi="0x0000 (File Full_Flash.bin - Toàn bộ)"
@@ -340,15 +326,14 @@
           </select>
           <div id="offsetLockNote" style="font-size:0.72rem;color:#facc15;margin-top:4px;display:none;">
             <span class="lang-vi">🔒 Cố định 0x0000 cho Full_Flash Online</span>
-            <span class="lang-en">🔒 Fixed 0x0000 for Online Full_Flash</span>
-            <span class="lang-ja">🔒 オンライン完全版は 0x0000 固定</span>
-            <span class="lang-zh">🔒 在线完整固件固定为 0x0000</span>
-            <span class="lang-fr">🔒 Fixed 0x0000 for Online Full_Flash</span>
-            <span class="lang-de">🔒 Fixed 0x0000 for Online Full_Flash</span>
-            <span class="lang-es">🔒 Fixed 0x0000 for Online Full_Flash</span>
-            <span class="lang-ru">🔒 Fixed 0x0000 for Online Full_Flash</span>
-            <span class="lang-ko">🔒 Fixed 0x0000 for Online Full_Flash</span>
-          </div>
+<span class="lang-en">🔒 Fixed 0x0000 for Online Full_Flash</span>
+<span class="lang-ja">🔒 オンライン完全版は 0x0000 固定</span>
+<span class="lang-zh">🔒 在线完整固件固定为 0x0000</span>
+<span class="lang-fr">🔒 Fixed 0x0000 for Online Full_Flash</span>
+<span class="lang-de">🔒 Fixed 0x0000 for Online Full_Flash</span>
+<span class="lang-es">🔒 Fixed 0x0000 for Online Full_Flash</span>
+<span class="lang-ru">🔒 Fixed 0x0000 for Online Full_Flash</span>
+<span class="lang-ko">🔒 Fixed 0x0000 for Online Full_Flash</span></div>
         </div>
       </div>
 
@@ -368,15 +353,14 @@
         <span id="btnIcon">⚡</span>
         <span id="btnText">
           <span class="lang-vi">Cài Đặt / Nạp Firmware Ngay</span>
-          <span class="lang-en">Install / Flash Firmware Now</span>
-          <span class="lang-ja">今すぐインストール / 書き込み</span>
-          <span class="lang-zh">立即安装 / 烧录固件</span>
-          <span class="lang-fr">Install / Flash Firmware Now</span>
-          <span class="lang-de">Install / Flash Firmware Now</span>
-          <span class="lang-es">Install / Flash Firmware Now</span>
-          <span class="lang-ru">Install / Flash Firmware Now</span>
-          <span class="lang-ko">Install / Flash Firmware Now</span>
-        </span>
+<span class="lang-en">Install / Flash Firmware Now</span>
+<span class="lang-ja">今すぐインストール / 書き込み</span>
+<span class="lang-zh">立即安装 / 烧录固件</span>
+<span class="lang-fr">Install / Flash Firmware Now</span>
+<span class="lang-de">Install / Flash Firmware Now</span>
+<span class="lang-es">Install / Flash Firmware Now</span>
+<span class="lang-ru">Install / Flash Firmware Now</span>
+<span class="lang-ko">Install / Flash Firmware Now</span></span>
       </button>
 
       <!-- 3. Progress Bar & Real-time Status -->
@@ -396,55 +380,53 @@
       <div class="steps-box">
         <div class="steps-title">
           <span class="lang-vi">3 Bước đơn giản để nạp:</span>
-          <span class="lang-en">3 Simple Steps:</span>
-          <span class="lang-ja">書き込み手順:</span>
-          <span class="lang-zh">简易烧录步骤:</span>
-          <span class="lang-fr">3 Simple Steps:</span>
-          <span class="lang-de">3 Simple Steps:</span>
-          <span class="lang-es">3 Simple Steps:</span>
-          <span class="lang-ru">3 Simple Steps:</span>
-          <span class="lang-ko">3 Simple Steps:</span>
-        </div>
+<span class="lang-en">3 Simple Steps:</span>
+<span class="lang-ja">書き込み手順:</span>
+<span class="lang-zh">简易烧录步骤:</span>
+<span class="lang-fr">3 Simple Steps:</span>
+<span class="lang-de">3 Simple Steps:</span>
+<span class="lang-es">3 Simple Steps:</span>
+<span class="lang-ru">3 Simple Steps:</span>
+<span class="lang-ko">3 Simple Steps:</span></div>
         <div class="step-item">
           <div class="step-badge">1</div>
           <div>
-            <span class="lang-vi">Nối chân <span class="pin">IO0</span> vào <span class="pin">GND</span> rồi cắm cáp USB.</span>
-            <span class="lang-en">Bridge <span class="pin">IO0</span> to <span class="pin">GND</span>, then plug USB in.</span>
-            <span class="lang-ja"><span class="pin">IO0</span> を <span class="pin">GND</span> に接続し、USBを挿す。</span>
-            <span class="lang-zh">短接 <span class="pin">IO0</span>
-            <span class="lang-fr">Bridge <span class="pin">IO0</span> to <span class="pin">GND</span>, then plug USB in.</span>
-            <span class="lang-de">Bridge <span class="pin">IO0</span> to <span class="pin">GND</span>, then plug USB in.</span>
-            <span class="lang-es">Bridge <span class="pin">IO0</span> to <span class="pin">GND</span>, then plug USB in.</span>
-            <span class="lang-ru">Bridge <span class="pin">IO0</span> to <span class="pin">GND</span>, then plug USB in.</span>
-            <span class="lang-ko">Bridge <span class="pin">IO0</span> to <span class="pin">GND</span>, then plug USB in.</span> 与 <span class="pin">GND</span>，然后插入 USB 线。</span>
+            <span class="lang-vi">Nối chân <span class="pin">IO0</span>
+<span class="lang-en">Bridge <span class="pin">IO0</span>to <span class="pin">GND</span>, then plug USB in.</span>
+            <span class="lang-ja"><span class="pin">IO0</span>
+<span class="lang-zh">短接 <span class="pin">IO0</span>
+<span class="lang-fr">Bridge <span class="pin">IO0</span>to <span class="pin">GND</span>, then plug USB in.</span>
+            <span class="lang-de">Bridge <span class="pin">IO0</span>
+<span class="lang-es">Bridge <span class="pin">IO0</span>to <span class="pin">GND</span>, then plug USB in.</span>
+            <span class="lang-ru">Bridge <span class="pin">IO0</span>
+<span class="lang-ko">Bridge <span class="pin">IO0</span>to <span class="pin">GND</span>, then plug USB in.</span> 与 <span class="pin">GND</span>，然后插入 USB 线。</span>
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div>
             <span class="lang-vi">Nhấn nút <b>"Cài Đặt"</b> ở trên → Chọn cổng USB COM.</span>
-            <span class="lang-en">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-            <span class="lang-ja">上の <b>「インストール」</b> をクリック → COMポート選択。</span>
-            <span class="lang-zh">点击上方 <b>“立即安装”</b> → 选择串口端口。</span>
-            <span class="lang-fr">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-            <span class="lang-de">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-            <span class="lang-es">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-            <span class="lang-ru">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-            <span class="lang-ko">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-          </div>
+<span class="lang-en">Click <b>"Install"</b> above → Select your USB COM Port.</span>
+<span class="lang-ja">上の <b>「インストール」</b> をクリック → COMポート選択。</span>
+<span class="lang-zh">点击上方 <b>“立即安装”</b> → 选择串口端口。</span>
+<span class="lang-fr">Click <b>"Install"</b> above → Select your USB COM Port.</span>
+<span class="lang-de">Click <b>"Install"</b> above → Select your USB COM Port.</span>
+<span class="lang-es">Click <b>"Install"</b> above → Select your USB COM Port.</span>
+<span class="lang-ru">Click <b>"Install"</b> above → Select your USB COM Port.</span>
+<span class="lang-ko">Click <b>"Install"</b> above → Select your USB COM Port.</span></div>
         </div>
         <div class="step-item">
           <div class="step-badge">3</div>
           <div>
-            <span class="lang-vi">Nạp xong: <b>Rút dây IO0 ra</b> và nhấn nút <span class="pin">RST</span> để chạy!</span>
-            <span class="lang-en">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
-            <span class="lang-ja">完了後: <b>IO0 を抜いて</b> <span class="pin">RST</span> ボタンを押す！</span>
-            <span class="lang-zh">完成后：<b>拔掉 IO0 短接线</b> 并按 <span class="pin">RST</span>
-            <span class="lang-fr">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
-            <span class="lang-de">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
-            <span class="lang-es">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
-            <span class="lang-ru">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
-            <span class="lang-ko">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span> 启动！</span>
+            <span class="lang-vi">Nạp xong: <b>Rút dây IO0 ra</b> và nhấn nút <span class="pin">RST</span>
+<span class="lang-en">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
+            <span class="lang-ja">完了後: <b>IO0 を抜いて</b> <span class="pin">RST</span>
+<span class="lang-zh">完成后：<b>拔掉 IO0 短接线</b> 并按 <span class="pin">RST</span>
+<span class="lang-fr">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
+            <span class="lang-de">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>
+<span class="lang-es">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
+            <span class="lang-ru">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>
+<span class="lang-ko">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span> 启动！</span>
           </div>
         </div>
       </div>
@@ -454,15 +436,14 @@
         <button type="button" class="btn-link" onclick="toggleLog()">
           <span id="toggleLogText">
             <span class="lang-vi">🔍 Xem log chi tiết</span>
-            <span class="lang-en">🔍 View detailed log</span>
-            <span class="lang-ja">🔍 詳細ログを表示</span>
-            <span class="lang-zh">🔍 查看详细日志</span>
-            <span class="lang-fr">🔍 View detailed log</span>
-            <span class="lang-de">🔍 View detailed log</span>
-            <span class="lang-es">🔍 View detailed log</span>
-            <span class="lang-ru">🔍 View detailed log</span>
-            <span class="lang-ko">🔍 View detailed log</span>
-          </span>
+<span class="lang-en">🔍 View detailed log</span>
+<span class="lang-ja">🔍 詳細ログを表示</span>
+<span class="lang-zh">🔍 查看详细日志</span>
+<span class="lang-fr">🔍 View detailed log</span>
+<span class="lang-de">🔍 View detailed log</span>
+<span class="lang-es">🔍 View detailed log</span>
+<span class="lang-ru">🔍 View detailed log</span>
+<span class="lang-ko">🔍 View detailed log</span></span>
         </button>
         <div class="terminal-box" id="termBox"></div>
       </div>
@@ -476,15 +457,14 @@
       <div class="modal-header">
         <div class="modal-title">
           📜 <span class="lang-vi">Lịch Sử Phiên Bản Firmware (Changelog)</span>
-          <span class="lang-en">Firmware Version History (Changelog)</span>
-          <span class="lang-ja">ファームウェア更新履歴 (Changelog)</span>
-          <span class="lang-zh">固件更新历史记录 (Changelog)</span>
-          <span class="lang-fr">Firmware Version History (Changelog)</span>
-          <span class="lang-de">Firmware Version History (Changelog)</span>
-          <span class="lang-es">Firmware Version History (Changelog)</span>
-          <span class="lang-ru">Firmware Version History (Changelog)</span>
-          <span class="lang-ko">Firmware Version History (Changelog)</span>
-        </div>
+<span class="lang-en">Firmware Version History (Changelog)</span>
+<span class="lang-ja">ファームウェア更新履歴 (Changelog)</span>
+<span class="lang-zh">固件更新历史记录 (Changelog)</span>
+<span class="lang-fr">Firmware Version History (Changelog)</span>
+<span class="lang-de">Firmware Version History (Changelog)</span>
+<span class="lang-es">Firmware Version History (Changelog)</span>
+<span class="lang-ru">Firmware Version History (Changelog)</span>
+<span class="lang-ko">Firmware Version History (Changelog)</span></div>
         <button class="modal-close" onclick="closeHistoryModal()">&times;</button>
       </div>
       <div class="modal-body" id="modalHistoryBody">
@@ -493,26 +473,24 @@
       <div class="modal-footer">
         <a href="https://github.com/thanhlqsap/esp32-CAM/releases" target="_blank" class="btn-link" style="color:var(--primary);font-weight:600;">
           🔗 <span class="lang-vi">Xem trên GitHub Releases</span>
-          <span class="lang-en">View on GitHub Releases</span>
-          <span class="lang-ja">GitHub Releases で見る</span>
-          <span class="lang-zh">前往 GitHub Releases 查看</span>
-          <span class="lang-fr">View on GitHub Releases</span>
-          <span class="lang-de">View on GitHub Releases</span>
-          <span class="lang-es">View on GitHub Releases</span>
-          <span class="lang-ru">View on GitHub Releases</span>
-          <span class="lang-ko">View on GitHub Releases</span>
-        </a>
+<span class="lang-en">View on GitHub Releases</span>
+<span class="lang-ja">GitHub Releases で見る</span>
+<span class="lang-zh">前往 GitHub Releases 查看</span>
+<span class="lang-fr">View on GitHub Releases</span>
+<span class="lang-de">View on GitHub Releases</span>
+<span class="lang-es">View on GitHub Releases</span>
+<span class="lang-ru">View on GitHub Releases</span>
+<span class="lang-ko">View on GitHub Releases</span></a>
         <button type="button" class="btn-flash" onclick="closeHistoryModal()" style="width:auto;padding:8px 18px;font-size:0.85rem;border-radius:8px;">
           <span class="lang-vi">Đóng</span>
-          <span class="lang-en">Close</span>
-          <span class="lang-ja">閉じる</span>
-          <span class="lang-zh">关闭</span>
-          <span class="lang-fr">Fermer</span>
-          <span class="lang-de">Schließen</span>
-          <span class="lang-es">Cerrar</span>
-          <span class="lang-ru">Закрыть</span>
-          <span class="lang-ko">닫기</span>
-        </button>
+<span class="lang-en">Close</span>
+<span class="lang-ja">閉じる</span>
+<span class="lang-zh">关闭</span>
+<span class="lang-fr">Fermer</span>
+<span class="lang-de">Schließen</span>
+<span class="lang-es">Cerrar</span>
+<span class="lang-ru">Закрыть</span>
+<span class="lang-ko">닫기</span></button>
       </div>
     </div>
   </div>
@@ -847,27 +825,25 @@
       if (isLogOpened) {
         el.innerHTML = `
           <span class="lang-vi">Ẩn log chi tiết</span>
-          <span class="lang-en">Hide detailed log</span>
-          <span class="lang-ja">詳細ログを隠す</span>
-          <span class="lang-zh">隐藏详细日志</span>
-          <span class="lang-fr">Hide detailed log</span>
-          <span class="lang-de">Hide detailed log</span>
-          <span class="lang-es">Hide detailed log</span>
-          <span class="lang-ru">Hide detailed log</span>
-          <span class="lang-ko">Hide detailed log</span>
-        `;
+<span class="lang-en">Hide detailed log</span>
+<span class="lang-ja">詳細ログを隠す</span>
+<span class="lang-zh">隐藏详细日志</span>
+<span class="lang-fr">Hide detailed log</span>
+<span class="lang-de">Hide detailed log</span>
+<span class="lang-es">Hide detailed log</span>
+<span class="lang-ru">Hide detailed log</span>
+<span class="lang-ko">Hide detailed log</span>`;
       } else {
         el.innerHTML = `
           <span class="lang-vi">🔍 Xem log chi tiết</span>
-          <span class="lang-en">🔍 View detailed log</span>
-          <span class="lang-ja">🔍 詳細ログを表示</span>
-          <span class="lang-zh">🔍 查看详细日志</span>
-          <span class="lang-fr">🔍 View detailed log</span>
-          <span class="lang-de">🔍 View detailed log</span>
-          <span class="lang-es">🔍 View detailed log</span>
-          <span class="lang-ru">🔍 View detailed log</span>
-          <span class="lang-ko">🔍 View detailed log</span>
-        `;
+<span class="lang-en">🔍 View detailed log</span>
+<span class="lang-ja">🔍 詳細ログを表示</span>
+<span class="lang-zh">🔍 查看详细日志</span>
+<span class="lang-fr">🔍 View detailed log</span>
+<span class="lang-de">🔍 View detailed log</span>
+<span class="lang-es">🔍 View detailed log</span>
+<span class="lang-ru">🔍 View detailed log</span>
+<span class="lang-ko">🔍 View detailed log</span>`;
       }
     }
 
