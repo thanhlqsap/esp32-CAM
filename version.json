@@ -1,7 +1,7 @@
 {
-  "version": "1.0.061",
+  "version": "1.0.062",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa giao diện Chuông Cửa (doorbell.html): Ẩn hoàn toàn khung popup thông báo bấm chuông ở trạng thái chờ trên mobile và desktop; tối ưu responsive hiển thị.",
+  "description": "Tối ưu hóa khóa liên động an toàn Chuông Cửa (doorbell.html): Khóa cứng nút mở cửa, đèn trợ sáng và còi báo chuông khi thiết bị đang ở Chế độ Thẻ nhớ SD hoặc Xe FPV; hiển thị banner cảnh báo.",
   "release_date": "2026-09-15",
   "mandatory": false
 }

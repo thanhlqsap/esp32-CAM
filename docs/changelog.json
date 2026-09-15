@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.061",
+    "version": "v1.0.062",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tối ưu hóa khóa liên động an toàn Chuông Cửa (doorbell.html): Khóa cứng nút mở cửa, đèn trợ sáng và còi báo chuông khi thiết bị đang ở Chế độ Thẻ nhớ SD hoặc Xe FPV; hiển thị banner cảnh báo.",
+    "details": {
+      "vi": "Tối ưu hóa khóa liên động an toàn Chuông Cửa (/doorbell): Vô hiệu hóa triệt để các nút điều khiển (Mở cửa, Đèn trợ sáng, Bấm thử chuông) trên giao diện Web khi thiết bị không ở Chế độ Chuông Cửa (MODE_SMART_DOORBELL), bổ sung cờ khởi tạo an toàn isDoorbellMode=false, chuyển đổi toàn bộ JsonDocument chuẩn ArduinoJson v7 ở backend và hiển thị banner cảnh báo kèm nút chuyển chế độ nhanh.",
+      "en": "Optimized Doorbell Safety Interlock (/doorbell): Strictly disabled all control buttons (Unlock door, Lamp light, Test chime) when the device is not in Doorbell Mode (MODE_SMART_DOORBELL), added initial safe flag isDoorbellMode=false, standardized backend to ArduinoJson v7 JsonDocument, and provided an alert banner with quick switch action.",
+      "ja": "スマートドアホン連動安全制御を最適化（/doorbell）：デバイスがドアホンモード（MODE_SMART_DOORBELL）以外の時、解錠・補助ライト・テスト呼び出しボタンを強制無効化し、警告バナーとクイック切替ボタンを追加。",
+      "zh": "优化智能门铃安全互锁机制 (/doorbell)：当设备处于SD卡相册或FPV遥控车模式时，强制禁用开锁、补光灯、测试门铃等控制按钮，默认初始化安全状态，后端全面升级为ArduinoJson v7 JsonDocument，并提供警告提示栏及快捷切换按钮。",
+      "fr": "Optimisation du verrouillage de sécurité de la sonnette (/doorbell) : désactivation stricte des boutons de commande (déverrouillage, éclairage, test carillon) hors du mode sonnette, migration vers ArduinoJson v7 et affichage d'une bannière d'alerte.",
+      "de": "Optimierung der Türklingel-Sicherheitsverriegelung (/doorbell): Strikte Deaktivierung aller Steuertasten (Türöffner, Zusatzlicht, Testklingel) außerhalb des Türklingelmodus, Migration auf ArduinoJson v7 und Anzeige eines Warnbanners.",
+      "es": "Optimización del bloqueo de seguridad del timbre (/doorbell): Desactivación estricta de todos los botones de control (Desbloquear, Luz, Probar timbre) cuando no está en Modo Timbre, migración a ArduinoJson v7 y visualización de un banner de advertencia.",
+      "ru": "Оптимизация блокировки безопасности дверного звонка (/doorbell): Полное отключение кнопок управления (Открытие двери, Подсветка, Тест звонка) вне режима видеодомофона, миграция на ArduinoJson v7 и баннер с быстрым переключением.",
+      "ko": "스마트 도어벨 안전 연동 최적화(/doorbell): 도어벨 모드가 아닐 때 문 열림, 보조 조명, 차임 테스트 버튼을 완전 비활성화하고, ArduinoJson v7 표준화 및 경고 배너와 빠른 모드 전환 기능 제공."
+    }
+  },
+  {
+    "version": "v1.0.061",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Tối ưu hóa giao diện Chuông Cửa Thông Minh (doorbell.html): Ẩn hoàn toàn khung thông báo nổi (Ring Popup) ở trạng thái chờ trên mobile & desktop; tối ưu responsive.",
     "details": {
