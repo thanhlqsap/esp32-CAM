@@ -1,8 +1,42 @@
 [
   {
-    "version": "v1.0.063",
+    "version": "v1.0.065",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tích hợp thuật toán nhận diện Dáng Người Đứng Thẳng (Human Vertical Morphology 8x6 Grid): Phân tích tỷ lệ khung hình thẳng đứng, tính liên tục dọc cơ thể, khử hoàn toàn nhiễu lá cây, thú cưng và bóng đèn.",
+    "details": {
+      "vi": "Tích hợp thuật toán nhận diện Dáng Người Đứng Thẳng (Human Vertical Morphology 8x6 Grid): Quét ma trận không gian 48 ô (8 hàng dọc x 6 cột ngang), đo tỷ lệ hộp bao quanh thẳng đứng (Height/Width >= 1.25) và kiểm tra tính liên tục theo trục dọc từ đầu đến chân; loại bỏ triệt để báo động giả do lá cây rung, rèm cửa, thú cưng đi ngang hoặc bóng râm.",
+      "en": "Integrated Human Vertical Morphology (8x6 Grid) Detection Algorithm: Scans a 48-cell spatial matrix (8 vertical rows x 6 horizontal columns), evaluates vertical bounding box aspect ratios (Height/Width >= 1.25) and verifies head-to-toe vertical body continuity; completely eliminates false alerts from swaying foliage, curtains, roaming pets, or moving shadows.",
+      "ja": "直立人型検知アルゴリズム（8x6空間グリッド形態学）を導入：48ブロックの空間マトリクスを解析し、縦長アスペクト比（高さ/幅 >= 1.25）と頭から足元までの垂直連続性を検証；揺れる木の葉、カーテン、ペットの徘徊、影の移動による誤警報を完全排除。",
+      "zh": "集成直立人型形态识别算法 (8x6 空间网格形态学)：扫描 48 个空间网格单元（8 纵列 x 6 横行），分析垂直边界框长宽比 (Height/Width >= 1.25) 并验证自上而下的人体纵向连续性；彻底过滤树叶晃动、窗帘摆动、宠物走动及光影移动引发的误报。",
+      "fr": "Intégration de l'algorithme de détection de silhouette humaine debout (grille 8x6) : analyse d'une matrice spatiale de 48 cellules, vérification du ratio d'aspect vertical (H/L >= 1,25) et de la continuité tête-pieds ; élimination totale des fausses alertes liées aux feuilles, animaux ou ombres.",
+      "de": "Integration des Algorithmus zur Erkennung aufrechter menschlicher Gestalten (8x6-Raumgitter): Analysiert 48 Gitterzellen auf vertikales Seitenverhältnis (H/B >= 1,25) und vertikale Körperkontinuität; schließt Fehlalarme durch Blattbewegung, Vorhänge, Haustiere oder Schatten vollständig aus.",
+      "es": "Integración del algoritmo de detección de silueta humana de pie (cuadrícula 8x6): Escanea 48 celdas espaciales, evalúa la relación de aspecto vertical (H/A >= 1.25) y la continuidad corporal vertical; elimina falsas alarmas causadas por hojas, cortinas, mascotas o sombras.",
+      "ru": "Интеграция алгоритма распознавания силуэта стоящего человека (сетка 8x6): сканирование 48 пространственных ячеек, проверка вертикального соотношения сторон (В/Ш >= 1.25) и непрерывности тела по вертикали; полное исключение ложных тревог от качающихся ветвей, штор, домашних животных и теней.",
+      "ko": "직립 인체 형태 인식 알고리즘(8x6 공간 그리드 형태학) 통합: 48개 공간 셀(8열x6행)을 스캔하여 직립 바운딩 박스 종횡비(높이/너비 >= 1.25)와 머리부터 발끝까지의 수직 연속성을 검증; 나뭇잎 흔들림, 커튼, 반려동물 이동, 그림자로 인한 오경보를 완벽 차단."
+    }
+  },
+  {
+    "version": "v1.0.064",
+    "date": "2026-09-15",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Khắc phục triệt để báo động giả và trễ ảnh: Chuyển sang CAMERA_GRAB_LATEST (Zero-Lag Snapshot) và triển khai thuật toán GLMC (Global Illumination Compensation & Local Motion Variance) loại bỏ hoàn toàn nhiễu tự động bù sáng/ISO của cảm biến OV2640.",
+    "details": {
+      "vi": "Khắc phục triệt để hiện tượng chụp trễ/chụp hụt và báo động giả: Chuyển cấu hình buffer camera sang CAMERA_GRAB_LATEST giúp driver luôn cung cấp khung hình thời gian thực mới nhất (tránh lấy nhầm frame cũ trong hàng đợi DMA khi người đã đi qua); triển khai thuật toán GLMC (Global Illumination Compensation & Local Motion Variance) tự động tính toán và khấu trừ độ lệch ánh sáng toàn cục do cảm biến OV2640 tự động bù sáng (AEC/AGC) hoặc bật tắt đèn, chỉ kích hoạt khi có vật thể/người chuyển động cục bộ thực sự.",
+      "en": "Eliminated motion snapshot lag and false alarms: Switched camera driver buffer mode to CAMERA_GRAB_LATEST ensuring real-time zero-lag frame captures (preventing stale queued DMA frames where the subject already left); implemented GLMC (Global Illumination Compensation & Local Motion Variance) algorithm that subtracts sensor automatic exposure/gain shifts (AEC/AGC) and ambient lighting changes, triggering only on genuine local object motion.",
+      "ja": "撮影遅延と誤検知を完全解決：カメラバッファ設定をCAMERA_GRAB_LATESTに変更し、DMAキューの古いフレームではなくリアルタイムの最新画像をキャプチャ；GLMC（大域照明補正＆局所動体分散）アルゴリズムを導入し、OV2640センサーの自動露出/ISO補正（AEC/AGC）による全画面輝度変化を除外して実際の動体のみを高精度検知。",
+      "zh": "彻底解决抓拍滞后与误报问题：将摄像头驱动缓冲区模式切换为 CAMERA_GRAB_LATEST，确保实时获取最新画面（避免因 DMA 队列滞后导致抓拍到人员离开后的空画面）；引入 GLMC（全局光照补偿与局部运动方差）算法，自动扣除 OV2640 传感器自动曝光/增益（AEC/AGC）及环境光全局变化，仅在检测到真实局部物体移动时触发。",
+      "fr": "Correction définitive du décalage de capture et des faux positifs : passage au mode CAMERA_GRAB_LATEST pour des instantanés en temps réel sans latence ; algorithme GLMC compensant l'exposition/gain automatique (AEC/AGC) d'OV2640 et les variations de lumière ambiante.",
+      "de": "Vollständige Behebung von Erfassungsverzögerungen und Fehlalarmen: Umstellung auf CAMERA_GRAB_LATEST für verzögerungsfreie Echtzeit-Aufnahmen; GLMC-Algorithmus zur Kompensation von Sensor-AEC/AGC- und Umgebungslichtänderungen, der nur bei echter lokaler Bewegung auslöst.",
+      "es": "Solución definitiva al retraso de captura y falsas alarmas: Configuración CAMERA_GRAB_LATEST para capturas en tiempo real sin latencia; algoritmo GLMC que compensa la exposición/ganancia automática (AEC/AGC) de OV2640 y detecta solo movimiento local real.",
+      "ru": "Полное устранение задержки снимков и ложных тревог: переход на режим CAMERA_GRAB_LATEST для мгновенного захвата актуального кадра без лага буфера DMA; алгоритм GLMC для компенсации автоэкспозиции/ISO (AEC/AGC) сенсора OV2640 и детектирования только реального локального движения.",
+      "ko": "캡처 지연 및 오작동 완벽 해결: 카메라 버퍼 모드를 CAMERA_GRAB_LATEST로 전환하여 지연 없는 실시간 프레임 캡처 보장(사람이 지나간 후의 이전 프레임 캡처 방지); GLMC(글로벌 조명 보정 및 로컬 모션 분산) 알고리즘을 도입해 OV2640 센서의 자동 노출/ISO 변경(AEC/AGC)으로 인한 전체 화면 밝기 변화를 제외하고 실제 움직임만 정확히 감지."
+    }
+  },
+  {
+    "version": "v1.0.063",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Nâng cấp toàn diện thuật toán phát hiện chuyển động quang học đa điểm (Spatial Multi-Point Sampling & Entropy Divergence) và tối ưu hóa hệ thống gửi ảnh Telegram Bot (Zero-Lag, Stack 12KB) hoạt động độc lập.",
     "details": {

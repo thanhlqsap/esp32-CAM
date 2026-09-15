@@ -1,7 +1,7 @@
 {
-  "version": "1.0.063",
+  "version": "1.0.065",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Nâng cấp toàn diện thuật toán phát hiện chuyển động (Spatial Multi-Point Sampling & Entropy Divergence) và tối ưu hóa hệ thống gửi ảnh Telegram Bot (TLS Chunking, Stack 12KB, Zero-Lag) độc lập không phụ thuộc thẻ nhớ SD.",
+  "description": "Tích hợp thuật toán nhận diện Dáng Người Đứng Thẳng (Human Vertical Morphology 8x6 Grid): Phân tích tỷ lệ khung hình thẳng đứng, tính liên tục dọc cơ thể, khử hoàn toàn nhiễu lá cây, thú cưng và bóng đèn.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
