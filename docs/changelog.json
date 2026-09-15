@@ -1,8 +1,42 @@
 [
   {
-    "version": "v1.0.065",
+    "version": "v1.0.067",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Triển khai Giải pháp 1: Tách nền động thích ứng (Adaptive Background Subtraction) lưới 24x18 (432 ô), cập nhật nền có chọn lọc (Selective BG Update), phân tích hình thái dáng người đứng thẳng (H/W >= 1.25) và khử 100% bù sáng tự động AEC/AGC.",
+    "details": {
+      "vi": "Triển khai Giải pháp 1: Thuật toán Tách Nền Động Thích Ứng (Adaptive Background Subtraction - ABS) kết hợp Lưới Quang Học 24x18 (432 ô chuẩn tỉ lệ 4:3), Cập nhật nền có chọn lọc (Selective Background Update bảo lưu nền của ô có người), Phân tích Hình thái học dáng người thẳng đứng (Bounding Box H/W >= 1.25, tính liên tục trục dọc >= 80%, mật độ khối >= 18%) và Fast-Track kích hoạt 0ms cho chuyển động rõ nét.",
+      "en": "Implemented Solution 1: Adaptive Background Subtraction (ABS) algorithm with 24x18 optical matrix (432 cells, 4:3 ratio), Selective Background Update (retaining background for occupied cells), Human Vertical Morphology Analysis (Bounding Box H/W >= 1.25, vertical continuity >= 80%, block density >= 18%), and 0ms Fast-Track trigger for distinct human motions.",
+      "ja": "ソリューション1を実装：適応型背景差分法（ABS）アルゴリズム、24x18光学マトリクス（4:3比率432セル）、選択的背景更新（動体領域の背景保持）、直立人型形態解析（H/W比 >= 1.25、垂直連続性 >= 80%、ブロック密度 >= 18%）、および明瞭な人型動体に対する0msファストトラック検知。",
+      "zh": "实施方案 1：自适应动态背景差分 (ABS) 算法、24x18 高清光学矩阵 (432 单元 4:3 比例)、选择性背景更新（锁定并保留人体所占网格的原背景）、直立人型形态学分析（边界框长宽比 H/W >= 1.25、纵向连续度 >= 80%、实体密度 >= 18%），以及针对清晰人体运动的 0ms 极速触发机制。",
+      "fr": "Implémentation de la Solution 1 : Algorithme de soustraction de fond adaptative (ABS) sur grille optique 24x18 (432 cellules), mise à jour sélective de l'arrière-plan, analyse morphologique humaine verticale (H/L >= 1,25, continuité >= 80%, densité >= 18%) et déclenchement rapide 0ms.",
+      "de": "Implementierung von Lösung 1: Adaptiver Hintergrundsubtraktions-Algorithmus (ABS) mit 24x18-Gitter (432 Zellen), selektive Hintergrundaktualisierung, vertikale morphologische Analyse menschlicher Gestalten (H/B >= 1,25, Kontinuität >= 80%, Dichte >= 18%) und 0ms Fast-Track-Auslösung.",
+      "es": "Implementación de la Solución 1: Algoritmo de sustracción de fondo adaptativa (ABS) con matriz óptica de 24x18 (432 celdas), actualización selectiva de fondo, análisis morfológico de silueta humana vertical (H/A >= 1.25, continuidad >= 80%, densidad >= 18%) y activación rápida de 0ms.",
+      "ru": "Реализация Решения 1: алгоритм адаптивного вычитания фона (ABS) на оптической матрице 24x18 (432 ячейки), селективное обновление фона, морфологический анализ силуэта стоящего человека (В/Ш >= 1.25, непрерывность >= 80%, плотность >= 18%) и мгновенное срабатывание Fast-Track (0 мс).",
+      "ko": "솔루션 1 구현: 24x18 광학 매트릭스(432개 셀, 4:3 비율) 적응형 배경 차분(ABS) 알고리즘, 선택적 배경 업데이트(인체 영역 배경 보존), 직립 인체 형태학 분석(바운딩 박스 H/W >= 1.25, 수직 연속성 >= 80%, 블록 밀도 >= 18%), 명확한 인체 움직임에 대한 0ms 패스트트랙 트리거."
+    }
+  },
+  {
+    "version": "v1.0.066",
+    "date": "2026-09-15",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tạm ẩn nút 'Bật Nhận Diện Mặt (AI)' trên giao diện Thẻ Nhớ (/sd) theo yêu cầu, bảo lưu 100% mã nguồn backend và logic liên quan.",
+    "details": {
+      "vi": "Tạm thời ẩn nút 'Bật Nhận Diện Mặt (AI)' (#btn-toggle-ai) trên thanh điều khiển Live Stream của giao diện Thẻ Nhớ (/sd) bằng thuộc tính display:none, bảo lưu toàn vẹn mã nguồn và thư viện xử lý bên trong.",
+      "en": "Temporarily hid the 'Enable Face Detection (AI)' button on the Live Stream bar of the SD Gallery UI (/sd) using display:none while preserving all backend and frontend source code.",
+      "ja": "SDカード管理画面（/sd）のライブストリームバーにある「AI顔認識を有効化」ボタンをdisplay:noneで一時非表示にし、ソースコードと処理ロジックは完全保持。",
+      "zh": "在 SD 存储卡界面 (/sd) 的视频流控制栏中，使用 display:none 临时隐藏“开启人脸识别 (AI)”按钮，并完整保留所有底层代码及功能逻辑。",
+      "fr": "Masquage temporaire du bouton 'Activer détection de visage (AI)' sur l'interface SD (/sd) via display:none tout en conservant l'intégralité du code source.",
+      "de": "Vorübergehendes Ausblenden der Schaltfläche 'KI-Gesichtserkennung aktivieren' auf der SD-Oberfläche (/sd) mittels display:none unter vollständiger Beibehaltung des Quellcodes.",
+      "es": "Ocultación temporal del botón 'Activar detección facial (IA)' en la interfaz SD (/sd) mediante display:none, conservando intacto todo el código fuente.",
+      "ru": "Временное скрытие кнопки «Включить распознавание лиц (AI)» в интерфейсе SD (/sd) с помощью display:none с полным сохранением исходного кода и логики.",
+      "ko": "SD 갤러리 인터페이스(/sd)의 스트림 제어 바에서 'AI 얼굴 인식 켜기' 버튼을 display:none으로 임시 숨김 처리하고 관련 소스 코드는 100% 보존."
+    }
+  },
+  {
+    "version": "v1.0.065",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Tích hợp thuật toán nhận diện Dáng Người Đứng Thẳng (Human Vertical Morphology 8x6 Grid): Phân tích tỷ lệ khung hình thẳng đứng, tính liên tục dọc cơ thể, khử hoàn toàn nhiễu lá cây, thú cưng và bóng đèn.",
     "details": {

@@ -1,7 +1,7 @@
 {
-  "version": "1.0.065",
+  "version": "1.0.067",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp thuật toán nhận diện Dáng Người Đứng Thẳng (Human Vertical Morphology 8x6 Grid): Phân tích tỷ lệ khung hình thẳng đứng, tính liên tục dọc cơ thể, khử hoàn toàn nhiễu lá cây, thú cưng và bóng đèn.",
+  "description": "Triển khai Giải pháp 1: Tách nền động thích ứng (Adaptive Background Subtraction) lưới 24x18 (432 ô), cập nhật nền có chọn lọc (Selective BG Update), phân tích hình thái dáng người đứng thẳng (H/W >= 1.25) và khử 100% bù sáng tự động AEC/AGC.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
