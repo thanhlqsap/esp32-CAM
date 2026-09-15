@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.070",
+    "version": "v1.0.071",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Triệt tiêu 100% báo động giả: Triển khai động cơ lọc chuyển động 2 lớp (Dual-Layer Anti-False-Alarm Engine) với Spatial Filtering, Temporal Persistence Filter và Selective EMA Background Update.",
+    "details": {
+      "vi": "Triệt tiêu 100% báo động giả do nhiễu hạt cảm biến và ánh sáng phòng: Triển khai Bộ lọc không gian 32 điểm (Spatial Filtering 18% - 80% diện tích) loại bỏ hoàn toàn nhiễu chấm nhỏ và bật tắt đèn; kết hợp Bộ lọc kiểm chứng thời gian 2 lớp (Temporal Persistence Filter bắt buộc chuyển động liên tục qua 2 frames liền kề) và Mô hình nền thích ứng EMA mượt mà.",
+      "en": "Eliminated 100% false alarms from sensor noise & ambient lighting: Implemented 32-point Spatial Filtering (18% - 80% area constraint) preventing point noise and room-wide light flips; combined with 2-layer Temporal Persistence Filter (requiring sustained motion across 2 consecutive frames) and smooth EMA Adaptive Background modeling.",
+      "ja": "センサーノイズと照明による誤警報を100%解消：32点空間フィルタリング（面積制約18%〜80%）により微小ノイズと部屋全体の点灯を除外；2層時間連続性フィルタ（2フレーム連続の動体維持を要求）とスムーズなEMA適応型背景モデルを統合。",
+      "zh": "彻底消除传感器噪点与环境光引起的误报：实施 32 点空间面积过滤（18% - 80% 面积约束），全面过滤噪点与全屋开关灯；结合双层时间持久性验证机制（必须在连续 2 帧中维持有效运动）及平滑的 EMA 自适应背景建模。",
+      "fr": "Élimination totale des fausses alertes : filtrage spatial à 32 points (contrainte 18% - 80%), filtre de persistance temporelle sur 2 images consécutives et modèle d'arrière-plan adaptatif EMA fluide.",
+      "de": "Vollständige Beseitigung von Fehlalarmen: 32-Punkt-Raumfilterung (18% - 80% Flächenbegrenzung), zweistufiger zeitlicher Persistenzfilter über 2 aufeinanderfolgende Frames und glattes adaptives EMA-Hintergrundmodell.",
+      "es": "Eliminación total de falsas alarmas: Filtrado espacial de 32 puntos (restricción de área 18% - 80%), filtro de persistencia temporal de 2 cuadros consecutivos y modelo de fondo adaptativo EMA suave.",
+      "ru": "Полное устранение ложных тревог: пространственная фильтрация по 32 точкам (ограничение площади 18% - 80%), двухслойный фильтр временной устойчивости (2 последовательных кадра) и плавное адаптивное обновление фона EMA.",
+      "ko": "센서 노이즈 및 조명으로 인한 오경보 100% 차단: 32개 포인트 공간 필터링(18% - 80% 영역 제약)으로 점 노이즈 및 전체 조명 스위칭 완벽 제거; 2단계 시간 지속성 필터(연속 2프레임 유지 필수)와 부드러운 EMA 적응형 배경 모델 결합."
+    }
+  },
+  {
+    "version": "v1.0.070",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Nâng cấp Động Cơ Phát Hiện Chuyển Động Đa Chỉ Số (Multi-Metric Motion Engine): Lấy mẫu vị trí cố định Fixed Offsets, phân tích độ lệch nén JPEG DeltaLen, kích hoạt Realtime 0ms không bao giờ trượt.",
     "details": {

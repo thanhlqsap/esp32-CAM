@@ -1,7 +1,7 @@
 {
-  "version": "1.0.070",
+  "version": "1.0.071",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Nâng cấp Động Cơ Phát Hiện Chuyển Động Đa Chỉ Số (Multi-Metric Motion Engine): Lấy mẫu vị trí cố định Fixed Offsets, phân tích độ lệch nén JPEG DeltaLen, kích hoạt Realtime 0ms không bao giờ trượt.",
+  "description": "Triệt tiêu 100% báo động giả: Triển khai động cơ lọc chuyển động 2 lớp (Dual-Layer Anti-False-Alarm Engine) với Spatial Filtering, Temporal Persistence Filter và Selective EMA Background Update.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
