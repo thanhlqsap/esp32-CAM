@@ -1,7 +1,7 @@
 {
-  "version": "1.0.073",
+  "version": "1.0.074",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Nâng cấp Động cơ Quang học Thực tế 16x12: Tăng đệm PSRAM 128KB, lấy mẫu 4 điểm con triệt tiêu nhiễu hạt OV2640, bù sáng toàn cục AEC/AGC, tự động loại bỏ chớp đèn và kiểm chứng thời gian 2 frames.",
+  "description": "Tối ưu hóa dung lượng Flash toàn diện: Tự động nén GZIP toàn bộ 5 giao diện Web, giải phóng hơn 450KB Flash (giảm tỷ lệ Flash từ 93% xuống ~70%) và tăng tốc độ tải trang Web gấp 5 lần.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
