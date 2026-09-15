@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.067",
+    "version": "v1.0.068",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Kích hoạt gửi cảnh báo Telegram/Gmail ngay trong luồng Live Stream, tối ưu thuật toán ABS 24 dải quét dọc và bổ sung log chẩn đoán trạng thái cấu hình Alert.",
+    "details": {
+      "vi": "Sửa lỗi không gửi Telegram khi người dùng đang mở Live Stream: Bổ sung trigger cảnh báo tức thì ngay trong streamTask ở Core 0; tinh chỉnh thuật toán ABS quét 24 dải chiều dọc (24 Vertical Scan Bands) giúp phát hiện người đi vào khung hình siêu nhạy; thêm log cảnh báo chi tiết trên Serial khi Telegram/Gmail chưa được cấu hình hoặc chưa bật.",
+      "en": "Fixed alert dispatching during active Live Streaming: Added immediate alert trigger directly inside streamTask on Core 0; refined ABS 24 Vertical Scan Bands algorithm for ultra-responsive human detection; added diagnostic Serial logs when alert credentials are unconfigured or disabled.",
+      "ja": "ライブストリーム視聴中のアラート未送信問題を修正：Core 0のstreamTask内で直接即時通知をトリガー；24垂直スキャンバンド適応型背景差分（ABS）アルゴリズムを微調整し人型動体を高感度検知；未設定時の診断ログをシリアルに出力。",
+      "zh": "修复在开启实时视频流时无法推送 Telegram 报警的问题：在 Core 0 的 streamTask 内部直接接入即时报警触发逻辑；精细调优 24 纵向扫描带自适应背景差分 (ABS) 算法，实现极速人型抓拍；增加凭据未配置时的串口诊断提示日志。",
+      "fr": "Correction de l'envoi d'alerte pendant le streaming : déclenchement immédiat de l'alerte dans streamTask sur Core 0 ; optimisation de l'algorithme ABS à 24 bandes verticales ; ajout de journaux de diagnostic sur la console série.",
+      "de": "Behebung der Alarmweiterleitung während des Live-Streams: Sofortige Alarmauslösung direkt in streamTask auf Core 0; Verfeinerung des ABS-Algorithmus mit 24 vertikalen Scanbändern; Hinzufügen von Diagnoseprotokollen bei fehlender Konfiguration.",
+      "es": "Corrección del envío de alertas durante el streaming en vivo: Activación inmediata de alerta dentro de streamTask en Core 0; optimización del algoritmo ABS de 24 bandas verticales; adición de registros de diagnóstico en el puerto serie.",
+      "ru": "Исправлена отправка оповещений при активном стриминге: мгновенный триггер оповещений прямо в streamTask на Core 0; оптимизирован алгоритм ABS на 24 вертикальных полосах; добавлены диагностические логи в Serial при отсутствии настроек.",
+      "ko": "라이브 스트리밍 시청 중 알림 미전송 문제 수정: Core 0의 streamTask 내에서 즉각적인 알림 트리거 연동; 24 수직 스캔 밴드 ABS 알고리즘 정밀 튜닝으로 초고감도 인체 감지; 자격 증명 미설정 시 시리얼 진단 로그 추가."
+    }
+  },
+  {
+    "version": "v1.0.067",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Triển khai Giải pháp 1: Tách nền động thích ứng (Adaptive Background Subtraction) lưới 24x18 (432 ô), cập nhật nền có chọn lọc (Selective BG Update), phân tích hình thái dáng người đứng thẳng (H/W >= 1.25) và khử 100% bù sáng tự động AEC/AGC.",
     "details": {

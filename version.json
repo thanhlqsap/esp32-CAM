@@ -1,7 +1,7 @@
 {
-  "version": "1.0.067",
+  "version": "1.0.068",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Triển khai Giải pháp 1: Tách nền động thích ứng (Adaptive Background Subtraction) lưới 24x18 (432 ô), cập nhật nền có chọn lọc (Selective BG Update), phân tích hình thái dáng người đứng thẳng (H/W >= 1.25) và khử 100% bù sáng tự động AEC/AGC.",
+  "description": "Kích hoạt gửi cảnh báo Telegram/Gmail ngay trong luồng Live Stream, tối ưu thuật toán ABS 24 dải quét dọc và bổ sung log chẩn đoán trạng thái cấu hình Alert.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
