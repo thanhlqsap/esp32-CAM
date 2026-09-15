@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ESP32-CAM 1-Click Web Installer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📷</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Espressif Official esptool-js Web Serial Library (Offline First + CDN Fallback) -->
-  <script src="esptool-bundle.js"></script>
+  <script src="https://unpkg.com/esptool-js@0.5.4/bundle.js"></script>
   <script>
     if (typeof ESPLoader === 'undefined' && (typeof esptooljs === 'undefined' || !esptooljs.ESPLoader)) {
       const cdn = document.createElement('script');
@@ -47,8 +47,6 @@
     body:not([data-lang="ru"]) .lang-ru { display: none !important; }
     body:not([data-lang="ko"]) .lang-ko { display: none !important; }
 
-    
-
     /* Top Bar */
     .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 4px; }
     .top-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.95rem; color: #fff; text-decoration: none; }
@@ -73,294 +71,362 @@
 
     /* Version Description Box */
     .version-desc-box { background: rgba(15, 23, 42, 0.75); border: 1px solid var(--card-border); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px; text-align: left; font-size: 0.82rem; line-height: 1.5; color: #cbd5e1; }
-    .version-desc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; font-weight: 700; color: var(--primary); }
+    .version-desc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .version-desc-tag { font-weight: 700; color: var(--primary); font-size: 0.85rem; }
+    .version-desc-date { font-size: 0.75rem; color: var(--text-muted); }
+    .version-desc-content { color: #94a3b8; font-size: 0.8rem; }
 
-    /* Big Flash Button */
-    .btn-flash { width: 100%; padding: 16px; background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; border: none; border-radius: 14px; font-size: 1.05rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4); transition: all 0.2s; }
-    .btn-flash:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5); background: linear-gradient(135deg, #0369a1, #075985); }
-    .btn-flash:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+    /* Main Flash Button */
+    .btn-flash { width: 100%; padding: 16px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #fff; border: none; border-radius: 14px; font-size: 1.05rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4); transition: all 0.2s ease; margin-bottom: 24px; }
+    .btn-flash:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.55); filter: brightness(1.1); }
+    .btn-flash:active:not(:disabled) { transform: translateY(0); }
+    .btn-flash:disabled { background: #334155; color: #94a3b8; box-shadow: none; cursor: not-allowed; opacity: 0.7; }
 
-    /* Progress UI */
-    .progress-section { margin-top: 22px; display: none; text-align: left; }
-    .progress-status { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: #cbd5e1; margin-bottom: 8px; }
-    .progress-bar-wrap { width: 100%; height: 10px; background: #0f172a; border-radius: 5px; overflow: hidden; border: 1px solid var(--card-border); }
-    .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #38bdf8, #10b981); transition: width 0.15s ease; }
-    
-    /* Status Messages */
-    .status-msg { margin-top: 14px; padding: 12px 14px; border-radius: 10px; font-size: 0.85rem; line-height: 1.4; display: none; }
-    .status-msg.success { background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); color: #6ee7b7; display: block; }
-    .status-msg.error { background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; display: block; }
+    /* Progress Section */
+    .progress-section { display: none; margin-bottom: 20px; text-align: left; }
+    .progress-status { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text-muted); }
+    .progress-bar-wrap { width: 100%; height: 10px; background: #0f172a; border-radius: 99px; overflow: hidden; border: 1px solid var(--card-border); }
+    .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #38bdf8, #10b981); border-radius: 99px; transition: width 0.15s ease; }
+
+    /* Status Alert Box */
+    .status-msg { padding: 12px 16px; border-radius: 10px; font-size: 0.85rem; margin-bottom: 20px; display: none; text-align: left; line-height: 1.5; }
+    .status-msg.success { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399; display: block; }
+    .status-msg.error { background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; display: block; }
+    .status-msg.info { background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; display: block; }
 
     /* 3 Simple Steps */
-    .steps-box { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--card-border); text-align: left; }
-    .steps-title { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
-    .step-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 0.88rem; color: #cbd5e1; }
-    .step-badge { width: 24px; height: 24px; border-radius: 50%; background: #0f172a; border: 1px solid #334155; color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
-    .pin { background: #0f172a; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #facc15; font-weight: 600; }
+    .steps-box { background: rgba(15, 23, 42, 0.5); border: 1px solid var(--card-border); border-radius: 14px; padding: 18px 20px; text-align: left; margin-bottom: 20px; }
+    .steps-title { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .step-item { display: flex; gap: 12px; margin-bottom: 10px; font-size: 0.82rem; color: #cbd5e1; line-height: 1.45; align-items: flex-start; }
+    .step-item:last-child { margin-bottom: 0; }
+    .step-badge { background: #1e293b; color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 50%; width: 20px; height: 20px; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .pin { background: #0f172a; padding: 2px 6px; border-radius: 4px; border: 1px solid #334155; font-family: monospace; color: #fbbf24; font-weight: bold; font-size: 0.8rem; }
 
-    /* Toggle Terminal */
-    .terminal-toggle { margin-top: 18px; text-align: center; }
-    .btn-link { background: none; border: none; color: var(--text-muted); font-size: 0.8rem; cursor: pointer; text-decoration: underline; }
-    .btn-link:hover { color: var(--primary); }
-    .terminal-box { margin-top: 12px; height: 160px; background: #050811; border: 1px solid #1e293b; border-radius: 10px; overflow-y: auto; padding: 10px 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; line-height: 1.5; color: #a5f3fc; text-align: left; display: none; white-space: pre-wrap; word-break: break-all; }
+    /* Terminal Console */
+    .terminal-toggle { text-align: center; }
+    .btn-link { background: none; border: none; color: var(--text-muted); font-size: 0.8rem; cursor: pointer; text-decoration: underline; transition: color 0.2s; }
+    .btn-link:hover { color: #fff; }
+    .terminal-box { display: none; background: #050811; border: 1px solid var(--card-border); border-radius: 12px; padding: 12px; margin-top: 14px; text-align: left; font-family: 'Consolas', monospace; font-size: 0.75rem; color: #10b981; max-height: 180px; overflow-y: auto; white-space: pre-wrap; line-height: 1.4; }
 
-    /* Modal Dialog for Version History */
-    .modal-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); z-index: 1000; align-items: center; justify-content: center; padding: 16px; }
+    /* Modal Dialog */
+    .modal-backdrop { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
     .modal-backdrop.active { display: flex; }
-    .modal-card { background: #0f172a; border: 1px solid var(--card-border); border-radius: 20px; max-width: 580px; width: 100%; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
-    .modal-header { padding: 18px 24px; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
-    .modal-title { font-size: 1.15rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
-    .modal-close { background: none; border: none; font-size: 1.4rem; color: var(--text-muted); cursor: pointer; line-height: 1; }
+    .modal-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; width: 100%; max-width: 580px; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7); animation: modalIn 0.2s ease-out; }
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid var(--card-border); }
+    .modal-header h3 { font-size: 1.15rem; font-weight: 700; color: #fff; }
+    .modal-close { background: none; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; padding: 4px; line-height: 1; }
     .modal-close:hover { color: #fff; }
-    .modal-body { padding: 20px 24px; overflow-y: auto; font-size: 0.88rem; line-height: 1.6; color: #cbd5e1; }
-    .history-card { background: #131b2e; border: 1px solid var(--card-border); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
-    .history-tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3); margin-bottom: 6px; }
-    .history-card h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
-    .history-card ul { margin: 0; padding-left: 18px; }
-    .history-card li { margin-bottom: 4px; }
+    .modal-body { padding: 20px 24px; overflow-y: auto; flex: 1; text-align: left; }
     .modal-footer { padding: 14px 24px; border-top: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
+    .btn-secondary { background: #1e293b; color: #fff; border: 1px solid #334155; border-radius: 8px; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-secondary:hover { background: #334155; }
 
-    /* Browser Alert */
-    .browser-alert { background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 14px; padding: 16px; margin-bottom: 20px; font-size: 0.85rem; color: #fca5a5; line-height: 1.5; display: none; text-align: left; }
+    /* Changelog Card in Modal */
+    .history-card { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--card-border); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+    .history-card:last-child { margin-bottom: 0; }
+    .history-tag { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.3); margin-bottom: 8px; }
+    .history-card h4 { font-size: 0.95rem; color: #fff; margin-bottom: 6px; font-weight: 700; }
+    .history-card ul { padding-left: 20px; font-size: 0.82rem; color: #cbd5e1; line-height: 1.5; }
   </style>
 </head>
 <body data-lang="vi">
   <div class="wrapper">
-
-    <!-- Top Navigation -->
+    
+    <!-- Top Navigation Bar -->
     <div class="top-bar">
       <a href="https://github.com/thanhlqsap/esp32-CAM" target="_blank" class="top-brand">
         📷 <span>ESP32-CAM</span>
       </a>
       <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
-            <option value="vi">🇻🇳 Tiếng Việt</option>
-            <option value="en">🇬🇧 English</option>
-            <option value="ja">🇯🇵 日本語</option>
-            <option value="zh">🇨🇳 简体中文</option>
-            <option value="fr">🇫🇷 Français</option>
-            <option value="de">🇩🇪 Deutsch</option>
-            <option value="es">🇪🇸 Español</option>
-            <option value="ru">🇷🇺 Русский</option>
-            <option value="ko">🇰🇷 한국어</option>
-        </select>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="zh">🇨🇳 简体中文</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="ko">🇰🇷 한국어</option>
+      </select>
     </div>
 
-    <!-- Browser Serial Support Warning -->
-    <div id="browserAlert" class="browser-alert">
-      <b>⚠️ <span class="lang-vi">Trình duyệt chưa hỗ trợ nạp qua USB!</span>
-<span class="lang-en">Browser does not support Web Serial!</span>
-<span class="lang-ja">Web Serial 未対応ブラウザです！</span>
-<span class="lang-zh">当前浏览器不支持 Web Serial！</span>
-<span class="lang-fr">Browser does not support Web Serial!</span>
-<span class="lang-de">Browser does not support Web Serial!</span>
-<span class="lang-es">Browser does not support Web Serial!</span>
-<span class="lang-ru">Browser does not support Web Serial!</span>
-<span class="lang-ko">Browser does not support Web Serial!</span></b><br>
-      <span class="lang-vi">Vui lòng mở trang web này bằng <b>Google Chrome</b> hoặc <b>Microsoft Edge</b> trên máy tính để kết nối cáp nạp.</span>
-<span class="lang-en">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-<span class="lang-ja">PC の <b>Google Chrome</b> または <b>Microsoft Edge</b> で開いてください。</span>
-<span class="lang-zh">请在电脑端使用 <b>Google Chrome</b> 或 <b>Microsoft Edge</b> 打开。</span>
-<span class="lang-fr">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-<span class="lang-de">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-<span class="lang-es">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-<span class="lang-ru">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span>
-<span class="lang-ko">Please open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop.</span></div>
+    <!-- Browser Incompatibility Warning -->
+    <div id="browserAlert" class="status-msg error" style="display:none; margin-bottom: 16px;">
+      <b>
+        <span class="lang-vi">Trình duyệt chưa hỗ trợ nạp qua USB!</span>
+        <span class="lang-en">Browser does not support Web Serial!</span>
+        <span class="lang-ja">ブラウザが Web Serial をサポートしていません！</span>
+        <span class="lang-zh">浏览器不支持 Web Serial 串口通信！</span>
+        <span class="lang-fr">Le navigateur ne prend pas en charge Web Serial !</span>
+        <span class="lang-de">Browser unterstützt Web Serial nicht!</span>
+        <span class="lang-es">¡El navegador no admite Web Serial!</span>
+        <span class="lang-ru">Браузер не поддерживает Web Serial!</span>
+        <span class="lang-ko">브라우저가 Web Serial을 지원하지 않습니다!</span>
+      </b><br>
+      <span class="lang-vi">Vui lòng mở trang web này bằng <b>Google Chrome</b>, <b>MS Edge</b> hoặc <b>Opera</b> (trên máy tính/laptop) để sử dụng tính năng nạp Firmware qua cổng USB COM.</span>
+      <span class="lang-en">Please open this page in <b>Google Chrome</b>, <b>MS Edge</b> or <b>Opera</b> (on Desktop/Laptop) to flash Firmware via USB COM port.</span>
+      <span class="lang-ja">USB COMポート経由でファームウェアを書き込むには、PCの <b>Google Chrome</b>、<b>MS Edge</b>、または <b>Opera</b> で開いてください。</span>
+      <span class="lang-zh">请在电脑端使用 <b>Google Chrome</b>、<b>MS Edge</b> 或 <b>Opera</b> 浏览器打开此页面以通过 USB 串口烧录固件。</span>
+      <span class="lang-fr">Veuillez ouvrir cette page dans <b>Google Chrome</b>, <b>MS Edge</b> ou <b>Opera</b> (sur PC) pour flasher le firmware via le port USB COM.</span>
+      <span class="lang-de">Bitte öffnen Sie diese Seite in <b>Google Chrome</b>, <b>MS Edge</b> oder <b>Opera</b> (auf dem PC), um die Firmware über USB COM zu flashen.</span>
+      <span class="lang-es">Abra esta página en <b>Google Chrome</b>, <b>MS Edge</b> u <b>Opera</b> (en PC) para flashear el firmware a través del puerto USB COM.</span>
+      <span class="lang-ru">Пожалуйста, откройте эту страницу в <b>Google Chrome</b>, <b>MS Edge</b> или <b>Opera</b> (на ПК) для прошивки через USB COM.</span>
+      <span class="lang-ko">USB COM 포트를 통해 펌웨어를 설치하려면 PC에서 <b>Google Chrome</b>, <b>MS Edge</b> 또는 <b>Opera</b>로 이 페이지를 여세요.</span>
+    </div>
 
-    <!-- Main 1-Click Card -->
+    <!-- Main Installer Card -->
     <div class="installer-card">
       <div class="cam-icon">📷</div>
+      
       <h1>
         <span class="lang-vi">Nạp Firmware ESP32-CAM</span>
-<span class="lang-en">ESP32-CAM Web Flasher</span>
-<span class="lang-ja">ESP32-CAM Web書き込み</span>
-<span class="lang-zh">ESP32-CAM 固件一键烧录</span>
-<span class="lang-fr">ESP32-CAM Web Flasher</span>
-<span class="lang-de">ESP32-CAM Web Flasher</span>
-<span class="lang-es">ESP32-CAM Web Flasher</span>
-<span class="lang-ru">ESP32-CAM Web Flasher</span>
-<span class="lang-ko">ESP32-CAM Web Flasher</span></h1>
+        <span class="lang-en">ESP32-CAM Web Flasher</span>
+        <span class="lang-ja">ESP32-CAM Web フラッシャー</span>
+        <span class="lang-zh">ESP32-CAM 网页烧录工具</span>
+        <span class="lang-fr">Flasheur Web ESP32-CAM</span>
+        <span class="lang-de">ESP32-CAM Web-Flasher</span>
+        <span class="lang-es">Flasheador Web ESP32-CAM</span>
+        <span class="lang-ru">Веб-прошивальщик ESP32-CAM</span>
+        <span class="lang-ko">ESP32-CAM 웹 펌웨어 설치기</span>
+      </h1>
+      
       <p class="subtitle">
-        <span class="lang-vi">Nạp trực tiếp firmware hoàn chỉnh (Bootloader + Partitions + App) từ GitHub chỉ với 1 click.</span>
-<span class="lang-en">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-<span class="lang-ja">GitHub から最新の完全統合ファームウェアを1クリックで直接書き込み。</span>
-<span class="lang-zh">无需安装任何软件，直接从 GitHub 一键烧录完整合并固件。</span>
-<span class="lang-fr">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-<span class="lang-de">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-<span class="lang-es">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-<span class="lang-ru">Flash Full Merged Firmware directly from GitHub with a single click.</span>
-<span class="lang-ko">Flash Full Merged Firmware directly from GitHub with a single click.</span></p>
+        <span class="lang-vi">Nạp trực tiếp firmware hoàn chỉnh (Bootloader + Partitions + App) qua cổng USB chỉ với 1 cú click chuột!</span>
+        <span class="lang-en">Flash Full Merged Firmware directly from your browser in 1 click!</span>
+        <span class="lang-ja">ブラウザから直接1クリックで完全統合ファームウェアを書き込み！</span>
+        <span class="lang-zh">在浏览器中一键直接烧录完整合并固件！</span>
+        <span class="lang-fr">Flashez le firmware complet fusionné directement depuis votre navigateur en 1 clic !</span>
+        <span class="lang-de">Vollständig zusammengeführte Firmware direkt im Browser mit 1 Klick flashen!</span>
+        <span class="lang-es">¡Flashea el firmware fusionado completo directamente desde tu navegador en 1 clic!</span>
+        <span class="lang-ru">Прошивка полного объединенного образа прямо из браузера в 1 клик!</span>
+        <span class="lang-ko">브라우저에서 원클릭으로 통합 풀 펌웨어를 직접 설치하세요!</span>
+      </p>
 
-      <!-- 1. Version Selection or Local File -->
+      <!-- 1. Firmware Source Selection -->
       <div class="form-group">
         <div class="label-wrap">
           <label>
             <span class="lang-vi">Nguồn Firmware:</span>
-<span class="lang-en">Firmware Source:</span>
-<span class="lang-ja">ファームウェアソース:</span>
-<span class="lang-zh">固件来源:</span>
-<span class="lang-fr">Firmware Source:</span>
-<span class="lang-de">Firmware Source:</span>
-<span class="lang-es">Firmware Source:</span>
-<span class="lang-ru">Firmware Source:</span>
-<span class="lang-ko">Firmware Source:</span></label>
+            <span class="lang-en">Firmware Source:</span>
+            <span class="lang-ja">ファームウェアソース:</span>
+            <span class="lang-zh">固件来源:</span>
+            <span class="lang-fr">Source du firmware :</span>
+            <span class="lang-de">Firmware-Quelle:</span>
+            <span class="lang-es">Fuente de firmware:</span>
+            <span class="lang-ru">Источник прошивки:</span>
+            <span class="lang-ko">펌웨어 소스:</span>
+          </label>
           <a class="history-link" onclick="openHistoryModal()">
-            📜 <span class="lang-vi">Lịch sử phiên bản</span>
-<span class="lang-en">Version History</span>
-<span class="lang-ja">更新履歴</span>
-<span class="lang-zh">版本历史</span>
-<span class="lang-fr">Version History</span>
-<span class="lang-de">Version History</span>
-<span class="lang-es">Version History</span>
-<span class="lang-ru">Version History</span>
-<span class="lang-ko">Version History</span></a>
+            📜
+            <span class="lang-vi">Lịch sử phiên bản</span>
+            <span class="lang-en">Version History</span>
+            <span class="lang-ja">バージョン履歴</span>
+            <span class="lang-zh">版本更新历史</span>
+            <span class="lang-fr">Historique des versions</span>
+            <span class="lang-de">Versionsverlauf</span>
+            <span class="lang-es">Historial de versiones</span>
+            <span class="lang-ru">История версий</span>
+            <span class="lang-ko">버전 기록</span>
+          </a>
         </div>
+
         <select id="sourceTypeSelect" class="version-select" onchange="onSourceTypeChange(this.value)" style="margin-bottom: 10px;">
           <option value="local"
             data-text-vi="📁 Chọn file từ máy tính (Offline)"
             data-text-en="📁 Select file from computer (Offline)"
             data-text-ja="📁 PCからファイルを選択 (オフライン)"
-            data-text-zh="📁 从本地电脑选择固件 (离线)">
+            data-text-zh="📁 从本地电脑选择固件 (离线)"
+            data-text-fr="📁 Choisir un fichier local (Hors ligne)"
+            data-text-de="📁 Datei vom Computer auswählen (Offline)"
+            data-text-es="📁 Seleccionar archivo local (Offline)"
+            data-text-ru="📁 Выбрать файл с компьютера (Офлайн)"
+            data-text-ko="📁 컴퓨터에서 파일 선택 (오프라인)">
             📁 Chọn file từ máy tính (Offline)
           </option>
           <option value="github"
             data-text-vi="🌐 Tải từ GitHub Release (Online)"
             data-text-en="🌐 Download from GitHub Release (Online)"
             data-text-ja="🌐 GitHub Release からダウンロード (オンライン)"
-            data-text-zh="🌐 从 GitHub Release 下载 (在线)">
+            data-text-zh="🌐 从 GitHub Release 下载 (在线)"
+            data-text-fr="🌐 Télécharger depuis GitHub Release (En ligne)"
+            data-text-de="🌐 Von GitHub Release herunterladen (Online)"
+            data-text-es="🌐 Descargar desde GitHub Release (En línea)"
+            data-text-ru="🌐 Скачать с GitHub Release (Онлайн)"
+            data-text-ko="🌐 GitHub Release에서 다운로드 (온라인)">
             🌐 Tải từ GitHub Release (Online)
           </option>
         </select>
-        
-        <!-- Local File Picker -->
-        <div id="localFileWrap" style="margin-bottom: 10px;">
-          <input type="file" id="localFileInput" accept=".bin" class="version-select" style="padding: 10px;" onchange="onLocalFileSelected(this)">
+
+        <!-- Local File Input Wrap -->
+        <div id="localFileWrap" style="margin-bottom: 12px;">
+          <input type="file" id="localFileInput" accept=".bin" onchange="onLocalFileSelected(this)" style="width: 100%; padding: 8px; background: #0f172a; border: 1px dashed #334155; border-radius: 8px; color: #cbd5e1; font-size: 0.85rem; cursor: pointer;">
         </div>
 
-        <!-- GitHub Version Picker (hidden by default) -->
-        <div id="githubVersionWrap" style="display: none; margin-bottom: 10px;">
+        <!-- GitHub Version Picker Wrap -->
+        <div id="githubVersionWrap" style="display: none; margin-bottom: 12px;">
           <select id="versionSelect" class="version-select" onchange="onVersionChange(this.value)">
-            <option value="v1.0.0" data-url="https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin">
-              ⭐ v1.0.0 (Latest Release)
-            </option>
+            <option value="v1.0.0">⭐ v1.0.0 (Latest Release)</option>
           </select>
+        </div>
+
+        <!-- Advanced Hardware Config: Baudrate & Offset -->
+        <div style="display:flex; gap:10px; margin-bottom: 14px;">
+          <div style="flex:1;">
+            <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">
+              <span class="lang-vi">Tốc độ nạp (Baudrate):</span>
+              <span class="lang-en">Baudrate:</span>
+              <span class="lang-ja">書き込み速度 (Baudrate):</span>
+              <span class="lang-zh">烧录波特率:</span>
+              <span class="lang-fr">Vitesse de transmission (Baud) :</span>
+              <span class="lang-de">Baudrate:</span>
+              <span class="lang-es">Velocidad en baudios:</span>
+              <span class="lang-ru">Скорость (Baudrate):</span>
+              <span class="lang-ko">통신 속도 (Baudrate):</span>
+            </label>
+            <select id="baudSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
+              <option value="115200" selected
+                data-text-vi="115200 (Ổn định nhất / Chống lỗi serial)"
+                data-text-en="115200 (Most Stable / Anti-error)"
+                data-text-ja="115200 (最も安定 / エラー防止)"
+                data-text-zh="115200 (最稳定 / 防串口错误)"
+                data-text-fr="115200 (Le plus stable / Anti-erreur)"
+                data-text-de="115200 (Am stabilsten / Fehlerresistent)"
+                data-text-es="115200 (Más estable / Antierrores)"
+                data-text-ru="115200 (Наиболее стабильный / Без ошибок)"
+                data-text-ko="115200 (가장 안정적 / 오류 방지)">
+                115200 (Ổn định nhất / Chống lỗi serial)
+              </option>
+              <option value="460800"
+                data-text-vi="460800 (Tốc độ cao)"
+                data-text-en="460800 (High Speed)"
+                data-text-ja="460800 (高速)"
+                data-text-zh="460800 (高速)"
+                data-text-fr="460800 (Haute vitesse)"
+                data-text-de="460800 (Hohe Geschwindigkeit)"
+                data-text-es="460800 (Alta velocidad)"
+                data-text-ru="460800 (Высокая скорость)"
+                data-text-ko="460800 (고속)">
+                460800 (Tốc độ cao)
+              </option>
+              <option value="921600"
+                data-text-vi="921600 (Siêu nhanh)"
+                data-text-en="921600 (Ultra Fast)"
+                data-text-ja="921600 (超高速)"
+                data-text-zh="921600 (极速)"
+                data-text-fr="921600 (Ultra rapide)"
+                data-text-de="921600 (Ultraschnell)"
+                data-text-es="921600 (Ultra rápido)"
+                data-text-ru="921600 (Сверхбыстрая)"
+                data-text-ko="921600 (초고속)">
+                921600 (Siêu nhanh)
+              </option>
+            </select>
+          </div>
+
+          <div style="flex:1;">
+            <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">
+              <span class="lang-vi">Địa chỉ Flash (Offset):</span>
+              <span class="lang-en">Flash Offset:</span>
+              <span class="lang-ja">フラッシュアドレス (Offset):</span>
+              <span class="lang-zh">目标偏移地址 (Offset):</span>
+              <span class="lang-fr">Adresse Flash (Offset) :</span>
+              <span class="lang-de">Flash-Offset:</span>
+              <span class="lang-es">Dirección Flash (Offset):</span>
+              <span class="lang-ru">Смещение Flash (Offset):</span>
+              <span class="lang-ko">플래시 주소 (Offset):</span>
+            </label>
+            <select id="offsetSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
+              <option value="0x0000" selected
+                data-text-vi="0x0000 (File Full_Flash.bin - Toàn bộ)"
+                data-text-en="0x0000 (Full_Flash.bin - Full Merged)"
+                data-text-ja="0x0000 (Full_Flash.bin - 完全統合)"
+                data-text-zh="0x0000 (Full_Flash.bin - 完整合并固件)"
+                data-text-fr="0x0000 (Full_Flash.bin - Complet)"
+                data-text-de="0x0000 (Full_Flash.bin - Vollständig)"
+                data-text-es="0x0000 (Full_Flash.bin - Completo)"
+                data-text-ru="0x0000 (Full_Flash.bin - Полный образ)"
+                data-text-ko="0x0000 (Full_Flash.bin - 통합 풀 펌웨어)">
+                0x0000 (File Full_Flash.bin - Toàn bộ)
+              </option>
+              <option value="0x10000"
+                data-text-vi="0x10000 (File OTA_Update.bin - Chỉ App)"
+                data-text-en="0x10000 (OTA_Update.bin - App Only)"
+                data-text-ja="0x10000 (OTA_Update.bin - アプリのみ)"
+                data-text-zh="0x10000 (OTA_Update.bin - 仅应用程序)"
+                data-text-fr="0x10000 (OTA_Update.bin - App seule)"
+                data-text-de="0x10000 (OTA_Update.bin - Nur App)"
+                data-text-es="0x10000 (OTA_Update.bin - Solo app)"
+                data-text-ru="0x10000 (OTA_Update.bin - Только приложение)"
+                data-text-ko="0x10000 (OTA_Update.bin - 앱 전용)">
+                0x10000 (File OTA_Update.bin - Chỉ App)
+              </option>
+              <option value="0x1000"
+                data-text-vi="0x1000 (Chỉ Bootloader)"
+                data-text-en="0x1000 (Bootloader Only)"
+                data-text-ja="0x1000 (ブートローダーのみ)"
+                data-text-zh="0x1000 (仅引导程序)"
+                data-text-fr="0x1000 (Bootloader seul)"
+                data-text-de="0x1000 (Nur Bootloader)"
+                data-text-es="0x1000 (Solo Bootloader)"
+                data-text-ru="0x1000 (Только Bootloader)"
+                data-text-ko="0x1000 (부트로더 전용)">
+                0x1000 (Chỉ Bootloader)
+              </option>
+              <option value="0x8000"
+                data-text-vi="0x8000 (Chỉ Partitions)"
+                data-text-en="0x8000 (Partitions Only)"
+                data-text-ja="0x8000 (パーティションのみ)"
+                data-text-zh="0x8000 (仅分区表)"
+                data-text-fr="0x8000 (Partitions seules)"
+                data-text-de="0x8000 (Nur Partitionen)"
+                data-text-es="0x8000 (Solo particiones)"
+                data-text-ru="0x8000 (Только таблицы разделов)"
+                data-text-ko="0x8000 (파티션 전용)">
+                0x8000 (Chỉ Partitions)
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div id="offsetLockNote" style="display:none; font-size:0.75rem; color:#38bdf8; margin-bottom:12px;">
+          <span class="lang-vi">🔒 Cố định 0x0000 cho Full_Flash Online</span>
+          <span class="lang-en">🔒 Fixed 0x0000 for Online Full_Flash</span>
+          <span class="lang-ja">🔒 オンライン Full_Flash 用に 0x0000 固定</span>
+          <span class="lang-zh">🔒 在线 Full_Flash 固件固定 0x0000</span>
+          <span class="lang-fr">🔒 Fixé à 0x0000 pour Full_Flash en ligne</span>
+          <span class="lang-de">🔒 Fest 0x0000 für Online Full_Flash</span>
+          <span class="lang-es">🔒 Fijo en 0x0000 para Full_Flash en línea</span>
+          <span class="lang-ru">🔒 Фиксировано 0x0000 для Full_Flash онлайн</span>
+          <span class="lang-ko">🔒 온라인 Full_Flash 0x0000 고정</span>
         </div>
       </div>
 
-      <!-- Baudrate & Config Picker -->
-      <div class="form-group" style="display:flex; gap:10px; text-align:left;">
-        <div style="flex:1;">
-          <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">
-            <span class="lang-vi">Tốc độ nạp (Baudrate):</span>
-<span class="lang-en">Baudrate:</span>
-<span class="lang-ja">書き込み速度:</span>
-<span class="lang-zh">烧录波特率 (Baudrate):</span>
-<span class="lang-fr">Baudrate:</span>
-<span class="lang-de">Baudrate:</span>
-<span class="lang-es">Baudrate:</span>
-<span class="lang-ru">Baudrate:</span>
-<span class="lang-ko">Baudrate:</span></label>
-          <select id="baudSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
-            <option value="115200" selected
-              data-text-vi="115200 (Ổn định nhất / Chống lỗi serial)"
-              data-text-en="115200 (Most Stable / Anti-error)"
-              data-text-ja="115200 (最も安定 / エラー防止)"
-              data-text-zh="115200 (最稳定 / 防串口错误)">
-              115200 (Ổn định nhất / Chống lỗi serial)
-            </option>
-            <option value="460800"
-              data-text-vi="460800 (Tốc độ cao)"
-              data-text-en="460800 (High Speed)"
-              data-text-ja="460800 (高速)"
-              data-text-zh="460800 (高速)">
-              460800 (Tốc độ cao)
-            </option>
-            <option value="921600"
-              data-text-vi="921600 (Siêu nhanh)"
-              data-text-en="921600 (Ultra Fast)"
-              data-text-ja="921600 (超高速)"
-              data-text-zh="921600 (极速)">
-              921600 (Siêu nhanh)
-            </option>
-          </select>
-        </div>
-        <div style="flex:1;">
-          <label style="font-size:0.78rem; font-weight:600; color:#94a3b8;">
-            <span class="lang-vi">Địa chỉ Flash (Offset):</span>
-<span class="lang-en">Flash Offset:</span>
-<span class="lang-ja">フラッシュアドレス:</span>
-<span class="lang-zh">烧录地址 (Offset):</span>
-<span class="lang-fr">Flash Offset:</span>
-<span class="lang-de">Flash Offset:</span>
-<span class="lang-es">Flash Offset:</span>
-<span class="lang-ru">Flash Offset:</span>
-<span class="lang-ko">Flash Offset:</span></label>
-          <select id="offsetSelect" class="version-select" style="padding:8px 10px; font-size:0.85rem; margin-top:4px;">
-            <option value="0x0000" selected
-              data-text-vi="0x0000 (File Full_Flash.bin - Toàn bộ)"
-              data-text-en="0x0000 (Full_Flash.bin - Full Merged)"
-              data-text-ja="0x0000 (Full_Flash.bin - 完全統合)"
-              data-text-zh="0x0000 (Full_Flash.bin - 完整合并固件)">
-              0x0000 (File Full_Flash.bin - Toàn bộ)
-            </option>
-            <option value="0x10000"
-              data-text-vi="0x10000 (File OTA_Update.bin - Chỉ App)"
-              data-text-en="0x10000 (OTA_Update.bin - App Only)"
-              data-text-ja="0x10000 (OTA_Update.bin - アプリのみ)"
-              data-text-zh="0x10000 (OTA_Update.bin - 仅应用程序)">
-              0x10000 (File OTA_Update.bin - Chỉ App)
-            </option>
-            <option value="0x1000"
-              data-text-vi="0x1000 (Chỉ Bootloader)"
-              data-text-en="0x1000 (Bootloader Only)"
-              data-text-ja="0x1000 (ブートローダーのみ)"
-              data-text-zh="0x1000 (仅引导程序)">
-              0x1000 (Chỉ Bootloader)
-            </option>
-            <option value="0x8000"
-              data-text-vi="0x8000 (Chỉ Partitions)"
-              data-text-en="0x8000 (Partitions Only)"
-              data-text-ja="0x8000 (パーティションのみ)"
-              data-text-zh="0x8000 (仅分区表)">
-              0x8000 (Chỉ Partitions)
-            </option>
-          </select>
-          <div id="offsetLockNote" style="font-size:0.72rem;color:#facc15;margin-top:4px;display:none;">
-            <span class="lang-vi">🔒 Cố định 0x0000 cho Full_Flash Online</span>
-<span class="lang-en">🔒 Fixed 0x0000 for Online Full_Flash</span>
-<span class="lang-ja">🔒 オンライン完全版は 0x0000 固定</span>
-<span class="lang-zh">🔒 在线完整固件固定为 0x0000</span>
-<span class="lang-fr">🔒 Fixed 0x0000 for Online Full_Flash</span>
-<span class="lang-de">🔒 Fixed 0x0000 for Online Full_Flash</span>
-<span class="lang-es">🔒 Fixed 0x0000 for Online Full_Flash</span>
-<span class="lang-ru">🔒 Fixed 0x0000 for Online Full_Flash</span>
-<span class="lang-ko">🔒 Fixed 0x0000 for Online Full_Flash</span></div>
-        </div>
-      </div>
-
-      <!-- Live Description of Selected Version -->
+      <!-- Version Details Box -->
       <div class="version-desc-box" id="versionDescBox">
         <div class="version-desc-header">
-          <span id="descVerTag">v1.0.0 (Full Merged Firmware)</span>
-          <span id="descVerDate" style="font-size:0.75rem;color:var(--text-muted);">Latest Build</span>
+          <span class="version-desc-tag" id="descVerTag">v1.0.0 (Full Merged)</span>
+          <span class="version-desc-date" id="descVerDate">2026-09</span>
         </div>
-        <div id="descVerContent">
-          🚀 Tự động nhận diện đa cảm biến (OV2640, OV3660, OV5640,...), Live Stream MJPEG 25FPS, Quét Wi-Fi & Captive Portal, Hybrid OTA & Rollback bảo vệ, Xác thực Basic Auth.
+        <div class="version-desc-content" id="descVerContent">
+          Loading...
         </div>
       </div>
 
-      <!-- 2. Big Flash Button -->
+      <!-- 2. Action Flash Button -->
       <button type="button" class="btn-flash" id="flashBtn" onclick="startSimpleFlash()">
         <span id="btnIcon">⚡</span>
         <span id="btnText">
           <span class="lang-vi">Cài Đặt / Nạp Firmware Ngay</span>
-<span class="lang-en">Install / Flash Firmware Now</span>
-<span class="lang-ja">今すぐインストール / 書き込み</span>
-<span class="lang-zh">立即安装 / 烧录固件</span>
-<span class="lang-fr">Install / Flash Firmware Now</span>
-<span class="lang-de">Install / Flash Firmware Now</span>
-<span class="lang-es">Install / Flash Firmware Now</span>
-<span class="lang-ru">Install / Flash Firmware Now</span>
-<span class="lang-ko">Install / Flash Firmware Now</span></span>
+          <span class="lang-en">Install / Flash Firmware Now</span>
+          <span class="lang-ja">今すぐファームウェアをインストール</span>
+          <span class="lang-zh">立即安装 / 烧录固件</span>
+          <span class="lang-fr">Installer / Flasher le firmware maintenant</span>
+          <span class="lang-de">Firmware jetzt installieren / flashen</span>
+          <span class="lang-es">Instalar / Flashear firmware ahora</span>
+          <span class="lang-ru">Установить / Прошить сейчас</span>
+          <span class="lang-ko">지금 펌웨어 설치 / 플래시</span>
+        </span>
       </button>
 
       <!-- 3. Progress Bar & Real-time Status -->
@@ -380,53 +446,58 @@
       <div class="steps-box">
         <div class="steps-title">
           <span class="lang-vi">3 Bước đơn giản để nạp:</span>
-<span class="lang-en">3 Simple Steps:</span>
-<span class="lang-ja">書き込み手順:</span>
-<span class="lang-zh">简易烧录步骤:</span>
-<span class="lang-fr">3 Simple Steps:</span>
-<span class="lang-de">3 Simple Steps:</span>
-<span class="lang-es">3 Simple Steps:</span>
-<span class="lang-ru">3 Simple Steps:</span>
-<span class="lang-ko">3 Simple Steps:</span></div>
+          <span class="lang-en">3 Simple Steps:</span>
+          <span class="lang-ja">簡単な3つの手順:</span>
+          <span class="lang-zh">3个简单步骤:</span>
+          <span class="lang-fr">3 étapes simples :</span>
+          <span class="lang-de">3 einfache Schritte:</span>
+          <span class="lang-es">3 sencillos pasos:</span>
+          <span class="lang-ru">3 простых шага:</span>
+          <span class="lang-ko">3단계 간단 가이드:</span>
+        </div>
+
         <div class="step-item">
           <div class="step-badge">1</div>
           <div>
-            <span class="lang-vi">Nối chân <span class="pin">IO0</span>
-<span class="lang-en">Bridge <span class="pin">IO0</span>to <span class="pin">GND</span>, then plug USB in.</span>
-            <span class="lang-ja"><span class="pin">IO0</span>
-<span class="lang-zh">短接 <span class="pin">IO0</span>
-<span class="lang-fr">Bridge <span class="pin">IO0</span>to <span class="pin">GND</span>, then plug USB in.</span>
-            <span class="lang-de">Bridge <span class="pin">IO0</span>
-<span class="lang-es">Bridge <span class="pin">IO0</span>to <span class="pin">GND</span>, then plug USB in.</span>
-            <span class="lang-ru">Bridge <span class="pin">IO0</span>
-<span class="lang-ko">Bridge <span class="pin">IO0</span>to <span class="pin">GND</span>, then plug USB in.</span> 与 <span class="pin">GND</span>，然后插入 USB 线。</span>
+            <span class="lang-vi">Nối chân <span class="pin">IO0</span> vào <span class="pin">GND</span> rồi nhấn nút <span class="pin">RST</span> trên mạch để vào chế độ nạp Bootloader.</span>
+            <span class="lang-en">Bridge <span class="pin">IO0</span> to <span class="pin">GND</span>, then press <span class="pin">RST</span> to enter Bootloader mode.</span>
+            <span class="lang-ja"><span class="pin">IO0</span> を <span class="pin">GND</span> に接続し、<span class="pin">RST</span> ボタンを押してブートローダーモードに入ります。</span>
+            <span class="lang-zh">将 <span class="pin">IO0</span> 短接到 <span class="pin">GND</span>，然后按一次 <span class="pin">RST</span> 复位键进入烧录模式。</span>
+            <span class="lang-fr">Reliez <span class="pin">IO0</span> à <span class="pin">GND</span>, puis appuyez sur <span class="pin">RST</span> pour passer en mode Bootloader.</span>
+            <span class="lang-de">Verbinden Sie <span class="pin">IO0</span> mit <span class="pin">GND</span> und drücken Sie <span class="pin">RST</span>, um den Bootloader-Modus zu starten.</span>
+            <span class="lang-es">Conecte <span class="pin">IO0</span> a <span class="pin">GND</span> y presione <span class="pin">RST</span> para entrar en modo Bootloader.</span>
+            <span class="lang-ru">Соедините <span class="pin">IO0</span> с <span class="pin">GND</span> и нажмите <span class="pin">RST</span> для входа в режим загрузчика.</span>
+            <span class="lang-ko"><span class="pin">IO0</span> 핀을 <span class="pin">GND</span>에 연결하고 <span class="pin">RST</span> 버튼을 눌러 부트로더 모드로 진입합니다.</span>
           </div>
         </div>
+
         <div class="step-item">
           <div class="step-badge">2</div>
           <div>
-            <span class="lang-vi">Nhấn nút <b>"Cài Đặt"</b> ở trên → Chọn cổng USB COM.</span>
-<span class="lang-en">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-<span class="lang-ja">上の <b>「インストール」</b> をクリック → COMポート選択。</span>
-<span class="lang-zh">点击上方 <b>“立即安装”</b> → 选择串口端口。</span>
-<span class="lang-fr">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-<span class="lang-de">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-<span class="lang-es">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-<span class="lang-ru">Click <b>"Install"</b> above → Select your USB COM Port.</span>
-<span class="lang-ko">Click <b>"Install"</b> above → Select your USB COM Port.</span></div>
+            <span class="lang-vi">Nhấn nút <b>"Cài Đặt"</b> ở trên → Chọn cổng COM của mạch ESP32-CAM.</span>
+            <span class="lang-en">Click <b>"Install"</b> above → Select your ESP32-CAM COM port.</span>
+            <span class="lang-ja">上記の <b>「インストール」</b> をクリック → ESP32-CAM の COM ポートを選択。</span>
+            <span class="lang-zh">点击上方的 <b>“立即安装”</b> 按钮 → 选择 ESP32-CAM 对应的串口。</span>
+            <span class="lang-fr">Cliquez sur <b>"Installer"</b> ci-dessus → Sélectionnez le port COM de l'ESP32-CAM.</span>
+            <span class="lang-de">Klicken Sie oben auf <b>"Installieren"</b> → Wählen Sie den COM-Port des ESP32-CAM.</span>
+            <span class="lang-es">Haga clic en <b>"Instalar"</b> arriba → Seleccione el puerto COM de su ESP32-CAM.</span>
+            <span class="lang-ru">Нажмите <b>"Установить"</b> выше → Выберите COM-порт вашего ESP32-CAM.</span>
+            <span class="lang-ko">위의 <b>"설치"</b> 버튼 클릭 → ESP32-CAM의 COM 포트를 선택합니다.</span>
+          </div>
         </div>
+
         <div class="step-item">
           <div class="step-badge">3</div>
           <div>
-            <span class="lang-vi">Nạp xong: <b>Rút dây IO0 ra</b> và nhấn nút <span class="pin">RST</span>
-<span class="lang-en">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
-            <span class="lang-ja">完了後: <b>IO0 を抜いて</b> <span class="pin">RST</span>
-<span class="lang-zh">完成后：<b>拔掉 IO0 短接线</b> 并按 <span class="pin">RST</span>
-<span class="lang-fr">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
-            <span class="lang-de">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>
-<span class="lang-es">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span>
-            <span class="lang-ru">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>
-<span class="lang-ko">Finished: <b>Disconnect IO0</b> and press <span class="pin">RST</span>!</span> 启动！</span>
+            <span class="lang-vi">Nạp xong: <b>Rút dây IO0 ra</b> và nhấn nút <b>RST</b> 1 lần nữa để Camera khởi động.</span>
+            <span class="lang-en">Finished: <b>Disconnect IO0</b> and press <b>RST</b> once to start the Camera.</span>
+            <span class="lang-ja">完了後: <b>IO0 の接続を外し</b>、<b>RST</b> を押してカメラを起動します。</span>
+            <span class="lang-zh">烧录完成: <b>拔掉 IO0 短接线</b>，再次按 <b>RST</b> 键启动摄像头系统。</span>
+            <span class="lang-fr">Terminé : <b>Débranchez IO0</b> et appuyez à nouveau sur <b>RST</b> pour démarrer la caméra.</span>
+            <span class="lang-de">Fertig: <b>Trennen Sie IO0</b> und drücken Sie <b>RST</b> erneut, um die Kamera zu starten.</span>
+            <span class="lang-es">Finalizado: <b>Desconecte IO0</b> y presione <b>RST</b> nuevamente para iniciar la cámara.</span>
+            <span class="lang-ru">Готово: <b>Отключите IO0</b> и нажмите <b>RST</b> еще раз для запуска камеры.</span>
+            <span class="lang-ko">완료: <b>IO0 연결을 해제</b>하고 <b>RST</b> 버튼을 다시 눌러 카메라를 부팅합니다.</span>
           </div>
         </div>
       </div>
@@ -436,14 +507,15 @@
         <button type="button" class="btn-link" onclick="toggleLog()">
           <span id="toggleLogText">
             <span class="lang-vi">🔍 Xem log chi tiết</span>
-<span class="lang-en">🔍 View detailed log</span>
-<span class="lang-ja">🔍 詳細ログを表示</span>
-<span class="lang-zh">🔍 查看详细日志</span>
-<span class="lang-fr">🔍 View detailed log</span>
-<span class="lang-de">🔍 View detailed log</span>
-<span class="lang-es">🔍 View detailed log</span>
-<span class="lang-ru">🔍 View detailed log</span>
-<span class="lang-ko">🔍 View detailed log</span></span>
+            <span class="lang-en">🔍 View detailed log</span>
+            <span class="lang-ja">🔍 詳細ログを表示</span>
+            <span class="lang-zh">🔍 查看详细日志</span>
+            <span class="lang-fr">🔍 Voir le journal détaillé</span>
+            <span class="lang-de">🔍 Detailliertes Protokoll anzeigen</span>
+            <span class="lang-es">🔍 Ver registro detallado</span>
+            <span class="lang-ru">🔍 Просмотр подробного лога</span>
+            <span class="lang-ko">🔍 상세 로그 보기</span>
+          </span>
         </button>
         <div class="terminal-box" id="termBox"></div>
       </div>
@@ -455,42 +527,48 @@
   <div class="modal-backdrop" id="historyModal" onclick="if(event.target === this) closeHistoryModal()">
     <div class="modal-card">
       <div class="modal-header">
-        <div class="modal-title">
-          📜 <span class="lang-vi">Lịch Sử Phiên Bản Firmware (Changelog)</span>
-<span class="lang-en">Firmware Version History (Changelog)</span>
-<span class="lang-ja">ファームウェア更新履歴 (Changelog)</span>
-<span class="lang-zh">固件更新历史记录 (Changelog)</span>
-<span class="lang-fr">Firmware Version History (Changelog)</span>
-<span class="lang-de">Firmware Version History (Changelog)</span>
-<span class="lang-es">Firmware Version History (Changelog)</span>
-<span class="lang-ru">Firmware Version History (Changelog)</span>
-<span class="lang-ko">Firmware Version History (Changelog)</span></div>
+        <h3>
+          <span class="lang-vi">Lịch Sử Phiên Bản Firmware (Changelog)</span>
+          <span class="lang-en">Firmware Version History (Changelog)</span>
+          <span class="lang-ja">ファームウェアのバージョン履歴 (Changelog)</span>
+          <span class="lang-zh">固件版本更新历史 (Changelog)</span>
+          <span class="lang-fr">Historique des versions du firmware (Changelog)</span>
+          <span class="lang-de">Firmware-Versionsverlauf (Changelog)</span>
+          <span class="lang-es">Historial de versiones de firmware (Changelog)</span>
+          <span class="lang-ru">История версий прошивки (Changelog)</span>
+          <span class="lang-ko">펌웨어 버전 기록 (변경 이력)</span>
+        </h3>
         <button class="modal-close" onclick="closeHistoryModal()">&times;</button>
       </div>
+
       <div class="modal-body" id="modalHistoryBody">
-        <!-- Rendered dynamically from changelog.json -->
+        <!-- Rendered by JavaScript -->
       </div>
+
       <div class="modal-footer">
-        <a href="https://github.com/thanhlqsap/esp32-CAM/releases" target="_blank" class="btn-link" style="color:var(--primary);font-weight:600;">
-          🔗 <span class="lang-vi">Xem trên GitHub Releases</span>
-<span class="lang-en">View on GitHub Releases</span>
-<span class="lang-ja">GitHub Releases で見る</span>
-<span class="lang-zh">前往 GitHub Releases 查看</span>
-<span class="lang-fr">View on GitHub Releases</span>
-<span class="lang-de">View on GitHub Releases</span>
-<span class="lang-es">View on GitHub Releases</span>
-<span class="lang-ru">View on GitHub Releases</span>
-<span class="lang-ko">View on GitHub Releases</span></a>
-        <button type="button" class="btn-flash" onclick="closeHistoryModal()" style="width:auto;padding:8px 18px;font-size:0.85rem;border-radius:8px;">
+        <a href="https://github.com/thanhlqsap/esp32-CAM/releases" target="_blank" class="btn-secondary">
+          ⭐
+          <span class="lang-vi">Xem trên GitHub Releases</span>
+          <span class="lang-en">View on GitHub Releases</span>
+          <span class="lang-ja">GitHub Releases で見る</span>
+          <span class="lang-zh">在 GitHub Releases 上查看</span>
+          <span class="lang-fr">Voir sur GitHub Releases</span>
+          <span class="lang-de">Auf GitHub Releases ansehen</span>
+          <span class="lang-es">Ver en GitHub Releases</span>
+          <span class="lang-ru">Посмотреть на GitHub Releases</span>
+          <span class="lang-ko">GitHub Releases에서 보기</span>
+        </a>
+        <button type="button" class="btn-secondary" onclick="closeHistoryModal()">
           <span class="lang-vi">Đóng</span>
-<span class="lang-en">Close</span>
-<span class="lang-ja">閉じる</span>
-<span class="lang-zh">关闭</span>
-<span class="lang-fr">Fermer</span>
-<span class="lang-de">Schließen</span>
-<span class="lang-es">Cerrar</span>
-<span class="lang-ru">Закрыть</span>
-<span class="lang-ko">닫기</span></button>
+          <span class="lang-en">Close</span>
+          <span class="lang-ja">閉じる</span>
+          <span class="lang-zh">关闭</span>
+          <span class="lang-fr">Fermer</span>
+          <span class="lang-de">Schließen</span>
+          <span class="lang-es">Cerrar</span>
+          <span class="lang-ru">Закрыть</span>
+          <span class="lang-ko">닫기</span>
+        </button>
       </div>
     </div>
   </div>
@@ -503,76 +581,176 @@
     let isLogOpened = false;
 
     const I18N_DICT = {
-      preparing: { vi: 'Đang chuẩn bị...', en: 'Preparing...', ja: '準備中...', zh: '准备中...' },
-      downloading: { vi: 'Đang tải firmware từ GitHub...', en: 'Downloading firmware from GitHub...', ja: 'GitHubからファームウェアをダウンロード中...', zh: '正在从 GitHub 下载固件...' },
+      preparing: {
+        vi: 'Đang chuẩn bị...',
+        en: 'Preparing...',
+        ja: '準備中...',
+        zh: '准备中...',
+        fr: 'En préparation...',
+        de: 'Vorbereitung...',
+        es: 'Preparando...',
+        ru: 'Подготовка...',
+        ko: '준비 중...'
+      },
+      downloading: {
+        vi: 'Đang tải firmware từ GitHub...',
+        en: 'Downloading firmware from GitHub...',
+        ja: 'GitHubからファームウェアをダウンロード中...',
+        zh: '正在从 GitHub 下载固件...',
+        fr: 'Téléchargement du firmware depuis GitHub...',
+        de: 'Firmware wird von GitHub heruntergeladen...',
+        es: 'Descargando firmware desde GitHub...',
+        ru: 'Загрузка прошивки с GitHub...',
+        ko: 'GitHub에서 펌웨어 다운로드 중...'
+      },
       downloadSuccess: {
         vi: size => `[1/3] Đã tải thành công (${size} KB).`,
         en: size => `[1/3] Download completed (${size} KB).`,
         ja: size => `[1/3] ダウンロード完了 (${size} KB)。`,
-        zh: size => `[1/3] 下载完成 (${size} KB)。`
+        zh: size => `[1/3] 下载完成 (${size} KB)。`,
+        fr: size => `[1/3] Téléchargement réussi (${size} Ko).`,
+        de: size => `[1/3] Download erfolgreich (${size} KB).`,
+        es: size => `[1/3] Descarga completada (${size} KB).`,
+        ru: size => `[1/3] Загрузка завершена (${size} КБ).`,
+        ko: size => `[1/3] 다운로드 완료 (${size} KB).`
       },
       usingLocalFile: {
         vi: (name, size) => `[1/3] Sử dụng file máy tính: ${name} (${size} KB)`,
         en: (name, size) => `[1/3] Using local file: ${name} (${size} KB)`,
         ja: (name, size) => `[1/3] ローカルファイルを使用: ${name} (${size} KB)`,
-        zh: (name, size) => `[1/3] 使用本地文件: ${name} (${size} KB)`
+        zh: (name, size) => `[1/3] 使用本地文件: ${name} (${size} KB)`,
+        fr: (name, size) => `[1/3] Fichier local utilisé : ${name} (${size} Ko)`,
+        de: (name, size) => `[1/3] Lokale Datei verwendet: ${name} (${size} KB)`,
+        es: (name, size) => `[1/3] Archivo local usado: ${name} (${size} KB)`,
+        ru: (name, size) => `[1/3] Используется файл: ${name} (${size} КБ)`,
+        ko: (name, size) => `[1/3] 로컬 파일 사용: ${name} (${size} KB)`
       },
-      connecting: { vi: 'Đang kết nối ESP32-CAM...', en: 'Connecting to ESP32-CAM...', ja: 'ESP32-CAM に接続中...', zh: '正在连接 ESP32-CAM...' },
+      connecting: {
+        vi: 'Đang kết nối ESP32-CAM...',
+        en: 'Connecting to ESP32-CAM...',
+        ja: 'ESP32-CAM に接続中...',
+        zh: '正在连接 ESP32-CAM...',
+        fr: 'Connexion à l\'ESP32-CAM...',
+        de: 'Verbindung mit ESP32-CAM wird hergestellt...',
+        es: 'Conectando a ESP32-CAM...',
+        ru: 'Подключение к ESP32-CAM...',
+        ko: 'ESP32-CAM에 연결하는 중...'
+      },
       openingSerial: {
         vi: baud => `[2/3] Mở kết nối Serial (Baudrate: ${baud})...`,
         en: baud => `[2/3] Opening Serial port (Baudrate: ${baud})...`,
         ja: baud => `[2/3] シリアルポートを開いています (Baudrate: ${baud})...`,
-        zh: baud => `[2/3] 打开串口通信 (波特率: ${baud})...`
+        zh: baud => `[2/3] 打开串口通信 (波特率: ${baud})...`,
+        fr: baud => `[2/3] Ouverture du port série (Baud : ${baud})...`,
+        de: baud => `[2/3] Öffne seriellen Port (Baudrate: ${baud})...`,
+        es: baud => `[2/3] Abriendo puerto serie (Baudios: ${baud})...`,
+        ru: baud => `[2/3] Открытие Serial-порта (Скорость: ${baud})...`,
+        ko: baud => `[2/3] 시리얼 포트 연결 (통신속도: ${baud})...`
       },
       detectedChip: {
         vi: chip => `[2/3] Đã nhận diện Chip: ${chip}`,
         en: chip => `[2/3] Detected Chip: ${chip}`,
         ja: chip => `[2/3] チップを検出: ${chip}`,
-        zh: chip => `[2/3] 已识别芯片: ${chip}`
+        zh: chip => `[2/3] 已识别芯片: ${chip}`,
+        fr: chip => `[2/3] Puce détectée : ${chip}`,
+        de: chip => `[2/3] Erkannter Chip: ${chip}`,
+        es: chip => `[2/3] Chip detectado: ${chip}`,
+        ru: chip => `[2/3] Обнаружен чип: ${chip}`,
+        ko: chip => `[2/3] 감지된 칩: ${chip}`
       },
       flashing: {
         vi: addr => `Đang nạp firmware vào Flash (Offset: ${addr})...`,
         en: addr => `Writing firmware to Flash (Offset: ${addr})...`,
         ja: addr => `フラッシュに書き込み中 (Offset: ${addr})...`,
-        zh: addr => `正在烧录固件到 Flash (Offset: ${addr})...`
+        zh: addr => `正在烧录固件到 Flash (Offset: ${addr})...`,
+        fr: addr => `Écriture du firmware dans la Flash (Offset: ${addr})...`,
+        de: addr => `Firmware wird in den Flash geschrieben (Offset: ${addr})...`,
+        es: addr => `Escribiendo firmware en la Flash (Offset: ${addr})...`,
+        ru: addr => `Запись прошивки во Flash (Offset: ${addr})...`,
+        ko: addr => `Flash 메모리에 펌웨어 기록 중 (Offset: ${addr})...`
       },
       startFlashing: {
         vi: addr => `[3/3] Bắt đầu nạp firmware vào địa chỉ: ${addr}`,
         en: addr => `[3/3] Start writing firmware to address: ${addr}`,
         ja: addr => `[3/3] アドレス ${addr} への書き込みを開始`,
-        zh: addr => `[3/3] 开始烧录固件到目标地址: ${addr}`
+        zh: addr => `[3/3] 开始烧录固件到目标地址: ${addr}`,
+        fr: addr => `[3/3] Début de l'écriture à l'adresse : ${addr}`,
+        de: addr => `[3/3] Beginn des Schreibvorgangs auf Adresse: ${addr}`,
+        es: addr => `[3/3] Inicio de escritura en la dirección: ${addr}`,
+        ru: addr => `[3/3] Начало записи прошивки по адресу: ${addr}`,
+        ko: addr => `[3/3] 주소 ${addr} 에 펌웨어 기록 시작`
       },
-      flashSuccess100: { vi: 'Hoàn tất 100%!', en: 'Completed 100%!', ja: '書き込み完了 100%!', zh: '烧录完成 100%!' },
+      flashSuccess100: {
+        vi: 'Hoàn tất 100%!',
+        en: 'Completed 100%!',
+        ja: '書き込み完了 100%!',
+        zh: '烧录完成 100%!',
+        fr: 'Terminé à 100% !',
+        de: '100% abgeschlossen!',
+        es: '¡Completado 100%!',
+        ru: 'Завершено на 100%!',
+        ko: '100% 완료!'
+      },
       flashSuccessAlert: {
         vi: '<b>🎉 Nạp Firmware Thành Công 100%!</b><br>Hãy <b>rút dây IO0 khỏi GND</b> và nhấn nút <b>RST</b> trên ESP32-CAM để bắt đầu chạy Camera!',
         en: '<b>🎉 Firmware Flashed Successfully (100%)!</b><br>Please <b>disconnect IO0 from GND</b> and press the <b>RST</b> button on ESP32-CAM to start the Camera!',
         ja: '<b>🎉 ファームウェアの書き込みが成功しました (100%)！</b><br><b>IO0 の接続を外し</b>、ESP32-CAM の <b>RST</b> ボタンを押してカメラを起動してください！',
-        zh: '<b>🎉 固件烧录成功 (100%)！</b><br>请<b>拔掉 IO0 与 GND 的短接线</b>，然后按下 ESP32-CAM 上的 <b>RST</b> 按钮启动摄像头！'
+        zh: '<b>🎉 固件烧录成功 (100%)！</b><br>请<b>拔掉 IO0 与 GND 的短接线</b>，然后按下 ESP32-CAM 上的 <b>RST</b> 按钮启动摄像头！',
+        fr: '<b>🎉 Firmware flashé avec succès (100%) !</b><br>Veuillez <b>débrancher IO0 de GND</b> et appuyer sur le bouton <b>RST</b> de l\'ESP32-CAM pour démarrer !',
+        de: '<b>🎉 Firmware erfolgreich geflasht (100%)!</b><br>Bitte <b>trennen Sie IO0 von GND</b> und drücken Sie die <b>RST</b>-Taste auf der ESP32-CAM!',
+        es: '<b>🎉 ¡Firmware flasheado con éxito (100%)!</b><br>¡<b>Desconecte IO0 de GND</b> y presione el botón <b>RST</b> en el ESP32-CAM para iniciar!',
+        ru: '<b>🎉 Прошивка успешно записана (100%)!</b><br>Пожалуйста, <b>отключите IO0 от GND</b> и нажмите кнопку <b>RST</b> на ESP32-CAM для запуска!',
+        ko: '<b>🎉 펌웨어 설치 성공 (100%)!</b><br><b>IO0과 GND 연결을 분리</b>하고 ESP32-CAM의 <b>RST</b> 버튼을 눌러 카메라를 시작하세요!'
       },
-      flashFailedLabel: { vi: 'Lỗi / Thất bại', en: 'Failed / Error', ja: 'エラーが発生しました', zh: '烧录失败 / 发生错误' },
+      flashFailedLabel: {
+        vi: 'Lỗi / Thất bại',
+        en: 'Failed / Error',
+        ja: 'エラーが発生しました',
+        zh: '烧录失败 / 发生错误',
+        fr: 'Échec / Erreur',
+        de: 'Fehlgeschlagen / Fehler',
+        es: 'Fallido / Error',
+        ru: 'Ошибка / Сбой',
+        ko: '설치 실패 / 오류'
+      },
       flashFailedHint: {
         vi: 'Vui lòng đảm bảo chân IO0 đã nối GND và bấm RST 1 cái rồi thử lại.',
         en: 'Please make sure IO0 is bridged to GND, press RST once and try again.',
         ja: 'IO0 が GND に接続されていることを確認し、RST を1回押してから再試行してください。',
-        zh: '请确保 IO0 已短接到 GND，按一次 RST 复位键后再试。'
+        zh: '请确保 IO0 已短接到 GND，按一次 RST 复位键后再试。',
+        fr: 'Veuillez vérifier que IO0 est relié à GND, appuyez une fois sur RST et réessayez.',
+        de: 'Bitte stellen Sie sicher, dass IO0 mit GND verbunden ist, drücken Sie einmal RST und versuchen Sie es erneut.',
+        es: 'Asegúrese de que IO0 esté conectado a GND, presione RST una vez y vuelva a intentarlo.',
+        ru: 'Убедитесь, что контакт IO0 замкнут на GND, нажмите RST один раз и повторите попытку.',
+        ko: 'IO0 핀이 GND에 연결되었는지 확인하고 RST 버튼을 한 번 누른 후 다시 시도하세요.'
       },
       noLocalFile: {
         vi: 'Vui lòng chọn file firmware .bin từ máy tính trước khi bấm Nạp!',
         en: 'Please choose a .bin firmware file from your computer before flashing!',
         ja: '書き込み前にパソコンから .bin ファームウェアファイルを選択してください！',
-        zh: '请在点击烧录前先选择本地 .bin 固件文件！'
+        zh: '请在点击烧录前先选择本地 .bin 固件文件！',
+        fr: 'Veuillez sélectionner un fichier .bin avant de flasher !',
+        de: 'Bitte wählen Sie vor dem Flashen eine .bin-Firmwaredatei aus!',
+        es: '¡Seleccione un archivo de firmware .bin antes de flashear!',
+        ru: 'Пожалуйста, выберите файл прошивки .bin перед записью!',
+        ko: '설치하기 전에 컴퓨터에서 .bin 펌웨어 파일을 선택하세요!'
       },
       libNotFound: {
-        vi: 'Không tìm thấy thư viện ESPLoader. Vui lòng tải lại trang web (F5).',
-        en: 'ESPLoader library not found. Please refresh the page (F5).',
-        ja: 'ESPLoader ライブラリが見つかりません。ページを再読み込み (F5) してください。',
-        zh: '未找到 ESPLoader 库，请刷新页面 (F5)。'
+        vi: 'Không tìm thấy thư viện esptool-js!',
+        en: 'esptool-js library not found!',
+        ja: 'esptool-js ライブラリが見つかりません！',
+        zh: '未找到 esptool-js 驱动库！',
+        fr: 'Bibliothèque esptool-js introuvable !',
+        de: 'esptool-js Bibliothek nicht gefunden!',
+        es: '¡Biblioteca esptool-js no encontrada!',
+        ru: 'Библиотека esptool-js не найдена!',
+        ko: 'esptool-js 라이브러리를 찾을 수 없습니다!'
       }
     };
 
     let changelogData = [
       {
-        version: "v1.0.0",
+        version: "v1.0.054",
         date: "2026-09",
         tag: "Latest Release",
         url: "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
@@ -580,13 +758,24 @@
           vi: "Bản phát hành chính thức - Đa cảm biến & Hybrid OTA",
           en: "Official Release - Multi-Sensor & Hybrid OTA",
           ja: "正式リリース - マルチセンサー＆Hybrid OTA",
-          zh: "官方正式版 - 多传感器兼容与混合OTA"
+          zh: "官方正式版 - 多传感器兼容与混合OTA",
+          fr: "Version officielle - Multi-Capteurs & OTA Hybride",
+          de: "Offizielle Version - Multi-Sensor & Hybrid-OTA",
+          es: "Lanzamiento oficial - Multisensor y OTA híbrido",
+          ru: "Официальный релиз - Мультисенсор и Гибридная OTA",
+          ko: "공식 릴리스 - 멀티 센서 및 하이브리드 OTA"
         },
-        description: {
+        description: "🚀 Multi-Sensor OV2640/3660/5640, MJPEG Stream, Wi-Fi Portal, Hybrid OTA & Basic Auth.",
+        details: {
           vi: "🚀 Tự động nhận diện đa cảm biến (OV2640, OV3660, OV5640,...), Live Stream MJPEG 25FPS, Quét Wi-Fi & Captive Portal, Hybrid OTA & Rollback bảo vệ, Xác thực Basic Auth.",
           en: "🚀 Auto-detects multi-sensors (OV2640, OV3660, OV5640,...), 25FPS MJPEG Stream, Wi-Fi Scan & Captive Portal, Hybrid OTA & Rollback, Basic Auth.",
           ja: "🚀 マルチセンサー自動検出 (OV2640, OV3660, OV5640等)、MJPEG 配信、Wi-Fi スキャン＆APポータル、OTA復旧保護、Basic認証。",
-          zh: "🚀 自动识别多款摄像头传感器 (OV2640, OV3660, OV5640等)、实时流畅直播、Wi-Fi 扫描配网、OTA 双模升级与防变砖回滚、Basic 密码保护。"
+          zh: "🚀 自动识别多款摄像头传感器 (OV2640, OV3660, OV5640等)、实时流畅直播、Wi-Fi 扫描配网、OTA 双模升级与防变砖回滚、Basic 密码保护。",
+          fr: "🚀 Détection automatique multi-capteurs (OV2640, OV3660, OV5640,...), flux MJPEG 25FPS, scan Wi-Fi & portail captif, OTA hybride & rollback, authentification Basic.",
+          de: "🚀 Automatische Sensorerkennung (OV2640, OV3660, OV5640,...), MJPEG-Stream 25FPS, Wi-Fi-Scan & Captive Portal, Hybrid-OTA & Rollback-Schutz, Basic Auth.",
+          es: "🚀 Detección automática multisensor (OV2640, OV3660, OV5640,...), Stream MJPEG 25FPS, escaneo Wi-Fi y portal cautivo, OTA híbrido y protección Rollback, Basic Auth.",
+          ru: "🚀 Автоопределение сенсоров (OV2640, OV3660, OV5640,...), MJPEG стрим 25FPS, сканирование Wi-Fi и Captive Portal, гибридная OTA и защита от сбоев, Basic Auth.",
+          ko: "🚀 다양한 센서(OV2640, OV3660, OV5640 등) 자동 감지, 25FPS MJPEG 스트림, Wi-Fi 검색 및 포털, 하이브리드 OTA 및 롤백 보호, Basic 인증 지원."
         }
       }
     ];
@@ -655,11 +844,16 @@
         vi: 'Bản mới nhất',
         en: 'Latest Release',
         ja: '最新リリース',
-        zh: '最新版本'
+        zh: '最新版本',
+        fr: 'Dernière version',
+        de: 'Neueste Version',
+        es: 'Última versión',
+        ru: 'Последний релиз',
+        ko: '최신 버전'
       };
       sel.innerHTML = changelogData.map((item, idx) => {
         const star = (idx === 0) ? '⭐ ' : '📦 ';
-        const tagText = (idx === 0) ? ` (${tagMap[currentLang] || 'Latest Release'})` : (item.tag ? ` (${item.tag})` : '');
+        const tagText = (idx === 0) ? ` (${tagMap[currentLang] || tagMap.en})` : (item.tag ? ` (${item.tag})` : '');
         return `<option value="${item.version}" data-url="${item.url}">${star}${item.version}${tagText}</option>`;
       }).join('');
       updateLiveDescription();
@@ -673,12 +867,28 @@
         vi: ver => `⬇️ Tải file .bin (${ver})`,
         en: ver => `⬇️ Download .bin (${ver})`,
         ja: ver => `⬇️ .bin をダウンロード (${ver})`,
-        zh: ver => `⬇️ 下载 .bin 固件 (${ver})`
+        zh: ver => `⬇️ 下载 .bin 固件 (${ver})`,
+        fr: ver => `⬇️ Télécharger .bin (${ver})`,
+        de: ver => `⬇️ .bin herunterladen (${ver})`,
+        es: ver => `⬇️ Descargar .bin (${ver})`,
+        ru: ver => `⬇️ Скачать .bin (${ver})`,
+        ko: ver => `⬇️ .bin 다운로드 (${ver})`
       }[currentLang] || (ver => `⬇️ Download .bin (${ver})`);
 
       body.innerHTML = changelogData.map(item => {
-        const title = (item.title && item.title[currentLang]) ? item.title[currentLang] : (item.title ? item.title.vi || item.title.en : item.version);
-        const desc = (item.description && item.description[currentLang]) ? item.description[currentLang] : (item.description ? item.description.vi || item.description.en : '');
+        let title = item.version;
+        if (item.title && typeof item.title === 'object') {
+          title = item.title[currentLang] || item.title.en || item.title.vi || item.version;
+        }
+        let desc = '';
+        if (item.details && typeof item.details === 'object') {
+          desc = item.details[currentLang] || item.details.en || item.details.vi || item.description || '';
+        } else if (typeof item.description === 'object' && item.description) {
+          desc = item.description[currentLang] || item.description.en || item.description.vi || '';
+        } else {
+          desc = item.description || '';
+        }
+
         let changesHtml = '';
         if (item.changes) {
           const list = item.changes[currentLang] || item.changes.vi || item.changes.en || [];
@@ -712,7 +922,7 @@
           }
         }
       } catch (e) {
-        // Local file fallback
+        // Local fallback
       }
       renderVersionOptions();
       renderHistoryModal();
@@ -720,10 +930,14 @@
 
     // Language Controller
     function setLanguage(lang) {
+      if (!lang) lang = 'vi';
       currentLang = lang;
+      document.documentElement.lang = lang;
       document.body.setAttribute('data-lang', lang);
       try {
         localStorage.setItem('esp32_cam_flasher_lang', lang);
+        localStorage.setItem('esp32_cam_global_lang', lang);
+        localStorage.setItem('selected_lang', lang);
       } catch (e) {}
 
       const sel = document.getElementById('langSelect');
@@ -733,33 +947,38 @@
       const pageTitles = {
         vi: 'ESP32-CAM 1-Click Web Installer',
         en: 'ESP32-CAM 1-Click Web Installer',
-        ja: 'ESP32-CAM 1-Click Web Installer',
-        zh: 'ESP32-CAM 1-Click Web Installer'
+        ja: 'ESP32-CAM 1-Click Web インストーラー',
+        zh: 'ESP32-CAM 网页一键烧录工具',
+        fr: 'ESP32-CAM 1-Click Web Installer',
+        de: 'ESP32-CAM 1-Klick Web-Installer',
+        es: 'Instalador Web 1-Clic ESP32-CAM',
+        ru: 'ESP32-CAM Веб-установщик в 1 клик',
+        ko: 'ESP32-CAM 원클릭 웹 설치기'
       };
-      document.title = pageTitles[lang] || pageTitles.vi;
+      document.title = pageTitles[lang] || pageTitles.en;
 
-      // Update all <option data-text-vi/en/ja/zh>
+      // Update all <option> text content with exact data-text-[lang]
       document.querySelectorAll('option[data-text-vi]').forEach(opt => {
-        if (lang === 'en') opt.textContent = opt.dataset.textEn || opt.dataset.textVi;
-        else if (lang === 'ja') opt.textContent = opt.dataset.textJa || opt.dataset.textEn || opt.dataset.textVi;
-        else if (lang === 'zh') opt.textContent = opt.dataset.textZh || opt.dataset.textEn || opt.dataset.textVi;
-        else opt.textContent = opt.dataset.textVi;
+        const text = opt.getAttribute('data-text-' + lang) || opt.getAttribute('data-text-en') || opt.getAttribute('data-text-vi');
+        if (text) opt.textContent = text;
       });
 
       // Update initial status label if still preparing
       const statusLabel = document.getElementById('statusLabel');
-      if (statusLabel && (statusLabel.innerText.includes('chuẩn bị') || statusLabel.innerText.includes('Preparing') || statusLabel.innerText.includes('準備') || statusLabel.innerText.includes('准备'))) {
-        statusLabel.innerText = I18N_DICT.preparing[lang] || I18N_DICT.preparing.vi;
+      if (statusLabel) {
+        const txt = statusLabel.innerText || '';
+        if (txt.includes('chuẩn bị') || txt.includes('Preparing') || txt.includes('準備') || txt.includes('准备') || txt.includes('préparation') || txt.includes('Vorbereitung') || txt.includes('Preparando') || txt.includes('Подготовка') || txt.includes('준비')) {
+          statusLabel.innerText = I18N_DICT.preparing[lang] || I18N_DICT.preparing.vi;
+        }
       }
 
-      // Update Version Dropdown
+      // Update Version Dropdown & Live Description
       renderVersionOptions();
 
       // Update Toggle Log Text
       updateToggleLogState();
 
-      // Update Live Description & Modal
-      updateLiveDescription();
+      // Update Modal
       renderHistoryModal();
     }
 
@@ -776,40 +995,65 @@
 
     function updateLiveDescription() {
       const sel = document.getElementById('versionSelect');
-      const curVer = sel ? sel.value : 'v1.0.0';
+      const curVer = sel ? sel.value : 'v1.0.054';
       const item = changelogData.find(c => c.version === curVer) || changelogData[0];
       const tagEl = document.getElementById('descVerTag');
       const dateEl = document.getElementById('descVerDate');
       const contentEl = document.getElementById('descVerContent');
       if (item) {
-        const tagText = (currentLang === 'vi') ? 'Bản hoàn chỉnh Full Merged' :
-                        (currentLang === 'ja') ? '完全統合ファームウェア' :
-                        (currentLang === 'zh') ? '完整合并固件' : 'Full Merged Firmware';
-        const dateText = (currentLang === 'vi') ? 'Bản phát hành mới nhất' :
-                         (currentLang === 'ja') ? '最新リリース' :
-                         (currentLang === 'zh') ? '最新发布' : 'Latest Build';
+        const tagMap = {
+          vi: 'Bản hoàn chỉnh Full Merged',
+          en: 'Full Merged Firmware',
+          ja: '完全統合ファームウェア',
+          zh: '完整合并固件',
+          fr: 'Firmware complet fusionné',
+          de: 'Vollständig zusammengeführte Firmware',
+          es: 'Firmware fusionado completo',
+          ru: 'Полная объединенная прошивка',
+          ko: '통합 풀 펌웨어'
+        };
+        const dateMap = {
+          vi: 'Bản phát hành mới nhất',
+          en: 'Latest Build',
+          ja: '最新リリース',
+          zh: '最新发布',
+          fr: 'Dernière version',
+          de: 'Neueste Version',
+          es: 'Última versión',
+          ru: 'Свежая сборка',
+          ko: '최신 빌드'
+        };
+        const tagText = tagMap[currentLang] || tagMap.en;
+        const dateText = dateMap[currentLang] || dateMap.en;
         if (tagEl) tagEl.innerText = `${item.version} (${tagText})`;
         if (dateEl) dateEl.innerText = item.date ? `${item.date} (${dateText})` : dateText;
         if (contentEl) {
-          contentEl.innerText = (item.description && item.description[currentLang]) ? item.description[currentLang] : (item.description ? item.description.vi || item.description.en : '');
+          let descText = '';
+          if (item.details && typeof item.details === 'object') {
+            descText = item.details[currentLang] || item.details.en || item.details.vi || item.description || '';
+          } else if (typeof item.description === 'object' && item.description) {
+            descText = item.description[currentLang] || item.description.en || item.description.vi || '';
+          } else {
+            descText = item.description || '';
+          }
+          contentEl.innerText = descText;
         }
       }
     }
 
-    // Check Web Serial Support
-    
+    // Cross-tab Synchronization
     window.addEventListener('storage', (e) => {
-      if (['esp32_cam_global_lang', 'esp32_lang', 'esp32_cam_lang', 'esp32_sd_lang', 'esp32_car_lang'].includes(e.key) && e.newValue) {
-        if (typeof setLanguage === 'function') setLanguage(e.newValue);
-        else if (typeof changeLanguage === 'function') changeLanguage(e.newValue);
-        else if (typeof changeLang === 'function') changeLang(e.newValue);
+      if (['esp32_cam_global_lang', 'selected_lang', 'esp32_cam_flasher_lang', 'esp32_lang', 'esp32_cam_lang', 'esp32_sd_lang', 'esp32_car_lang'].includes(e.key) && e.newValue) {
+        if (e.newValue !== currentLang) {
+          setLanguage(e.newValue);
+        }
       }
     });
 
     window.addEventListener('DOMContentLoaded', () => {
       let savedLang = 'vi';
       try {
-        savedLang = localStorage.getItem('esp32_cam_global_lang') || localStorage.getItem('esp32_lang') || localStorage.getItem('esp32_cam_lang') || localStorage.getItem('esp32_sd_lang') || localStorage.getItem('esp32_car_lang') || 'vi';
+        savedLang = localStorage.getItem('esp32_cam_global_lang') || localStorage.getItem('selected_lang') || localStorage.getItem('esp32_cam_flasher_lang') || localStorage.getItem('esp32_lang') || localStorage.getItem('esp32_cam_lang') || 'vi';
       } catch (e) {}
       setLanguage(savedLang);
       loadChangelogAndVersions();
@@ -834,25 +1078,25 @@
       if (isLogOpened) {
         el.innerHTML = `
           <span class="lang-vi">Ẩn log chi tiết</span>
-<span class="lang-en">Hide detailed log</span>
-<span class="lang-ja">詳細ログを隠す</span>
-<span class="lang-zh">隐藏详细日志</span>
-<span class="lang-fr">Hide detailed log</span>
-<span class="lang-de">Hide detailed log</span>
-<span class="lang-es">Hide detailed log</span>
-<span class="lang-ru">Hide detailed log</span>
-<span class="lang-ko">Hide detailed log</span>`;
+          <span class="lang-en">Hide detailed log</span>
+          <span class="lang-ja">詳細ログを隠す</span>
+          <span class="lang-zh">隐藏详细日志</span>
+          <span class="lang-fr">Masquer le journal détaillé</span>
+          <span class="lang-de">Detailliertes Protokoll ausblenden</span>
+          <span class="lang-es">Ocultar registro detallado</span>
+          <span class="lang-ru">Скрыть подробный лог</span>
+          <span class="lang-ko">상세 로그 숨기기</span>`;
       } else {
         el.innerHTML = `
           <span class="lang-vi">🔍 Xem log chi tiết</span>
-<span class="lang-en">🔍 View detailed log</span>
-<span class="lang-ja">🔍 詳細ログを表示</span>
-<span class="lang-zh">🔍 查看详细日志</span>
-<span class="lang-fr">🔍 View detailed log</span>
-<span class="lang-de">🔍 View detailed log</span>
-<span class="lang-es">🔍 View detailed log</span>
-<span class="lang-ru">🔍 View detailed log</span>
-<span class="lang-ko">🔍 View detailed log</span>`;
+          <span class="lang-en">🔍 View detailed log</span>
+          <span class="lang-ja">🔍 詳細ログを表示</span>
+          <span class="lang-zh">🔍 查看详细日志</span>
+          <span class="lang-fr">🔍 Voir le journal détaillé</span>
+          <span class="lang-de">🔍 Detailliertes Protokoll anzeigen</span>
+          <span class="lang-es">🔍 Ver registro detallado</span>
+          <span class="lang-ru">🔍 Просмотр подробного лога</span>
+          <span class="lang-ko">🔍 상세 로그 보기</span>`;
       }
     }
 
@@ -889,7 +1133,7 @@
         const offsetStr = document.getElementById('offsetSelect').value || '0x0000';
         flashAddress = parseInt(offsetStr, 16);
       } else {
-        flashAddress = 0x0000; // Tự động cố định 0x0000 tuyệt đối cho bản Online Full_Flash
+        flashAddress = 0x0000; // Fixed 0x0000 for Online Full_Flash
       }
 
       statusAlert.className = 'status-msg';

@@ -1,7 +1,7 @@
 {
-  "version": "1.0.053",
-  "release_date": "2026-09-14",
+  "version": "1.0.055",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "notes": "Đồng bộ hóa ngôn ngữ toàn hệ thống (Universal Cross-Site Language Sync) giữa tất cả các trang web Dashboard, SD Gallery, FPV Car, Captive Portal, User Guide và Web Flasher."
+  "description": "Hoàn thiện trọn vẹn 100% bản dịch 9 ngôn ngữ cho giao diện Dashboard (Tab Hybrid OTA, Camera, Cài đặt Wi-Fi, hộp thoại cảnh báo JS) và Cockpit Xe Robot FPV.",
+  "release_date": "2026-09-15",
+  "mandatory": false
 }

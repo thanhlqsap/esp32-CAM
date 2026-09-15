@@ -1,8 +1,25 @@
 [
   {
+    "version": "v1.0.055",
+    "date": "2026-09-15",
+    "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Bổ sung bản dịch đầy đủ 100% cho 9 ngôn ngữ tại tab Hybrid OTA, Camera, Cài đặt Wi-Fi, các hộp thoại JS và trang Cockpit Xe Robot FPV.",
+    "details": {
+      "vi": "Hoàn thiện dịch đầy đủ cho cả 9 ngôn ngữ (Tiếng Việt, Anh, Nhật, Trung, Pháp, Đức, Tây Ban Nha, Nga, Hàn) tại tab Hybrid OTA, cấu hình Camera, Cài đặt hệ thống Wi-Fi/Bảo mật, toàn bộ hộp thoại thông báo JS (confirm, alert, modal) và các nút điều khiển Cockpit Xe Robot FPV.",
+      "en": "Completed 100% 9-language translation (Vietnamese, English, Japanese, Chinese, French, German, Spanish, Russian, Korean) across Dashboard Hybrid OTA tab, Camera settings, Wi-Fi configuration, JavaScript alert/confirm dialogs, and FPV Robot Car cockpit.",
+      "ja": "ダッシュボードのハイブリッドOTAタブ、カメラ設定、Wi-Fi設定、JavaScriptダイアログ（確認/警告/進捗ログ）、FPVロボットカー操縦画面において全9言語の翻訳を100%完全実装。",
+      "zh": "全面完善 Dashboard 混合OTA升级、摄像头参数、Wi-Fi与安全配置、JS交互提示弹窗及 FPV 遥控小车驾驶舱界面的9国语言本地化翻译。",
+      "fr": "Traduction complète à 100% en 9 langues pour l'onglet OTA Hybride, les paramètres caméra, la configuration Wi-Fi, les dialogues JS et le cockpit Voiture Robot FPV.",
+      "de": "Vollständige 9-Sprachen-Übersetzung für den Hybrid-OTA-Tab, Kameraeinstellungen, Wi-Fi-Konfiguration, JavaScript-Dialoge und das FPV-Roboterauto-Cockpit.",
+      "es": "Traducción completa al 100% en 9 idiomas para la pestaña OTA Híbrida, ajustes de cámara, configuración Wi-Fi, diálogos JS y cabina del Coche Robot FPV.",
+      "ru": "Полная локализация на 9 языков для вкладки Гибридного OTA, настроек камеры, параметров Wi-Fi, всплывающих окон JS и кокпита FPV робокара.",
+      "ko": "하이브리드 OTA 탭, 카메라 설정, Wi-Fi 구성, JavaScript 알림/확인 대화상자 및 FPV 로봇카 조종 화면에 9개 국어 번역을 100% 완벽 적용했습니다."
+    }
+  },
+  {
     "version": "v1.0.033",
     "date": "2026-09",
-    "tag": "Latest Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.033 - Nâng Cao 10% Cụm Điều Khiển Xe Ở Chế Độ Xoay Ngang & Chống Che Khuất Mép Màn Hình",
