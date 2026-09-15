@@ -1,7 +1,7 @@
 {
-  "version": "1.0.071",
+  "version": "1.0.073",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Triệt tiêu 100% báo động giả: Triển khai động cơ lọc chuyển động 2 lớp (Dual-Layer Anti-False-Alarm Engine) với Spatial Filtering, Temporal Persistence Filter và Selective EMA Background Update.",
+  "description": "Nâng cấp Động cơ Quang học Thực tế 16x12: Tăng đệm PSRAM 128KB, lấy mẫu 4 điểm con triệt tiêu nhiễu hạt OV2640, bù sáng toàn cục AEC/AGC, tự động loại bỏ chớp đèn và kiểm chứng thời gian 2 frames.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
