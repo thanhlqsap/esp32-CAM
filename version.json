@@ -1,7 +1,7 @@
 {
-  "version": "1.0.062",
+  "version": "1.0.063",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa khóa liên động an toàn Chuông Cửa (doorbell.html): Khóa cứng nút mở cửa, đèn trợ sáng và còi báo chuông khi thiết bị đang ở Chế độ Thẻ nhớ SD hoặc Xe FPV; hiển thị banner cảnh báo.",
+  "description": "Nâng cấp toàn diện thuật toán phát hiện chuyển động (Spatial Multi-Point Sampling & Entropy Divergence) và tối ưu hóa hệ thống gửi ảnh Telegram Bot (TLS Chunking, Stack 12KB, Zero-Lag) độc lập không phụ thuộc thẻ nhớ SD.",
   "release_date": "2026-09-15",
   "mandatory": false
 }

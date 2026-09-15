@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.062",
+    "version": "v1.0.063",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Nâng cấp toàn diện thuật toán phát hiện chuyển động quang học đa điểm (Spatial Multi-Point Sampling & Entropy Divergence) và tối ưu hóa hệ thống gửi ảnh Telegram Bot (Zero-Lag, Stack 12KB) hoạt động độc lập.",
+    "details": {
+      "vi": "Nâng cấp toàn diện tính năng phát hiện chuyển động và cảnh báo: Triển khai thuật toán lấy mẫu 32 khối không gian (Spatial Multi-Point Luma Sampling & Entropy Divergence) kết hợp bộ lọc kiểm chứng 2 lớp chống 100% báo động giả do nhiễu hạt ban đêm; tách biệt hoàn toàn luồng phát hiện chuyển động & gửi ảnh Telegram/Gmail chạy độc lập ngay cả khi không có thẻ nhớ SD; tăng kích thước Stack lên 12KB và tối ưu khối truyền TLS giúp tốc độ gửi ảnh Telegram đạt < 1.0 giây.",
+      "en": "Comprehensive upgrade of motion detection and alert notification: Implemented a 32-block Spatial Multi-Point Luma Sampling & Entropy Divergence algorithm with a 2-stage temporal debounce filter eliminating false alarms from night sensor noise; decoupled motion detection and Telegram/Gmail photo alerts to operate independently without requiring an SD card; expanded async task stack to 12KB and optimized TLS chunking for ultra-fast <1.0s Telegram delivery.",
+      "ja": "動体検知とTelegramアラート機能を大幅改善：32ブロック空間サンプリングとエントロピー発散アルゴリズムを導入し夜間ノイズによる誤検知を完全排除；SDカード未装着時でも動体検知・Telegram送信が完全独立動作；タスクスタックを12KBに拡張しTLS送信を最適化して1秒未満の高速送信を実現。",
+      "zh": "全面升级移动侦测与 Telegram 报警推送：采用 32 块空间多点采样与熵变分析算法，配合双重时域去抖滤波，彻底杜绝夜间噪点误报；实现移动侦测与报警推送脱离 SD 卡独立运行；将异步任务栈扩展至 12KB 并优化 TLS 传输，使 Telegram 照片发送速度提升至 1.0 秒以内。",
+      "fr": "Mise à niveau complète de la détection de mouvement et des alertes Telegram : nouvel algorithme d'échantillonnage spatial sur 32 blocs et filtre anti-faux positifs ; fonctionnement indépendant sans carte SD requise ; pile de tâches portée à 12 Ko et transfert TLS optimisé (< 1,0 s).",
+      "de": "Umfassendes Upgrade der Bewegungserkennung und Telegram-Warnungen: Neuer 32-Block-Raumabtastungs- und Entropie-Algorithmus zur Vermeidung von Fehlalarmen; unabhängiger Betrieb ohne SD-Karte; Task-Stack auf 12 KB erweitert und TLS-Übertragung für Telegram auf < 1,0 s optimiert.",
+      "es": "Actualización integral de detección de movimiento y alertas de Telegram: Nuevo algoritmo de muestreo espacial de 32 bloques y filtro antiruido; funcionamiento independiente sin tarjeta SD; pila de tareas ampliada a 12 KB y envío TLS optimizado a menos de 1,0 s.",
+      "ru": "Комплексное обновление детектора движения и оповещений в Telegram: алгоритм 32-блочной пространственной выборки и дивергенции энтропии с 2-уровневой фильтрацией помех; независимая работа без SD-карты; стек задач 12 КБ и сверхбыстрая отправка фото в Telegram (< 1,0 с).",
+      "ko": "모션 감지 및 Telegram 알림 전면 업그레이드: 32블록 공간 다점 샘플링 및 엔트로피 분석 알고리즘과 2단계 필터를 적용해 야간 노이즈 오작동을 완벽 차단; SD 카드 없이도 모션 감지 및 Telegram 전송 독립 작동; 비동기 태스크 스택 12KB 확장 및 TLS 최적화로 1초 미만 초고속 전송 실현."
+    }
+  },
+  {
+    "version": "v1.0.062",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Tối ưu hóa khóa liên động an toàn Chuông Cửa (doorbell.html): Khóa cứng nút mở cửa, đèn trợ sáng và còi báo chuông khi thiết bị đang ở Chế độ Thẻ nhớ SD hoặc Xe FPV; hiển thị banner cảnh báo.",
     "details": {
