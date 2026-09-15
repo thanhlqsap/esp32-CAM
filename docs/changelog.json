@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.059",
+    "version": "v1.0.060",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Bổ sung xử lý Chế độ Chuông Cửa Thông Minh (Smart Video Doorbell) vào API /set_mode và /get_mode; khắc phục hoàn toàn cảnh báo 'Invalid mode parameter'.",
+    "details": {
+      "vi": "Bổ sung tham số 'doorbell' cho API /set_mode và /get_mode trên web server, cho phép chuyển đổi mượt mà giữa 3 chế độ phần cứng Thẻ nhớ MicroSD, Xe Robot FPV và Chuông Cửa Thông Minh trực tiếp từ giao diện Dashboard.",
+      "en": "Added 'doorbell' parameter support to /set_mode and /get_mode web server APIs, enabling seamless switching between MicroSD, Robot Car, and Smart Video Doorbell modes directly from Dashboard UI.",
+      "ja": "/set_modeおよび/get_mode APIに「doorbell」パラメータを追加し、ダッシュボードからSDカード、ロボットカー、スマートドアホンの3モード間をシームレスに切り替え可能に修正。",
+      "zh": "在 Web 服务器 /set_mode 和 /get_mode API 中增加 'doorbell' 门铃模式参数，支持在主界面直接无缝切换 MicroSD、遥控小车与智能门铃三大硬件工作模式。",
+      "fr": "Ajout du paramètre 'doorbell' aux API /set_mode et /get_mode, permettant de basculer en toute fluidité entre les modes MicroSD, Voiture Robot et Sonnette Vidéo depuis le Dashboard.",
+      "de": "Unterstützung für den 'doorbell'-Parameter in den Web-APIs /set_mode und /get_mode hinzugefügt für nahtloses Umschalten zwischen MicroSD-, Roboterauto- und Türklingel-Modi.",
+      "es": "Se agregó el parámetro 'doorbell' a las API /set_mode y /get_mode para permitir el cambio fluido entre los modos MicroSD, Coche Robot y Timbre Inteligente desde el Dashboard.",
+      "ru": "Добавлен параметр 'doorbell' в API /set_mode и /get_mode для бесшовного переключения между режимами MicroSD, робокара и видеодомофона с панели управления.",
+      "ko": "/set_mode 및 /get_mode API에 'doorbell' 매개변수를 추가하여 대시보드에서 MicroSD, 로봇카, 스마트 도어벨 모드 간 원활한 전환 지원."
+    }
+  },
+  {
+    "version": "v1.0.059",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Sửa lỗi cấu trúc thẻ HTML trong dashboard.html làm ẩn nội dung các tab Cấu hình Camera, Cập nhật OTA và Cấu hình Wi-Fi; khôi phục hiển thị đầy đủ giao diện chuyển tab.",
     "details": {

@@ -1,5 +1,5 @@
 {
-  "version": "1.0.059",
+  "version": "1.0.060",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "description": "Sửa lỗi cú pháp thẻ HTML lồng nhau trong tiêu đề Live Stream của dashboard.html làm ẩn nội dung các tab Cấu hình Camera, Cập nhật OTA và Cấu hình Wi-Fi; khôi phục hiển thị 100% cho mọi tab.",
   "release_date": "2026-09-15",
