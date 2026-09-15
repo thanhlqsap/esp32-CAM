@@ -1,7 +1,7 @@
 {
-  "version": "1.0.077",
+  "version": "1.0.078",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Ẩn badge hiển thị Slot phân vùng khởi động (Slot: app0/ota_0) trên thanh Header của Dashboard.",
+  "description": "Tối ưu hóa giao diện SD Gallery: Lồng khối Cảnh báo chuyển động và nút Lưu cấu hình vào trong card Cài đặt ghi hình, giúp giao diện gọn gàng và đồng nhất.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
