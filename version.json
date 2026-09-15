@@ -1,7 +1,7 @@
 {
-  "version": "1.0.078",
+  "version": "1.0.079",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa giao diện SD Gallery: Lồng khối Cảnh báo chuyển động và nút Lưu cấu hình vào trong card Cài đặt ghi hình, giúp giao diện gọn gàng và đồng nhất.",
+  "description": "Tối ưu hóa toàn diện luồng ghi video SD: Đồng bộ hóa mutex bộ đệm camera giữa 2 core, tối ưu chu kỳ flush FATFS, khóa quét đĩa khi đang ghi hình và điều tiết polling thích ứng.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
