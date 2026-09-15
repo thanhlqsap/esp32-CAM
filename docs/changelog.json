@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.068",
+    "version": "v1.0.069",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Khắc phục triệt để lỗi không gửi Telegram: Khởi tạo initVideoRecorder khi boot, giải quyết xung đột tài nguyên giữa Live Stream và Motion Loop, tinh chỉnh thuật toán ABS so sánh Realtime với mô hình nền.",
+    "details": {
+      "vi": "Khắc phục triệt để lỗi nhận diện chuyển động và gửi Telegram: 1) Bổ sung lệnh initVideoRecorder() vào setup() để nạp đúng cấu hình từ NVS khi khởi động; 2) Thêm cờ isLiveStreamingActive() giúp điều phối và triệt tiêu hoàn toàn xung đột tài nguyên DMA/Memory giữa luồng Live Stream và Video Loop; 3) Thiết kế lại thuật toán ABS so sánh Realtime trực tiếp với Mô hình nền tĩnh kết hợp Selective Background Update (Bảo lưu nền khi có người) và khử 100% AEC/AGC.",
+      "en": "Completely resolved motion detection & Telegram alert issues: 1) Added missing initVideoRecorder() to setup() ensuring proper NVS configuration loading on boot; 2) Added isLiveStreamingActive() coordination flag eliminating DMA/Memory resource contention between Live Streaming and Video Loop; 3) Redesigned Realtime ABS algorithm directly comparing with Background Model with Selective Background Update and 100% AEC/AGC compensation.",
+      "ja": "動体検知とTelegram通知の不具合を完全解決：1）setup()にinitVideoRecorder()を追加し起動時にNVS設定を確実ロード；2）isLiveStreamingActive()フラグによるストリームと録画ループの競合調停；3）静止背景モデルとのリアルタイムABS差分および選択的背景更新による高精度動体検知。",
+      "zh": "彻底解决移动侦测与 Telegram 报警未触发问题：1) 在 setup() 中补充 initVideoRecorder() 确保开机即加载 NVS 配置；2) 引入 isLiveStreamingActive() 调度标志彻底消除视频流与录像循环间的资源竞态；3) 重构实时 ABS 算法直接对比静态背景模型，配合选择性背景更新与 100% AEC/AGC 补偿。",
+      "fr": "Résolution complète des problèmes de détection et d'alerte Telegram : ajout de initVideoRecorder() au démarrage, élimination des conflits de ressources entre le flux en direct et la boucle de détection, et comparaison directe en temps réel avec le modèle d'arrière-plan.",
+      "de": "Vollständige Behebung von Bewegungserkennungs- und Telegram-Alarmproblemen: Ergänzung von initVideoRecorder() beim Start, Beseitigung von Ressourcenkonflikten zwischen Live-Stream und Bewegungsschleife sowie direkter Echtzeit-Vergleich mit dem Hintergrundmodell.",
+      "es": "Solución definitiva a los problemas de detección de movimiento y alertas de Telegram: Inclusión de initVideoRecorder() en el arranque, eliminación de conflictos de recursos entre el streaming y el bucle de detección, y comparación directa en tiempo real con el modelo de fondo.",
+      "ru": "Полное устранение проблем с детекцией движения и отправкой в Telegram: добавлен initVideoRecorder() в setup(), устранены конфликты ресурсов между стримингом и циклом детекции, реализовано прямое сравнение в реальном времени с моделью фона.",
+      "ko": "모션 감지 및 Telegram 알림 미발송 문제 완벽 해결: 1) setup()에 initVideoRecorder()를 추가하여 부팅 시 NVS 설정 정상 로드; 2) isLiveStreamingActive() 플래그로 라이브 스트림과 비디오 루프 간의 리소스 충돌 완벽 방지; 3) 정적 배경 모델과의 실시간 직접 비교 ABS 알고리즘 구축."
+    }
+  },
+  {
+    "version": "v1.0.068",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Kích hoạt gửi cảnh báo Telegram/Gmail ngay trong luồng Live Stream, tối ưu thuật toán ABS 24 dải quét dọc và bổ sung log chẩn đoán trạng thái cấu hình Alert.",
     "details": {

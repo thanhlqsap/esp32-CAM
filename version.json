@@ -1,7 +1,7 @@
 {
-  "version": "1.0.068",
+  "version": "1.0.069",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Kích hoạt gửi cảnh báo Telegram/Gmail ngay trong luồng Live Stream, tối ưu thuật toán ABS 24 dải quét dọc và bổ sung log chẩn đoán trạng thái cấu hình Alert.",
+  "description": "Khắc phục triệt để lỗi không gửi Telegram: Khởi tạo initVideoRecorder khi boot, giải quyết xung đột tài nguyên giữa Live Stream và Motion Loop, tinh chỉnh thuật toán ABS so sánh Realtime với mô hình nền.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
