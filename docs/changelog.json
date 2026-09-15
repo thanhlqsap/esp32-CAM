@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.055",
+    "version": "v1.0.056",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Bổ sung tính năng tự động gửi video clip (.avi) qua Telegram Bot sau khi hoàn tất quay cùng switch bật/tắt trên Web UI (9 ngôn ngữ).",
+    "details": {
+      "vi": "Hỗ trợ tự động gửi file video clip (.avi) lưu trên thẻ nhớ MicroSD lên Telegram Bot qua API sendDocument sau khi kết thúc quay video chuyển động; bổ sung tùy chọn checkbox bật/tắt linh hoạt trong mục Cài đặt Cảnh báo với đầy đủ 9 ngôn ngữ.",
+      "en": "Added automatic video clip (.avi) upload from MicroSD to Telegram Bot via sendDocument API after motion recording completes; added configurable toggle switch in Alert Settings with full 9-language support.",
+      "ja": "動体検知録画完了後にMicroSD内の動画クリップ（.avi）をsendDocument API経由でTelegram Botへ自動送信する機能を追加。アラート設定内に9言語対応の有効化チェックボックスを実装。",
+      "zh": "新增移动侦测录像结束后自动将 MicroSD 卡中的视频片段 (.avi) 通过 sendDocument API 发送至 Telegram Bot 功能，并在告警设置中增加支持9国语言的开关选项。",
+      "fr": "Ajout de l'envoi automatique du clip vidéo (.avi) de la MicroSD vers Telegram Bot via l'API sendDocument à la fin de l'enregistrement, avec option d'activation dans les paramètres d'alerte en 9 langues.",
+      "de": "Automatischer Versand von Videoclips (.avi) von der MicroSD an Telegram Bot per sendDocument-API nach Aufnahmeende hinzugefügt; inklusive Konfigurationsschalter in den Alarmeinstellungen für alle 9 Sprachen.",
+      "es": "Añadido envío automático de clips de video (.avi) desde la MicroSD a Telegram Bot mediante la API sendDocument tras finalizar la grabación; interruptor de activación configurable en 9 idiomas en Ajustes de Alerta.",
+      "ru": "Добавлена автоматическая отправка видеоклипов (.avi) с MicroSD в Telegram Bot через API sendDocument после завершения записи, а также переключатель в настройках оповещений на 9 языках.",
+      "ko": "모션 감지 녹화 완료 후 MicroSD의 비디오 클립(.avi)을 sendDocument API를 통해 Telegram Bot으로 자동 전송하는 기능 추가 및 9개 국어를 지원하는 설정 스위치 구현."
+    }
+  },
+  {
+    "version": "v1.0.055",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Bổ sung bản dịch đầy đủ 100% cho 9 ngôn ngữ tại tab Hybrid OTA, Camera, Cài đặt Wi-Fi, các hộp thoại JS và trang Cockpit Xe Robot FPV.",
     "details": {

@@ -1,7 +1,7 @@
 {
-  "version": "1.0.055",
+  "version": "1.0.056",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Hoàn thiện trọn vẹn 100% bản dịch 9 ngôn ngữ cho giao diện Dashboard (Tab Hybrid OTA, Camera, Cài đặt Wi-Fi, hộp thoại cảnh báo JS) và Cockpit Xe Robot FPV.",
+  "description": "Bổ sung tính năng gửi file video clip (.avi) qua Telegram Bot sau khi hoàn tất ghi hình cùng tùy chọn bật/tắt cấu hình trên giao diện Web (9 ngôn ngữ).",
   "release_date": "2026-09-15",
   "mandatory": false
 }
