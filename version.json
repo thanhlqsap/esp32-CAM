@@ -1,7 +1,7 @@
 {
-  "version": "1.0.074",
+  "version": "1.0.075",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa dung lượng Flash toàn diện: Tự động nén GZIP toàn bộ 5 giao diện Web, giải phóng hơn 450KB Flash (giảm tỷ lệ Flash từ 93% xuống ~70%) và tăng tốc độ tải trang Web gấp 5 lần.",
+  "description": "Khắc phục triệt để lỗi báo động liên tục: Cập nhật nền thích ứng 2 tốc độ (chống kẹt nền), lọc liên kết cụm 8-hướng (loại bỏ nhiễu hạt góc), và chống kẹt chân PIR HIGH khi chưa gắn cảm biến ngoài.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
