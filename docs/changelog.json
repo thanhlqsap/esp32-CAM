@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.060",
+    "version": "v1.0.061",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tối ưu hóa giao diện Chuông Cửa Thông Minh (doorbell.html): Ẩn hoàn toàn khung thông báo nổi (Ring Popup) ở trạng thái chờ trên mobile & desktop; tối ưu responsive.",
+    "details": {
+      "vi": "Tối ưu hóa giao diện Chuông Cửa (/doorbell): Bổ sung thuộc tính ẩn hoàn toàn khung popup thông báo bấm chuông ở trạng thái chờ (tránh hiện chữ 'Khách đang đứng trước cổng nhà bạn' trên màn hình điện thoại); tối ưu bố cục co giãn responsive cho màn hình di động.",
+      "en": "Optimized Smart Video Doorbell UI (/doorbell): Fully hid visitor ring alert popup during standby mode to prevent layout leaks on mobile screens; enhanced mobile responsive layout.",
+      "ja": "スマートドアホンUI（/doorbell）を最適化：待機中にポップアップ通知がモバイル画面で漏れ表示される不具合を修正し、完全非表示およびレスポンシブ表示を最適化。",
+      "zh": "优化智能门铃界面 (/doorbell)：在待机状态下彻底隐藏来访按铃浮动弹窗，修复在手机端文字溢出的问题，并优化移动端自适应排版。",
+      "fr": "Optimisation de l'interface de sonnette (/doorbell) : masquage complet de la popup de notification en veille sur mobile et desktop ; mise en page responsive optimisée.",
+      "de": "Optimierung der Video-Türklingel-Oberfläche (/doorbell): Vollständiges Ausblenden des Klingel-Popups im Standby-Modus; verbesserte mobile Responsivität.",
+      "es": "Optimización de la interfaz del timbre (/doorbell): Ocultamiento completo del popup de alerta en modo de espera y mejora del diseño responsivo en móviles.",
+      "ru": "Оптимизация интерфейса видеодомофона (/doorbell): Полное скрытие всплывающего уведомления в режиме ожидания; улучшена адаптивность для мобильных устройств.",
+      "ko": "스마트 도어벨 UI(/doorbell) 최적화: 대기 상태에서 팝업 알림이 모바일 화면에 노출되던 문제를 해결하고 반응형 레이아웃을 완벽히 최적화."
+    }
+  },
+  {
+    "version": "v1.0.060",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Bổ sung xử lý Chế độ Chuông Cửa Thông Minh (Smart Video Doorbell) vào API /set_mode và /get_mode; khắc phục hoàn toàn cảnh báo 'Invalid mode parameter'.",
     "details": {
