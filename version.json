@@ -1,7 +1,7 @@
 {
-  "version": "1.0.075",
+  "version": "1.0.077",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Khắc phục triệt để lỗi báo động liên tục: Cập nhật nền thích ứng 2 tốc độ (chống kẹt nền), lọc liên kết cụm 8-hướng (loại bỏ nhiễu hạt góc), và chống kẹt chân PIR HIGH khi chưa gắn cảm biến ngoài.",
+  "description": "Ẩn badge hiển thị Slot phân vùng khởi động (Slot: app0/ota_0) trên thanh Header của Dashboard.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
