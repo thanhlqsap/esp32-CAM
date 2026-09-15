@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.058",
+    "version": "v1.0.059",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Sửa lỗi cấu trúc thẻ HTML trong dashboard.html làm ẩn nội dung các tab Cấu hình Camera, Cập nhật OTA và Cấu hình Wi-Fi; khôi phục hiển thị đầy đủ giao diện chuyển tab.",
+    "details": {
+      "vi": "Khắc phục triệt để lỗi thẻ HTML lồng sai cú pháp trong dashboard.html khiến các tab 'Cấu hình Camera', 'Cập nhật OTA' và 'Cấu hình Wi-Fi' bị ẩn nội dung khi chuyển tab; đồng bộ hoàn chỉnh giao diện Dashboard.",
+      "en": "Fixed HTML tag nesting syntax issue in dashboard.html that caused 'Camera Settings', 'OTA Update', and 'Wi-Fi Config' tab contents to be hidden when switching tabs; fully restored tab rendering.",
+      "ja": "dashboard.htmlのHTMLタグのネスト構文エラーを修正し、「カメラ設定」「OTAアップデート」「Wi-Fi設定」タブのコンテンツが表示されない不具合を解消。",
+      "zh": "修复 dashboard.html 中的 HTML 标签嵌套错误，解决切换标签时‘相机设置’、‘OTA 升级’与‘Wi-Fi 配置’内容被隐藏的问题，完全恢复界面显示。",
+      "fr": "Correction d'une erreur de balise HTML dans dashboard.html qui masquait le contenu des onglets Configuration Caméra, Mise à jour OTA et Wi-Fi lors du changement d'onglet.",
+      "de": "Behebung eines HTML-Tag-Verschachtelungsfehlers in dashboard.html, durch den die Inhalte der Tabs 'Kameraeinstellungen', 'OTA-Update' und 'WLAN-Konfiguration' beim Umschalten ausgeblendet wurden.",
+      "es": "Se corrigió un error de sintaxis de etiquetas HTML en dashboard.html que ocultaba el contenido de las pestañas 'Configuración de Cámara', 'Actualización OTA' y 'Configuración Wi-Fi'.",
+      "ru": "Исправлена ошибка вложенности тегов HTML в dashboard.html, из-за которой скрывалось содержимое вкладок 'Настройки камеры', 'Обновление OTA' и 'Настройки Wi-Fi'.",
+      "ko": "dashboard.html의 HTML 태그 중첩 오류를 수정하여 탭 전환 시 '카메라 설정', 'OTA 업데이트', 'Wi-Fi 설정' 내용이 숨겨지는 문제를 해결하고 완벽히 복원."
+    }
+  },
+  {
+    "version": "v1.0.058",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Tối ưu hóa hệ thống cảnh báo SD Gallery: Loại bỏ tính năng gửi file video .avi qua Telegram để giải phóng tài nguyên phần cứng ESP32-CAM, duy trì gửi ảnh snapshot JPEG tức thời <1s.",
     "details": {

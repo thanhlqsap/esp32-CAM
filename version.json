@@ -1,7 +1,7 @@
 {
-  "version": "1.0.058",
+  "version": "1.0.059",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa hệ thống cảnh báo SD Gallery: Loại bỏ tính năng gửi video clip .avi qua Telegram nhằm giải phóng RAM, băng thông và CPU, ngăn ngừa triệt để tình trạng nghẽn phần cứng ESP32-CAM; duy trì gửi ảnh chụp snapshot JPEG tức thời <1s siêu ổn định.",
+  "description": "Sửa lỗi cú pháp thẻ HTML lồng nhau trong tiêu đề Live Stream của dashboard.html làm ẩn nội dung các tab Cấu hình Camera, Cập nhật OTA và Cấu hình Wi-Fi; khôi phục hiển thị 100% cho mọi tab.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
