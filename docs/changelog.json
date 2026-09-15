@@ -1,8 +1,42 @@
 [
   {
-    "version": "v1.0.056",
+    "version": "v1.0.058",
     "date": "2026-09-15",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tối ưu hóa hệ thống cảnh báo SD Gallery: Loại bỏ tính năng gửi file video .avi qua Telegram để giải phóng tài nguyên phần cứng ESP32-CAM, duy trì gửi ảnh snapshot JPEG tức thời <1s.",
+    "details": {
+      "vi": "Tối ưu hóa hệ thống cảnh báo SD Gallery: Loại bỏ hoàn toàn tính năng gửi file video .avi qua Telegram nhằm giải phóng RAM, băng thông và CPU, ngăn ngừa triệt để tình trạng nghẽn phần cứng ESP32-CAM; duy trì gửi ảnh chụp snapshot JPEG tức thời <1s siêu ổn định.",
+      "en": "Optimized SD Gallery alert system: Completely removed Telegram .avi video upload feature to free up RAM, network bandwidth, and CPU, preventing hardware bottlenecks on ESP32-CAM; preserved ultra-stable <1s instantaneous JPEG snapshot alerts.",
+      "ja": "SDギャラリーの警告システムを最適化：ESP32-CAMのRAM、帯域幅、CPU負荷を軽減しハードウェアのボトルネックを防止するためTelegramへのAVI動画送信機能を完全削除。1秒未満の高速JPEGスナップショット通知は引き続き安定稼働。",
+      "zh": "优化 SD 相册告警系统：彻底移除向 Telegram 发送 .avi 视频文件功能以释放 RAM、网络带宽和 CPU 算力，根除 ESP32-CAM 硬件卡顿与网络阻塞；保留超稳定的 <1s 极速 JPEG 截图报警推送。",
+      "fr": "Optimisation des alertes SD Gallery : suppression complète de l'envoi de vidéos .avi vers Telegram pour libérer la RAM, la bande passante et le processeur, éliminant les blocages matériels sur l'ESP32-CAM ; alertes instantanées JPEG <1s préservées.",
+      "de": "Optimierung des SD-Galerie-Alarmsystems: Vollständige Entfernung des Telegram-.avi-Videouploads zur Entlastung von RAM, Bandbreite und CPU; Erhalt der extrem stabilen JPEG-Momentaufnahmen-Benachrichtigungen in <1s.",
+      "es": "Optimización del sistema de alertas de SD Gallery: Eliminación completa del envío de videos .avi a Telegram para liberar RAM, ancho de banda y CPU en ESP32-CAM; se mantiene el envío ultrarrápido và estable de fotos snapshot JPEG en <1s.",
+      "ru": "Оптимизация системы оповещений SD-галереи: Полное удаление отправки видеофайлов .avi в Telegram для освобождения RAM, канала и CPU ESP32-CAM; сохранена сверхстабильная отправка моментальных снимков JPEG за <1с.",
+      "ko": "SD 갤러리 경보 시스템 최적화: ESP32-CAM의 RAM, 대역폭 및 CPU 자원을 절약하고 하드웨어 병목 현상을 방지하기 위해 Telegram AVI 비디오 전송 기능을 완전 제거하고, 1초 미만의 안정적인 JPEG 스냅샷 알림을 유지."
+    }
+  },
+  {
+    "version": "v1.0.057",
+    "date": "2026-09-15",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tích hợp Chế độ Chuông Cửa Thông Minh (Smart Video Doorbell) độc lập tại /doorbell với chuông Ding-dong, rơ-le khóa cửa, đèn trợ sáng, Web Audio và khóa liên động 9 ngôn ngữ.",
+    "details": {
+      "vi": "Tích hợp Chế độ Chuông Cửa Thông Minh (Smart Video Doorbell) độc lập tại /doorbell: ngắt tức thời nút bấm GPIO3, chuông báo Ding-dong GPIO12, mở khóa từ xa GPIO14, đèn flash trợ sáng GPIO4, chụp snapshot gửi Telegram/Gmail <1s, phát âm thanh Web Audio 2 âm sắc trên loa trình duyệt và khóa liên động an toàn 9 ngôn ngữ.",
+      "en": "Integrated standalone Smart Video Doorbell at /doorbell: GPIO3 instant button interrupt, GPIO12 Ding-dong chime, GPIO14 remote lock relay, GPIO4 flash lamp, <1s Telegram/Gmail snapshot alert, dual-tone browser Web Audio chime, and 9-language safety mode interlock.",
+      "ja": "独立したスマートビデオドアホン機能（/doorbell）を統合：GPIO3呼び出しボタン、GPIO12チャイム、GPIO14電子錠リレー、GPIO4照明、1秒未満のTelegramスナップショット通知、Web Audio 2音階チャイム、9言語対応インターロック。",
+      "zh": "集成独立智能可视门铃系统 (/doorbell)：GPIO3极速按键中断、GPIO12门铃蜂鸣、GPIO14电锁继电器、GPIO4夜间补光、<1s Telegram图片推送、浏览器 Web Audio 双音门铃音效及9国语言安全模式互锁。",
+      "fr": "Intégration d'une sonnette vidéo intelligente à /doorbell : bouton GPIO3, carillon GPIO12, relais verrou GPIO14, flash GPIO4, alerte Telegram <1s, carillon Web Audio et verrouillage sécurisé en 9 langues.",
+      "de": "Integration der smarten Video-Türklingel unter /doorbell: Taster GPIO3, Gong GPIO12, Türschloss-Relais GPIO14, Blitz GPIO4, Telegram-Benachrichtigung in <1s, Web Audio-Gong und 9-Sprachen-Sicherheitsverriegelung.",
+      "es": "Integración del timbre con vídeo inteligente en /doorbell: botón GPIO3, timbre GPIO12, relé cerradura GPIO14, flash GPIO4, alerta Telegram <1s, sonido Web Audio y bloqueo de seguridad en 9 idiomas.",
+      "ru": "Интеграция умного видеодомофона на /doorbell: кнопка GPIO3, звонок GPIO12, замок GPIO14, подсветка GPIO4, оповещение в Telegram <1с, звук Web Audio и блокировка режимов на 9 языках.",
+      "ko": "독립형 스마트 비디오 도어벨(/doorbell) 통합: GPIO3 초인종 버튼, GPIO12 차임벨, GPIO14 도어락 릴레이, GPIO4 플래시 조명, 1초 미만 Telegram 스냅샷 알림, 브라우저 Web Audio 사운드 및 9개 국어 안전 인터록."
+    }
+  },
+  {
+    "version": "v1.0.056",
+    "date": "2026-09-15",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Bổ sung tính năng tự động gửi video clip (.avi) qua Telegram Bot sau khi hoàn tất quay cùng switch bật/tắt trên Web UI (9 ngôn ngữ).",
     "details": {
@@ -35,8 +69,590 @@
     }
   },
   {
+    "version": "v1.0.054",
+    "date": "2026-09-14",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Hoàn thiện trọn vẹn 9 ngôn ngữ cho Web Flasher Installer (docs/index.html), đồng bộ toàn bộ bảng chọn, log và modal cập nhật.",
+    "details": {
+      "vi": "Hoàn thiện trọn vẹn 9 ngôn ngữ (Tiếng Việt, Anh, Nhật, Trung, Pháp, Đức, Tây Ban Nha, Nga, Hàn) cho trang Web Flasher installer (docs/index.html). Bổ sung dịch bản địa cho tất cả option chọn nguồn nạp, baudrate, flash offset và log chi tiết.",
+      "en": "Completed full 9-language localization (Vietnamese, English, Japanese, Chinese, French, German, Spanish, Russian, Korean) for the Web Flasher installer (docs/index.html), including all options, baudrate, offset and detailed flashing logs.",
+      "ja": "Webフラッシャー（docs/index.html）向けに全9言語（ベトナム語、英語、日本語、中国語、フランス語、ドイツ語、スペイン語、ロシア語、韓国語）を完全実装。全オプション、ボーレート、オフセット、書き込みログのローカライズを完了。",
+      "zh": "为 Web 固件烧录工具（docs/index.html）完整支持9种语言（越、英、日、中、法、德、西、俄、韩），全面优化固件源、波特率、偏移地址及烧录日志的多语言体验。",
+      "fr": "Support complet des 9 langues (vietnamien, anglais, japonais, chinois, français, allemand, espagnol, russe, coréen) pour le Web Flasher (docs/index.html), incluant toutes les options et journaux de flash.",
+      "de": "Vollständige Unterstützung für 9 Sprachen (Vietnamesisch, Englisch, Japanisch, Chinesisch, Französisch, Deutsch, Spanisch, Russisch, Koreanisch) für den Web-Flasher (docs/index.html).",
+      "es": "Soporte completo de 9 idiomas (vietnamita, inglés, japonés, chino, francés, alemán, español, ruso, coreano) para el Web Flasher (docs/index.html), incluidas todas las opciones y registros.",
+      "ru": "Полная поддержка 9 языков (вьетнамский, английский, японский, китайский, французский, немецкий, испанский, русский, корейский) для Web Flasher (docs/index.html).",
+      "ko": "Web Flasher(docs/index.html)에 9개 국어(베트남어, 영어, 일본어, 중국어, 프랑스어, 독일어, 스페인어, 러시아어, 한국어)를 완벽 지원하며 모든 옵션 및 플래시 로그를 현지화했습니다."
+    }
+  },
+  {
+    "version": "1.0.053",
+    "date": "2026-09-14",
+    "changes": [
+      "Đồng bộ hóa tùy chọn ngôn ngữ toàn diện (Universal Language Sync) xuyên suốt tất cả các trang Dashboard, SD Gallery, Car Control, Captive Portal và User Guide.",
+      "Bổ sung cơ chế Storage Event Listener tự động cập nhật giao diện thời gian thực giữa các tab/cửa sổ trình duyệt đang mở khi người dùng đổi ngôn ngữ ở bất kỳ đâu.",
+      "Sửa chuẩn xác URL firmware_url trong version.json và Github/version.json trỏ về thanhlqsap/esp32-CAM/main/build/OTA_Update.bin."
+    ]
+  },
+  {
+    "version": "1.0.052",
+    "date": "2026-09-14",
+    "changes": [
+      "Đồng bộ hóa 100% nội dung gửi cảnh báo Telegram và Gmail theo đúng ngôn ngữ người dùng đang chọn (9 ngôn ngữ).",
+      "Chuẩn hóa tin nhắn cảnh báo thử nghiệm (Test Alert) có cấu trúc và tiêu đề giống hệt cảnh báo thực tế (tiêu đề phát hiện người, thời gian NTP dd/mm/yyyy HH:MM:SS, chi tiết và IP thiết bị).",
+      "Bổ sung lưu trữ và khôi phục ngôn ngữ cảnh báo vào bộ nhớ NVS không biến mất khi mất nguồn."
+    ]
+  },
+  {
+    "version": "1.0.051",
+    "date": "2026-09-14",
+    "changes": [
+      "Hoàn thiện hệ thống 9 ngôn ngữ toàn cầu và giao diện kính mờ cao cấp cho trang Cấu hình Wi-Fi ban đầu (captive_portal.html).",
+      "Loại bỏ 100% các chuỗi song ngữ hardcoded trên trang Captive Portal.",
+      "Đồng bộ hóa lựa chọn ngôn ngữ với docs/index.html (Web Flasher) và toàn bộ hệ thống."
+    ]
+  },
+  {
+    "version": "1.0.050",
+    "date": "2026-09-14",
+    "changes": [
+      "Loại bỏ 100% hiện tượng hiển thị song ngữ (không còn bị dính tiếng Anh khi chọn ngôn ngữ khác).",
+      "Bổ sung và dịch toàn bộ 86 thành phần giao diện, các option dropdown, nút bấm, radio nguồn kích hoạt và modal trên trang SD Gallery.",
+      "Sửa lỗi chuỗi thông báo rỗng trong SD Gallery đối với tiếng Hàn Quốc (loại bỏ chuỗi tiếng Tây Ban Nha thừa).",
+      "Đồng bộ hóa lựa chọn ngôn ngữ qua lại mượt mà giữa Dashboard, SD Gallery, Car Control và User Guide."
+    ]
+  },
+  {
+    "version": "1.0.046",
+    "date": "2026-09-14",
+    "title": {
+      "vi": "Khắc phục triệt để nút Bật Chế Độ Xe Robot từ Cockpit & Hỗ trợ 9 Ngôn ngữ Toàn cầu",
+      "en": "Fixed Cockpit Robot Car Mode Enable Button & Added Global 9-Language Support",
+      "ja": "コックピットからのロボットカーモード起動ボタン完全修正＆世界9言語対応",
+      "zh": "彻底修复驾驶舱启用小车模式按键 & 全面扩展支持全球9大主流语言"
+    },
+    "changes": {
+      "vi": [
+        "Bổ sung endpoint chuyên biệt /car_enable_mode và đồng bộ Realm Authentication, xử lý triệt để lỗi không bật được chế độ Xe Robot từ Cockpit.",
+        "Mở rộng hệ thống ngôn ngữ đa quốc gia lên 9 ngôn ngữ phổ biến nhất thế giới: 🇻🇳 Tiếng Việt, 🇬🇧 English, 🇯🇵 日本語, 🇨🇳 简体中文, 🇫🇷 Français, 🇩🇪 Deutsch, 🇪🇸 Español, 🇷🇺 Русский, 🇰🇷 한국어.",
+        "Tối ưu hóa phản hồi UI, tự động mở khóa toàn bộ bảng điều khiển D-Pad và stream video ngay khi chuyển đổi phần cứng."
+      ],
+      "en": [
+        "Added dedicated /car_enable_mode endpoint and unified Authentication Realm to fix the car mode switch issue from Cockpit.",
+        "Expanded global multilingual support to 9 world languages: Vietnamese, English, Japanese, Chinese, French, German, Spanish, Russian, and Korean.",
+        "Optimized UI responsiveness, immediately unblocking D-Pad driving controls and stream upon mode switch."
+      ],
+      "ja": [
+        "専用の /car_enable_mode エンドポイントと認証Realmの統合により、コックピットからのロボットカーモード切替不具合を完全修正。",
+        "世界で最も広く使用されている9つの言語（ベトナム語、英語、日本語、中国語、フランス語、ドイツ語、スペイン語、ロシア語、韓国語）に全面対応。",
+        "モード切替時のUI応答性を向上させ、D-Pad操縦ボタンと動画配信を瞬時にロック解除。"
+      ],
+      "zh": [
+        "新增专属 /car_enable_mode 接口并统一全局身份验证 Realm，彻底攻克驾驶舱警告栏点击无法启用小车模式的顽疾。",
+        "全面扩展国际化多语言引擎至全球 9 大主流语言：越南语、英语、日语、中文简体、法语、德语、西班牙语、俄语、韩语。",
+        "优化硬件切换状态回执，模式生效后秒级隐藏警告栏并解冻全部 D-Pad 方向键与调速控件。"
+      ]
+    }
+  },
+  {
+    "version": "1.0.045",
+    "date": "2026-09-14",
+    "title": {
+      "vi": "Hợp nhất 1 nút Lưu cấu hình duy nhất trên SD Gallery & Sửa nút chuyển Chế độ Xe",
+      "en": "Unified Single Master Save button on SD Gallery & Fixed Car Mode switch button",
+      "ja": "SDギャラリーの単一保存ボタンへの統合＆ロボットカーモード切替ボタンの修正",
+      "zh": "SD存储页合并为单一保存按键 & 修复驾驶舱一键切换小车模式功能"
+    },
+    "changes": {
+      "vi": [
+        "Giao diện SD Gallery: Tinh giản toàn bộ các nút lưu riêng lẻ thành 1 nút 'Lưu Toàn Bộ Cấu Hình' duy nhất, lưu đồng thời Cài đặt Ghi hình, Cảm biến & Cảnh báo.",
+        "Buồng lái Xe Robot (/car): Sửa lỗi nút 'Bật Chế Độ Xe Robot Ngay' trên banner cảnh báo đỏ, hỗ trợ chuyển đổi phần cứng tức thì.",
+        "Backend /set_mode: Hỗ trợ HTTP_ANY (POST & GET) linh hoạt, đảm bảo nhận diện chính xác tham số mode."
+      ],
+      "en": [
+        "SD Gallery UI: Unified scattered save buttons into a single 'Save All Settings' master button for motion, sensor, and alert configurations.",
+        "Robot Car Cockpit (/car): Fixed the 'Enable Robot Car Mode' button on the red warning banner for instant hardware switching.",
+        "Backend /set_mode: Added HTTP_ANY (POST & GET) support for robust mode parameter parsing."
+      ],
+      "ja": [
+        "SDギャラリー画面：散在していた保存ボタンを1つの『全設定を一括保存』ボタンに統合。",
+        "ロボットカー操縦画面：赤色警告バナー上の『ロボットカーモードを有効化』ボタンの動作不具合を修正。",
+        "バックエンド /set_mode：HTTP_ANY（POST/GET両対応）によりモード切替の堅牢性を強化。"
+      ],
+      "zh": [
+        "SD 媒体库界面：全面去除分散的零散保存按键，整合为唯一的“保存全部系统配置”主按键，一键保存录像、传感器与报警设置。",
+        "遥控小车驾驶舱 (/car)：修复红色警告栏中的“立即启用小车模式”按键无法切换硬件模式的问题。",
+        "后端 /set_mode 接口：全面升级支持 HTTP_ANY (POST 与 GET) 及多格式参数解析，确保模式切换百发百中。"
+      ]
+    }
+  },
+  {
+    "version": "1.0.044",
+    "date": "2026-09-14",
+    "title": {
+      "vi": "Khắc phục triệt để đồng bộ và lưu nguồn cảm biến ngoài GPIO 3",
+      "en": "Fixed external motion sensor (GPIO 3) source sync and NVS saving",
+      "ja": "外部センサー（GPIO 3）動体検知ソースの保存＆同期不具合修正",
+      "zh": "彻底修复外部传感器 (GPIO 3) 移动侦测触发源保存与页面同步问题"
+    },
+    "changes": {
+      "vi": [
+        "Sửa lỗi fetchMotionConfig() trên Web Gallery không đọc và đồng bộ trạng thái radio button Cảm biến ngoài GPIO 3.",
+        "Bổ sung nút 'Lưu Cài Đặt Ghi Hình' độc lập tại Card 2 với thông báo Toast chi tiết nguồn kích hoạt.",
+        "Tối ưu hóa ghi nhận và phản hồi NVS Flash khi thay đổi giữa Cảm biến ngoài và Cảm biến hình ảnh."
+      ],
+      "en": [
+        "Fixed fetchMotionConfig() not synchronizing the External Sensor (GPIO 3) radio button state on Web UI.",
+        "Added dedicated 'Save Motion Settings' button in Card 2 with descriptive toast notifications.",
+        "Optimized NVS Flash saving and real-time response when toggling between External PIR and Camera Image."
+      ],
+      "ja": [
+        "Web画面のfetchMotionConfig()が外部センサー（GPIO 3）ラジオボタンの状態を反映しない問題を修正。",
+        "Card 2に『録画設定を保存』ボタンを追加し、保存完了時のトースト表示を強化。",
+        "外部PIRと映像解析の切り替えにおけるNVS Flash永続化と応答性を最適化。"
+      ],
+      "zh": [
+        "修复网页端 fetchMotionConfig() 未能正确回填与同步外部传感器 (GPIO 3) 单选框状态的问题。",
+        "在设置卡片2中新增独立的“保存录像设置”按键，并强化带触发源名称的保存成功 Toast 弹窗反馈。",
+        "优化外部 PIR 传感器与图像分析模式切换时 NVS Flash 的写入与实时响应机制。"
+      ]
+    }
+  },
+  {
+    "version": "1.0.043",
+    "date": "2026-09-14",
+    "title": {
+      "vi": "Cập nhật nội dung cảnh báo Telegram & Gmail theo thời gian thực",
+      "en": "Updated Telegram & Gmail alert caption with real-time timestamp",
+      "ja": "TelegramおよびGmailアラート本文のリアルタイム日時形式への更新",
+      "zh": "更新 Telegram 与 Gmail 报警抓拍正文及实时时间戳格式"
+    },
+    "changes": {
+      "vi": [
+        "Chuẩn hóa nội dung cảnh báo: 'Phát hiện người trước camera ...' gửi qua Telegram Bot và Gmail SMTP.",
+        "Bổ sung định dạng thời gian thực chính xác dd/mm/yyyy HH:MM:SS đồng bộ qua mạng NTP (GMT+7).",
+        "Tối ưu tiêu đề Subject email UTF-8 và thông tin địa chỉ IP thiết bị."
+      ],
+      "en": [
+        "Standardized alert message: 'Phát hiện người trước camera ...' pushed via Telegram Bot and Gmail SMTP.",
+        "Added precise real-time timestamp in dd/mm/yyyy HH:MM:SS format synced via NTP (GMT+7).",
+        "Optimized UTF-8 email subject header and device IP information."
+      ],
+      "ja": [
+        "Telegram BotおよびGmail SMTP経由の写真アラートメッセージを『Phát hiện người trước camera ...』に標準化。",
+        "NTP同期（GMT+7）による正確なリアルタイム日時表示（dd/mm/yyyy HH:MM:SS）を追加。",
+        "メール件名のUTF-8エンコードおよびデバイスIP情報を最適化。"
+      ],
+      "zh": [
+        "标准化 Telegram Bot 与 Gmail SMTP 抓拍报警正文为“Phát hiện người trước camera ...”。",
+        "新增通过 NTP (GMT+7) 同步的高精度实时时间戳格式（dd/mm/yyyy HH:MM:SS）。",
+        "优化邮件 UTF-8 编码主题及设备 IP 标识信息。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.042",
+    "date": "2026-09",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.042 - Tích Hợp Gửi Ảnh Cảnh Báo Chuyển Động Tức Thì Qua Telegram Bot & Gmail SMTP SSL (/sd)",
+      "en": "Release v1.0.042 - Integrated Instant Motion Alert Snapshots via Telegram Bot & Gmail SMTP SSL (/sd)",
+      "ja": "リリース v1.0.042 - Telegram Bot＆Gmail SMTP経由の動体検知写真自動送信アラート機能を統合（/sd）",
+      "zh": "发布 v1.0.042 - 深度集成 Telegram Bot 与 Gmail SMTP SSL 移动侦测实时抓拍报警图片推送 (/sd)"
+    },
+    "description": {
+      "vi": "🚀 Bổ sung toàn diện hệ thống gửi ảnh chụp cảnh báo tức thì khi có chuyển động (từ Cảm biến ngoài GPIO 3 hoặc phân tích hình ảnh) qua 2 kênh phổ biến nhất: Telegram Bot API và Gmail SMTP SSL 465. Toàn bộ tác vụ gửi ảnh được xử lý bất đồng bộ trên FreeRTOS Core 1 (hoàn toàn không làm giật luồng video stream) kèm cơ chế giãn cách chống spam và nút gửi thử nghiệm trực quan.",
+      "en": "🚀 Fully integrated an instant snapshot alert notification system for motion detection (hardware GPIO 3 PIR sensor or image difference analytics) via two premier channels: Telegram Bot API and Gmail SMTP SSL 465. Network transmissions run asynchronously on FreeRTOS Core 1 without disrupting 20 FPS video streaming, featuring anti-spam cooldown and interactive test dispatching.",
+      "ja": "🚀 動体検知時（GPIO 3外部PIRまたは映像解析）に静止画スナップショットを即座に送信するアラート通知システムを完全統合。Telegram Bot APIおよびGmail SMTP SSL（ポート465）に対応。FreeRTOS Core 1非同期タスク処理によりカメラ映像配信を一切中断せず、スパム防止クールダウンとテスト送信ボタンを備えています。",
+      "zh": "🚀 全面集成移动侦测（GPIO 3 外部 PIR 传感器或画面算法）实时抓拍报警图片推送系统，支持 Telegram Bot API 与 Gmail SMTP SSL 465 两种主流通道。网络发送在 FreeRTOS Core 1 异步执行，丝毫不卡顿 20 FPS 视频流，配备防刷屏冷却时间控制与实时测试抓拍推送功能。"
+    },
+    "changes": {
+      "vi": [
+        "Hỗ Trợ Telegram Bot API: Gửi ảnh JPEG chất lượng cao kèm thông điệp cảnh báo qua HTTPS multipart POST trong <1.5s.",
+        "Hỗ Trợ Gmail SMTP SSL: Giao tiếp ESMTP AUTH LOGIN qua cổng bảo mật 465 với Mật khẩu ứng dụng (App Password) và đính kèm file ảnh Base64.",
+        "Tác Vụ Bất Đồng Bộ Core 1: Đẩy toàn bộ quá trình kết nối mạng SSL sang FreeRTOS Task riêng biệt, giữ nguyên 20 FPS video stream.",
+        "Giao Diện Trực Quan & Test Nhanh: Thẻ cấu hình cảnh báo chuyên nghiệp trên /sd kèm nút [Gửi Thử Nghiệm Ngay] và lưu NVS vĩnh viễn."
+      ],
+      "en": [
+        "Telegram Bot API Support: Dispatches high-quality JPEG photos with custom alert captions via HTTPS multipart POST in under 1.5s.",
+        "Gmail SMTP SSL Integration: Direct ESMTP AUTH LOGIN over secure port 465 using Google App Password and MIME Base64 attachments.",
+        "Core 1 Async FreeRTOS Task: Offloads all SSL socket handshakes and transmissions to a background task, preserving smooth 20 FPS stream.",
+        "Interactive UI & Instant Testing: Elegant Alert Settings Card on /sd with a one-click [Send Test Alert] button and persistent NVS storage."
+      ],
+      "ja": [
+        "Telegram Bot API対応: 高画質JPEG写真とアラートメッセージをHTTPS multipart POSTで1.5秒以内に高速配信。",
+        "Gmail SMTP SSL対応: ポート465のセキュア通信とGoogleアプリパスワードを用いたESMTP AUTH LOGINによるBase64添付送信。",
+        "Core 1非同期FreeRTOSタスク: SSL暗号化通信をバックグラウンド処理し、20 FPSのリアルタイム映像配信を完全維持。",
+        "直感的な設定UI＆テスト送信: /sd画面に専用のアラート設定カードと［テスト通知を今すぐ送信］ボタンを新設、NVS自動保存。"
+      ],
+      "zh": [
+        "Telegram Bot API 极速推送: 通过 HTTPS multipart POST 协议在 1.5 秒内将抓拍 JPEG 高清图片及报警文案推送到手机端。",
+        "Gmail SMTP SSL 邮件推送: 通过 465 安全端口及 Google 专用应用密码实现 ESMTP AUTH LOGIN 认证并以 Base64 格式附件发送。",
+        "Core 1 异步多任务保障: 将所有 SSL 握手与网络传输剥离至 FreeRTOS 后台独立任务，确保 20 FPS 视频流毫无卡顿。",
+        "图形化配置与一键测试: 在 /sd 页面新增专属报警配置卡片，支持一键发送测试抓拍与 NVS 掉电持久化存储。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.041",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.041 - Bổ Sung Tùy Chọn Nguồn Phát Hiện Chuyển Động: Xử Lý Hình Ảnh Hoặc Cảm Biến Ngoài GPIO 3 (/sd)",
+      "en": "Release v1.0.041 - Added Motion Trigger Source Selection: Camera Image Analytics vs External Hardware Sensor (GPIO 3)",
+      "ja": "リリース v1.0.041 - 動体検知トリガー源の選択機能を追加：映像解析または外部PIRセンサー（GPIO 3）対応",
+      "zh": "发布 v1.0.041 - 新增移动侦测触发源切换：支持画面算法分析与 GPIO 3 外部硬件传感器 (PIR)"
+    },
+    "description": {
+      "vi": "⚡ Bổ sung tùy chọn Radio Button trực quan tại thẻ Cài Đặt Ghi Hình & Motion trên giao diện SD Gallery (/sd), cho phép người dùng linh hoạt chọn giữa: (1) Thuật toán phân tích biến thiên hình ảnh của Camera, hoặc (2) Cảm biến chuyển động phần cứng ngoài (PIR AM312, HC-SR501, Radar vi sóng) đấu nối vào chân GPIO 3 (RX0). Toàn bộ cấu hình được lưu vĩnh viễn vào NVS và hỗ trợ đầy đủ 4 ngôn ngữ.",
+      "en": "⚡ Added an intuitive Motion Trigger Source radio selector in the SD Gallery Recording & Motion panel (/sd), allowing users to switch between: (1) Camera Image difference analytics, or (2) External hardware motion sensor (PIR AM312, HC-SR501, Radar) wired to GPIO 3 (RX0). Settings are permanently stored in NVS and fully translated in 4 languages.",
+      "ja": "⚡ SDギャラリー（/sd）の録画設定パネルに「動体検知トリガー源」の選択ボタンを追加。カメラ映像のフレーム差分解析と、GPIO 3（RX0）に接続した外部PIR/レーダーセンサーをワンクリックで切り替え可能になりました。設定はNVSに永続保存され、4言語に対応します。",
+      "zh": "⚡ 在 SD 卡相册录像设置面板（/sd）新增移动侦测触发源选择单选按钮，支持在“摄像头画面分析”与“GPIO 3 外部硬件传感器 (PIR / 雷达)”之间灵活切换。配置自动持久化至 NVS，并完整支持 4 国语言切换。"
+    },
+    "changes": {
+      "vi": [
+        "Tùy Chọn Nguồn Kích Hoạt (Motion Source): Thêm Radio Button chọn '📷 Xử lý hình ảnh' hoặc '⚡ Cảm biến ngoài (GPIO 3)'.",
+        "Hỗ Trợ Phần Cứng GPIO 3: Đọc tín hiệu logic Digital từ chân GPIO 3 (RX0) để kích hoạt ghi video AVI tức thì vào thẻ nhớ.",
+        "Lưu NVS Vĩnh Viễn: Tham số motion_src được lưu và khôi phục tự động sau khi khởi động lại.",
+        "Đồng Bộ REST API: Cập nhật các endpoint /motion_config, /sd_status và /sd_motion_status đồng bộ trạng thái thời gian thực."
+      ],
+      "en": [
+        "Motion Source Selector: Added Radio options for '📷 Camera Image' and '⚡ External Sensor (GPIO 3)'.",
+        "Hardware GPIO 3 Support: Reads high/low digital logic from GPIO 3 (RX0) to immediately trigger AVI recording to SD.",
+        "NVS Persistence: Parameter motion_src is stored in NVS and restored on system boot.",
+        "REST API Synchronization: Updated /motion_config, /sd_status, and /sd_motion_status for real-time status reporting."
+      ],
+      "ja": [
+        "トリガー源選択UI: 「📷 映像解析」と「⚡ 外部センサー（GPIO 3）」のラジオ選択ボタンを追加。",
+        "GPIO 3ハードウェア対応: GPIO 3（RX0）からのデジタル入力を読み取り、即座にMicroSDカードへのAVI録画を開始。",
+        "NVS自動保存: motion_src設定値をNVSに永続保存し、再起動後も自動復元。",
+        "REST API同期: /motion_config, /sd_status, /sd_motion_status に source 情報を追加しリアルタイム同期。"
+      ],
+      "zh": [
+        "触发源单选切换: 新增“📷 图像分析”与“⚡ 外部传感器 (GPIO 3)”选项。",
+        "GPIO 3 硬件引脚支持: 实时监听 GPIO 3 (RX0) 引脚电平，有信号时立即触发 AVI 录像并保存至 SD 卡。",
+        "NVS 掉电保存: motion_src 参数自动写入 NVS，开机自动载入生效。",
+        "REST API 同步: 更新 /motion_config、/sd_status 与 /sd_motion_status 接口字段以支持前端状态呈现。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.040",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.040 - Bản Địa Hóa Đa Ngôn Ngữ Trực Tiếp Cho Bộ Chọn Độ Phân Giải FPV Cockpit (/car)",
+      "en": "Release v1.0.040 - Dynamic Multi-Language Localization for FPV Cockpit Camera Resolution Selector (/car)",
+      "ja": "リリース v1.0.040 - FPVコックピット（/car）カメラ解像度セレクターの動的多言語ローカライズ対応",
+      "zh": "发布 v1.0.040 - FPV 驾驶舱 Top HUD 摄像头分辨率快速切换菜单全面支持 4 国语言动态切换"
+    },
+    "description": {
+      "vi": "🌐 Nâng cấp bộ chọn độ phân giải Camera trên thanh Top HUD của buồng lái FPV (/car) tự động gắn liền và đồng bộ tức thì với ngôn ngữ người dùng chọn (Tiếng Việt, English, 日本語, 简体中文). Toàn bộ nhãn mô tả (Siêu mượt, Mượt mà, Chuẩn, Rõ nét, 2MP...) và tooltip title đều tự động cập nhật mượt mà không cần tải lại trang.",
+      "en": "🌐 Enhanced the FPV Cockpit Top HUD camera resolution dropdown (/car) to dynamically link and synchronize in real-time with the active UI language (Vietnamese, English, Japanese, Simplified Chinese). All option descriptions (Ultra Fast, Smooth, Standard, High Def, 2MP...) and tooltip titles update seamlessly on language switch.",
+      "ja": "🌐 FPVコックピット（/car）Top HUDのカメラ解像度ドロップダウンを、選択中の言語（日本語、ベトナム語、英語、簡体中文）とリアルタイムに完全連動するよう改良。各解像度の説明ラベル（超高速・低遅延、標準滑らか、標準画質、高精細HD、2MP超高画質など）やツールチップがページ再読み込みなしで即座に切り替わります。",
+      "zh": "🌐 全面升级 FPV 遥控小车驾驶舱（/car）Top HUD 摄像头分辨率下拉菜单，使其与系统当前选择的 4 国语言（中文、越语、英语、日语）实时深度联动。各档位画质描述文本（极速高帧、平滑顺畅、标准清晰、高清模式、2MP超清等）及悬停提示均支持无缝即时切换。"
+    },
+    "changes": {
+      "vi": [
+        "Bản Địa Hóa Toàn Diện: Tự động đổi toàn bộ nhãn options trong #camResSelect theo 4 ngôn ngữ (vi, en, ja, zh) khi bấm đổi ngôn ngữ.",
+        "Bảo Toàn Trạng Thái Tuyệt Đối: Giữ nguyên độ phân giải đang chọn khi chuyển đổi qua lại giữa các ngôn ngữ.",
+        "Tự Động Cập Nhật Tooltip: Cập nhật title của bộ chọn độ phân giải theo ngôn ngữ để mang lại trải nghiệm buồng lái FPV trực quan nhất.",
+        "Đồng Bộ Khi Khởi Động: Tự động tải ngôn ngữ đã lưu từ localStorage và gán nhãn tương ứng cho dropdown ngay khi tải trang."
+      ],
+      "en": [
+        "Full Dynamic Localization: Seamlessly re-renders all #camResSelect options in 4 languages (vi, en, ja, zh) whenever language is changed.",
+        "State Preservation: Perfectly preserves the currently selected camera framesize across language transitions.",
+        "Dynamic Tooltip Titles: Localizes the resolution selector title attribute for an intuitive cockpit HUD UX.",
+        "Startup Sync: Loads saved language preference from localStorage and populates localized resolution options on DOMContentLoaded."
+      ],
+      "ja": [
+        "完全動的多言語化: 言語変更時に#camResSelectの全オプションを4言語（日・越・英・中）で瞬時に再描画。",
+        "選択状態の完全保持: 言語切り替え時も現在選択されているカメラ解像度をそのまま維持。",
+        "ツールチップ連動: 解像度セレクターのtitle属性も言語に合わせて動的更新。",
+        "起動時自動同期: localStorageから保存された言語を読み込み、ページ初期表示時から適切な言語で描画。"
+      ],
+      "zh": [
+        "多语言动态渲染: 在用户切换语言时，自动将 #camResSelect 中的所有画质选项实时翻译为 4 国语言（中/越/英/日）。",
+        "当前选择状态保持: 切换语言时精准保持当前正在生效的分辨率档位不变。",
+        "悬停提示多语言化: 同步更新分辨率下拉框的 title 提示文字，打造一流的沉浸式驾驶舱 HUD 体验。",
+        "启动加载即时同步: 页面加载时从 localStorage 自动读取保存的语言偏好并完成本地化渲染。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.039",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.039 - Tích Hợp Menu Chọn Nhanh Độ Phân Giải Camera Trực Tiếp Trên Top HUD Buồng Lái FPV (/car)",
+      "en": "Release v1.0.039 - Integrated Quick Camera Resolution Selector Dropdown on FPV Cockpit Top HUD (/car)",
+      "ja": "リリース v1.0.039 - FPV操縦画面（/car）Top HUDにカメラ解像度クイック切替メニューを直接統合",
+      "zh": "发布 v1.0.039 - 在 FPV 小车驾驶舱 Top HUD 顶部控制栏直接集成摄像头分辨率快速切换选择器"
+    },
+    "description": {
+      "vi": "🏎️ Bổ sung bộ chọn nhanh độ phân giải Camera trực tiếp trên thanh Top HUD của buồng lái FPV (/car). Cho phép người lái chuyển đổi linh hoạt tức thì giữa chế độ Siêu mượt độ trễ thấp (QVGA 320x240 @ 25-30 FPS cho đua xe tốc độ cao), Cân bằng mượt mà (VGA 640x480) và Rõ nét chi tiết (SVGA 800x600, HD 1280x720) mà không cần thoát khỏi màn hình điều khiển xe.",
+      "en": "🏎️ Added a quick camera resolution selector dropdown directly onto the Top HUD action bar of the FPV Cockpit (/car). Enables drivers to seamlessly switch on-the-fly between ultra-low latency mode (QVGA 320x240 @ 25-30 FPS for high-speed racing), balanced driving (VGA 640x480), and razor-sharp clarity (SVGA 800x600, HD 720p) without navigating away from the cockpit.",
+      "ja": "🏎️ FPVコックピット操縦画面（/car）のTop HUDバーに、カメラ解像度のクイック選択ドロップダウンを追加。超低遅延・高FPSモード（QVGA 320x240 @ 25〜30 FPS）、標準バランス（VGA 640x480）、高精細モード（SVGA 800x600、HD 720p）を操縦画面から離れることなく即座に切り替え可能になりました。",
+      "zh": "🏎️ 在 FPV 遥控小车驾驶舱（/car）的 Top HUD 顶部操作栏新增摄像头分辨率快速切换下拉菜单。支持在超低延迟高帧率竞速模式（QVGA 320x240 @ 25-30 FPS）、平滑平衡画质（VGA 640x480）与高清细节模式（SVGA 800x600、HD 720p）之间实时一键无缝切换，无需退出驾驶界面。"
+    },
+    "changes": {
+      "vi": [
+        "Menu Chọn Độ Phân Giải Top HUD: Đặt trực quan ngay trên thanh Top HUD cạnh bộ chọn ngôn ngữ với thiết kế kính mờ Glassmorphism.",
+        "Chuyển Đổi Không Gián Đoạn: Gọi API /control?var=framesize&val=... mượt mà, luồng MJPEG tự động thích ứng với kích thước mới mà không làm ngắt động cơ xe.",
+        "Tự Động Đồng Bộ Trạng Thái: Tự động tải độ phân giải hiện tại của camera qua /cam_status khi mở trang /car.",
+        "Haptic Feedback & Thông Báo Toast: Rung phản hồi xúc giác khi chuyển độ phân giải kèm thông báo trạng thái đa ngôn ngữ."
+      ],
+      "en": [
+        "Top HUD Resolution Selector: Elegantly styled glassmorphic dropdown placed right on the top HUD next to the language selector.",
+        "Non-Disruptive Switching: Calls /control?var=framesize&val=... seamlessly, MJPEG stream dynamically adapts with zero motor interruption.",
+        "Auto State Synchronization: Fetches and reflects the active camera resolution via /cam_status on page load.",
+        "Haptic Touch & Toast Feedback: Tactile vibration response on resolution selection with localized toast alerts."
+      ],
+      "ja": [
+        "Top HUD解像度セレクター: 言語セレクターの隣に配置された洗練されたグラスモフィズムデザインのドロップダウン。",
+        "シームレスな切替処理: /control?var=framesize&val=...をスムーズに呼び出し、モーター操縦を中断することなく映像サイズが自動適応。",
+        "状態自動同期: /carページ読み込み時に/cam_statusから現在の解像度を自動取得して反映。",
+        "触覚フィードバック＆トースト通知: 切替時のハプティック振動と多言語トースト表示。"
+      ],
+      "zh": [
+        "Top HUD 分辨率快捷选择器: 在顶部 HUD 操作栏紧邻语言选择器处新增磨砂玻璃风下拉框。",
+        "无感平滑切换: 调用 /control?var=framesize 接口，MJPEG 视频流自适应更新画幅，丝毫不影响小车电机驾驶控制。",
+        "状态自动同步: 进入 /car 页面时通过 /cam_status 自动获取并选中摄像头当前分辨率。",
+        "触控震动与 Toast 提示: 切换分辨率时提供微触感震动反馈与多语言状态提示。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.038",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.038 - Tích Hợp Mô Hình AI Nhận Diện Khuôn Mặt Thời Gian Thực BlazeFace & Khung Neon Tactical Face HUD",
+      "en": "Release v1.0.038 - Integrated BlazeFace Real-Time Face Detection Model & Cyberpunk Neon Tactical Face HUD",
+      "ja": "リリース v1.0.038 - BlazeFaceリアルタイム顔認識AIモデル統合＆サイバーパンクネオンTactical Face HUD",
+      "zh": "发布 v1.0.038 - 集成 BlazeFace 极速轻量级实时人脸识别模型与赛博朋克霓虹战术人脸HUD"
+    },
+    "description": {
+      "vi": "🎯 Nâng cấp toàn diện bộ nhận diện AI trên Web SD Gallery: Chuyển đổi sang mô hình chuyên dụng BlazeFace (~200KB) của Google TensorFlow.js. Khung nhận diện tự động thu nhỏ chuẩn xác 100% vào đúng khu vực khuôn mặt người (Face ROI), định vị 6 mốc ngũ quan phát quang (mắt, mũi, miệng, tai), tâm ngắm vi điểm Tactical Crosshair và nhãn FACE % sắc nét mà không tiêu tốn tài nguyên ESP32.",
+      "en": "🎯 Comprehensive upgrade to Web AI Vision on SD Gallery: Switched to Google's specialized BlazeFace model (~200KB) via TensorFlow.js. Bounding boxes automatically snap with 100% precision to human face regions (Face ROI), featuring 6 glowing facial landmarks (eyes, nose, mouth, ears), tactical face crosshairs, and razor-sharp FACE confidence tags with zero ESP32 RAM overhead.",
+      "ja": "🎯 SDギャラリー画面のAIビジョンを全面強化：Googleの超軽量顔認識モデルBlazeFace（約200KB）をTensorFlow.js経由で統合。人物の顔領域（Face ROI）に100%精密にネオン枠を自動スナップし、6つの発光顔特徴点（目・鼻・口・耳）、タクティカル照準線、鮮明なFACE信頼度タグをESP32のメモリ消費ゼロで描画します。",
+      "zh": "🎯 全面升级 SD 卡回放与实时视频监控的 AI 视觉能力：接入 Google 专属超轻量 BlazeFace 人脸识别深度学习模型（仅约200KB）。AI战术框自动100%精准收束锁定至人体面部区域（Face ROI），并在浏览器端实时绘制6处五官发光定位点（眼睛、鼻尖、嘴角、耳朵）、战术中心准星与 FACE 置信度标签，零占用 ESP32 芯片内存。"
+    },
+    "changes": {
+      "vi": [
+        "Mô hình BlazeFace Chuyên Dụng: Nạp mô hình nhận diện khuôn mặt siêu nhẹ (~200KB), nhận diện tốc độ cao 12+ FPS trực tiếp trên GPU WebGL.",
+        "Khung Neon Chuẩn Xác Khuôn Mặt (Face ROI): Tự động thu nhỏ khung bám trọn khuôn mặt thay vì bao quanh toàn bộ cơ thể.",
+        "Định Vị 6 Điểm Mốc Ngũ Quan (Facial Landmarks): Chấm sáng phát quang neon cyan đánh dấu vị trí 2 mắt, mũi, miệng và tai.",
+        "Tâm Ngắm Tactical Crosshair & Nhãn FACE: Hiển thị tâm ngắm vi điểm giữa tâm mặt kèm nhãn thông tin FACE [xx%].",
+        "Đồng Bộ Đa Ngôn Ngữ i18n: Cập nhật đầy đủ nhãn giao diện và thông báo cho Tiếng Việt, Tiếng Anh, Tiếng Nhật và Tiếng Trung."
+      ],
+      "en": [
+        "Dedicated BlazeFace Model: Ultra-lightweight face detection model (~200KB) running at 12+ FPS directly on browser WebGL GPU.",
+        "Face-Specific Neon Bounding Box (Face ROI): Automatically shrinks and locks directly onto face regions instead of whole bodies.",
+        "6 Glowing Facial Landmarks: Neon cyan luminescent points highlighting eyes, nose, mouth center, and ears in real time.",
+        "Tactical Crosshair & FACE Labels: Precision crosshair centered on the face with high-contrast FACE [xx%] tags.",
+        "Quad-Language i18n Localization: Fully updated labels and status toasts across Vietnamese, English, Japanese, and Chinese."
+      ],
+      "ja": [
+        "BlazeFace専用顔認識モデル: 約200KBの超軽量モデルにより、ブラウザWebGL GPU上で12+ FPSの高速推論を実現。",
+        "顔領域専用ネオン枠（Face ROI）: 全身枠から顔領域へ自動的に縮小・吸着し、顔だけを高精度にロック。",
+        "6つの発光顔特徴点（ランドマーク）: 目・鼻・口・耳の位置をネオンシアンの発光ポイントでリアルタイム描画。",
+        "タクティカル照準＆FACEタグ: 顔の中心に十字照準を表示し、高コントラストなFACE [xx%]タグを付与。",
+        "4言語多言語ローカライズ: 日・英・越・中の各言語でUIラベルとトースト通知を完全更新。"
+      ],
+      "zh": [
+        "专属 BlazeFace 人脸模型: 采用仅约 200KB 的超轻量人脸模型，利用浏览器 WebGL GPU 实现 12+ FPS 极速推理。",
+        "精准人脸战术发光框（Face ROI）: 识别框自动精确收缩并紧密贴合人脸轮廓，告别繁冗的全身大框。",
+        "6处发光五官特征点: 实时高亮标定双眼、鼻尖、嘴角与耳垂等核心面部关键点。",
+        "战术中心准星与 FACE 标签: 人脸正中央呈现战术微十字准星，顶部配备高对比度 FACE [xx%] 置信度标签。",
+        "四国语言国际化完整同步: 针对中、英、越、日语言环境全面更新按钮与提示文案。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.037",
+    "date": "2026-09",
+    "tag": "Previous Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.037 - Tối Ưu Hóa Bộ Nhận Diện Người AI, Dual-Mode CORS Stream & Tự Động Bù Trừ Tỷ Lệ Khung Hình HUD",
+      "en": "Release v1.0.037 - Optimized Web AI Person Detection, Dual-Mode CORS Stream & Letterbox Adaptive HUD Bounding Boxes",
+      "ja": "リリース v1.0.037 - AI人物検知エンジンの最適化、Dual-Mode CORS StreamおよびLetterbox比率自動補正HUD枠の改善",
+      "zh": "发布 v1.0.037 - 优化 Web AI 人物识别引擎、双模 CORS 图像流与自适应画幅比例 HUD 战术框选"
+    },
+    "description": {
+      "vi": "🚀 Nâng cấp toàn diện cơ chế Nhận diện người AI trên Web Gallery: Khắc phục triệt để lỗi không nhận diện / không hiển thị khung hình do hạn chế bảo mật CORS/Tainted Canvas của trình duyệt trên luồng MJPEG; triển khai cơ chế Hybrid Fallback Fast Snapshot Grabber qua GPU Bitmap; tự động tính toán bù trừ tỷ lệ Letterbox/Pillarbox của camera (4:3) so với viewport (16:9) để đóng khung Neon Glow chính xác 100% vị trí đối tượng.",
+      "en": "🚀 Comprehensive upgrade to Web AI Person Detection in SD Gallery: Solved CORS/Tainted Canvas stream lock issues with dual-mode Direct Stream + GPU Fast Snapshot Grabber; implemented precise letterbox/pillarbox aspect-ratio coordinate scaling so bounding boxes align perfectly with actual person locations.",
+      "ja": "🚀 SDギャラリーのWeb AI人物検知を大幅強化：ブラウザのMJPEG CORS制約を回避するDual-Mode Direct Stream + 高速GPU Snapshot Grabberフォールバックを実装。カメラ（4:3）と画面（16:9）のアスペクト比を自動補正し、人物位置に寸分違わずネオン枠を表示します。",
+      "zh": "🚀 全面升级 Web 画廊人物 AI 识别机制：引入双模 Direct Stream + GPU 极速快照抓取，彻底消除浏览器跨域与 Canvas 污染限制；实现 Letterbox/Pillarbox 画幅比例自适应坐标换算，确保霓虹发光框精准锁定人体目标。"
+    },
+    "changes": {
+      "vi": [
+        "Khắc phục lỗi Tainted Canvas / CORS trên luồng MJPEG Stream: Thêm fallback Fast Snapshot Grabber (createImageBitmap) 100% tin cậy.",
+        "Bù trừ tỷ lệ khung hình Letterbox/Pillarbox: Tính toán chính xác scaleX, scaleY, offsetX, offsetY để khung Bounding Box bao bọc chuẩn xác đối tượng người.",
+        "Ngưỡng nhận diện nhạy tối ưu (score >= 0.35): Tăng độ nhạy phát hiện người ở khoảng cách xa và trong điều kiện ánh sáng yếu.",
+        "Tối ưu CDN dự phòng: Tự động chuyển đổi giữa jsdelivr và unpkg để đảm bảo nạp thư viện TensorFlow.js mượt mà trên mọi nhà mạng."
+      ],
+      "en": [
+        "Resolved Tainted Canvas / CORS stream limitations: Added ultra-reliable GPU Fast Snapshot Grabber fallback via createImageBitmap.",
+        "Letterbox / Pillarbox Scale Compensation: Accurate coordinate transformation (scaleX/scaleY/offsets) ensures bounding boxes strictly match physical person bounds.",
+        "Optimized Sensitivity Threshold (score >= 0.35): Increased detection range for distant persons and challenging lighting conditions.",
+        "Redundant Multi-CDN Fallback: Auto-fallback between jsdelivr and unpkg CDNs guarantees fast library loading globally."
+      ],
+      "ja": [
+        "MJPEGストリームのCORS/Tainted Canvas制約を解消：createImageBitmapによる信頼性の高い高速スナップショットフォールバックを追加。",
+        "Letterbox/Pillarbox比率補正：scaleX/scaleY/オフセットの自動計算により、人物枠を正確な位置に描画。",
+        "高感度スコア閾値（score >= 0.35）：遠距離や薄暗い環境でも人物を敏感に捕捉。",
+        "CDN冗長化対応：jsdelivrとunpkg間の自動フォールバックで確実なライブラリ読み込みを実現。"
+      ],
+      "zh": [
+        "解决 MJPEG 流跨域与 Canvas 污染限制：新增基于 createImageBitmap 的 GPU 极速快照抓取备用机制。",
+        "画幅比例自适应补偿：精确计算 scaleX/scaleY/偏移量，确保人物战术框选与实际人体轮廓完全贴合。",
+        "优化高灵敏度阈值（score >= 0.35）：显著提升远距离和弱光环境下的识别人形能力。",
+        "多 CDN 自动冗余容灾：支持 jsdelivr 与 unpkg 自动切换，保障全球网络秒速加载。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.036",
+    "date": "2026-09",
+    "tag": "Stable",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.036 - Tích Hợp AI Nhận Diện Người Thời Gian Thực Trên Web SD Gallery (Client-side TensorFlow.js COCO-SSD)",
+      "en": "Release v1.0.036 - Integrated Real-Time Web AI Person Detection in SD Gallery (Client-side TensorFlow.js COCO-SSD)",
+      "ja": "リリース v1.0.036 - SDギャラリー画面へのリアルタイム人物AI検知統合（ブラウザ側 TensorFlow.js COCO-SSD）",
+      "zh": "发布 v1.0.036 - SD卡与视频回放界面集成实时人物AI识别（浏览器端 TensorFlow.js COCO-SSD）"
+    },
+    "description": {
+      "vi": "🧠 Tích hợp tính năng Nhận Diện Người thông minh bằng AI (Person Detection) trực tiếp trên trang Quản lý Thẻ nhớ & Video Live Stream (sd_gallery.html). Sử dụng mô hình Deep Learning TensorFlow.js COCO-SSD chạy hoàn toàn trên trình duyệt người dùng qua GPU/WebGL, phát hiện và đóng khung người (Bounding Box Neon Glow) thời gian thực mà không tiêu tốn 1 byte RAM của ESP32.",
+      "en": "🧠 Integrated intelligent AI Person Detection directly into the SD Card & Video Gallery stream monitor (sd_gallery.html). Utilizes the lightweight TensorFlow.js COCO-SSD deep learning model running entirely client-side on user's GPU/WebGL, detecting and drawing tactical neon bounding boxes in real time with zero ESP32 RAM overhead.",
+      "ja": "🧠 SDカード＆録画管理画面（sd_gallery.html）にAI人物検知機能を直接統合。ユーザー端末のGPU/WebGLを活用するTensorFlow.js COCO-SSDモデルをブラウザ上で実行し、ESP32のRAMを1バイトも消費することなく、リアルタイムで人物を高精度に検知・ネオン枠描画します。",
+      "zh": "🧠 在 SD 卡与录像回放界面（sd_gallery.html）直接集成 AI 智能人物识别（Person Detection）。基于轻量级 TensorFlow.js COCO-SSD 深度学习模型，完全利用用户浏览器的 GPU/WebGL 算力进行客户端实时推理，零占用 ESP32 芯片内存，实现高帧率战术荧光框选与人数统计。"
+    },
+    "changes": {
+      "vi": [
+        "Web AI Client-side Detection: Tải mô hình COCO-SSD lite on-demand, nhận diện người trực tiếp trên khung hình camera thời gian thực.",
+        "Giao diện Bounding Box Cyberpunk HUD: Vẽ khung viền Neon Glow, 4 góc ngắm Tactical và nhãn PERSON % độ chính xác.",
+        "Nút Toggle AI & HUD Badge: Thêm nút bật/tắt AI trên thanh công cụ và HUD badge hiển thị số lượng người phát hiện.",
+        "Hỗ trợ 4 ngôn ngữ: Tích hợp đầy đủ từ vựng i18n cho Tiếng Việt, Tiếng Anh, Tiếng Nhật và Tiếng Trung."
+      ],
+      "en": [
+        "Client-side Web AI Detection: On-demand COCO-SSD lite model loading for real-time person detection on stream frames.",
+        "Cyberpunk Tactical HUD Bounding Boxes: Neon Glow borders, tactical crosshair corners, and PERSON confidence percentage badges.",
+        "Toggle AI Button & HUD Badge: Added AI toggle control to stream bar and real-time person count indicator.",
+        "Quad-language i18n: Complete localization support across Vietnamese, English, Japanese, and Chinese."
+      ],
+      "ja": [
+        "ブラウザ側Web AI人物検知: オンデマンドでCOCO-SSD liteモデルを読込み、カメラ映像から人物をリアルタイム検知。",
+        "サイバーパンク風タクティカルHUD枠: ネオングロー枠、4隅の照準マーカー、PERSON信頼度パーセントを表示。",
+        "AI切替ボタン＆HUDバッジ: 配信操作バーにAI切替ボタンを追加し、検知人数を表示するHUDバッジを新設。",
+        "4言語多言語対応: ベトナム語、英語、日本語、中国語の完全ローカライズ対応。"
+      ],
+      "zh": [
+        "前端 Web AI 人物识别: 按需动态加载 COCO-SSD lite 模型，在浏览器端实时分析监控画面中的人物。",
+        "赛博朋克战术 HUD 框选: 荧光边框、战术四角准星及 PERSON 准确率百分比标签。",
+        "AI 开关按钮与 HUD 徽标: 控制栏新增 AI 启用开关，实时显示画面中识别到的人数。",
+        "四国语言国际化: 完整支持中、英、越、日四种语言切换。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.035",
+    "date": "2026-09",
+    "tag": "",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.035 - Chuẩn Hóa Đường Dẫn Luồng Video Trực Tiếp (HTTP MJPEG Stream Port 81 & Snapshot)",
+      "en": "Release v1.0.035 - Standardized External Live Stream & Snapshot URLs (Dedicated Port 81 MJPEG & Snapshot)",
+      "ja": "リリース v1.0.035 - ライブ配信URLの標準化（ポート81 専用HTTP MJPEGストリーム＆静止画撮影）",
+      "zh": "发布 v1.0.035 - 规范化外部实时视频流与快照地址（81端口专用 HTTP MJPEG 视频流与拍照）"
+    },
+    "description": {
+      "vi": "🌐 Thay thế và chuẩn hóa các liên kết xem trực tiếp trên Dashboard: Khẳng định rõ luồng phát trực tiếp chính thức của ESP32-CAM sử dụng giao thức HTTP MJPEG Stream trên cổng 81 (http://<IP>:81/stream) tương thích 100% với VLC Player, Home Assistant, Python OpenCV, OBS Studio, Shinobi. Thay thế ô URL RTSP giả lập trước đây bằng đường dẫn chụp ảnh tĩnh Snapshot trực tiếp (http://<IP>/capture).",
+      "en": "🌐 Standardized stream integration links across the Dashboard: Clarified official live streaming via dedicated HTTP MJPEG Stream on port 81 (http://<IP>:81/stream), fully compatible with VLC Player, Home Assistant, Python OpenCV, OBS Studio, and Shinobi. Replaced simulated RTSP placeholder with live Snapshot Image Capture URL (http://<IP>/capture).",
+      "ja": "🌐 ダッシュボードの外部連携リンクを標準化：ESP32-CAMの公式ライブストリーミングがポート81のHTTP MJPEGストリーム（http://<IP>:81/stream）であることを明確化し、VLC、Home Assistant、OpenCV、OBSとの完全互換性を確保。旧RTSPプレースホルダーを静止画キャプチャURL（http://<IP>/capture）に更新。",
+      "zh": "🌐 规范化 Dashboard 外部流媒体集成链接：明确 ESP32-CAM 采用 81 端口专用 HTTP MJPEG 实时视频流（http://<IP>:81/stream），完美兼容 VLC 播放器、Home Assistant、Python OpenCV、OBS 与各类监控软件。将原模拟 RTSP 占位符替换为实用的单张快照抓图地址（http://<IP>/capture）。"
+    },
+    "changes": {
+      "vi": [
+        "Chuẩn hóa Link Stream Port 81: Cung cấp trực tiếp liên kết http://<IP>:81/stream cho VLC Player, Home Assistant, OBS, Python OpenCV.",
+        "Bổ sung Link Snapshot: Thêm liên kết http://<IP>/capture cho các tác vụ chụp ảnh tĩnh, gửi cảnh báo Telegram Bot.",
+        "Loại bỏ nhầm lẫn RTSP: Làm rõ ESP32-CAM không chạy RTSP daemon cổng 8554 để tối ưu bộ nhớ RAM cho Dual-OTA và FPV Cockpit."
+      ],
+      "en": [
+        "Standardized Port 81 Stream: Direct http://<IP>:81/stream link for VLC Player, Home Assistant, OBS, Python OpenCV.",
+        "Added Snapshot Capture Link: Added http://<IP>/capture link for instant snapshot downloads and Telegram bot alerts.",
+        "Eliminated RTSP Confusion: Clarified that RTSP daemon on port 8554 is omitted to reserve memory for Dual-OTA and FPV Cockpit."
+      ],
+      "ja": [
+        "ポート81 配信リンク標準化: VLC、Home Assistant、OBS、Python OpenCV用の直接URL http://<IP>:81/stream を提供。",
+        "静止画キャプチャリンク追加: Telegram通知や静止画取得用の http://<IP>/capture リンクを追加。",
+        "RTSPに関する誤解の解消: メモリ節約と安定稼働のためポート8554のRTSPではなくHTTP MJPEGを採用している旨を明記。"
+      ],
+      "zh": [
+        "规范 81 端口视频流: 为 VLC 播放器、Home Assistant、OBS、Python OpenCV 提供直连地址 http://<IP>:81/stream。",
+        "新增快照截图链接: 提供 http://<IP>/capture 快速抓图地址，方便接入 Telegram 报警等场景。",
+        "消除 RTSP 端口困惑: 说明固件采用高兼容性 HTTP MJPEG 架构，未开放 8554 RTSP 服务以确保系统轻量稳定。"
+      ]
+    }
+  },
+  {
+    "version": "v1.0.034",
+    "date": "2026-09",
+    "tag": "",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "title": {
+      "vi": "Phát hành v1.0.034 - Bộ Chọn Chế Độ Phần Cứng GPIO (SD Gallery vs Xe Robot) & Tự Động Khóa Nút Điều Khiển Khi Sai Mode",
+      "en": "Release v1.0.034 - Hardware GPIO Mode Selector (SD Gallery vs Robot Car) with Auto-Locking Controls & 1-Click Switch",
+      "ja": "リリース v1.0.034 - ハードウェアGPIOモード切替（SDカード vs ロボットカー）＆誤モード時の自動ボタンロック機能",
+      "zh": "发布 v1.0.034 - 硬件GPIO模式切换选择器（SD卡回放 vs 遥控车）与跨模式按键自动禁用锁定保护"
+    },
+    "description": {
+      "vi": "⚡ Giải quyết triệt để vấn đề xung đột (đụng chân) 4 chân GPIO (12, 13, 14, 15) giữa khe cắm thẻ nhớ MicroSD (SD_MMC) và mạch cầu H điều khiển động cơ L298N. Bổ sung Bộ chọn Chế độ Phần cứng trên Dashboard lưu vào NVS Flash, cơ chế chuyển đổi GPIO an toàn không cần khởi động lại bo mạch, banner cảnh báo trực quan đa ngôn ngữ và tự động vô hiệu hóa toàn bộ nút bấm ở trang /car hoặc /sd khi người dùng truy cập sai chế độ.",
+      "en": "⚡ Completely resolved hardware GPIO pin conflicts (GPIO 12, 13, 14, 15) between MicroSD Card (SD_MMC 1-Bit) and L298N Motor Driver PWM. Introduced persistent Hardware Mode Selector saved in NVS Flash, glitch-free on-the-fly pin reallocation, multilingual warning banners, and automatic control locking across /car and /sd pages when in mismatched mode.",
+      "ja": "⚡ MicroSDカードスロット（SD_MMC）とL298NモータードライバPWM間で発生するGPIO（12, 13, 14, 15）のピン競合を根本的に解決。NVS Flash保存対応のハードウェアモード選択機能、再起動不要の動的ピン再割り当て、多言語警告バナー、モード不一致時の/carおよび/sdボタン自動ロック保護を実装。",
+      "zh": "⚡ 彻底解决MicroSD卡槽（SD_MMC单线模式）与L298N电机驱动PWM之间在GPIO 12, 13, 14, 15引脚上的硬件资源冲突。新增Dashboard硬件模式选择器（NVS持久化存储）、免重启GPIO安全平滑切换、多语言警告横幅，并在/car与/sd页面访问非对应模式时自动禁用全部操作按键。"
+    },
+    "changes": {
+      "vi": [
+        "Bộ quản lý Chế độ Phần cứng (hardware_mode): Lưu trạng thái vào NVS Flash (sys_mode), chuyển đổi chân GPIO an toàn giữa SD_MMC (deinit/init) và LEDC PWM (detach/attach).",
+        "Bộ chọn Chế độ trên Web Dashboard: Thêm Card trực quan cho phép chuyển nhanh giữa Chế độ Thẻ nhớ (SD Gallery) và Chế độ Xe Robot (Robot Car).",
+        "Tự động khóa toàn bộ nút bấm khi sai Mode: Vô hiệu hóa controls tại /car khi đang ở chế độ SD và ngược lại vô hiệu hóa thao tác tại /sd khi đang ở chế độ Car.",
+        "Banner Cảnh báo Đa ngôn ngữ & Chuyển đổi 1-Click: Hiển thị thanh cảnh báo trực quan kèm nút bấm chuyển đổi chế độ ngay lập tức mà không cần quay lại Dashboard.",
+        "Bảo vệ tầng Backend API: Từ chối các lệnh /car_cmd bằng mã lỗi 403 Forbidden nếu thiết bị chưa được cấp quyền Car Mode."
+      ],
+      "en": [
+        "Hardware Mode Manager (hardware_mode): Persists state in NVS Flash (sys_mode) with safe runtime GPIO multiplexing between SD_MMC and LEDC PWM.",
+        "Dashboard Mode Selector: Intuitive selection card for 1-click toggling between MicroSD Card and Robot Car modes.",
+        "Auto-Lock Controls on Mode Mismatch: Disables all driving controls in /car during SD mode, and locks recording/format actions in /sd during Car mode.",
+        "Multilingual Warning Banner & 1-Click Switch: Actionable top banners allowing instantaneous mode switching without navigating back to dashboard.",
+        "Backend API Guard: Rejects /car_cmd requests with HTTP 403 Forbidden when Car Mode is inactive."
+      ],
+      "ja": [
+        "ハードウェアモード管理モジュール (hardware_mode): NVS Flashにモードを保存し、SD_MMCとLEDC PWMの間でGPIOピンを安全に再割り当て。",
+        "ダッシュボードのモード選択カード: SDカードとロボットカーの各動作モードをワンクリックで切り替え可能。",
+        "モード不一致時の自動ボタン無効化: SDモード時は/carの全操縦ボタンをロック、Carモード時は/sdの録画・フォーマット操作を無効化。",
+        "多言語警告バナー＆1クリック切り替え: ダッシュボードに戻ることなく画面上部バナーから即座に動作モードを切り替え可能。",
+        "バックエンドAPI保護: Carモードが無効な状態での /car_cmd リクエストを HTTP 403 で拒否。"
+      ],
+      "zh": [
+        "硬件模式管理器 (hardware_mode): 状态持久化至NVS Flash (sys_mode)，实现SD_MMC与LEDC PWM之间GPIO引脚的安全动态复用。",
+        "Dashboard硬件模式选择卡片: 支持在SD卡回放与遥控车模式之间一键快速切换。",
+        "跨模式按键自动禁用锁定: 在SD模式下访问/car自动禁用全部驾驶按键，在Car模式下访问/sd自动禁用录像与格式化等操作。",
+        "多语言警告横幅与一键直切: 顶部醒目横幅支持免返回主页一键立即切换模式。",
+        "后端API层安全拦截: 当未处于Car模式时，/car_cmd接口返回HTTP 403 Forbidden拒绝执行。"
+      ]
+    }
+  },
+  {
     "version": "v1.0.033",
     "date": "2026-09",
+    "tag": "",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.033 - Nâng Cao 10% Cụm Điều Khiển Xe Ở Chế Độ Xoay Ngang & Chống Che Khuất Mép Màn Hình",
