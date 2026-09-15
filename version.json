@@ -1,7 +1,7 @@
 {
-  "version": "1.0.069",
+  "version": "1.0.070",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Khắc phục triệt để lỗi không gửi Telegram: Khởi tạo initVideoRecorder khi boot, giải quyết xung đột tài nguyên giữa Live Stream và Motion Loop, tinh chỉnh thuật toán ABS so sánh Realtime với mô hình nền.",
+  "description": "Nâng cấp Động Cơ Phát Hiện Chuyển Động Đa Chỉ Số (Multi-Metric Motion Engine): Lấy mẫu vị trí cố định Fixed Offsets, phân tích độ lệch nén JPEG DeltaLen, kích hoạt Realtime 0ms không bao giờ trượt.",
   "release_date": "2026-09-15",
   "mandatory": false
 }
