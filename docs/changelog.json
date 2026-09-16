@@ -1,8 +1,25 @@
 [
   {
+    "version": "v1.0.080",
+    "date": "2026-09-16",
+    "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tinh chỉnh nội dung thông báo Telegram & Gmail: Chuẩn hóa tiêu đề và nội dung cảnh báo ngắn gọn, bỏ câu 'phát hiện người trước camera'.",
+    "details": {
+      "vi": "Tinh chỉnh nội dung thông báo Telegram Bot & Gmail SMTP: 1) Bỏ câu 'phát hiện người trước camera' ở dòng tiêu đề thông báo cảnh báo qua Telegram và Gmail. 2) Chuẩn hóa cấu trúc nội dung cảnh báo gồm: Thời gian (dd/mm/yyyy HH:MM:SS), Chi tiết (Cảm biến PIR GPIO 3 / Xử lý hình ảnh / Chuông cổng) và IP thiết bị. 3) Cập nhật tiêu đề email cảnh báo Gmail thành '[ESP32-CAM] Canh Bao Chuyen Dong'.",
+      "en": "Refined Telegram Bot & Gmail SMTP notification messages: 1) Removed 'Person detected in front of camera' header line from Telegram and Gmail alerts. 2) Streamlined notification format with Timestamp, Detection Details (PIR GPIO 3 / Image Processing / Doorbell), and Device IP. 3) Updated Gmail subject to '[ESP32-CAM] Canh Bao Chuyen Dong'.",
+      "ja": "Telegram BotおよびGmail SMTP通知内容の調整：1）TelegramとGmailの写真アラートから「カメラの前に人物を検知しました」のヘッダー行を削除。2）日時、検知詳細（PIR GPIO 3／画像処理／ドアベル）、デバイスIPの簡潔なフォーマットに標準化。3）Gmailの件名を「[ESP32-CAM] Canh Bao Chuyen Dong」に更新。",
+      "zh": "优化 Telegram Bot 与 Gmail SMTP 抓拍报警正文：1) 去除 Telegram 和邮件中冗余的“摄像头前检测到人员活动”标题行。2) 标准化报警格式为：时间、详情（PIR GPIO 3 / 图像处理 / 门铃）及设备 IP。3) 将 Gmail 邮件主题更新为“[ESP32-CAM] Canh Bao Chuyen Dong”。",
+      "fr": "Ajustement des notifications Telegram Bot et Gmail SMTP : suppression de la ligne d'en-tête 'Personne détectée devant la caméra', standardisation du format d'alerte (Heure, Détails, IP de l'appareil) et mise à jour de l'objet de l'e-mail Gmail.",
+      "de": "Anpassung der Benachrichtigungen über Telegram Bot und Gmail SMTP: Entfernen der Kopfzeile 'Person vor der Kamera erkannt', Standardisierung des Alarmformats (Zeit, Details, Geräte-IP) und Aktualisierung der Gmail-Betreffzeile.",
+      "es": "Ajuste de las notificaciones de Telegram Bot và Gmail SMTP: Eliminación de la línea de encabezado 'Persona detectada frente a la cámara', estandarización del formato de alerta (Hora, Detalles, IP del dispositivo) y actualización del asunto del correo de Gmail.",
+      "ru": "Настройка уведомлений Telegram Bot и Gmail SMTP: удалена строка заголовка 'Обнаружен человек перед камерой', стандартизирован формат оповещений (Время, Детали, IP устройства) и обновлена тема письма Gmail.",
+      "ko": "Telegram Bot 및 Gmail SMTP 알림 내용 정제: 1) Telegram 및 이메일 알림에서 '카메라 앞에서 사람이 감지되었습니다' 제목 줄 제거. 2) 시간, 상세 내용(PIR GPIO 3 / 이미지 분석 / 초인종), 기기 IP의 간결한 포맷으로 표준화. 3) Gmail 제목을 '[ESP32-CAM] Canh Bao Chuyen Dong'으로 업데이트."
+    }
+  },
+  {
     "version": "v1.0.079",
     "date": "2026-09-15",
-    "tag": "Latest Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Tối ưu hóa toàn diện luồng ghi video SD: Đồng bộ hóa mutex bộ đệm camera giữa 2 core, tối ưu chu kỳ flush FATFS, khóa quét đĩa khi đang ghi hình và điều tiết polling thích ứng.",
     "details": {

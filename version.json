@@ -1,7 +1,7 @@
 {
-  "version": "1.0.079",
+  "version": "1.0.080",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa toàn diện luồng ghi video SD: Đồng bộ hóa mutex bộ đệm camera giữa 2 core, tối ưu chu kỳ flush FATFS, khóa quét đĩa khi đang ghi hình và điều tiết polling thích ứng.",
-  "release_date": "2026-09-15",
+  "description": "Tinh chỉnh nội dung thông báo Telegram & Gmail: Chuẩn hóa tiêu đề và nội dung cảnh báo ngắn gọn, bỏ câu 'phát hiện người trước camera'.",
+  "release_date": "2026-09-16",
   "mandatory": false
 }
