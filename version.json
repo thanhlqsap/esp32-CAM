@@ -1,7 +1,7 @@
 {
-  "version": "1.0.086",
+  "version": "1.0.087",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Đặt mặc định tất cả phần cứng ngoại vi sang OFF khi cài mới firmware, di chuyển cụm cấu hình Telegram Bot & Gmail SMTP vào tab Cấu hình Camera của Dashboard",
+  "description": "Thêm cơ chế chống đầy thẻ tự động FIFO Loop Recording (ngưỡng 5% dung lượng thẻ) và checkbox cấu hình trên Web SD Gallery",
   "release_date": "2026-09-16",
   "mandatory": false
 }
