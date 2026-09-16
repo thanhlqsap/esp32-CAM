@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.083",
+    "version": "v1.0.084",
     "date": "2026-09-16",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tối ưu hóa tải trang & giải phóng WebServer: Chuyển hướng endpoint /stream sang Port 81 độc lập (Core 0), loại bỏ triệt để nghẽn blocking Port 80, tự động giải phóng stream MJPEG khi chuyển trang và tối ưu hóa tải trang cực nhanh.",
+    "details": {
+      "vi": "Khắc phục triệt để hiện tượng tải trang chậm do chiếm giữ WebServer: 1) Sửa đổi endpoint /stream trên WebServer chính (Port 80) thành HTTP 302 Redirect sang Port 81 độc lập, loại bỏ hoàn toàn vòng lặp while blocking chiếm giữ máy chủ đơn luồng. 2) Cập nhật giao diện Chuông cửa (/doorbell) và Xe Robot (/car) trỏ luồng stream trực tiếp sang Port 81 chuyên dụng (Core 0 @ 20-25 FPS). 3) Loại bỏ src tĩnh /capture trong thẻ camImg tại Dashboard chính, nạp ảnh preview sau khi hoàn tất tải dữ liệu API. 4) Bổ sung bộ lắng nghe sự kiện pagehide và beforeunload tự động ngắt socket stream khi người dùng đóng tab hoặc chuyển trang.",
+      "en": "Resolved slow page loading caused by WebServer blocking: 1) Replaced blocking while loop in /stream on Port 80 with HTTP 302 Redirect to dedicated Port 81 Stream Server (Core 0), eliminating single-threaded server starvation. 2) Updated Doorbell (/doorbell) and Robot Car (/car) UIs to connect directly to Port 81. 3) Removed static src=/capture on Dashboard camImg to prioritize initial API responses. 4) Added pagehide and beforeunload event listeners to immediately release MJPEG stream sockets upon navigation.",
+      "ja": "WebServerの専有によるWebページ読み込み遅延を根本解決：1）Port 80上の/streamエンドポイントをPort 81（Core 0専用）へのHTTP 302リダイレクトに変更し、シングルスレッドWebServerのブロッキングを完全解消。2）ドアホン（/doorbell）およびロボットカー（/car）のLive StreamをPort 81へ直接接続するように最適化。3）ダッシュボードのcamImgから静的なsrc=/captureを削除し、初期APIの高速応答を実現。4）ページ遷移やタブクローズ時にMJPEGソケットを即時解放するpagehide/beforeunloadイベントリスナーを追加。",
+      "zh": "彻底解决因 Stream 占用导致的网页加载缓慢问题：1) 将主 WebServer (Port 80) 上的 /stream 接口重构为 HTTP 302 重定向至 Port 81 独立推流服务 (Core 0)，根除单线程服务器被死循环阻塞的问题。2) 更新门铃 (/doorbell) 与遥控小车 (/car) 界面直接连接 Port 81 独立视频流。3) 移除主仪表板 camImg 标签的静态 src=/capture 属性，优先保证初始 API 配置高速加载。4) 增加 pagehide 与 beforeunload 事件监听，在用户离开或切换页面时立即释放 MJPEG 视频流连接。",
+      "fr": "Résolution des lenteurs de chargement de page causées par le blocage du serveur Web : 1) Remplacement de la boucle bloquante sur /stream (Port 80) par une redirection 302 vers le serveur de flux dédié sur le Port 81 (Core 0). 2) Mise à jour des interfaces Sonnette (/doorbell) et Voiture (/car) pour cibler directement le Port 81. 3) Suppression du src=/capture statique sur le tableau de bord pour accélérer les requêtes API. 4) Ajout d'écouteurs d'événements pagehide et beforeunload pour fermer les sockets MJPEG lors de la navigation.",
+      "de": "Behebung von Seitenladeverzögerungen durch WebServer-Blockierung: 1) Blockierende while-Schleife in /stream auf Port 80 durch HTTP 302-Weiterleitung auf dedizierten Port 81 (Core 0) ersetzt. 2) UIs für Türklingel (/doorbell) und Roboterauto (/car) auf direkten Port 81-Stream umgestellt. 3) Statisches src=/capture auf dem Dashboard entfernt, um API-Abfragen zu priorisieren. 4) pagehide- und beforeunload-Listener hinzugefügt zur sofortigen Freigabe von MJPEG-Streams beim Verlassen der Seite.",
+      "es": "Solución definitiva a la lentitud de carga causada por el bloqueo del servidor Web: 1) Sustitución del bucle bloqueante en /stream (Puerto 80) por redirección 302 al Puerto 81 dedicado (Core 0). 2) Actualización de las interfaces de Timbre (/doorbell) y Coche (/car) para conectar directamente al Puerto 81. 3) Eliminación del src=/capture estático en el panel para acelerar las respuestas de la API. 4) Inclusión de listeners pagehide y beforeunload para liberar los sockets MJPEG al cambiar de página.",
+      "ru": "Устранение медленной загрузки веб-страниц из-за блокировки WebServer: 1) Замена блокирующего цикла в /stream на Порту 80 перенаправлением 302 на выделенный Порт 81 (Core 0). 2) Прямое подключение к Порту 81 в интерфейсах Домофона (/doorbell) и Робокара (/car). 3) Удаление статического src=/capture в camImg на панели для ускорения инициализации API. 4) Добавлены обработчики pagehide и beforeunload для мгновенного закрытия сокетов MJPEG при смене страницы.",
+      "ko": "WebServer 점유로 인한 웹 페이지 로딩 지연 문제 완벽 해결: 1) Port 80의 /stream 엔드포인트를 Core 0 전용 Port 81 스트림 서버로 HTTP 302 리다이렉트 처리하여 단일 스레드 WebServer 차단 현상 제거. 2) 도어벨(/doorbell) 및 로봇카(/car) UI에서 Port 81로 직접 스트림 연결하도록 수정. 3) 대시보드 camImg 태그의 정적 src=/capture 속성을 제거하여 초기 API 응답 우선 처리. 4) 페이지 이동 시 MJPEG 소켓을 즉시 해제하는 pagehide/beforeunload 이벤트 리스너 추가."
+    }
+  },
+  {
+    "version": "v1.0.083",
+    "date": "2026-09-16",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Tăng cường an toàn phần cứng GPIO: Bổ sung cơ chế bảo vệ chuyển đổi chế độ phần cứng an toàn, khóa chuyển đổi trực tiếp tại các trang con (/sd, /car, /doorbell) và yêu cầu xác thực Admin (khi bật Auth) hoặc hiển thị Modal cảnh báo nguy cơ xung đột GPIO tại Dashboard chính.",
     "details": {

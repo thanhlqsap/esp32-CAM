@@ -1,7 +1,7 @@
 {
-  "version": "1.0.083",
+  "version": "1.0.084",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tăng cường an toàn phần cứng GPIO: Khóa chuyển đổi trực tiếp tại trang con (/sd, /car, /doorbell) bắt buộc quay về Dashboard; Dashboard yêu cầu xác thực Admin (nếu bật Auth) hoặc hiển thị Modal cảnh báo nguy cơ xung đột GPIO trước khi chuyển đổi.",
+  "description": "Tối ưu hóa tải trang & giải phóng WebServer: Chuyển hướng endpoint /stream sang Port 81 độc lập (Core 0), loại bỏ triệt để nghẽn blocking Port 80, giải phóng stream MJPEG khi chuyển trang và tối ưu hóa tải trang cực nhanh.",
   "release_date": "2026-09-16",
   "mandatory": false
 }
