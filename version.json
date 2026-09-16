@@ -1,7 +1,7 @@
 {
-  "version": "1.0.080",
+  "version": "1.0.083",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tinh chỉnh nội dung thông báo Telegram & Gmail: Chuẩn hóa tiêu đề và nội dung cảnh báo ngắn gọn, bỏ câu 'phát hiện người trước camera'.",
+  "description": "Tăng cường an toàn phần cứng GPIO: Khóa chuyển đổi trực tiếp tại trang con (/sd, /car, /doorbell) bắt buộc quay về Dashboard; Dashboard yêu cầu xác thực Admin (nếu bật Auth) hoặc hiển thị Modal cảnh báo nguy cơ xung đột GPIO trước khi chuyển đổi.",
   "release_date": "2026-09-16",
   "mandatory": false
 }

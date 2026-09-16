@@ -1,8 +1,59 @@
 [
   {
-    "version": "v1.0.080",
+    "version": "v1.0.083",
     "date": "2026-09-16",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tăng cường an toàn phần cứng GPIO: Bổ sung cơ chế bảo vệ chuyển đổi chế độ phần cứng an toàn, khóa chuyển đổi trực tiếp tại các trang con (/sd, /car, /doorbell) và yêu cầu xác thực Admin (khi bật Auth) hoặc hiển thị Modal cảnh báo nguy cơ xung đột GPIO tại Dashboard chính.",
+    "details": {
+      "vi": "Cơ chế bảo vệ chuyển đổi phần cứng an toàn & Bảo toàn chân GPIO: 1) Tại các trang chức năng (/sd, /car, /doorbell), nếu thiết bị đang hoạt động ở chế độ khác thì khóa chuyển đổi trực tiếp và chỉ cho phép nút quay về Dashboard chính để bảo vệ mạch và chân GPIO 12, 13, 14, 15. 2) Tại Dashboard (/), khi chuyển đổi chế độ: Nếu có bật Authentication thì mở Modal yêu cầu nhập User/Pass Admin; nếu không bật Authentication thì mở Modal Cảnh Báo An Toàn Phần Cứng phân tích nguy cơ chập/cháy và xung đột tín hiệu logic trước khi cho phép xác nhận. 3) Nâng cấp API /set_mode hỗ trợ xác thực trực tiếp qua Basic Auth hoặc tham số auth_user/auth_pass. 4) Hỗ trợ đầy đủ 9 thứ tiếng toàn cầu.",
+      "en": "Enhanced GPIO Hardware Safety & Protected Mode Switching: 1) On sub-pages (/sd, /car, /doorbell), direct mode switching is locked and replaced by a 'Back to Dashboard' button to protect shared GPIO 12, 13, 14, 15 pins. 2) On Main Dashboard (/), switching modes requires Admin credentials modal (if Auth enabled) or displays a Hardware Safety Warning modal analyzing pin conflict/overcurrent risks before confirmation. 3) Upgraded /set_mode API to support authentication via Basic Auth or auth_user/auth_pass parameters. 4) Full 9-language i18n support.",
+      "ja": "GPIOハードウェア安全保護と動作モード切り替えの強化：1）サブ画面（/sd, /car, /doorbell）での直接モード切り替えを無効化し、GPIO 12, 13, 14, 15のピン衝突防止のためダッシュボードへ戻るボタンのみに変更。2）メインダッシュボード（/）でのモード切り替え時に、認証有効時は管理者パスワード入力モーダルを表示し、認証無効時はハードウェア危険性警告モーダルを表示。3）/set_mode APIにauth_userおよびauth_pass認証対応を追加。4）9言語に完全対応。",
+      "zh": "强化 GPIO 硬件安全保护与模式受控切换机制：1) 在各子页面 (/sd, /car, /doorbell) 禁用直接跨模式切换，仅保留“返回主仪表板”按钮以保护 GPIO 12, 13, 14, 15 共享引脚。2) 在主界面 (/) 切换硬件模式时，若开启了安全认证则弹出管理员账号密码验证弹窗；若未开启认证则弹出硬件冲突与过流风险安全警告弹窗。3) 升级 /set_mode API 支持直接携带 auth_user 与 auth_pass 参数进行鉴权。4) 完备支持 9 国语言。",
+      "fr": "Protection matérielle renforcée des broches GPIO et commutation de mode sécurisée : 1) Verrouillage du changement direct sur les sous-pages (/sd, /car, /doorbell) avec bouton de retour au tableau de bord. 2) Sur le tableau de bord (/), demande des identifiants Admin (si Auth activée) ou affichage d'un modal d'avertissement sur les risques de conflits GPIO avant confirmation. 3) Mise à niveau de l'API /set_mode avec authentification directe. 4) Support complet de 9 langues.",
+      "de": "Erweiterte GPIO-Hardware-Sicherheit und geschützte Modusumschaltung: 1) Direkte Umschaltung auf den Unterseiten (/sd, /car, /doorbell) gesperrt und durch 'Zurück zum Dashboard'-Button ersetzt, um GPIO 12, 13, 14, 15 zu schützen. 2) Auf dem Dashboard (/) Authentifizierungs-Modal (falls Auth aktiv) oder Sicherheitswarn-Modal vor dem Umschalten. 3) /set_mode API um auth_user/auth_pass Parameter erweitert. 4) Volle 9-Sprachen-Unterstützung.",
+      "es": "Seguridad de hardware GPIO reforzada y cambio de modo protegido: 1) Bloqueo del cambio directo en subpáginas (/sd, /car, /doorbell) con botón para volver al panel principal. 2) En el panel principal (/), modal de credenciales de Administrador (si Auth está activo) o modal de advertencia de seguridad de hardware antes de confirmar. 3) API /set_mode actualizada con autenticación directa. 4) Soporte para 9 idiomas.",
+      "ru": "Усиленная защита GPIO и безопасное переключение режимов: 1) Блокировка прямого переключения на дочерних страницах (/sd, /car, /doorbell) с кнопкой возврата на панель управления. 2) На главной панели (/) запрос учетных данных Admin (при включенной авторизации) или предупреждающее окно об аппаратных рисках GPIO. 3) Обновление API /set_mode с поддержкой auth_user/auth_pass. 4) Поддержка 9 языков.",
+      "ko": "GPIO 하드웨어 안전 보호 및 보호된 모드 전환 체계 구축: 1) 하위 페이지(/sd, /car, /doorbell)에서 직접 모드 전환을 잠그고 대시보드 복귀 버튼으로 대체하여 GPIO 12, 13, 14, 15 핀 보호. 2) 메인 대시보드(/)에서 모드 전환 시 인증 활성화 상태에서는 관리자 계정 모달을, 비활성화 상태에서는 하드웨어 충돌 경고 모달을 띄워 안전 확인 후 전환. 3) /set_mode API에 auth_user/auth_pass 인증 매개변수 지원 추가. 4) 9개 다국어 완벽 지원."
+    }
+  },
+  {
+    "version": "v1.0.082",
+    "date": "2026-09-16",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Thêm tùy chọn bật/tắt Cảnh Báo Telegram & Gmail trong phần Cài Đặt của Chế Độ Xe Robot FPV (/car) và Chế Độ Chuông Cửa Thông Minh (/doorbell), đồng bộ toàn diện trạng thái cảnh báo trên toàn hệ thống.",
+    "details": {
+      "vi": "Đồng bộ tính năng Bật/Tắt Cảnh Báo Telegram & Gmail trên toàn bộ các Chế Độ Hoạt Động: 1) Trong Chế Độ Xe Robot FPV (/car): Bổ sung checkbox \"Cảnh báo chuyển động (Telegram/Gmail)\" trong Modal Cài Đặt phần cứng, hỗ trợ nạp và lưu tự động vào NVS. 2) Trong Chế Độ Chuông Cửa (/doorbell): Bổ sung Switch \"Gửi Cảnh Báo (Telegram/Gmail)\" trong cụm Điều khiển thiết bị, cho phép bật/tắt tức thời việc chụp & gửi ảnh khi có khách bấm chuông. 3) Hỗ trợ đa ngôn ngữ 9 thứ tiếng toàn cầu và mở rộng API /alert_config với CORS headers.",
+      "en": "Unified Telegram & Gmail Alert Toggle across all Hardware Operating Modes: 1) In FPV Robot Car Mode (/car): Added \"Motion Alert (Telegram/Gmail)\" checkbox in Hardware Settings modal with auto NVS persistence. 2) In Smart Doorbell Mode (/doorbell): Added \"Photo Alert (Telegram/Gmail)\" toggle switch in device controls to easily enable/disable snapshot alerts upon ring events. 3) Full 9-language i18n support and enhanced /alert_config API with CORS headers.",
+      "ja": "全ハードウェア動作モードでのTelegram＆Gmail写真通知の有効/無効切り替えを統合：1）FPVロボットカーモード（/car）のハードウェア設定モーダルに動体検知アラートチェックボックスを追加。2）スマートドアホンモード（/doorbell）の機器制御エリアに写真通知スイッチを追加し、呼び出し時の写真送信を素早く切り替え可能に。3）9言語対応およびCORSヘッダー対応の/alert_config API拡張。",
+      "zh": "全系统运行模式统一集成 Telegram 与 Gmail 抓拍报警开关：1) FPV 遥控小车模式 (/car) 硬件配置弹窗新增移动侦测报警复选框，支持自动读取与保存至 NVS。2) 智能门铃模式 (/car) 控制面板新增抓拍报警切换开关，可快速开启或关闭访客按铃抓拍推送。3) 完备支持 9 国语言并优化 /alert_config 接口 CORS 跨域支持。",
+      "fr": "Unification de l'activation des alertes Telegram et Gmail sur tous les modes : 1) Ajout d'une case à cocher d'alerte de mouvement dans les paramètres du mode Voiture Robot FPV (/car). 2) Ajout d'un interrupteur d'alerte photo dans les commandes de la Sonnette (/doorbell) lors des sonneries. 3) Prise en charge de 9 langues et prise en charge CORS pour l'API /alert_config.",
+      "de": "Einheitliche Aktivierung von Telegram- & Gmail-Alarmen in allen Betriebsmodi: 1) Neue Checkbox für Bewegungsalarme in den Einstellungen des FPV-Roboterautos (/car). 2) Neuer Schalter für Foto-Alarme in der Türklingel-Steuerung (/doorbell) bei Klingelbetätigung. 3) Volle 9-Sprachen-Unterstützung und CORS-Headers für die /alert_config API.",
+      "es": "Unificación del interruptor de alertas Telegram y Gmail en todos los modos: 1) Nueva casilla de alerta de movimiento en la configuración del Coche Robot FPV (/car). 2) Nuevo interruptor de alerta con foto en los controles del Timbre (/doorbell) al tocar el timbre. 3) Soporte para 9 idiomas y encabezados CORS para la API /alert_config.",
+      "ru": "Единое переключение фото-оповещений Telegram и Gmail во всех режимах: 1) Добавлен флажок оповещения о движении в настройках FPV-робокара (/car). 2) Добавлен переключатель фото-оповещений в панели управления Домофона (/doorbell) при звонке в дверь. 3) Полная поддержка 9 языков и заголовки CORS для API /alert_config.",
+      "ko": "모든 하드웨어 모드에서 Telegram 및 Gmail 알림 켜기/끄기 기능 통합: 1) FPV 로봇카 모드(/car) 하드웨어 설정 모달에 모션 감지 알림 체크박스 추가 및 NVS 자동 동기화. 2) 스마트 도어벨 모드(/doorbell) 제어 패널에 사진 알림 토글 스위치 추가로 벨 입력 시 스냅샷 전송 즉시 제어. 3) 9개 다국어 지원 및 /alert_config API CORS 지원."
+    }
+  },
+  {
+    "version": "v1.0.081",
+    "date": "2026-09-16",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Tích hợp tính năng Chuông Không Dây RF 433MHz (EV1527) cho Chế Độ Chuông Cửa Thông Minh: Tự động phát sóng kích chuông không dây trong nhà, hỗ trợ học lệnh từ remote có sẵn và ghép đôi với các loại chuông trên thị trường.",
+    "details": {
+      "vi": "Tính năng mới Chuông Cửa Không Dây RF 433MHz: 1) Động cơ mã hóa & phát sóng RF 433MHz EV1527 qua GPIO 15, tự động phát tín hiệu kích chuông không dây trong nhà khi khách bấm chuông ngoài cổng (tầm phủ 30-50m). 2) Hỗ trợ 2 chế độ ghép đôi: Phát mã để chuông tự học mã thị trường (Cacazi, Kerui, Tuya...) hoặc Học lệnh bắt mã từ Remote/Nút bấm cũ qua GPIO 13. 3) Cập nhật giao diện Web /doorbell với Card điều khiển RF, tạo mã ngẫu nhiên, phát thử nghiệm và Modal học lệnh trực quan. 4) Bổ sung tài liệu Mục 13 trong USER_GUIDE.html.",
+      "en": "New Feature - 433MHz Wireless RF Chime Integration: 1) EV1527 protocol RF transmitter on GPIO 15 automatically signals indoor wireless chimes (30-50m range) upon doorbell button press. 2) Supports dual pairing: Pairing with self-learning chimes or Learning/Cloning codes from existing remotes via GPIO 13. 3) Enhanced /doorbell Web UI with RF settings card, random code generator, test chime, and interactive learning modal. 4) Added Section 13 in USER_GUIDE.html.",
+      "ja": "新機能 - 433MHzワイヤレスチャイム統合：1）GPIO 15によるEV1527プロトコルRF送信で、呼び出しボタン押下時に室内のワイヤレスチャイムを自動鳴動（到達距離30-50m）。2）2つのペアリング方式に対応：学習型チャイムへの送信、またはGPIO 13による既存リモコンからのコード学習。3）/doorbell Web画面にRF設定カード、ランダムコード生成、テスト送信、学習モーダルを追加。4）USER_GUIDE.htmlに第13章を追加。",
+      "zh": "全新功能 - 433MHz 无线门铃射频联动：1) 基于 GPIO 15 的 EV1527 射频无线发射引擎，门外按铃自动触发室内无线响铃器（覆盖30-50米）。2) 支持双向配对模式：发射射频信号配对市售自学习响铃器，或通过 GPIO 13 接收并学习已有遥控器编码。3) 门铃控制页新增 RF 射频设置卡片、随机编码生成、测试对码与实时学习倒计时弹窗。4) USER_GUIDE.html 新增第13章详细说明。",
+      "fr": "Nouvelle fonctionnalité - Intégration du carillon sans fil RF 433MHz : transmission automatique EV1527 sur GPIO 15, double mode d'appairage (auto-apprentissage ou copie de télécommande via GPIO 13), interface web enrichie et ajout de la section 13 dans USER_GUIDE.html.",
+      "de": "Neues Feature - 433MHz Funkgong-Integration: Automatisches EV1527-Funksignal auf GPIO 15 beim Klingeln, duale Kopplung (Selbstlernend oder Fernbedienungs-Kopieren über GPIO 13), Web-Steuerung und neues Kapitel 13 in USER_GUIDE.html.",
+      "es": "Nueva función - Integración de timbre inalámbrico RF 433MHz: Transmisión EV1527 en GPIO 15 al tocar el timbre, emparejamiento dual (autoaprendizaje o clonación de control vía GPIO 13), interfaz web interactiva y sección 13 en USER_GUIDE.html.",
+      "ru": "Новая функция - Беспроводной RF 433МГц звонок: передатчик EV1527 на GPIO 15 для автоматического звонка в доме, два способа привязки (обучаемые звонки или копирование пульта через GPIO 13), обновленный веб-интерфейс и раздел 13 в USER_GUIDE.html.",
+      "ko": "신규 기능 - 433MHz 무선 차임벨 연동: 1) GPIO 15 기반 EV1527 RF 송신 엔진으로 도어벨 입력 시 실내 무선 차임벨 자동 딩동 울림(30-50m 도달). 2) 시판 학습형 차임벨 페어링 및 GPIO 13을 통한 기존 리모컨 코드 학습/복제 양방향 지원. 3) /doorbell 웹에 RF 설정, 랜덤 코드 생성, 테스트 송신, 학습 모달 추가. 4) USER_GUIDE.html 13장 추가."
+    }
+  },
+  {
+    "version": "v1.0.080",
+    "date": "2026-09-16",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Tinh chỉnh nội dung thông báo Telegram & Gmail: Chuẩn hóa tiêu đề và nội dung cảnh báo ngắn gọn, bỏ câu 'phát hiện người trước camera'.",
     "details": {
@@ -670,7 +721,6 @@
   {
     "version": "v1.0.041",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.041 - Bổ Sung Tùy Chọn Nguồn Phát Hiện Chuyển Động: Xử Lý Hình Ảnh Hoặc Cảm Biến Ngoài GPIO 3 (/sd)",
@@ -714,7 +764,6 @@
   {
     "version": "v1.0.040",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.040 - Bản Địa Hóa Đa Ngôn Ngữ Trực Tiếp Cho Bộ Chọn Độ Phân Giải FPV Cockpit (/car)",
@@ -758,7 +807,6 @@
   {
     "version": "v1.0.039",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.039 - Tích Hợp Menu Chọn Nhanh Độ Phân Giải Camera Trực Tiếp Trên Top HUD Buồng Lái FPV (/car)",
@@ -802,7 +850,6 @@
   {
     "version": "v1.0.038",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.038 - Tích Hợp Mô Hình AI Nhận Diện Khuôn Mặt Thời Gian Thực BlazeFace & Khung Neon Tactical Face HUD",
@@ -850,7 +897,6 @@
   {
     "version": "v1.0.037",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.037 - Tối Ưu Hóa Bộ Nhận Diện Người AI, Dual-Mode CORS Stream & Tự Động Bù Trừ Tỷ Lệ Khung Hình HUD",
@@ -894,7 +940,6 @@
   {
     "version": "v1.0.036",
     "date": "2026-09",
-    "tag": "Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.036 - Tích Hợp AI Nhận Diện Người Thời Gian Thực Trên Web SD Gallery (Client-side TensorFlow.js COCO-SSD)",
@@ -938,7 +983,6 @@
   {
     "version": "v1.0.035",
     "date": "2026-09",
-    "tag": "",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.035 - Chuẩn Hóa Đường Dẫn Luồng Video Trực Tiếp (HTTP MJPEG Stream Port 81 & Snapshot)",
@@ -978,7 +1022,6 @@
   {
     "version": "v1.0.034",
     "date": "2026-09",
-    "tag": "",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.034 - Bộ Chọn Chế Độ Phần Cứng GPIO (SD Gallery vs Xe Robot) & Tự Động Khóa Nút Điều Khiển Khi Sai Mode",
@@ -1026,7 +1069,6 @@
   {
     "version": "v1.0.033",
     "date": "2026-09",
-    "tag": "",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.033 - Nâng Cao 10% Cụm Điều Khiển Xe Ở Chế Độ Xoay Ngang & Chống Che Khuất Mép Màn Hình",
@@ -1066,7 +1108,6 @@
   {
     "version": "v1.0.032",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.032 - Tái Thiết Kế Giao Diện FPV Cockpit Công Thái Học Đa Thiết Bị (Mobile & Tablet) Với Cụm D-Pad Bên Trái",
@@ -1110,7 +1151,6 @@
   {
     "version": "v1.0.029",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.029 - Ra Mắt Module Điều Khiển Xe Robot Car FPV Cockpit Độc Lập & Driver PWM Đa Kênh",
@@ -1154,7 +1194,6 @@
   {
     "version": "v1.0.028",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.028 - Cơ Chế Đồng Bộ Tuần Tự Chống Nghẽn Socket & Khắc Phục Hiện Tượng Xoay Tải Trang",
@@ -1194,7 +1233,6 @@
   {
     "version": "v1.0.027",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.027 - Thuật Toán Thích Ứng Năng Lượng & Bộ Lọc Sàn Nhiễu (Triệt tiêu 100% Báo động giả khi đậy nắp/bóng tối)",
@@ -1234,7 +1272,6 @@
   {
     "version": "v1.0.026",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.026 - Thuật toán Phát Hiện Chuyển Động Ma Trận SAD Siêu Tốc & Giám Sát HUD Trực Tiếp",
@@ -1274,7 +1311,6 @@
   {
     "version": "v1.0.025",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.025 - Chuẩn Hóa Ghi Hình Chuyển Động Cam Kết Đủ Clip & Nối Tiếp Liền Mạch",
@@ -1314,7 +1350,6 @@
   {
     "version": "v1.0.024",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.024 - Nâng cấp Trình phát Video Thẻ nhớ On-Demand & Chống Treo Toàn diện",
@@ -1354,7 +1389,6 @@
   {
     "version": "v1.0.023",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.023 - Động cơ Nhận diện Chuyển động Biến thiên JPEG Độc lập (Triệt tiêu 100% Báo động Giả)",
@@ -1394,7 +1428,6 @@
   {
     "version": "v1.0.022",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.022.bin",
     "title": {
       "vi": "Phát hành v1.0.022 - Hiển thị Phiên bản Firmware trên Giao diện Web SD Gallery",
@@ -1434,7 +1467,6 @@
   {
     "version": "v1.0.021",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.021.bin",
     "title": {
       "vi": "Phát hành v1.0.021 - Động cơ Phát hiện Chuyển động Mật độ Năng lượng Phân vùng (Spatial Chunk Energy)",
@@ -1474,7 +1506,6 @@
   {
     "version": "v1.0.020",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.020.bin",
     "title": {
       "vi": "Phát hành v1.0.020 - Cơ chế Tự động Hủy File Rác Video Hướng Sự Kiện (Event-Driven)",
@@ -1514,7 +1545,6 @@
   {
     "version": "v1.0.019",
     "date": "2026-09",
-    "tag": "Previous Stable",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.019.bin",
     "title": {
       "vi": "Phát hành v1.0.019 - Động cơ Ghi hình Chống Phân mảnh & Lọc nhiễu Chuyển động Kép",
@@ -1558,7 +1588,6 @@
   {
     "version": "v1.0.018",
     "date": "2026-09",
-    "tag": "Previous Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.018.bin",
     "title": {
       "vi": "Phát hành v1.0.018 - Sửa lỗi Video 1 Frame & Tối ưu hóa Trạng thái Thẻ nhớ",
@@ -1602,7 +1631,6 @@
   {
     "version": "v1.0.017",
     "date": "2026-09",
-    "tag": "Previous Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash_v1.0.017.bin",
     "title": {
       "vi": "Phát hành v1.0.017 - Chuẩn hóa tên file Video VID_ddmmyyyy_hhmmss & Đồng bộ giờ SNTP",
@@ -1646,7 +1674,6 @@
   {
     "version": "v1.0.016",
     "date": "2026-09",
-    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.016 - Cơ chế chống kẹt luồng Stream 2 tầng (Preemption Guard) khi Back trình duyệt",
@@ -1686,7 +1713,6 @@
   {
     "version": "v1.0.015",
     "date": "2026-09",
-    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.015 - Xem lại Video AVI Canvas trên Web & Ghi hình chuyển động 3 phút liên tục",
@@ -1730,7 +1756,6 @@
   {
     "version": "v1.0.014",
     "date": "2026-09",
-    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.014 - Sửa lỗi treo board khi Format thẻ nhớ & Cơ chế xóa an toàn",
@@ -1774,7 +1799,6 @@
   {
     "version": "v1.0.013",
     "date": "2026-09",
-    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.013 - Sửa lỗi File AVI, Thống kê dung lượng video chính xác & Web Video Player",
@@ -1822,7 +1846,6 @@
   {
     "version": "v1.0.012",
     "date": "2026-09",
-    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.012 - Màn hình xem Camera Trực tiếp & Giám sát Chuyển động trên /sd",
@@ -1866,7 +1889,6 @@
   {
     "version": "v1.0.011",
     "date": "2026-09",
-    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.011 - Khắc phục triệt để Đèn Flash nhấp nháy khi ghi Thẻ Nhớ",
@@ -1906,7 +1928,6 @@
   {
     "version": "v1.0.010",
     "date": "2026-09",
-    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.010 - Nâng cấp nhận diện Thẻ nhớ MicroSD & Quét lại tức thời",
@@ -1950,7 +1971,6 @@
   {
     "version": "v1.0.009",
     "date": "2026-09",
-    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Phát hành v1.0.009 - Ghi Video Thẻ Nhớ MicroSD khi có chuyển động & SD Gallery",
@@ -1998,7 +2018,6 @@
   {
     "version": "v1.0.0",
     "date": "2026-09",
-    "tag": "Release",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "title": {
       "vi": "Bản phát hành chính thức - Đa cảm biến & Hybrid OTA",
