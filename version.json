@@ -1,7 +1,7 @@
 {
-  "version": "1.0.087",
+  "version": "1.0.088",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Thêm cơ chế chống đầy thẻ tự động FIFO Loop Recording (ngưỡng 5% dung lượng thẻ) và checkbox cấu hình trên Web SD Gallery",
+  "description": "Tối ưu giao diện Dashboard: Đưa khối Luồng Video & Chụp Ảnh lên vị trí đầu tiên ngay sau thanh tiêu đề",
   "release_date": "2026-09-16",
   "mandatory": false
 }

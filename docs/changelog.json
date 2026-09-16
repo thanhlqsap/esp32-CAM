@@ -1,5 +1,72 @@
 [
   {
+    "version": "1.0.088",
+    "date": "2026-09-16",
+    "title": {
+      "vi": "Tối ưu Bố cục Dashboard: Chuyển khối Luồng Video & Chụp Ảnh lên đầu trang Giám sát",
+      "en": "Dashboard Layout Optimization: Moved Video Stream & Snapshot to top of Monitor tab",
+      "ja": "ダッシュボードレイアウト最適化：ライブ映像＆スナップショットを最上部に配置",
+      "zh": "监控面板布局优化：将实时视频流与抓拍卡片置于监控页首位",
+      "fr": "Optimisation du Tableau de Bord : Flux vidéo et capture en tête de page",
+      "de": "Dashboard-Optimierung: Videostream & Schnappschuss an den Anfang verschoben",
+      "es": "Optimización del Dashboard: Bloque de vídeo y captura en la parte superior",
+      "ru": "Оптимизация интерфейса: Видеотрансляция и снимки перемещены наверх панели",
+      "ko": "대시보드 레이아웃 최적화: 비디오 스트림 & 스냅샷 카드를 모니터링 최상단으로 이동"
+    },
+    "highlights": [
+      {
+        "vi": "Tối ưu trải nghiệm trực quan: Khối 'Luồng Video & Chụp Ảnh' hiện được đặt ngay dưới tiêu đề ESP32-CAM và thanh điều hướng, giúp người dùng quan sát luồng camera tức thì ngay khi mở Dashboard.",
+        "en": "Enhanced Visual Layout: Placed 'Camera Video & Snapshot' card directly beneath the ESP32-CAM header and navigation tabs for immediate live stream viewing upon opening the Dashboard.",
+        "ja": "UX向上：ダッシュボードを開いた際、ヘッダー直下に「カメラ映像＆スナップ」を表示し、即座にライブ映像を確認できるよう改善。",
+        "zh": "优化交互体验：将“实时视频与抓拍”卡片置于顶部导航栏下方，进入监控面板即可直接观察画面。",
+        "fr": "Expérience utilisateur améliorée : Le bloc de prévisualisation vidéo est désormais affiché en haut de la page pour une visualisation directe.",
+        "de": "Verbesserte Benutzererfahrung: Die Videovorschau befindet sich nun direkt unterhalb der Kopfzeile für sofortigen Zugriff.",
+        "es": "Mejora de interfaz: El bloque de transmisión de vídeo se ubica ahora en la parte superior del panel principal.",
+        "ru": "Улучшенный интерфейс: Блок видеотрансляции теперь расположен в самом верху для мгновенного просмотра.",
+        "ko": "사용자 경험 개선: 대시보드 진입 시 즉시 카메라 화면을 확인할 수 있도록 비디오 스트림 카드를 최상단에 배치."
+      }
+    ]
+  },
+  {
+    "version": "1.0.087",
+    "date": "2026-09-16",
+    "title": {
+      "vi": "Cơ chế Chống đầy thẻ nhớ tự động (FIFO Loop Recording) & Checkbox Web SD Gallery",
+      "en": "FIFO Auto-Loop Storage Cleanup & Web SD Gallery Overwrite Checkbox",
+      "ja": "容量不足時のFIFO自動上書き録画機能＆SDギャラリー設定チェックボックス追加",
+      "zh": "MicroSD 存储卡满 FIFO 自动循环覆盖机制 & SD 图库配置复选框",
+      "fr": "Nettoyage automatique FIFO & Case à cocher de réécriture sur la galerie SD",
+      "de": "Automatisches FIFO-Überschreiben bei vollem Speicher & Web-Checkbox",
+      "es": "Mecanismo de sobrescritura automática FIFO y casilla en galería SD",
+      "ru": "Циклическая перезапись FIFO при заполнении карты и чекбокс в SD-галерее",
+      "ko": "SD 카드 용량 부족 시 FIFO 자동 덮어쓰기 기능 및 SD 갤러리 설정 체크박스 추가"
+    },
+    "highlights": [
+      {
+        "vi": "Chống đầy thẻ nhớ FIFO: Tự động phát hiện khi dung lượng trống dưới 5% tổng thẻ và tuần tự xóa các video cũ nhất để giải phóng không gian an toàn (>= 10% hoặc 150MB).",
+        "en": "FIFO Auto-Cleanup: Automatically triggers when free space falls below 5% of total capacity, deleting oldest videos to reach safe target (>= 10% or 150MB).",
+        "ja": "FIFO自動削除：空き容量が全体の5%未満になると、古い動画から順に自動削除して安全な空き容量（10%以上または150MB）を確保します。",
+        "zh": "FIFO 自动循环清理：当存储卡可用空间低于 5% 时，系统自动按时间排序并删除最旧的录像文件，恢复安全存储空间（>= 10% 或 150MB）。",
+        "fr": "Nettoyage FIFO automatique : Détecte un espace libre < 5% et supprime les vidéos les plus anciennes pour atteindre un seuil sûr (>= 10% ou 150 Mo).",
+        "de": "Automatisches FIFO-Bereinigen: Erkennt freien Speicher < 5% und löscht älteste Videos, um sicheren Zielspeicher (>= 10% oder 150MB) zu erreichen.",
+        "es": "Limpieza FIFO automática: Detecta espacio libre < 5% y elimina los vídeos más antiguos hasta alcanzar un objetivo seguro (>= 10% o 150MB).",
+        "ru": "Авто-очистка FIFO: Срабатывает при свободном месте < 5%, последовательно удаляя старые видео до безопасного объема (>= 10% или 150МБ).",
+        "ko": "FIFO 자동 용량 정리: 여유 공간이 전체의 5% 미만으로 떨어지면 오래된 비디오부터 순차적으로 삭제하여 안전 용량(10% 이상 또는 150MB)을 확보합니다."
+      },
+      {
+        "vi": "Checkbox cấu hình Web: Bổ sung tùy chọn 'Ghi đè tự động khi đầy thẻ (FIFO)' trên giao diện SD Gallery và lưu vĩnh viễn vào NVS Flash.",
+        "en": "Web UI Checkbox: Added 'Auto-overwrite when full (FIFO)' switch in SD Gallery settings, permanently stored in NVS Flash.",
+        "ja": "Web設定チェックボックス：SDギャラリーに「容量不足時の自動上書き (FIFO)」切り替えスイッチを追加し、NVS Flashへ永続保存。",
+        "zh": "Web 交互开关：在 SD 媒体库中新增“存储卡满自动覆盖 (FIFO循环)”开关，配置永久保存至 NVS Flash 闪存。",
+        "fr": "Option Web UI : Ajout de l'interrupteur 'Écriture cyclique auto (FIFO)' dans la galerie SD, sauvegardé dans la mémoire Flash NVS.",
+        "de": "Web-Checkbox: Schalter 'Automatisches Überschreiben (FIFO)' in der SD-Galerie hinzugefügt, dauerhaft im NVS Flash gespeichert.",
+        "es": "Casilla Web: Se añadió el interruptor 'Sobrescritura automática (FIFO)' en la galería SD, guardado permanentemente en NVS Flash.",
+        "ru": "Чекбокс в Web UI: Добавлен переключатель 'Циклическая перезапись (FIFO)' в SD-галерее с сохранением в NVS Flash.",
+        "ko": "웹 UI 체크박스: SD 갤러리 설정에 '용량 부족 시 자동 덮어쓰기 (FIFO)' 토글 스위치를 추가하고 NVS Flash에 영구 저장."
+      }
+    ]
+  },
+  {
     "version": "1.0.086",
     "date": "2026-09-16",
     "title": {
@@ -147,7 +214,7 @@
       "zh": "优化 Telegram Bot 与 Gmail SMTP 抓拍报警正文：1) 去除 Telegram 和邮件中冗余的“摄像头前检测到人员活动”标题行。2) 标准化报警格式为：时间、详情（PIR GPIO 3 / 图像处理 / 门铃）及设备 IP。3) 将 Gmail 邮件主题更新为“[ESP32-CAM] Canh Bao Chuyen Dong”。",
       "fr": "Ajustement des notifications Telegram Bot et Gmail SMTP : suppression de la ligne d'en-tête 'Personne détectée devant la caméra', standardisation du format d'alerte (Heure, Détails, IP de l'appareil) et mise à jour de l'objet de l'e-mail Gmail.",
       "de": "Anpassung der Benachrichtigungen über Telegram Bot und Gmail SMTP: Entfernen der Kopfzeile 'Person vor der Kamera erkannt', Standardisierung des Alarmformats (Zeit, Details, Geräte-IP) und Aktualisierung der Gmail-Betreffzeile.",
-      "es": "Ajuste de las notificaciones de Telegram Bot và Gmail SMTP: Eliminación de la línea de encabezado 'Persona detectada frente a la cámara', estandarización del formato de alerta (Hora, Detalles, IP del dispositivo) y actualización del asunto del correo de Gmail.",
+      "es": "Ajuste de las notificaciones de Telegram Bot y Gmail SMTP: Eliminación de la línea de encabezado 'Persona detectada frente a la cámara', estandarización del formato de alerta (Hora, Detalles, IP del dispositivo) y actualización del asunto del correo de Gmail.",
       "ru": "Настройка уведомлений Telegram Bot и Gmail SMTP: удалена строка заголовка 'Обнаружен человек перед камерой', стандартизирован формат оповещений (Время, Детали, IP устройства) и обновлена тема письма Gmail.",
       "ko": "Telegram Bot 및 Gmail SMTP 알림 내용 정제: 1) Telegram 및 이메일 알림에서 '카메라 앞에서 사람이 감지되었습니다' 제목 줄 제거. 2) 시간, 상세 내용(PIR GPIO 3 / 이미지 분석 / 초인종), 기기 IP의 간결한 포맷으로 표준화. 3) Gmail 제목을 '[ESP32-CAM] Canh Bao Chuyen Dong'으로 업데이트."
     }
