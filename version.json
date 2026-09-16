@@ -1,9 +1,7 @@
 {
   "version": "1.0.086",
-  "release_date": "2026-09-16",
-  "min_bootloader_version": "1.0.0",
-  "firmware_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
-  "mandatory": false,
+  "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "description": "Đặt mặc định tất cả phần cứng ngoại vi sang OFF khi cài mới firmware, di chuyển cụm cấu hình Telegram Bot & Gmail SMTP vào tab Cấu hình Camera của Dashboard",
-  "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
+  "release_date": "2026-09-16",
+  "mandatory": false
 }
