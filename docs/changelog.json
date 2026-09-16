@@ -1,8 +1,25 @@
 [
   {
-    "version": "v1.0.084",
+    "version": "v1.0.085",
     "date": "2026-09-16",
     "tag": "Latest Release",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
+    "description": "Đồng bộ cảnh báo an toàn chân GPIO trên Modal xác thực Admin: Tích hợp đầy đủ khối cảnh báo phân tích nguy cơ xung đột GPIO 12, 13, 14, 15 và quá dòng vào Modal xác thực quản trị viên khi chuyển đổi chế độ phần cứng.",
+    "details": {
+      "vi": "Đồng bộ toàn diện cảnh báo an toàn phần cứng khi chuyển đổi chế độ: 1) Tích hợp khối cảnh báo chi tiết các chân GPIO 12, 13, 14, 15 dùng chung giữa Thẻ nhớ MicroSD, Động cơ Xe Robot (L298N) và Chuông cửa Video vào Modal Xác Thực Admin (hwModeAuthModal) trên Dashboard chính. 2) Cảnh báo rõ ràng nguy cơ xung đột logic/PWM/quá dòng và hướng dẫn kiểm tra sơ đồ chân trước khi xác nhận nhập mật khẩu Admin. 3) Hỗ trợ đầy đủ 9 ngôn ngữ toàn cầu (vi, en, ja, zh, fr, de, es, ru, ko).",
+      "en": "Unified GPIO Hardware Safety Warnings in Admin Auth Modal: 1) Integrated comprehensive GPIO 12, 13, 14, 15 pin sharing warning (MicroSD, Robot Car L298N motors, and Smart Doorbell) into the Admin Authentication modal (hwModeAuthModal) on the Main Dashboard. 2) Explicit warnings regarding logic/PWM conflict risks and overcurrent before entering Admin credentials. 3) Full 9-language i18n support.",
+      "ja": "管理者認証モーダルにGPIO安全警告を統合：1）メインダッシュボードの管理者認証モーダル（hwModeAuthModal）に、MicroSD、ロボットカー（L298N）、ドアホンで共有されるGPIO 12, 13, 14, 15ピンの安全警告ブロックを完全統合。2）管理者パスワード入力前にピンの信号衝突や過電流リスクを明確に警告。3）9言語に完全対応。",
+      "zh": "在管理员身份验证弹窗中全面同步 GPIO 引脚安全警告：1) 将 MicroSD卡、遥控小车电机驱动 (L298N) 与可视门铃共用的 GPIO 12, 13, 14, 15 硬件安全警告完整集成至主仪表板的管理员认证弹窗 (hwModeAuthModal)。2) 在输入管理员密码前清晰提示引脚逻辑冲突与过流短路风险。3) 完备支持 9 国语言。",
+      "fr": "Avertissements de sécurité GPIO unifiés dans le modal d'authentification Admin : 1) Intégration de l'avertissement complet sur les broches GPIO 12, 13, 14, 15 (MicroSD, Moteurs L298N et Sonnette) dans le modal d'authentification Admin. 2) Avertissement clair sur les risques de conflit avant saisie du mot de passe. 3) Support complet de 9 langues.",
+      "de": "Vollständige GPIO-Sicherheitswarnungen im Admin-Auth-Modal integriert: 1) Umfassende Warnung bezüglich der gemeinsamen GPIO-Pins 12, 13, 14, 15 (MicroSD, L298N-Motoren, Türklingel) im Admin-Authentifizierungs-Modal eingebunden. 2) Deutliche Warnung vor Signal- und Überstromrisiken vor Passworteingabe. 3) Volle 9-Sprachen-Unterstützung.",
+      "es": "Advertencias de seguridad GPIO unificadas en el modal de autenticación de Admin: 1) Integración completa del aviso sobre los pines GPIO 12, 13, 14, 15 (MicroSD, Motores L298N y Timbre) en el modal de autenticación Admin. 2) Advertencia explícita sobre riesgos de conflicto y sobrecorriente antes de ingresar credenciales. 3) Soporte para 9 idiomas.",
+      "ru": "Интеграция предупреждений о безопасности GPIO в окно авторизации Admin: 1) Полный блок предупреждения о совместном использовании GPIO 12, 13, 14, 15 (MicroSD, моторы L298N, домофон) добавлен в окно авторизации Admin. 2) Четкое предупреждение о рисках конфликтов сигналов и перегрузки по току. 3) Поддержка 9 языков.",
+      "ko": "관리자 인증 모달에 GPIO 하드웨어 안전 경고 통합: 1) 메인 대시보드의 관리자 인증 모달(hwModeAuthModal)에 MicroSD, 로봇 모터(L298N), 도어벨이 공유하는 GPIO 12, 13, 14, 15 핀 안전 경고 블록을 완벽 통합. 2) 관리자 비밀번호 입력 전 핀 충돌 및 과전류 위험을 명확히 고지. 3) 9개 다국어 지원."
+    }
+  },
+  {
+    "version": "v1.0.084",
+    "date": "2026-09-16",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin",
     "description": "Tối ưu hóa tải trang & giải phóng WebServer: Chuyển hướng endpoint /stream sang Port 81 độc lập (Core 0), loại bỏ triệt để nghẽn blocking Port 80, tự động giải phóng stream MJPEG khi chuyển trang và tối ưu hóa tải trang cực nhanh.",
     "details": {

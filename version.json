@@ -1,7 +1,7 @@
 {
-  "version": "1.0.084",
+  "version": "1.0.085",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa tải trang & giải phóng WebServer: Chuyển hướng endpoint /stream sang Port 81 độc lập (Core 0), loại bỏ triệt để nghẽn blocking Port 80, giải phóng stream MJPEG khi chuyển trang và tối ưu hóa tải trang cực nhanh.",
+  "description": "Đồng bộ cảnh báo an toàn chân GPIO trên Modal xác thực Admin: Tích hợp đầy đủ khối cảnh báo phân tích nguy cơ xung đột GPIO 12, 13, 14, 15 và quá dòng vào Modal xác thực quản trị viên khi chuyển đổi chế độ phần cứng.",
   "release_date": "2026-09-16",
   "mandatory": false
 }
