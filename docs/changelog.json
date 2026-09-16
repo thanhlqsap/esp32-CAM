@@ -1,5 +1,55 @@
 [
   {
+    "version": "1.0.086",
+    "date": "2026-09-16",
+    "title": {
+      "vi": "Mặc định phần cứng OFF khi cài mới & Di chuyển cấu hình Alert vào Dashboard",
+      "en": "Default Hardware OFF on Fresh Install & Relocate Alert Config to Dashboard",
+      "ja": "新規インストール時のハードウェア初期OFF設定＆通知設定をダッシュボードへ統合",
+      "zh": "新装固件默认关闭全部外设硬件 & 统一转移告警配置至控制台",
+      "fr": "Matériel désactivé par défaut à l'installation & Déplacement de la config d'alerte vers le Dashboard",
+      "de": "Standardmäßige Hardware-Deaktivierung bei Neuinstallation & Verlagerung der Alarmkonfiguration ins Dashboard",
+      "es": "Hardware desactivado por defecto en instalación limpia y reubicación de configuración de alertas al Dashboard",
+      "ru": "Отключение периферии по умолчанию при чистой установке и перенос настроек оповещений в Дашборд",
+      "ko": "새 펌웨어 설치 시 하드웨어 기본 OFF 설정 및 알림 설정을 대시보드로 이동"
+    },
+    "highlights": [
+      {
+        "vi": "An toàn phần cứng: Đặt mặc định trạng thái Motion Detection, RF 433MHz, Flash chuông và Notifier sang OFF khi mới nạp firmware.",
+        "en": "Hardware Safety: Defaulted Motion Detection, RF 433MHz, Ring Flash, and Notifier to OFF on fresh firmware installs.",
+        "ja": "ハードウェアの安全性：ファームウェア初期書き込み時、動体検知・RF 433MHz・フラッシュ・通知の初期状態をOFFに設定。",
+        "zh": "硬件安全防护：全新刷入固件后，移动侦测、RF 433MHz、按铃闪光灯及抓拍告警推送默认全部保持关闭 (OFF)。",
+        "fr": "Sécurité matérielle : Détection de mouvement, RF 433MHz, Flash et Notifier désactivés par défaut lors d'une nouvelle installation.",
+        "de": "Hardware-Sicherheit: Bewegungserkennung, RF 433MHz, Klingel-Blitz und Benachrichtigungen bei Neuinstallation standardmäßig auf AUS gesetzt.",
+        "es": "Seguridad de hardware: Detección de movimiento, RF 433MHz, Flash de timbre y Notificador configurados en OFF por defecto al instalar.",
+        "ru": "Аппаратная безопасность: Детекция движения, RF 433МГц, вспышка звонка и оповещения по умолчанию выключены (OFF) при чистой прошивке.",
+        "ko": "하드웨어 안전성 강화: 새 펌웨어 설치 시 모션 감지, RF 433MHz, 도어벨 플래시, 알림 기능을 기본 OFF 상태로 설정."
+      },
+      {
+        "vi": "Di chuyển cấu hình Cảnh Báo: Đưa khối cấu hình Telegram Bot và Gmail SMTP từ SD Gallery sang Tab 'Cấu hình Camera' của Dashboard, hỗ trợ test gửi ảnh tức thời và đa ngôn ngữ 9 thứ tiếng.",
+        "en": "Relocated Alert Configuration: Moved Telegram Bot & Gmail SMTP config from SD Gallery to Camera Settings tab on Dashboard with instant test sending and full 9-language i18n.",
+        "ja": "通知設定の移動：Telegram BotおよびGmail SMTPの詳細設定をSDギャラリーからダッシュボードの「カメラ設定」タブへ移設、即時テスト送信と9言語に対応。",
+        "zh": "告警配置迁移：将 Telegram 机器人和 Gmail SMTP 详细配置从 SD 图库转移至控制台“摄像头设置”标签页，支持即时测试推送与 9 国语言。",
+        "fr": "Déplacement de la configuration d'alerte : Migration de la config Telegram Bot et Gmail SMTP de la galerie SD vers l'onglet Paramètres Caméra du Dashboard avec test immédiat.",
+        "de": "Alarmkonfiguration verlagert: Telegram Bot- & Gmail SMTP-Einstellungen von der SD-Galerie in den Reiter Kameraeinstellungen des Dashboards verschoben, inklusive Sofort-Testversand.",
+        "es": "Reubicación de configuración de alertas: Se trasladó la configuración de Telegram Bot y Gmail SMTP de la galería SD a la pestaña Ajustes de Cámara del Dashboard.",
+        "ru": "Перенос настроек оповещений: Настройки Telegram-бота и Gmail SMTP перенесены из SD-галереи во вкладку «Настройки камеры» Дашборда с функцией мгновенного тестирования.",
+        "ko": "알림 설정 이동: SD 갤러리에 있던 Telegram 봇 및 Gmail SMTP 상세 설정을 대시보드의 '카메라 설정' 탭으로 이동하고 즉시 테스트 전송 및 9개 다국어 완벽 지원."
+      },
+      {
+        "vi": "Rút gọn SD Gallery: Chuyển đổi khối cảnh báo tại trang Quản lý Video thành 1 Switch bật/tắt nhanh kèm liên kết trực tiếp sang Dashboard.",
+        "en": "Simplified SD Gallery: Streamlined alert section in Video Gallery to a quick toggle switch with direct link to Dashboard.",
+        "ja": "SDギャラリーの簡素化：動画管理ページの通知エリアをダッシュボードへの直接リンク付きクイックトグルスイッチに簡素化。",
+        "zh": "精简 SD 视频管理页：将图库页面的告警卡片简化为快捷启停开关，并提供直达控制台的快捷链接。",
+        "fr": "Galerie SD simplifiée : Remplacement de la section d'alerte dans la galerie vidéo par un interrupteur rapide avec lien direct vers le Dashboard.",
+        "de": "Vereinfachte SD-Galerie: Alarmbereich in der Videogalerie auf einen schnellen Kippschalter mit direktem Link zum Dashboard reduziert.",
+        "es": "Galería SD simplificada: Se redujo la sección de alertas en la galería de videos a un interruptor rápido con enlace directo al Dashboard.",
+        "ru": "Упрощение SD-галереи: Блок оповещений на странице видеогалереи заменен на быстрый переключатель с прямой ссылкой на Дашборд.",
+        "ko": "SD 갤러리 경량화: 비디오 관리 페이지의 알림 영역을 대시보드 바로가기 링크가 포함된 간편 토글 스위치로 간소화."
+      }
+    ]
+  },
+  {
     "version": "v1.0.085",
     "date": "2026-09-16",
     "tag": "Latest Release",
