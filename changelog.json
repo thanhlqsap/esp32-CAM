@@ -1,5 +1,34 @@
 [
   {
+    "version": "1.0.091",
+    "date": "2026-09-17",
+    "title": {
+      "vi": "Tối ưu hóa chuyển hướng Trang Khởi Động Mặc Định cho cả 3 chế độ & chống cache trình duyệt",
+      "en": "Optimize Default Landing Page redirection for all 3 modes & prevent browser caching",
+      "ja": "全3モードのデフォルト起動ページ転送最適化＆ブラウザキャッシュ防止",
+      "zh": "优化所有3种模式的默认启动页重定向机制并防止浏览器缓存",
+      "fr": "Optimisation de la redirection de page par défaut pour les 3 modes et anti-cache navigateur",
+      "de": "Optimierung der Standard-Startseitenweiterleitung für alle 3 Modi & Browser-Cache-Schutz",
+      "es": "Optimización de redirección de página predeterminada para los 3 modos y prevención de caché",
+      "ru": "Оптимизация перенаправления на страницу по умолчанию для всех 3 режимов и защита от кэширования",
+      "ko": "3가지 모드 전체에 대한 기본 시작 페이지 리디렉션 최적화 및 브라우저 캐시 방지"
+    },
+    "highlights": [
+      {
+        "vi": "Bổ sung chuyển hướng sang /sd khi bật trang mặc định ở chế độ Thẻ nhớ; gửi kèm headers Cache-Control: no-store trên route / để đảm bảo trình duyệt luôn nhận diện chính xác trạng thái BẬT/TẮT công tắc.",
+        "en": "Added /sd redirect when default landing page is ON in SD mode; included Cache-Control: no-store headers on / route to ensure browser instantly detects ON/OFF toggle states.",
+        "ja": "SDカードモードでデフォルト起動ページが有効な場合に /sd への転送を追加。/ ルートに Cache-Control ヘッダーを付与してキャッシュを防止。",
+        "zh": "在SD卡模式下开启默认主页时新增跳转至 /sd；在 / 路由增加 Cache-Control 响应头确保浏览器即时生效。",
+        "fr": "Ajout de la redirection vers /sd en mode SD ; en-têtes Cache-Control: no-store sur la route /.",
+        "de": "Weiterleitung zu /sd im SD-Modus hinzugefügt; Cache-Control: no-store-Header auf der /-Route.",
+        "es": "Añadida redirección a /sd en modo SD; cabeceras Cache-Control: no-store en la ruta /.",
+        "ru": "Добавлено перенаправление на /sd в режиме SD; заголовки Cache-Control: no-store на маршруте /.",
+        "ko": "SD 모드에서 기본 페이지 활성화 시 /sd로 리디렉션 추가 및 / 라우트에 Cache-Control 헤더 추가."
+      }
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
+  },
+  {
     "version": "1.0.090",
     "date": "2026-09-17",
     "title": {
