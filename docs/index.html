@@ -8,13 +8,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <script src="https://unpkg.com/esptool-js@0.5.4/bundle.js"></script>
+  <!-- Thư viện ESPTool Web Serial Flasher Cục bộ (Độc lập 100% không phụ thuộc CDN ngoài) -->
+  <script src="esptool-bundle.js"></script>
   <script>
     if (typeof ESPLoader === 'undefined' && (typeof esptooljs === 'undefined' || !esptooljs.ESPLoader)) {
-      const cdn = document.createElement('script');
-      cdn.src = 'https://unpkg.com/esptool-js@0.5.4/bundle.js';
-      document.head.appendChild(cdn);
+      const cdn1 = document.createElement('script');
+      cdn1.src = './esptool-bundle.js';
+      document.head.appendChild(cdn1);
+
+      const cdn2 = document.createElement('script');
+      cdn2.src = 'https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/docs/esptool-bundle.js';
+      document.head.appendChild(cdn2);
     }
   </script>
 
@@ -1172,6 +1176,27 @@
         }
 
         // Step 2: Request Port & Connect
+        if ((!window.ESPLoader || !window.Transport) && (!window.esptooljs || !window.esptooljs.ESPLoader)) {
+          log('⏳ Đang nạp thư viện flash esptool-bundle.js...');
+          const candidateUrls = [
+            'esptool-bundle.js',
+            './esptool-bundle.js',
+            'https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/docs/esptool-bundle.js'
+          ];
+          for (const sUrl of candidateUrls) {
+            try {
+              await new Promise((resolve, reject) => {
+                const s = document.createElement('script');
+                s.src = sUrl;
+                s.onload = () => resolve();
+                s.onerror = () => reject();
+                document.head.appendChild(s);
+              });
+              if (window.ESPLoader || (window.esptooljs && window.esptooljs.ESPLoader)) break;
+            } catch (e) {}
+          }
+        }
+
         const ESPLoaderClass = window.ESPLoader || (window.esptooljs && window.esptooljs.ESPLoader);
         const TransportClass = window.Transport || (window.esptooljs && window.esptooljs.Transport);
 
