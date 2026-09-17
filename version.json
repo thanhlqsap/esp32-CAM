@@ -1,7 +1,7 @@
 {
-  "version": "1.0.088",
+  "version": "1.0.090",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu giao diện Dashboard: Đưa khối Luồng Video & Chụp Ảnh lên vị trí đầu tiên ngay sau thanh tiêu đề",
-  "release_date": "2026-09-16",
+  "description": "Tùy chọn trang khởi động mặc định (Default Landing Page), sửa lỗi 404 Web Flasher & thêm progress bar Cloud OTA giai đoạn 4/4",
+  "release_date": "2026-09-17",
   "mandatory": false
 }

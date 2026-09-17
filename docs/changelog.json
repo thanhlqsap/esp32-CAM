@@ -1,5 +1,63 @@
 [
   {
+    "version": "1.0.090",
+    "date": "2026-09-17",
+    "title": {
+      "vi": "Tùy chọn trang khởi động mặc định (Default Landing Page), sửa lỗi 404 Web Flasher & thanh tiến trình Cloud OTA",
+      "en": "Default Landing Page option, fix Web Flasher 404 & visual Cloud OTA stage 4/4 progress bar",
+      "ja": "デフォルト起動ページ設定、Web Flasher 404修正＆Cloud OTA進捗バー追加",
+      "zh": "新增默认启动页选项、修复网页烧录器404及OTA阶段4进度条",
+      "fr": "Option de page de démarrage par défaut, correction 404 Web Flasher et barre de progression Cloud OTA",
+      "de": "Standard-Startseiten-Option, Web Flasher 404-Fix & Cloud OTA Fortschrittsbalken",
+      "es": "Opción de página de inicio predeterminada, corrección 404 Web Flasher y barra de progreso Cloud OTA",
+      "ru": "Опция страницы по умолчанию, исправление 404 Web Flasher и прогресс-бар Cloud OTA",
+      "ko": "기본 시작 페이지 옵션 추가, 웹 플래셔 404 오류 수정 및 Cloud OTA 진행률 표시줄 추가"
+    },
+    "highlights": [
+      {
+        "vi": "Bổ sung công tắc tùy chọn Trang Khởi Động Mặc Định (Default Landing Page) trong Cài đặt Dashboard; sửa triệt để lỗi 404 trên Web Flasher GitHub Pages; thêm thanh tiến trình % trực quan cho giai đoạn nạp flash 4/4 của Cloud Auto OTA.",
+        "en": "Added Default Landing Page toggle switch in Dashboard settings; resolved HTTP 404 on GitHub Pages Web Flasher; added dynamic visual percentage progress bar for Cloud Auto OTA flashing stage 4/4.",
+        "ja": "ダッシュボード設定にデフォルト起動ページ切り替えスイッチを追加。Web Flasherの404エラーを解消。Cloud OTAステージ4/4の進捗バーを追加。",
+        "zh": "在控制台新增默认启动主页配置开关；彻底修复GitHub Pages网页烧录器404错误；为Cloud Auto OTA第4阶段添加直观百分比进度条。",
+        "fr": "Ajout du commutateur de page de démarrage par défaut dans le Dashboard ; correction 404 Web Flasher ; barre de progression pour l étape 4/4 de Cloud OTA.",
+        "de": "Schalter für Standard-Startseite im Dashboard hinzugefügt; 404-Fehler im Web Flasher behoben; visueller Fortschrittsbalken für Cloud OTA Stufe 4/4.",
+        "es": "Interruptor de página de inicio en Dashboard; corrección 404 en Web Flasher; barra de progreso para la fase 4/4 de Cloud OTA.",
+        "ru": "Добавлен переключатель страницы по умолчанию в Dashboard; устранены ошибки 404 в Web Flasher; добавлен прогресс-бар для этапа 4/4 Cloud OTA.",
+        "ko": "대시보드 설정에 기본 시작 페이지 토글 스위치 추가, 웹 플래셔 404 오류 해결, Cloud OTA 4단계 진행률 표시줄 추가."
+      }
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
+  },
+  {
+    "version": "1.0.089",
+    "date": "2026-09-17",
+    "title": {
+      "vi": "Thêm nút quay về Dashboard cho giao diện Xe FPV & tinh gọn thanh điều hướng Chuông cửa",
+      "en": "Add Return to Dashboard button for Car FPV & streamline Doorbell navigation",
+      "ja": "FPVロボットカーにダッシュボード復帰ボタンを追加＆ドアベルナビゲーションを最適化",
+      "zh": "为FPV小车界面新增返回控制台按钮并精简门铃导航栏",
+      "fr": "Ajout du bouton Retour au tableau de bord pour la voiture FPV et simplification de la navigation Sonnette",
+      "de": "Dashboard-Rückkehr-Button für FPV-Auto hinzugefügt & Türklingel-Navigation bereinigt",
+      "es": "Botón para volver al Dashboard en coche FPV y navegación simplificada en timbre",
+      "ru": "Добавлена кнопка возврата на панель в режиме робокара и оптимизирована навигация дверного звонка",
+      "ko": "FPV 로봇카 대시보드 복귀 버튼 추가 및 도어벨 내비게이션 최적화"
+    },
+    "highlights": [
+      {
+        "vi": "Tích hợp nút '🏠 Dashboard' và liên kết trên thanh Top HUD của car_control.html giúp người lái quay về trang chủ dễ dàng; loại bỏ các liên kết điều hướng thừa trên trang doorbell.html để giao diện gọn gàng, trực quan.",
+        "en": "Added '🏠 Dashboard' button and brand link to Top HUD in car_control.html for convenient navigation; streamlined doorbell.html navigation bar to keep only the Dashboard link.",
+        "ja": "car_control.htmlのTop HUDに「🏠 Dashboard」ボタンとブランドリンクを追加。doorbell.htmlの不要なナビリンクを削除して画面を整理。",
+        "zh": "在car_control.html的顶部HUD中新增“🏠 Dashboard”按钮与品牌回跳链接；精简doorbell.html导航栏，仅保留返回控制台按钮。",
+        "fr": "Intégration du bouton '🏠 Dashboard' dans le Top HUD de car_control.html ; nettoyage de la barre de navigation de doorbell.html.",
+        "de": "'🏠 Dashboard'-Button im Top-HUD von car_control.html hinzugefügt; überflüssige Navigationslinks auf doorbell.html entfernt.",
+        "es": "Añadido botón '🏠 Dashboard' en el HUD superior de car_control.html; depurada la barra de navegación de doorbell.html.",
+        "ru": "Добавлена кнопка '🏠 Dashboard' в верхней панели car_control.html; очищены лишние кнопки навигации в doorbell.html.",
+        "ko": "car_control.html 상단 HUD에 '🏠 Dashboard' 복귀 버튼 추가 및 doorbell.html 불필요한 내비게이션 링크 제거."
+      }
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
+  },
+  {
     "version": "1.0.088",
     "date": "2026-09-16",
     "title": {
@@ -25,7 +83,8 @@
         "ru": "Улучшенный интерфейс: Блок видеотрансляции теперь расположен в самом верху для мгновенного просмотра.",
         "ko": "사용자 경험 개선: 대시보드 진입 시 즉시 카메라 화면을 확인할 수 있도록 비디오 스트림 카드를 최상단에 배치."
       }
-    ]
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "1.0.087",
@@ -64,7 +123,8 @@
         "ru": "Чекбокс в Web UI: Добавлен переключатель 'Циклическая перезапись (FIFO)' в SD-галерее с сохранением в NVS Flash.",
         "ko": "웹 UI 체크박스: SD 갤러리 설정에 '용량 부족 시 자동 덮어쓰기 (FIFO)' 토글 스위치를 추가하고 NVS Flash에 영구 저장."
       }
-    ]
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "1.0.086",
@@ -114,7 +174,8 @@
         "ru": "Упрощение SD-галереи: Блок оповещений на странице видеогалереи заменен на быстрый переключатель с прямой ссылкой на Дашборд.",
         "ko": "SD 갤러리 경량화: 비디오 관리 페이지의 알림 영역을 대시보드 바로가기 링크가 포함된 간편 토글 스위치로 간소화."
       }
-    ]
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "v1.0.085",
@@ -668,7 +729,8 @@
       "Đồng bộ hóa tùy chọn ngôn ngữ toàn diện (Universal Language Sync) xuyên suốt tất cả các trang Dashboard, SD Gallery, Car Control, Captive Portal và User Guide.",
       "Bổ sung cơ chế Storage Event Listener tự động cập nhật giao diện thời gian thực giữa các tab/cửa sổ trình duyệt đang mở khi người dùng đổi ngôn ngữ ở bất kỳ đâu.",
       "Sửa chuẩn xác URL firmware_url trong version.json và Github/version.json trỏ về thanhlqsap/esp32-CAM/main/build/OTA_Update.bin."
-    ]
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "1.0.052",
@@ -677,7 +739,8 @@
       "Đồng bộ hóa 100% nội dung gửi cảnh báo Telegram và Gmail theo đúng ngôn ngữ người dùng đang chọn (9 ngôn ngữ).",
       "Chuẩn hóa tin nhắn cảnh báo thử nghiệm (Test Alert) có cấu trúc và tiêu đề giống hệt cảnh báo thực tế (tiêu đề phát hiện người, thời gian NTP dd/mm/yyyy HH:MM:SS, chi tiết và IP thiết bị).",
       "Bổ sung lưu trữ và khôi phục ngôn ngữ cảnh báo vào bộ nhớ NVS không biến mất khi mất nguồn."
-    ]
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "1.0.051",
@@ -686,7 +749,8 @@
       "Hoàn thiện hệ thống 9 ngôn ngữ toàn cầu và giao diện kính mờ cao cấp cho trang Cấu hình Wi-Fi ban đầu (captive_portal.html).",
       "Loại bỏ 100% các chuỗi song ngữ hardcoded trên trang Captive Portal.",
       "Đồng bộ hóa lựa chọn ngôn ngữ với docs/index.html (Web Flasher) và toàn bộ hệ thống."
-    ]
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "1.0.050",
@@ -696,7 +760,8 @@
       "Bổ sung và dịch toàn bộ 86 thành phần giao diện, các option dropdown, nút bấm, radio nguồn kích hoạt và modal trên trang SD Gallery.",
       "Sửa lỗi chuỗi thông báo rỗng trong SD Gallery đối với tiếng Hàn Quốc (loại bỏ chuỗi tiếng Tây Ban Nha thừa).",
       "Đồng bộ hóa lựa chọn ngôn ngữ qua lại mượt mà giữa Dashboard, SD Gallery, Car Control và User Guide."
-    ]
+    ],
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "1.0.046",
@@ -728,7 +793,8 @@
         "全面扩展国际化多语言引擎至全球 9 大主流语言：越南语、英语、日语、中文简体、法语、德语、西班牙语、俄语、韩语。",
         "优化硬件切换状态回执，模式生效后秒级隐藏警告栏并解冻全部 D-Pad 方向键与调速控件。"
       ]
-    }
+    },
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "1.0.045",
@@ -760,7 +826,8 @@
         "遥控小车驾驶舱 (/car)：修复红色警告栏中的“立即启用小车模式”按键无法切换硬件模式的问题。",
         "后端 /set_mode 接口：全面升级支持 HTTP_ANY (POST 与 GET) 及多格式参数解析，确保模式切换百发百中。"
       ]
-    }
+    },
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "1.0.044",
@@ -792,7 +859,8 @@
         "在设置卡片2中新增独立的“保存录像设置”按键，并强化带触发源名称的保存成功 Toast 弹窗反馈。",
         "优化外部 PIR 传感器与图像分析模式切换时 NVS Flash 的写入与实时响应机制。"
       ]
-    }
+    },
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "1.0.043",
@@ -824,7 +892,8 @@
         "新增通过 NTP (GMT+7) 同步的高精度实时时间戳格式（dd/mm/yyyy HH:MM:SS）。",
         "优化邮件 UTF-8 编码主题及设备 IP 标识信息。"
       ]
-    }
+    },
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin"
   },
   {
     "version": "v1.0.042",

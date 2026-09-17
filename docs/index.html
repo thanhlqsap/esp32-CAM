@@ -854,7 +854,10 @@
       sel.innerHTML = changelogData.map((item, idx) => {
         const star = (idx === 0) ? '⭐ ' : '📦 ';
         const tagText = (idx === 0) ? ` (${tagMap[currentLang] || tagMap.en})` : (item.tag ? ` (${item.tag})` : '');
-        return `<option value="${item.version}" data-url="${item.url}">${star}${item.version}${tagText}</option>`;
+        const fileUrl = (item.url && item.url !== 'undefined' && item.url !== 'null' && String(item.url).startsWith('http'))
+          ? item.url
+          : 'https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin';
+        return `<option value="${item.version}" data-url="${fileUrl}">${star}${item.version}${tagText}</option>`;
       }).join('');
       updateLiveDescription();
     }
@@ -903,7 +906,7 @@
             <p style="margin-bottom:8px;font-size:0.85rem;color:#cbd5e1;">${desc}</p>
             ${changesHtml}
             <div style="margin-top:10px;">
-              <a href="${item.url}" target="_blank" class="btn-link" style="color:var(--primary);font-size:0.8rem;font-weight:600;">
+              <a href="${(item.url && item.url !== 'undefined' && String(item.url).startsWith('http')) ? item.url : 'https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin'}" target="_blank" class="btn-link" style="color:var(--primary);font-size:0.8rem;font-weight:600;">
                 ${downloadLabel(item.version)}
               </a>
             </div>
@@ -1157,7 +1160,10 @@
         } else {
           statusLabel.innerText = I18N_DICT.downloading[currentLang] || I18N_DICT.downloading.vi;
           const selOpt = document.getElementById('versionSelect').selectedOptions[0];
-          const url = selOpt ? (selOpt.getAttribute('data-url') || selOpt.value) : 'https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin';
+          let url = selOpt ? (selOpt.getAttribute('data-url') || selOpt.value) : '';
+          if (!url || url === 'undefined' || url === 'null' || !String(url).startsWith('http')) {
+            url = 'https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/Full_Flash.bin';
+          }
           log(`[1/3] GET: ${url}`);
           const resp = await fetch(url);
           if (!resp.ok) throw new Error(`HTTP ${resp.status} - Download Error`);
