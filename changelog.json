@@ -1,5 +1,45 @@
 [
   {
+    "version": "1.0.092",
+    "date": "2026-09-17",
+    "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
+    "title": {
+      "vi": "Tối ưu hóa các nút HUD trên điện thoại trong buồng lái xe FPV & Đồng bộ ngôn ngữ đa tầng",
+      "en": "Optimize Cockpit HUD buttons for mobile phones & Multi-layer Language Synchronization",
+      "ja": "スマホ向けFPV操縦HUDボタン最適化＆多層言語同期システム",
+      "zh": "优化移动端小车座舱HUD按钮并实现多层级系统语言跨页面同步",
+      "fr": "Optimisation des boutons HUD sur mobile et synchronisation multilingue",
+      "de": "Optimierung der HUD-Tasten für Mobilgeräte & Mehrschichtige Sprachsynchronisation",
+      "es": "Optimización de botones HUD para móviles y sincronización multilingüe multicapa",
+      "ru": "Оптимизация кнопок HUD для смартфонов и многоуровневая синхронизация языков",
+      "ko": "스마트폰을 위한 FPV 콕핏 HUD 버튼 최적화 및 다계층 언어 동기화"
+    },
+    "highlights": [
+      {
+        "vi": "Giao diện buồng lái xe FPV car_control.html tự động chuyển sang chế độ Icon-Only và rút gọn Brand trên điện thoại, đảm bảo các nút Dashboard và Cài đặt luôn hiển thị đầy đủ, không bị mất nút.",
+        "en": "Car cockpit HUD automatically adapts to Icon-Only mode and compact brand on phones, ensuring Dashboard and Settings buttons are always visible.",
+        "ja": "スマホ画面でFPVコックピットHUDが自動的にアイコン表示＆コンパクト化され、ダッシュボードや設定ボタンが常に表示されます。",
+        "zh": "小车遥控界面在手机端自动启用纯图标紧凑布局，确保Dashboard与设置按钮永不被挤出屏幕。",
+        "fr": "L'interface cockpit s'adapte en mode icônes sur mobile pour garder les boutons toujours visibles.",
+        "de": "Das Cockpit-HUD wechselt auf Smartphones automatisch in den Symbolmodus für dauerhafte Sichtbarkeit.",
+        "es": "El panel HUD se adapta a modo icono en móviles para mantener visibles los botones Dashboard y Ajustes.",
+        "ru": "HUD интерфейс на смартфонах переходит в компактный режим иконок, предотвращая исчезновение кнопок.",
+        "ko": "스마트폰에서 FPV 콕핏 HUD가 아이콘 모드로 자동 전환되어 대시보드 및 설정 버튼이 항상 표시됩니다."
+      },
+      {
+        "vi": "Triển khai cơ chế đồng bộ ngôn ngữ 3 tầng (Flash NVS + Cookie + LocalStorage), hỗ trợ endpoint /set_lang giúp ghi nhớ vĩnh viễn ngôn ngữ đã chọn trên mọi trang và thiết bị.",
+        "en": "Implemented 3-layer language synchronization (Flash NVS + Cookie + LocalStorage) with /set_lang API for permanent language persistence.",
+        "ja": "Flash NVS + Cookie + LocalStorage の3層同期メカニズムと /set_lang API を実装し、全ページで言語設定を完全永続化。",
+        "zh": "实现 Flash NVS + Cookie + LocalStorage 三层语言同步及 /set_lang 接口，跨页面与跨设备永久记住语言。",
+        "fr": "Synchronisation linguistique 3 couches (Flash NVS + Cookie + LocalStorage) avec API /set_lang.",
+        "de": "3-Schichten-Sprachsynchronisation (Flash NVS + Cookie + LocalStorage) mit /set_lang API.",
+        "es": "Sincronización de idioma en 3 capas (Flash NVS + Cookie + LocalStorage) con API /set_lang.",
+        "ru": "Трехуровневая синхронизация языка (Flash NVS + Cookie + LocalStorage) с API /set_lang.",
+        "ko": "Flash NVS + Cookie + LocalStorage 3단계 언어 동기화 및 /set_lang API를 구현하여 모든 페이지에서 영구 유지."
+      }
+    ]
+  },
+  {
     "version": "1.0.091",
     "date": "2026-09-17",
     "title": {

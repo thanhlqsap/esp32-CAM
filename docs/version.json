@@ -1,7 +1,7 @@
 {
-  "version": "1.0.091",
+  "version": "1.0.092",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tự động chuyển hướng chính xác cho cả 3 chế độ phần cứng (Xe / Chuông / Thẻ nhớ) khi bật Trang Khởi Động Mặc Định",
+  "description": "Tối ưu hóa các nút Dashboard, Cài đặt trên điện thoại trong car_control.html và đồng bộ ngôn ngữ đa tầng (NVS + Cookie + LocalStorage)",
   "release_date": "2026-09-17",
   "mandatory": false
 }
