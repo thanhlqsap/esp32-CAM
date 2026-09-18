@@ -1,7 +1,7 @@
 {
-  "version": "1.0.093",
+  "version": "1.0.094",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Lưu trữ tối đa 5 mạng Wi-Fi gần nhất (MRU) và tự động quét kết nối thông minh trong 30s trước khi fallback về chế độ AP",
+  "description": "Chuẩn hóa tiêu đề dự án thành ESP32 CAM PLATFORM trên toàn bộ giao diện Web, Header và tài liệu",
   "release_date": "2026-09-18",
   "mandatory": false
 }

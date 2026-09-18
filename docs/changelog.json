@@ -1,5 +1,33 @@
 [
   {
+    "version": "1.0.094",
+    "date": "2026-09-18",
+    "title": {
+      "vi": "Chuẩn hóa tiêu đề nhận diện nền tảng: ESP32 CAM PLATFORM",
+      "en": "Standardize Platform Branding Title: ESP32 CAM PLATFORM",
+      "ja": "プラットフォーム識別タイトルの標準化: ESP32 CAM PLATFORM",
+      "zh": "统一平台识别标题品牌：ESP32 CAM PLATFORM",
+      "fr": "Standardisation du titre de la plateforme : ESP32 CAM PLATFORM",
+      "de": "Standardisierung des Plattformtitels: ESP32 CAM PLATFORM",
+      "es": "Estandarización del título de plataforma: ESP32 CAM PLATFORM",
+      "ru": "Стандартизация заголовка платформы: ESP32 CAM PLATFORM",
+      "ko": "플랫폼 브랜드 타이틀 표준화: ESP32 CAM PLATFORM"
+    },
+    "highlights": [
+      {
+        "vi": "Đồng bộ và nâng cấp tiêu đề nhận diện dự án thành ESP32 CAM PLATFORM trên toàn bộ các trang giao diện Web (Dashboard, FPV Robot Car, Video Doorbell, SD Gallery, Wi-Fi Setup, Web Installer) và tài liệu hệ thống.",
+        "en": "Synchronized and updated project branding title to ESP32 CAM PLATFORM across all Web UI pages (Dashboard, FPV Robot Car, Video Doorbell, SD Gallery, Wi-Fi Setup, Web Installer) and system documentation.",
+        "ja": "すべてのWeb UIページ（ダッシュボード、FPVロボットカー、ビデオドアベル、SDギャラリー、Wi-Fi設定、Webインストーラー）およびドキュメントで、プロジェクト識別タイトルを「ESP32 CAM PLATFORM」に統一しました。",
+        "zh": "在所有Web前端界面（监控控制台、FPV小车驾驶舱、智能门铃、SD卡相册、配网页面、一键网页刷机工具）和系统文档中，将平台品牌标题统一更新为 ESP32 CAM PLATFORM。",
+        "fr": "Mise à niveau du titre d'identification du projet vers ESP32 CAM PLATFORM sur toutes les pages Web et la documentation.",
+        "de": "Aktualisierung des Plattformtitels auf ESP32 CAM PLATFORM auf allen Weboberflächen und in der Dokumentation.",
+        "es": "Actualización del título del proyecto a ESP32 CAM PLATFORM en todas las páginas web y documentación.",
+        "ru": "Обновление заголовка платформы на ESP32 CAM PLATFORM на всех веб-страницах и в документации.",
+        "ko": "모든 웹 UI 페이지 및 시스템 문서에서 프로젝트 브랜드 타이틀을 ESP32 CAM PLATFORM으로 통합 업데이트했습니다."
+      }
+    ]
+  },
+  {
     "version": "1.0.093",
     "date": "2026-09-18",
     "title": {
