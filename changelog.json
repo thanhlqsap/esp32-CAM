@@ -1,5 +1,33 @@
 [
   {
+    "version": "1.0.093",
+    "date": "2026-09-18",
+    "title": {
+      "vi": "Lưu trữ 5 mạng Wi-Fi gần nhất & Tự động quét kết nối thông minh 30s",
+      "en": "Store 5 Recent Wi-Fi Networks & Smart 30s Auto-Connect Timeout",
+      "ja": "直近5件のWi-Fiネットワーク保存＆30秒スマート自動接続機能",
+      "zh": "保存最近5组Wi-Fi配置与30秒智能多网络扫描自动连接",
+      "fr": "Mémorisation de 5 réseaux Wi-Fi récents et connexion automatique intelligente 30s",
+      "de": "Speicherung von 5 aktuellen Wi-Fi-Netzwerken & 30s intelligente Auto-Verbindung",
+      "es": "Almacenamiento de 5 redes Wi-Fi recientes y conexión automática inteligente de 30s",
+      "ru": "Сохранение 5 последних сетей Wi-Fi и умное автоподключение за 30 секунд",
+      "ko": "최근 5개 Wi-Fi 네트워크 저장 및 30초 스마트 자동 연결 기능"
+    },
+    "highlights": [
+      {
+        "vi": "Hỗ trợ ghi nhớ tối đa 5 cặp SSID & Pass gần nhất (dạng MRU). Tự động Pre-scan sóng xung quanh khi khởi động và dành tối đa 30s thử kết nối lần lượt theo mức ưu tiên tín hiệu/thời gian trước khi tự động fallback về AP Mode.",
+        "en": "Supports saving up to 5 recently used SSID & Pass pairs (MRU). Automatically pre-scans nearby signals on boot and spends up to 30s attempting prioritized connections before falling back to AP Mode.",
+        "ja": "最大5組のWi-Fi SSID/パスワードを記憶。起動時に周辺電波を自動スキャンし、30秒間優先順位に従って接続を試みた後、自動でAPモードにフォールバックします。",
+        "zh": "支持记忆最多5组最近使用的SSID与密码（MRU算法）。开机自动预扫描周边信号并在30秒内按信号强度与优先级依次尝试连接，失败后自动退回AP热点模式。",
+        "fr": "Mémorise jusqu'à 5 réseaux Wi-Fi récents. Pré-scan automatique au démarrage et tentative de connexion priorisée pendant 30 secondes avant basculement en mode AP.",
+        "de": "Speichert bis zu 5 aktuelle Wi-Fi-Zugangsdaten. Automatischer Vor-Scan beim Booten und bis zu 30s Verbindungsversuche vor dem AP-Modus-Fallback.",
+        "es": "Guarda hasta 5 redes Wi-Fi recientes. Escaneo previo automático al iniciar e intentos de conexión priorizados durante 30s antes de pasar a modo AP.",
+        "ru": "Запоминает до 5 последних сетей Wi-Fi. Автоматическое сканирование при загрузке и попытки подключения в течение 30 секунд перед переходом в режим AP.",
+        "ko": "최근 사용된 Wi-Fi 5개 저장 지원. 부팅 시 주변 신호를 자동 스캔하고 30초 동안 우선순위에 따라 연결 시도 후 AP 모드로 자동 전환됩니다."
+      }
+    ]
+  },
+  {
     "version": "1.0.092",
     "date": "2026-09-17",
     "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",

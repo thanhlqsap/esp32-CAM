@@ -1,7 +1,7 @@
 {
-  "version": "1.0.092",
+  "version": "1.0.093",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa các nút Dashboard, Cài đặt trên điện thoại trong car_control.html và đồng bộ ngôn ngữ đa tầng (NVS + Cookie + LocalStorage)",
-  "release_date": "2026-09-17",
+  "description": "Lưu trữ tối đa 5 mạng Wi-Fi gần nhất (MRU) và tự động quét kết nối thông minh trong 30s trước khi fallback về chế độ AP",
+  "release_date": "2026-09-18",
   "mandatory": false
 }
