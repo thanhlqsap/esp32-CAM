@@ -1,5 +1,43 @@
 [
   {
+    "version": "1.0.109",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "🛡️ Khắc phục triệt để lỗi Software Panic (ESP_RST_PANIC): Mutex bảo vệ Camera, tăng Stack Stream lên 16KB & tối ưu DMA.",
+      "en": "🛡️ Fully resolved Software Panic crashes (ESP_RST_PANIC): Camera Mutex lock, 16KB Stream Stack & DMA safety."
+    },
+    "details": {
+      "vi": [
+        "Bọc khóa Mutex _cam_mutex an toàn cho hàm setCameraParam(): Bảo vệ cảm biến và vùng nhớ DMA PSRAM khi đổi độ phân giải (framesize) hoặc điều chỉnh thông số hình ảnh trong lúc đang phát video stream.",
+        "Nâng kích thước bộ nhớ Stack cho streamTask từ 4096 bytes lên 16384 bytes (16 KB) trên Core 0, loại bỏ hoàn toàn nguy cơ tràn ngăn xếp (Stack Overflow) khi truyền tải dữ liệu TCP/MJPEG.",
+        "Chuẩn hóa kiểm tra con trỏ nullptr và đồng bộ truy cập trong captureFrame() và returnFrame() bảo đảm ổn định tuyệt đối."
+      ],
+      "en": [
+        "Wrapped _cam_mutex around setCameraParam(): Guarantees thread-safe sensor configuration and PSRAM DMA reallocation during active MJPEG streaming.",
+        "Increased streamTask FreeRTOS stack size on Core 0 from 4096 bytes to 16384 bytes (16 KB), eliminating any risk of Stack Overflow during TCP socket transmission.",
+        "Standardized nullptr pointer validation and frame buffer lifecycle synchronization across captureFrame() and returnFrame()."
+      ]
+    }
+  },
+  {
+    "version": "1.0.108",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "🌐 Sửa chuẩn hiển thị nút chuyển đổi đa ngôn ngữ trên trang Chẩn đoán (diagnostics.html).",
+      "en": "🌐 Fixed language switch button label logic on Diagnostics page (diagnostics.html)."
+    },
+    "details": {
+      "vi": [
+        "Sửa nhầm lẫn nhãn nút chuyển đổi: Khi giao diện đang ở Tiếng Việt thì nút hiển thị '🇺🇸 English' để người dùng bấm chuyển sang tiếng Anh; khi giao diện ở English thì nút hiển thị '🇻🇳 Tiếng Việt'.",
+        "Đồng bộ hóa khóa lưu trữ localStorage 'app_lang' chung với toàn bộ hệ thống Web."
+      ],
+      "en": [
+        "Fixed language toggle button label UX: Displays '🇺🇸 English' when current language is Vietnamese, and '🇻🇳 Tiếng Việt' when in English.",
+        "Synchronized common localStorage 'app_lang' key across all web dashboard components."
+      ]
+    }
+  },
+  {
     "version": "1.0.107",
     "date": "2026-09-18",
     "summary": {

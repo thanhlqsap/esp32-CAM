@@ -1,10 +1,10 @@
 {
-  "version": "1.0.107",
+  "version": "1.0.109",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp bộ chẩn đoán lỗi phần cứng toàn diện: Tự động ghi nhận nguyên nhân Reset (Brownout sụt áp nguồn / Panic crash / Watchdog), đếm số lần sụt áp và đo nhiệt độ chip",
+  "description": "Khắc phục triệt để Software Panic / Crash Exception: Khóa Mutex an toàn cảm biến Camera, tăng Stack StreamTask lên 16KB và bảo vệ bộ đệm DMA",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Bổ sung cơ chế tự động giải mã thanh ghi esp_reset_reason() ghi log cảnh báo nguồn yếu (Brownout) hoặc lỗi crash vào System Logger và lưu bộ đếm NVS; bổ sung thẻ hiển thị trực quan trạng thái nguồn điện, nhiệt độ chip silicon, CPU frequency và bộ nhớ Heap phân mảnh trên giao diện Diagnostics.",
+  "changelog": "Khắc phục triệt để Software Panic / Crash Exception (ESP_RST_PANIC): 1. Bọc khóa Mutex _cam_mutex bảo vệ setCameraParam() tránh xung đột DMA khi đổi framesize; 2. Tăng kích thước bộ nhớ Stack cho streamTask từ 4KB lên 16KB chống tràn stack; 3. Đồng bộ hóa kiểm tra con trỏ nullptr và bảo vệ vòng đời frame buffer trong captureFrame() và returnFrame().",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
