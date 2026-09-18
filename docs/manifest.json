@@ -1,6 +1,6 @@
 {
-  "name": "ESP32-CAM AI Multi-Sensor (v1.0.101)",
-  "version": "1.0.101",
+  "name": "ESP32-CAM AI Multi-Sensor (v1.0.102)",
+  "version": "1.0.102",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": true,
   "new_install_improv_wait_time": 0,

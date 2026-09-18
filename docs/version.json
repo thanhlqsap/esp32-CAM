@@ -1,10 +1,10 @@
 {
-  "version": "1.0.101",
+  "version": "1.0.102",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp hoàn chỉnh tính năng AI Vision vào Dashboard chính và hoàn thiện khung nhận diện trong suốt 100%",
+  "description": "Nâng cấp AI Vision Pro Studio Đa Chế Độ với cơ chế Tải Lười (Lazy-Loading) qua CDN",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Bổ sung nút mở nhanh và thẻ liên kết AI Vision ngay trên Dashboard Tab 1; tối ưu hóa Bounding Box trong suốt không che khuất vật thể.",
+  "changelog": "Tích hợp 4 bộ Engine AI (Vật thể COCO-SSD, Cử chỉ bàn tay MediaPipe Hands điều khiển Flash, Khung xương Pose cảnh báo ngã, và Face Mesh).",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
