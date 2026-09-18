@@ -1,6 +1,24 @@
 [
   {
-    "version": "1.0.100",
+    "version": "1.0.101",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "🚀 Tích hợp hoàn chỉnh tính năng AI Vision vào Dashboard chính & Tối ưu Bounding Box trong suốt 100%.",
+      "en": "🚀 Fully integrated AI Vision into main Dashboard & Optimized 100% Transparent Bounding Boxes."
+    },
+    "details": {
+      "vi": [
+        "Bổ sung nút 'Mở AI Vision' trực tiếp trên thanh điều khiển Live Stream của Dashboard Tab 1.",
+        "Bổ sung Card Link 3 chuyên dụng cho AI Vision (/ai) trong nhóm liên kết luồng video.",
+        "Khung Bounding Box nhận diện AI trong suốt 100%, bổ sung 4 góc Target định vị sắc nét không che khuất vật thể."
+      ],
+      "en": [
+        "Added quick-launch 'Launch AI Vision' button to the Live Stream control bar on Dashboard Tab 1.",
+        "Added dedicated Link 3 card for AI Vision (/ai) in the external stream links grid.",
+        "100% transparent interior bounding boxes with crisp target brackets for clear object visibility."
+      ]
+    }
+  },
     "date": "2026-09-18",
     "summary": {
       "vi": "🧠 Tích hợp trang Nhận diện Trí tuệ Nhân tạo AI Vision (TensorFlow.js COCO-SSD) tại đường dẫn /ai.",

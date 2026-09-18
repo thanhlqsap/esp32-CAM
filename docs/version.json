@@ -1,10 +1,10 @@
 {
-  "version": "1.0.100",
+  "version": "1.0.101",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp trang nhận diện vật thể & con người bằng AI Client-side (TensorFlow.js COCO-SSD) tại đường dẫn /ai",
+  "description": "Tích hợp hoàn chỉnh tính năng AI Vision vào Dashboard chính và hoàn thiện khung nhận diện trong suốt 100%",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Bổ sung endpoint /ai phục vụ giao diện nhận diện vật thể realtime bằng WebGL AI trên trình duyệt, hỗ trợ Mobile, Tablet và PC.",
+  "changelog": "Bổ sung nút mở nhanh và thẻ liên kết AI Vision ngay trên Dashboard Tab 1; tối ưu hóa Bounding Box trong suốt không che khuất vật thể.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
