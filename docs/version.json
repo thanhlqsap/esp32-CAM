@@ -1,7 +1,8 @@
 {
-  "version": "1.0.095",
+  "version": "1.0.096",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "description": "Bổ sung hệ thống ghi log bộ đệm vòng (Ring Buffer) & Trang Web chẩn đoán online ẩn /log giám sát sức khỏe cảm biến Camera và phần cứng",
   "release_date": "2026-09-18",
-  "mandatory": false
+  "mandatory": false,
+  "changelog": "Bổ sung giám sát Thẻ nhớ (SD Card), Tín hiệu chân ngoại vi (GPIO Pins), nút Remount SD và hỗ trợ song ngữ (Tiếng Việt / English) trên trang chẩn đoán /log."
 }

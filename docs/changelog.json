@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.0.096",
+    "release_date": "2026-09-18",
+    "title": "Bổ sung Chẩn đoán Thẻ nhớ MicroSD, Giám sát chân GPIO & Song ngữ VI/EN",
+    "changes": [
+      "Bổ sung HUD chẩn đoán Thẻ nhớ MicroSD (dung lượng tổng, dung lượng trống, % sử dụng, loại thẻ) theo thời gian thực.",
+      "Thêm API và nút 'Remount SD' kích hoạt thử kết nối lại thẻ nhớ từ xa tại trang /log.",
+      "Bổ sung bảng 'Peripheral Pin & Hardware Inspector' theo dõi mức logic an toàn các chân GPIO 4 (Flash), GPIO 33 (Red LED), GPIO 13 (PIR) và Chế độ phần cứng hiện hành.",
+      "Nâng cấp giao diện chẩn đoán hỗ trợ chuyển đổi song ngữ mượt mà (Tiếng Việt 🇻🇳 / English 🇺🇸) và lưu trữ cấu hình ngôn ngữ.",
+      "Tối ưu hóa tải CPU/Wi-Fi giữ mức 0% khi không mở trang chẩn đoán và không làm gián đoạn luồng stream video camera."
+    ]
+  },
+  {
     "version": "1.0.095",
     "date": "2026-09-18",
     "title": {
