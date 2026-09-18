@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.099",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "⏱️ Bổ sung tùy chọn thời lượng quay video 30 Giây (30s) trong Cài đặt Thẻ nhớ & Video Gallery.",
+      "en": "⏱️ Added 30 Seconds (30s) clip recording duration option in SD Card & Video Gallery Settings."
+    },
+    "details": {
+      "vi": [
+        "Bổ sung mốc thời gian 30 Giây (30s) vào mục Clip Duration trong trang Quản lý Thẻ nhớ (sd_gallery.html).",
+        "Đồng bộ hóa 9 gói ngôn ngữ i18n (VI, EN, JA, ZH, FR, DE, ES, RU, KO) cho tùy chọn 30s.",
+        "Tự động lưu cấu hình 30s vào NVS Flash và áp dụng mượt mà cho các video ghi tự động / thủ công."
+      ],
+      "en": [
+        "Added 30 Seconds (30s) preset to the Clip Duration selector in SD Card Gallery (sd_gallery.html).",
+        "Synchronized 9 i18n language packs (VI, EN, JA, ZH, FR, DE, ES, RU, KO) for the 30s option.",
+        "Seamless NVS Flash persistence and full compatibility with auto/manual video recording."
+      ]
+    }
+  },
+  {
     "version": "1.0.098",
     "date": "2026-09-18",
     "title": {

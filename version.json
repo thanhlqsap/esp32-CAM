@@ -1,8 +1,10 @@
 {
-  "version": "1.0.098",
+  "version": "1.0.099",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "description": "Bổ sung cơ chế Camera Watchdog & Tự động phục hồi chu kỳ nguồn phần cứng (Hardware Power-Cycle PWDN) khi mắt camera mất tín hiệu",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Bổ sung giám sát Thẻ nhớ (SD Card), Tín hiệu chân ngoại vi (GPIO Pins), nút Remount SD và hỗ trợ song ngữ (Tiếng Việt / English) trên trang chẩn đoán /log."
+  "changelog": "Bổ sung giám sát Thẻ nhớ (SD Card), Tín hiệu chân ngoại vi (GPIO Pins), nút Remount SD và hỗ trợ song ngữ (Tiếng Việt / English) trên trang chẩn đoán /log.",
+  "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
+  "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
