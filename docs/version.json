@@ -1,10 +1,10 @@
 {
-  "version": "1.0.104",
+  "version": "1.0.105",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp Trung tâm Tài liệu RESTful API (API.html) và thiết lập cơ chế tự động cập nhật API",
+  "description": "Sửa lỗi lồng thẻ HTML DOM khôi phục hoàn chỉnh giao diện Dashboard trên Desktop, Tablet và Mobile",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Phát hành trang tài liệu trực quan API.html tổng hợp 7 nhóm với 48 API endpoints kèm hướng dẫn sử dụng tiếng Việt chi tiết và công cụ Live Test API trực tiếp.",
+  "changelog": "Khắc phục triệt để lỗi thẻ div đóng sớm trong dashboard.html, khôi phục toàn bộ bố cục hiển thị chuẩn trên tất cả các kích thước màn hình thiết bị.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

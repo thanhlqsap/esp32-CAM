@@ -1,5 +1,23 @@
 [
   {
+    "version": "1.0.105",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "🛠️ Khắc phục hoàn chỉnh lỗi bố cục hiển thị Dashboard trên Desktop, Tablet và Mobile.",
+      "en": "🛠️ Fully resolved Dashboard layout rendering issue across Desktop, Tablet and Mobile."
+    },
+    "details": {
+      "vi": [
+        "Sửa lỗi lồng thẻ HTML DOM (thẻ div đóng sớm) trong dashboard.html, khôi phục toàn bộ cấu trúc container và các tab giao diện.",
+        "Đảm bảo bố cục hiển thị chuẩn xác, đáp ứng linh hoạt 100% trên mọi kích thước màn hình thiết bị (Desktop, Tablet, iOS/Android Mobile)."
+      ],
+      "en": [
+        "Fixed HTML DOM tag nesting issue (premature closing div) in dashboard.html, fully restoring container hierarchy and tab panels.",
+        "Ensured pixel-perfect responsive layout across all display form factors (Desktop, Tablet, iOS/Android Mobile)."
+      ]
+    }
+  },
+  {
     "version": "1.0.104",
     "date": "2026-09-18",
     "summary": {
