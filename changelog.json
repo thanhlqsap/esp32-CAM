@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.106",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "⚡ Tối ưu hóa thứ tự khởi tạo Camera trước Wi-Fi (Nhận diện cảm biến <200ms & Bảo vệ nguồn 3.3V).",
+      "en": "⚡ Optimized startup sequence: Initialized Camera before Wi-Fi (<200ms sensor probing & 3.3V power stability)."
+    },
+    "details": {
+      "vi": [
+        "Đảo thứ tự khởi tạo Camera lên trước Wi-Fi trong chu trình setup(), giúp nhận diện mắt cảm biến (OV2640/OV3660...) ngay trong 150-200ms sau khi cấp nguồn.",
+        "Loại bỏ hoàn toàn cảm giác camera bị chậm do phải chờ chu trình quét mạng (Pre-scan) và kết nối của Wi-Fi STA.",
+        "Tách biệt xung dòng khởi động cảm biến và xung dòng phát sóng Wi-Fi RF, giảm thiểu tối đa nguy cơ sụt áp (Brownout) và triệt tiêu nhiễu RF lên bus SCCB/DVP."
+      ],
+      "en": [
+        "Reordered boot initialization to start Camera before Wi-Fi in setup(), enabling instantaneous sensor probing (OV2640/OV3660...) within 150-200ms after power-on.",
+        "Completely eliminated perceived camera delay caused by Wi-Fi STA pre-scan and network connection handshake.",
+        "Decoupled sensor power inrush and Wi-Fi RF transmission current peaks, minimizing 3.3V brownout risk and isolating SCCB/DVP bus from RF noise."
+      ]
+    }
+  },
+  {
     "version": "1.0.105",
     "date": "2026-09-18",
     "summary": {

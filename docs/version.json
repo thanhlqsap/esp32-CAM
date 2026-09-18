@@ -1,10 +1,10 @@
 {
-  "version": "1.0.105",
+  "version": "1.0.106",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Sửa lỗi lồng thẻ HTML DOM khôi phục hoàn chỉnh giao diện Dashboard trên Desktop, Tablet và Mobile",
+  "description": "Tối ưu hóa thứ tự khởi tạo Camera trước Wi-Fi giúp nhận diện mắt cảm biến tức thời (<200ms) và bảo vệ nguồn điện 3.3V",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Khắc phục triệt để lỗi thẻ div đóng sớm trong dashboard.html, khôi phục toàn bộ bố cục hiển thị chuẩn trên tất cả các kích thước màn hình thiết bị.",
+  "changelog": "Đảo thứ tự khởi tạo Camera lên trước Wi-Fi trong chu trình setup(), giúp mắt camera nhận diện ngay trong 150-200ms sau khi cấp nguồn, loại bỏ hoàn toàn độ trễ chờ quét mạng STA, đồng thời chống sụt áp và triệt tiêu nhiễu RF lên bus SCCB/DVP.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
