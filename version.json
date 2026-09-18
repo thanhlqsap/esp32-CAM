@@ -1,10 +1,10 @@
 {
-  "version": "1.0.099",
+  "version": "1.0.100",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Bổ sung cơ chế Camera Watchdog & Tự động phục hồi chu kỳ nguồn phần cứng (Hardware Power-Cycle PWDN) khi mắt camera mất tín hiệu",
+  "description": "Tích hợp trang nhận diện vật thể & con người bằng AI Client-side (TensorFlow.js COCO-SSD) tại đường dẫn /ai",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Bổ sung giám sát Thẻ nhớ (SD Card), Tín hiệu chân ngoại vi (GPIO Pins), nút Remount SD và hỗ trợ song ngữ (Tiếng Việt / English) trên trang chẩn đoán /log.",
+  "changelog": "Bổ sung endpoint /ai phục vụ giao diện nhận diện vật thể realtime bằng WebGL AI trên trình duyệt, hỗ trợ Mobile, Tablet và PC.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

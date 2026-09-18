@@ -1,6 +1,26 @@
 [
   {
-    "version": "1.0.099",
+    "version": "1.0.100",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "🧠 Tích hợp trang Nhận diện Trí tuệ Nhân tạo AI Vision (TensorFlow.js COCO-SSD) tại đường dẫn /ai.",
+      "en": "🧠 Integrated Client-side AI Vision & Object Detection (TensorFlow.js COCO-SSD) at /ai endpoint."
+    },
+    "details": {
+      "vi": [
+        "Bổ sung trang web AI.html nhúng trực tiếp trong firmware PROGMEM nén GZIP, truy cập qua /ai hoặc /AI.",
+        "Xử lý nhận diện 80 nhóm vật thể & con người hoàn toàn phía trình duyệt client thông qua GPU/WebGL.",
+        "Tự động phát hiện URL stream ESP32-CAM (Port 81), hỗ trợ tùy chỉnh thủ công và test trên camera điện thoại/laptop.",
+        "Tương thích đa nền tảng tối đa cho iOS Safari, Android, iPadOS, Windows và macOS."
+      ],
+      "en": [
+        "Added AI.html embedded in GZIP PROGMEM firmware, served via /ai or /AI routes.",
+        "Client-side realtime 80-class object & person detection using WebGL/GPU hardware acceleration.",
+        "Auto-detects ESP32-CAM stream URL (Port 81), supports manual editing and local device camera testing.",
+        "Cross-platform support for iOS Safari, Android, iPadOS, Windows, and macOS."
+      ]
+    }
+  },
     "date": "2026-09-18",
     "summary": {
       "vi": "⏱️ Bổ sung tùy chọn thời lượng quay video 30 Giây (30s) trong Cài đặt Thẻ nhớ & Video Gallery.",
