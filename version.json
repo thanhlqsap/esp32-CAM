@@ -1,10 +1,10 @@
 {
-  "version": "1.0.102",
+  "version": "1.0.103",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Nâng cấp AI Vision Pro Studio Đa Chế Độ với cơ chế Tải Lười (Lazy-Loading) qua CDN",
+  "description": "Tích hợp đa ngôn ngữ 9 thứ tiếng cho AI Vision (/ai) và tối ưu hóa điều hướng truy cập trực tiếp có xác thực",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Tích hợp 4 bộ Engine AI (Vật thể COCO-SSD, Cử chỉ bàn tay MediaPipe Hands điều khiển Flash, Khung xương Pose cảnh báo ngã, và Face Mesh).",
+  "changelog": "Bổ sung hệ thống đa ngôn ngữ 9 thứ tiếng (vi, en, ja, zh, fr, de, es, ru, ko) vào trang AI.html, gỡ bỏ nút dẫn trong dashboard.html để truy cập bảo mật trực tiếp qua /ai yêu cầu xác thực.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

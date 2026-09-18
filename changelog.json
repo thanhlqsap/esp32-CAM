@@ -1,5 +1,23 @@
 [
   {
+    "version": "1.0.103",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "🌐 Bổ sung đa ngôn ngữ 9 thứ tiếng cho AI Vision & Tối ưu truy cập trực tiếp /ai có xác thực.",
+      "en": "🌐 Added 9-Language support for AI Vision & Optimized direct /ai access with authentication."
+    },
+    "details": {
+      "vi": [
+        "Tích hợp hệ thống đa ngôn ngữ 9 thứ tiếng (Tiếng Việt, English, 日本語, 简体中文, Français, Deutsch, Español, Русский, 한국어) trên toàn bộ giao diện AI.html.",
+        "Gỡ bỏ nút dẫn AI Vision khỏi dashboard.html, cho phép truy cập riêng biệt và bảo mật trực tiếp tại đường dẫn /ai hoặc /AI yêu cầu đăng nhập khi kích hoạt Authentication."
+      ],
+      "en": [
+        "Integrated 9-language localization (Vietnamese, English, Japanese, Chinese, French, German, Spanish, Russian, Korean) across AI.html interface.",
+        "Removed AI Vision link button from dashboard.html, enabling secure direct access via /ai or /AI with authentication enforcement."
+      ]
+    }
+  },
+  {
     "version": "1.0.102",
     "date": "2026-09-18",
     "summary": {
