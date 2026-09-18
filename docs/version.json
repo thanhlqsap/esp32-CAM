@@ -1,10 +1,10 @@
 {
-  "version": "1.0.106",
+  "version": "1.0.107",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa thứ tự khởi tạo Camera trước Wi-Fi giúp nhận diện mắt cảm biến tức thời (<200ms) và bảo vệ nguồn điện 3.3V",
+  "description": "Tích hợp bộ chẩn đoán lỗi phần cứng toàn diện: Tự động ghi nhận nguyên nhân Reset (Brownout sụt áp nguồn / Panic crash / Watchdog), đếm số lần sụt áp và đo nhiệt độ chip",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Đảo thứ tự khởi tạo Camera lên trước Wi-Fi trong chu trình setup(), giúp mắt camera nhận diện ngay trong 150-200ms sau khi cấp nguồn, loại bỏ hoàn toàn độ trễ chờ quét mạng STA, đồng thời chống sụt áp và triệt tiêu nhiễu RF lên bus SCCB/DVP.",
+  "changelog": "Bổ sung cơ chế tự động giải mã thanh ghi esp_reset_reason() ghi log cảnh báo nguồn yếu (Brownout) hoặc lỗi crash vào System Logger và lưu bộ đếm NVS; bổ sung thẻ hiển thị trực quan trạng thái nguồn điện, nhiệt độ chip silicon, CPU frequency và bộ nhớ Heap phân mảnh trên giao diện Diagnostics.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

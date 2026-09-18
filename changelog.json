@@ -1,5 +1,27 @@
 [
   {
+    "version": "1.0.107",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "🩺 Tích hợp bộ chẩn đoán lỗi phần cứng & Giám sát nguồn điện (Tự động ghi nhận Brownout, Panic Crash, Nhiệt độ chip).",
+      "en": "🩺 Integrated comprehensive hardware diagnostics & power monitoring (Auto-logging Brownout, Panic Crash, Chip Temp)."
+    },
+    "details": {
+      "vi": [
+        "Tự động giải mã thanh ghi phần cứng esp_reset_reason() ngay khi khởi động: Phát hiện chính xác lỗi sụt áp nguồn (ESP_RST_BROWNOUT), lỗi ngoại lệ phần mềm (ESP_RST_PANIC), Watchdog timeout hoặc khởi động lạnh.",
+        "Ghi cảnh báo màu đỏ [SYS][ERR] trực tiếp vào System Logger và lưu trữ bộ đếm số lần sụt áp (Brownout Counter), số lần Panic vào NVS Flash.",
+        "Bổ sung 2 thẻ HUD trực quan trên giao diện Diagnostics (/diag): Thẻ giám sát nguồn & nguyên nhân Reset (Power & Reset Cause) và Thẻ nhiệt độ chip silicon & xung nhịp phần cứng (Chip Temp & Core).",
+        "Đồng bộ hóa các trường dữ liệu chẩn đoán mới vào API /api/logs và tài liệu API.html."
+      ],
+      "en": [
+        "Automatically decoded hardware register esp_reset_reason() at boot: Accurately detects power sag (ESP_RST_BROWNOUT), software exception (ESP_RST_PANIC), Watchdog timeout or normal cold boot.",
+        "Logged red alert [SYS][ERR] directly into System Logger and persisted lifetime Brownout and Panic crash counters into NVS Flash.",
+        "Added 2 visual HUD cards to Diagnostics console (/diag): Power & Reset Cause and Chip Silicon Temperature & Hardware Core status.",
+        "Synchronized new diagnostic telemetry fields into /api/logs endpoint and API.html documentation."
+      ]
+    }
+  },
+  {
     "version": "1.0.106",
     "date": "2026-09-18",
     "summary": {
