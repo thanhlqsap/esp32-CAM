@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.104",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "📚 Phát hành Trung tâm Tài liệu RESTful API Studio (API.html) & Thiết lập cơ chế tự động cập nhật.",
+      "en": "📚 Released RESTful API Studio documentation (API.html) & Established auto-sync policy."
+    },
+    "details": {
+      "vi": [
+        "Tổng hợp và phân loại toàn bộ 48 API endpoints trong dự án thành 7 nhóm chức năng trực quan trong file API.html (truy cập qua /api_doc hoặc /api.html).",
+        "Tích hợp hướng dẫn sử dụng tiếng Việt chi tiết: mô tả chức năng, phương thức HTTP, tham số query/body, mã phản hồi JSON mẫu, ví dụ code JavaScript Fetch / cURL và tính năng Live Test API trực tiếp.",
+        "Thiết lập quy tắc workspace vĩnh viễn: Tự động cập nhật API.html mỗi khi phát sinh hoặc sửa đổi bất kỳ endpoint nào."
+      ],
+      "en": [
+        "Consolidated and categorized all 48 API endpoints into 7 intuitive functional groups in API.html (accessible via /api_doc or /api.html).",
+        "Includes comprehensive Vietnamese documentation: method, query/body params, JSON responses, JS Fetch/cURL examples, and interactive Live Test tool.",
+        "Established persistent workspace rule: Auto-sync API.html whenever any API endpoint is added or modified."
+      ]
+    }
+  },
+  {
     "version": "1.0.103",
     "date": "2026-09-18",
     "summary": {

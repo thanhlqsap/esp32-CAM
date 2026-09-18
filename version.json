@@ -1,10 +1,10 @@
 {
-  "version": "1.0.103",
+  "version": "1.0.104",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp đa ngôn ngữ 9 thứ tiếng cho AI Vision (/ai) và tối ưu hóa điều hướng truy cập trực tiếp có xác thực",
+  "description": "Tích hợp Trung tâm Tài liệu RESTful API (API.html) và thiết lập cơ chế tự động cập nhật API",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Bổ sung hệ thống đa ngôn ngữ 9 thứ tiếng (vi, en, ja, zh, fr, de, es, ru, ko) vào trang AI.html, gỡ bỏ nút dẫn trong dashboard.html để truy cập bảo mật trực tiếp qua /ai yêu cầu xác thực.",
+  "changelog": "Phát hành trang tài liệu trực quan API.html tổng hợp 7 nhóm với 48 API endpoints kèm hướng dẫn sử dụng tiếng Việt chi tiết và công cụ Live Test API trực tiếp.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
