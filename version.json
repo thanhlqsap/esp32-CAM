@@ -1,7 +1,7 @@
 {
-  "version": "1.0.094",
+  "version": "1.0.095",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Chuẩn hóa tiêu đề dự án thành ESP32 CAM PLATFORM trên toàn bộ giao diện Web, Header và tài liệu",
+  "description": "Bổ sung hệ thống ghi log bộ đệm vòng (Ring Buffer) & Trang Web chẩn đoán online ẩn /log giám sát sức khỏe cảm biến Camera và phần cứng",
   "release_date": "2026-09-18",
   "mandatory": false
 }

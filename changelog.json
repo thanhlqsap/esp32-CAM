@@ -1,5 +1,33 @@
 [
   {
+    "version": "1.0.095",
+    "date": "2026-09-18",
+    "title": {
+      "vi": "Hệ thống ghi log Ring Buffer & Trang Web chẩn đoán online ẩn /log",
+      "en": "Ring Buffer System Logger & Hidden Online Diagnostic Web Console /log",
+      "ja": "Ring Bufferシステムログ＆隠しオンライン診断Webコンソール /log",
+      "zh": "环形缓冲系统日志与隐藏式在线诊断控制台 /log",
+      "fr": "Journal système Ring Buffer et console de diagnostic en ligne masquée /log",
+      "de": "Ring-Buffer-Systemprotokollierung & versteckte Online-Diagnosekonsole /log",
+      "es": "Registro del sistema en búfer circular y consola de diagnóstico web oculta /log",
+      "ru": "Кольцевой буфер системных логов и скрытая веб-консоль онлайн-диагностики /log",
+      "ko": "링 버퍼 시스템 로거 및 숨김 온라인 진단 웹 콘솔 /log"
+    },
+    "highlights": [
+      {
+        "vi": "Tích hợp bộ nhớ đệm vòng (Ring Buffer) lưu trữ log chẩn đoán trong RAM tĩnh (~3KB) và trang web chẩn đoán ẩn tại đường dẫn /log (hoặc /diag) với Live Terminal Console đổi màu theo mức cảnh báo, kiểm tra sức khỏe cảm biến Camera (PID/I2C/PSRAM/FPS) và nút Re-Init Camera từ xa.",
+        "en": "Integrated static RAM Circular Ring Buffer (~3KB) for diagnostic logs and hidden web console at /log (or /diag) featuring color-coded Live Terminal Console, Camera hardware health check (PID/I2C/PSRAM/FPS), and remote Camera Re-Init tool.",
+        "ja": "静的RAMリングバッファ（~3KB）による診断ログ機能と、/log（または /diag）でアクセス可能な隠しWebコンソールを実装。警告レベル別の色分けターミナル、カメラハードウェア状態（PID/I2C/PSRAM/FPS）の確認、およびリモートカメラ再初期化機能を搭載しました。",
+        "zh": "集成静态内存环形缓冲日志系统（约3KB）与 /log（或 /diag）隐藏式在线诊断页面。具备分级彩色终端、摄像头硬件健康体检（PID/I2C/PSRAM/FPS）与远程摄像头一键复位重启功能。",
+        "fr": "Intégration d'un journal en mémoire tampon circulaire et d'une console de diagnostic masquée sur /log pour le diagnostic matériel et la réinitialisation de la caméra à distance.",
+        "de": "Integration von Ring-Buffer-Systemprotokollen und einer versteckten Diagnose-Webseite unter /log zur Echtzeit-Überwachung von Sensor und Speicher.",
+        "es": "Incorporación de registros en búfer circular y página de diagnóstico oculta en /log con consola en vivo y reinicialización remota de la cámara.",
+        "ru": "Интегрирован кольцевой буфер системных логов и скрытая страница диагностики /log с цветной консолью и удаленным перезапуском камеры.",
+        "ko": "정적 RAM 링 버퍼 로그 시스템 및 /log 숨김 진단 웹 콘솔 추가. 실시간 컬러 터미널, 카메라 하드웨어 상태 검사 및 원격 카메라 재초기화 지원."
+      }
+    ]
+  },
+  {
     "version": "1.0.094",
     "date": "2026-09-18",
     "title": {
