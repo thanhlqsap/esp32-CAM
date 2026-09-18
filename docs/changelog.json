@@ -1,5 +1,44 @@
 [
   {
+    "version": "1.0.097",
+    "date": "2026-09-18",
+    "title": {
+      "vi": "Tối ưu hóa Cloud Auto-OTA & Điều khiển Đèn LED Đỏ mặt lưng (GPIO 33)",
+      "en": "Cloud Auto-OTA Optimization & Red Status LED Control (GPIO 33)",
+      "ja": "Cloud Auto-OTAの最適化＆背面赤色LED（GPIO 33）制御機能",
+      "zh": "云端自动OTA升级优化与背板红灯（GPIO 33）控制",
+      "fr": "Optimisation Cloud Auto-OTA & Contrôle de la LED Rouge Arrière (GPIO 33)",
+      "de": "Cloud Auto-OTA Optimierung & Steuerung der roten Status-LED (GPIO 33)",
+      "es": "Optimización de Cloud Auto-OTA y Control de LED Rojo Trasero (GPIO 33)",
+      "ru": "Оптимизация Cloud Auto-OTA и управление задним красным светодиодом (GPIO 33)",
+      "ko": "Cloud Auto-OTA 최적화 및 후면 빨간색 LED (GPIO 33) 제어 기능"
+    },
+    "highlights": [
+      {
+        "vi": "Khắc phục triệt để lỗi kết nối HTTP -1 khi kiểm tra OTA từ GitHub, bổ sung header User-Agent chuẩn, tăng SSL Handshake Timeout lên 30s/60s và bắt lỗi chế độ AP Mode với thông báo tiếng Việt thân thiện.",
+        "en": "Resolved HTTP -1 connection errors during GitHub OTA checks, added standard User-Agent header, increased SSL Handshake Timeout to 30s/60s, and handled AP mode with friendly notifications.",
+        "ja": "GitHubからのOTA確認時におけるHTTP -1接続エラーを解消、標準User-Agentヘッダーを追加、SSLハンドシェイクタイムアウトを30秒/60秒に延長し、APモード時の通知を強化しました。",
+        "zh": "彻底解决 GitHub OTA 检查时的 HTTP -1 失败问题，增加标准 User-Agent 请求头，将 SSL 握手超时延长至 30s/60s，并完善 AP 模式网络提示。",
+        "fr": "Correction des erreurs HTTP -1 lors de la vérification OTA GitHub, ajout d'un User-Agent standard, extension du délai SSL à 30s/60s.",
+        "de": "Behebung von HTTP -1 Fehlern bei der GitHub OTA-Prüfung, Hinzufügen von User-Agent-Headern und Erhöhung der SSL-Timeouts auf 30s/60s.",
+        "es": "Resolución de errores de conexión HTTP -1 en comprobaciones OTA de GitHub, adición de User-Agent y aumento de timeout SSL a 30s/60s.",
+        "ru": "Устранена ошибка подключения HTTP -1 при проверке OTA с GitHub, добавлен User-Agent, увеличен таймаут SSL до 30с/60с.",
+        "ko": "GitHub OTA 확인 시 HTTP -1 연결 오류 해결, 표준 User-Agent 헤더 추가, SSL 핸드셰이크 타임아웃 30초/60초 연장 및 AP 모드 안내 강화."
+      },
+      {
+        "vi": "Bổ sung tính năng bật/tắt nhanh Đèn LED Đỏ (GPIO 33 Active-LOW) ngay trên Video Player và công tắc gạt trong tab Camera Settings (hỗ trợ tắt để camera hoạt động ẩn danh ban đêm), tự động lưu trạng thái vào Flash NVS.",
+        "en": "Added quick toggle for Red Status LED (GPIO 33 Active-LOW) on Video Player and dedicated switch in Camera Settings tab for stealth night operation, with persistent NVS Flash storage.",
+        "ja": "ビデオプレイヤー上のクイックボタンおよびカメラ設定タブに背面赤色LED（GPIO 33 Active-LOW）制御スイッチを追加（夜間ステルス監視用）。Flash NVSへの自動保存に対応。",
+        "zh": "在视频播放器及摄像头设置选项卡中新增背板红灯（GPIO 33 Active-LOW）开关，支持夜间隐蔽监控消灯，并自动记忆保存至 Flash NVS。",
+        "fr": "Ajout d'un bouton de contrôle de la LED rouge (GPIO 33) sur le lecteur vidéo et dans les paramètres caméra pour la surveillance discrète de nuit, avec sauvegarde NVS Flash.",
+        "de": "Hinzufügen einer Schnellsteuerung für die rote LED (GPIO 33) im Video-Player und in den Kameraeinstellungen für den Nachtbetrieb mit NVS-Flash-Speicherung.",
+        "es": "Añadido control de LED rojo (GPIO 33) en el reproductor de vídeo y ajustes de cámara para modo discreto nocturno, con guardado en Flash NVS.",
+        "ru": "Добавлено управление задним красным LED (GPIO 33) на плеере и во вкладке настроек камеры для скрытого ночного режима с сохранением в NVS Flash.",
+        "ko": "비디오 플레이어 및 카메라 설정 탭에 후면 빨간색 LED (GPIO 33 Active-LOW) 제어 버튼 추가 (야간 감시를 위한 소등 지원), Flash NVS 자동 저장 지원."
+      }
+    ]
+  },
+  {
     "version": "1.0.096",
     "release_date": "2026-09-18",
     "title": "Bổ sung Chẩn đoán Thẻ nhớ MicroSD, Giám sát chân GPIO & Song ngữ VI/EN",
