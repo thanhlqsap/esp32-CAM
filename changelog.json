@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.110",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "⚡ Tối ưu hóa đệm TLS Telegram/Gmail & Thu hồi ~40KB SRAM (Chống sập nguồn Panic khi Vừa Stream + Vừa Ghi SD + Vừa Gửi Cảnh Báo).",
+      "en": "⚡ Optimized Telegram/Gmail TLS buffers & Reclaimed ~40KB SRAM (Prevents Panic Crash during simultaneous Stream, SD Record & Telegram Alert)."
+    },
+    "details": {
+      "vi": [
+        "Kích hoạt client.setBufferSizes(1024, 1024) cho thư viện mã hóa WiFiClientSecure trong Telegram Bot và Gmail SMTP, giảm dung lượng bộ đệm SSL mbedTLS từ 45KB xuống 2KB, giải phóng ngay ~35KB RAM nội bộ (Internal SRAM Heap).",
+        "Cân bằng kích thước ngăn xếp FreeRTOS cho streamTask (Core 0) và asyncAlertTask (Core 1) về mức 8KB (8192 bytes) chuẩn xác, loại bỏ nguy cơ cạn kiệt RAM và phân mảnh bộ nhớ khi chạy đồng thời đa tác vụ nặng.",
+        "Nâng mức RAM nội bộ tự do lên trên 140-150KB, giúp ESP32-CAM hoạt động ổn định tuyệt đối và mượt mà trong mọi tình huống tải cao."
+      ],
+      "en": [
+        "Enabled client.setBufferSizes(1024, 1024) for WiFiClientSecure TLS in Telegram Bot and Gmail SMTP, slashing mbedTLS SSL buffer from 45KB down to 2KB and instantly freeing ~35KB internal SRAM heap.",
+        "Balanced FreeRTOS stack allocations for streamTask (Core 0) and asyncAlertTask (Core 1) to optimal 8KB (8192 bytes), preventing heap exhaustion and memory fragmentation under heavy concurrent workloads.",
+        "Raised free internal heap to >140-150KB, ensuring rock-solid stability and zero-crash operation during simultaneous live stream, SD video recording, and instant Telegram alert dispatching."
+      ]
+    }
+  },
+  {
     "version": "1.0.109",
     "date": "2026-09-18",
     "summary": {

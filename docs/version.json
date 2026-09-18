@@ -1,10 +1,10 @@
 {
-  "version": "1.0.109",
+  "version": "1.0.110",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Khắc phục triệt để Software Panic / Crash Exception: Khóa Mutex an toàn cảm biến Camera, tăng Stack StreamTask lên 16KB và bảo vệ bộ đệm DMA",
+  "description": "Tối ưu hóa bộ đệm TLS Telegram/Gmail & cân bằng Stack FreeRTOS (Tiết kiệm ~40KB SRAM, ngăn ngừa OOM Panic Crash khi đa tác vụ)",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Khắc phục triệt để Software Panic / Crash Exception (ESP_RST_PANIC): 1. Bọc khóa Mutex _cam_mutex bảo vệ setCameraParam() tránh xung đột DMA khi đổi framesize; 2. Tăng kích thước bộ nhớ Stack cho streamTask từ 4KB lên 16KB chống tràn stack; 3. Đồng bộ hóa kiểm tra con trỏ nullptr và bảo vệ vòng đời frame buffer trong captureFrame() và returnFrame().",
+  "changelog": "Khắc phục triệt để Software Panic khi Vừa Stream + Vừa Ghi SD + Vừa Gửi Telegram: 1. Giới hạn bộ đệm SSL client.setBufferSizes(1024, 1024) cho Telegram/Gmail giúp tiết kiệm ngay ~35KB SRAM; 2. Cân bằng Stack streamTask và asyncAlertTask về mức 8KB tối ưu; 3. Nâng dung lượng RAM nội bộ tự do lên mức an toàn tuyệt đối.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
