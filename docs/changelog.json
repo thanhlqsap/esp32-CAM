@@ -1,5 +1,44 @@
 [
   {
+    "version": "1.0.098",
+    "date": "2026-09-18",
+    "title": {
+      "vi": "Cơ chế Camera Watchdog & Tự động phục hồi chu kỳ nguồn phần cứng (Auto Recovery)",
+      "en": "Camera Watchdog & Hardware Power-Cycle Auto-Recovery System",
+      "ja": "Camera Watchdog＆ハードウェア電源サイクル自動復旧システム",
+      "zh": "摄像头看门狗与硬件电源周期自动复位恢复机制",
+      "fr": "Système Camera Watchdog et récupération automatique par cycle d'alimentation",
+      "de": "Camera-Watchdog & automatisches Hardware-Power-Cycle-Wiederherstellungssystem",
+      "es": "Sistema Camera Watchdog y recuperación automática de ciclo de energía",
+      "ru": "Сторожевой таймер камеры (Watchdog) и автовосстановление питания (Auto Recovery)",
+      "ko": "카메라 와치독(Watchdog) 및 하드웨어 전원 사이클 자동 복구 시스템"
+    },
+    "highlights": [
+      {
+        "vi": "Tích hợp bộ giám sát Camera Watchdog thông minh: Tự động phát hiện khi mắt camera bị mất tín hiệu (50 frames lỗi liên tiếp), thực hiện chu kỳ xả nguồn phần cứng qua chân PWDN (GPIO 32), cơ chế Fallback xung nhịp XCLK (20MHz -> 16MHz -> 10MHz), khóa chống lặp Cooldown 60 giây và xả 2 frame nháp cân bằng sáng tự động.",
+        "en": "Integrated Smart Camera Watchdog: Auto-detects sensor signal drop (50 consecutive frame failures), performs hardware power-cycle via PWDN (GPIO 32), Fallback XCLK frequencies (20MHz -> 16MHz -> 10MHz), 60s cooldown anti-loop guard, and auto 2-frame lighting stabilization.",
+        "ja": "インテリジェントなCamera Watchdogを搭載：カメラ信号の途絶（50フレーム連続エラー）を自動検知し、PWDN（GPIO 32）によるハードウェア電源再投入、XCLK周波数フォールバック（20MHz→16MHz→10MHz）、60秒クールダウンガード、初期2フレーム自動安定化を実行します。",
+        "zh": "集成智能摄像头看门狗机制：自动监测传感器掉线（连续50帧错误），通过 PWDN（GPIO 32）执行硬件断电重启，XCLK频率自适应降级（20MHz -> 16MHz -> 10MHz），具备60秒防抖冷却保护及首两帧自动测光稳定。",
+        "fr": "Intégration d'un Watchdog caméra intelligent : détection automatique des pertes de signal (50 trames consécutives), cycle d'alimentation PWDN (GPIO 32) et repli dynamique de fréquence XCLK.",
+        "de": "Intelligenter Camera-Watchdog: Automatische Signalverlusterkennung (50 aufeinanderfolgende Frame-Fehler), Hardware-Power-Cycle über PWDN (GPIO 32) und XCLK-Fallback.",
+        "es": "Watchdog inteligente para cámara: detección automática de pérdida de señal (50 frames continuos), ciclo de energía mediante PWDN (GPIO 32) y fallback de frecuencia XCLK.",
+        "ru": "Интегрирован сторожевой таймер камеры (Watchdog): автообнаружение сбоев (50 кадров подряд), перезапуск питания через PWDN (GPIO 32) и адаптивное снижение частоты XCLK.",
+        "ko": "스마트 카메라 와치독 탑재: 센서 신호 유실(50연속 프레임 오류) 자동 감지, PWDN(GPIO 32) 전원 재인가, XCLK 주파수 Fallback 및 60초 쿨다운 보호 지원."
+      },
+      {
+        "vi": "Đảm bảo an toàn tuyệt đối với khóa Mutex chống xung đột giữa Core 0 và Core 1, chốt chặn bảo vệ tiến trình cập nhật OTA (Web & Cloud OTA), và hiển thị thống kê số lần tự cứu hộ trên trang chẩn đoán /log.",
+        "en": "Ensured absolute multi-core safety with Mutex lock, protected OTA update processes (Web & Cloud OTA), and displayed auto-recovery statistics on /log diagnostic console.",
+        "ja": "Core 0とCore 1間の競合を防ぐMutexロック、OTAアップデート保護、および/log診断ページでの自動復旧統計表示に対応。",
+        "zh": "通过 Mutex 互斥锁确保双核并发安全，增加 OTA 固件升级保护互锁，并在 /log 诊断页面实时展示自动恢复计数。",
+        "fr": "Protection Mutex multi-cœurs, verrouillage de sécurité pendant les mises à jour OTA et affichage des statistiques de récupération sur la page /log.",
+        "de": "Multi-Core-Sicherheit durch Mutex-Lock, OTA-Update-Schutz und Anzeige der Wiederherstellungsstatistik auf der Diagnose-Webseite /log.",
+        "es": "Seguridad multinúcleo con bloqueo Mutex, protección durante actualizaciones OTA y visualización de estadísticas de autorecuperación en /log.",
+        "ru": "Защита многопоточности мьютексом (Mutex), блокировка во время OTA-прошивки и отображение счетчика автовосстановлений на странице /log.",
+        "ko": "Core 0과 Core 1 간 Mutex 잠금으로 충돌 방지, OTA 업데이트 보호 연동 및 /log 진단 콘솔에 자동 복구 횟수 실시간 통계 표기."
+      }
+    ]
+  },
+  {
     "version": "1.0.097",
     "date": "2026-09-18",
     "title": {
