@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.112",
+    "date": "2026-09-19",
+    "summary": {
+      "vi": "🚀 Tách tác vụ ghi video thẻ nhớ SD sang FreeRTOS Task độc lập & Cơ chế chia sẻ khung hình (Giải phóng 100% WebServer, chống nghẽn F5/Refresh khi đang quay).",
+      "en": "🚀 Decoupled MicroSD Video Recording into dedicated FreeRTOS Task & Shared Frame Tapping (100% Non-blocking WebServer during active recording)."
+    },
+    "details": {
+      "vi": [
+        "Tách toàn bộ các thao tác ghi tệp AVI nặng (Blocking I/O) sang FreeRTOS recordTask độc lập chạy ngầm trên Core 1 với Hàng đợi đệm (Queue) trong PSRAM, giải phóng hoàn toàn vòng lặp loop() cho WebServer.",
+        "Thiết lập cơ chế chia sẻ khung hình Zero-Double Capture từ luồng Stream sang bộ ghi thẻ nhớ, triệt tiêu 100% hiện tượng tranh chấp khóa Camera Mutex giữa 2 Core.",
+        "Rút ngắn timeout khóa _cam_mutex xuống 25ms, đảm bảo người dùng có thể Refresh trang Log, Dashboard, SD Gallery hoặc gọi API tức thì trong lúc camera đang quay video tốc độ cao."
+      ],
+      "en": [
+        "Decoupled heavy AVI file I/O operations into an independent background FreeRTOS recordTask on Core 1 with a PSRAM-backed frame queue, completely freeing the loop() cycle for the WebServer.",
+        "Implemented Zero-Double Capture frame sharing directly from the MJPEG live stream pipeline into the video recorder, eliminating 100% of camera mutex contention across cores.",
+        "Reduced _cam_mutex timeout to 25ms, ensuring instantaneous web page reloads (Log, Dashboard, SD Gallery) and API responsiveness during active high-framerate recording."
+      ]
+    }
+  },
+  {
     "version": "1.0.111",
     "date": "2026-09-18",
     "summary": {

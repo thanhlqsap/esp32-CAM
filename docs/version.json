@@ -1,10 +1,10 @@
 {
-  "version": "1.0.111",
+  "version": "1.0.112",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tùy chỉnh tốc độ khung hình Video FPS (10-20 FPS) & Chọn chế độ ghi hình linh hoạt (Theo thời gian vs Theo số lượng Frame ngắn) trên thẻ MicroSD",
-  "release_date": "2026-09-18",
+  "description": "Tách tác vụ ghi video thẻ nhớ SD sang FreeRTOS Task độc lập & Cơ chế chia sẻ khung hình Stream (Giải phóng 100% WebServer, chống nghẽn F5/Refresh khi đang quay)",
+  "release_date": "2026-09-19",
   "mandatory": false,
-  "changelog": "Bổ sung tính năng tùy chọn toàn diện cho việc ghi video trên thẻ MicroSD: 1. Cho phép người dùng tùy chọn tốc độ khung hình Video FPS (10, 12, 15, 20 FPS); 2. Tùy chọn 1 trong 2 chế độ ghi hình: Giới hạn theo thời gian (20s-180s) hoặc Giới hạn theo số lượng frame ngắn (Burst 10-50 frames); 3. Đồng bộ giao diện điều khiển hiện đại, trực quan trên sd_gallery.html và lưu vĩnh viễn trong Flash NVS.",
+  "changelog": "Khắc phục triệt để hiện tượng nghẽn WebServer (không vào được trang Log/Dashboard khi đang quay video): 1. Tách bộ ghi thẻ SD sang FreeRTOS recordTask chạy ngầm với Queue đệm trong PSRAM; 2. Cơ chế chia sẻ khung hình Zero-Double Capture trực tiếp từ luồng Stream; 3. Giảm timeout Mutex camera xuống 25ms giúp CPU phản hồi tức thì mọi yêu cầu web.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
