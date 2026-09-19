@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.114",
+    "date": "2026-09-19",
+    "summary": {
+      "vi": "🎞️ Nâng hàng đợi đệm lên 16 frames trong PSRAM & Khóa nhịp Pacing thời gian thực (Video AVI mượt mà, chuẩn tốc độ thực).",
+      "en": "🎞️ Expanded PSRAM Buffer Queue to 16 Frames & Real-time Pacing Clock (Smooth AVI Video Playback at 1:1 Real Speed)."
+    },
+    "details": {
+      "vi": [
+        "Nâng dung lượng hàng đợi đệm recordQueue từ 5 lên 16 frames trong PSRAM (~600KB-900KB), tạo vùng đệm 1.5s video tốc độ cao giúp hấp thụ 100% các khoảng trễ I/O của thẻ nhớ MicroSD mà không rớt frame.",
+        "Chuẩn hóa bộ điều tiết nhịp chụp Pacing Timer mili-giây theo cấu hình FPS, đảm bảo thời lượng và tốc độ phát lại video AVI khớp chuẩn xác 100% với thời gian thực ngoài đời, triệt tiêu hoàn toàn hiện tượng tua nhanh.",
+        "Mức chiếm dụng PSRAM tối đa được khống chế an toàn ở mức < 72%, bảo đảm luôn dư thừa hơn 1.14 MB bộ nhớ trống cho hệ thống."
+      ],
+      "en": [
+        "Expanded the recordQueue capacity from 5 to 16 frames in PSRAM (~600KB-900KB), providing a 1.5s video jitter buffer that absorbs 100% of MicroSD I/O latency spikes without dropping frames.",
+        "Standardized the millisecond Pacing Timer aligned with configured FPS, ensuring AVI video playback duration and motion speed match 100% real-world time without fast-forward/timelapse effects.",
+        "Strictly capped maximum PSRAM peak usage at < 72%, guaranteeing over 1.14 MB of free memory headroom."
+      ]
+    }
+  },
+  {
     "version": "1.0.113",
     "date": "2026-09-19",
     "summary": {

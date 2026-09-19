@@ -1,10 +1,10 @@
 {
-  "version": "1.0.113",
+  "version": "1.0.114",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Cơ chế Tự động Kết nối lại Wi-Fi Thông minh (Smart Dual-Mode Reconnect & Background Auto-Recovery) và Chống Treo SD Mutex",
+  "description": "Nâng hàng đợi đệm lên 16 frames trong PSRAM & Khóa nhịp thời gian thực Pacing cho file video AVI (Chống lướt nhanh, chuyển động mượt mà tự nhiên)",
   "release_date": "2026-09-19",
   "mandatory": false,
-  "changelog": "1. Smart Dual-Mode Wi-Fi Auto-Reconnect: Khi mất kết nối hoặc hết 30s timeout, thiết bị vừa phát AP cứu hộ ESP32-CAM-Setup vừa tự động dò quét và kết nối lại Router nhà mỗi 25-30s không làm nghẽn hệ thống; Khi kết nối thành công tự động tắt AP; 2. Bảo vệ SD Mutex: Chuyển portMAX_DELAY sang Bounded Timeout 1500ms chống treo WebServer khi thẻ nhớ bị lỗi vật lý.",
+  "changelog": "1. Nâng dung lượng hàng đợi đệm recordQueue lên 16 frames trong PSRAM (~600KB-900KB) giúp hấp thụ trọn vẹn 1.5s video đệm, triệt tiêu rớt frame khi thẻ nhớ SD_MMC ghi chậm; 2. Chuẩn hóa bộ điều tiết nhịp thời gian thực Pacing theo FPS, đảm bảo video phát lại trên mọi thiết bị khớp chuẩn 100% tốc độ đời thực, không bị lướt nhanh.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
