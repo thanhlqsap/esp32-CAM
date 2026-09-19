@@ -1,10 +1,10 @@
 {
-  "version": "1.0.117",
+  "version": "1.0.118",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Vá lỗi đứng/treo ở 76% khi cập nhật Cloud OTA: Chuyển sang cơ chế Chunked Streaming 2KB kết hợp nhường CPU FreeRTOS (vTaskDelay) chống Task Watchdog timeout",
+  "description": "Bảo vệ mã nguồn Client toàn diện: Chặn phím tắt xem nguồn (F12, Ctrl+U, Ctrl+S, DevTools) trên tất cả giao diện Web mà vẫn giữ nguyên chuột phải và phím điều khiển FPV Car",
   "release_date": "2026-09-19",
   "mandatory": false,
-  "changelog": "1. Khắc phục triệt để lỗi treo/đứng ở 76% khi nạp Cloud OTA: Thay thế Update.writeStream blocking bằng cơ chế nạp từng đoạn Chunked Buffer 2KB kèm vTaskDelay(1) định kỳ nhường CPU cho FreeRTOS IDLE và Wi-Fi driver task; 2. Thêm timeout mạng 25s phát hiện ngắt kết nối an toàn; 3. Tối ưu loop() tự động tạm dừng các tác vụ nền (quét Wi-Fi, SD) khi đang nạp OTA; 4. Nâng stack size CloudOtaWorker lên 10KB chống tràn bộ nhớ mbedTLS.",
+  "changelog": "1. Mở rộng cơ chế bảo vệ mã nguồn Client (Anti-Inspect: chặn F12, Ctrl+U, Ctrl+S, Ctrl+Shift+I/J/C) trên toàn bộ hệ thống Web (Dashboard, AI Vision, API Studio, SD Gallery, FPV Car, Doorbell, Captive Portal); 2. Giữ nguyên thao tác chuột phải (Context Menu) cho người dùng copy/paste và lưu ảnh; 3. Đảm bảo an toàn 100% không ảnh hưởng các phím di chuyển xe FPV Car (W/A/S/D/Space); 4. Tiêu tốn 0 byte RAM Heap trên ESP32.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
