@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.116",
+    "date": "2026-09-19",
+    "summary": {
+      "vi": "🛡️ Thử Nghiệm Bảo Vệ Mã Nguồn (Anti-Inspect: Chặn F12 / Chuột Phải / View Source) & Tự Động Minification Cho Trang Chẩn Đoán (/log).",
+      "en": "🛡️ Experimental Source Code Protection (Anti-Inspect: Block F12 / Right Click / View Source) & Auto Minification for Diagnostics Page (/log)."
+    },
+    "details": {
+      "vi": [
+        "Thử nghiệm cơ chế bảo vệ mã nguồn Client (Anti-Inspect) cho trang Nhật ký & Chẩn đoán (/log): Chặn chuột phải, phím tắt F12, Ctrl+U (View Source), Ctrl+Shift+I/J (DevTools), Ctrl+S.",
+        "Tự động làm gọn (Minification) mã HTML/JS khi đóng gói web_assets.h: Loại bỏ chú thích và khoảng trắng thừa, giảm dung lượng bộ nhớ Flash và tăng tốc tải trang.",
+        "Tiết kiệm 0 byte RAM Heap trên ESP32: Quá trình xử lý diễn ra hoàn toàn lúc build và trên trình duyệt client."
+      ],
+      "en": [
+        "Added client-side Anti-Inspect protections to Diagnostics & Logs page (/log): Disabled context menu (right-click), F12, Ctrl+U (View Source), Ctrl+Shift+I/J (DevTools), and Ctrl+S.",
+        "Integrated automated HTML/JS minification into web_assets.h packaging: Stripped comments and redundant whitespaces, saving Flash storage and accelerating page load speed.",
+        "Zero additional RAM Heap consumption on ESP32: Processing happens at build time and on the client browser."
+      ]
+    }
+  },
+  {
     "version": "1.0.115",
     "date": "2026-09-19",
     "summary": {
