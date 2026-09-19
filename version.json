@@ -1,10 +1,10 @@
 {
-  "version": "1.0.114",
+  "version": "1.0.115",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Nâng hàng đợi đệm lên 16 frames trong PSRAM & Khóa nhịp thời gian thực Pacing cho file video AVI (Chống lướt nhanh, chuyển động mượt mà tự nhiên)",
+  "description": "Bổ sung Card khám phá toàn bộ cấu hình đã lưu trong Flash NVS trên trang Chẩn đoán & Che mật khẩu/token bảo mật (2 ký tự đầu và 2 ký tự cuối)",
   "release_date": "2026-09-19",
   "mandatory": false,
-  "changelog": "1. Nâng dung lượng hàng đợi đệm recordQueue lên 16 frames trong PSRAM (~600KB-900KB) giúp hấp thụ trọn vẹn 1.5s video đệm, triệt tiêu rớt frame khi thẻ nhớ SD_MMC ghi chậm; 2. Chuẩn hóa bộ điều tiết nhịp thời gian thực Pacing theo FPS, đảm bảo video phát lại trên mọi thiết bị khớp chuẩn 100% tốc độ đời thực, không bị lướt nhanh.",
+  "changelog": "1. Bổ sung Card NVS Configuration Explorer dạng Accordion trên trang Nhật ký & Chẩn đoán (/log), hiển thị trực quan toàn bộ cấu hình đã lưu trong Flash NVS gồm 4 nhóm: Mạng & Hệ thống, Cảm biến Camera, Ghi hình & Chuyển động, và Thông báo Cảnh báo; 2. Bảo mật an toàn thông tin: Tự động che mờ mọi mật khẩu và token nhạy cảm (Wi-Fi, SoftAP, Admin Auth, Telegram Bot Token, Gmail App Password), chỉ giữ lại 2 ký tự đầu và 2 ký tự cuối; 3. Đồng bộ hóa API /api/logs và tài liệu API.html.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

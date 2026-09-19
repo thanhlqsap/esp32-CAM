@@ -1,5 +1,27 @@
 [
   {
+    "version": "1.0.115",
+    "date": "2026-09-19",
+    "summary": {
+      "vi": "💾 Card Liệt Kê Cấu Hình Flash NVS Trực Quan Trên Trang Chẩn Đoán & Bảo Mật Che Mật Khẩu (2 Ký Tự Đầu - Cuối).",
+      "en": "💾 Visual Flash NVS Configuration Explorer Card on Diagnostics Page & Masked Secrets (First 2 & Last 2 Chars)."
+    },
+    "details": {
+      "vi": [
+        "Bổ sung Card 'Cấu Hình Đã Lưu Trong Flash NVS' trên trang Nhật ký & Chẩn đoán (/log), trình bày 4 nhóm cấu hình mạch lạc: Mạng & Hệ thống, Cảm biến Camera, Ghi hình & Chuyển động, và Thông báo Cảnh báo.",
+        "Cơ chế bảo mật dữ liệu nhạy cảm (Masked Secrets): Tự động che mờ mật khẩu Wi-Fi, mật khẩu AP, mật khẩu Auth, Telegram Bot Token và Gmail App Password (chỉ hiển thị 2 ký tự đầu và 2 ký tự cuối).",
+        "Hỗ trợ chế độ thu gọn/mở rộng (Accordion Toggle) và tự động đồng bộ song ngữ Việt/Anh theo ngôn ngữ giao diện.",
+        "Cập nhật mở rộng endpoint /api/logs và tài liệu kỹ thuật API.html."
+      ],
+      "en": [
+        "Added 'Stored Flash NVS Configuration' Card to Diagnostics & Logs page (/log), neatly organizing 4 config domains: Network & System, Camera Sensor, Video Recording & Motion, and Alerts & Notifications.",
+        "Enhanced Security (Masked Secrets): Automatically masks Wi-Fi passwords, SoftAP password, Auth password, Telegram Token, and Gmail App Password (showing only first 2 and last 2 characters).",
+        "Interactive Accordion Collapse/Expand support and dynamic Vietnamese/English bilingual localization.",
+        "Updated /api/logs telemetry endpoint and synchronized API.html documentation."
+      ]
+    }
+  },
+  {
     "version": "1.0.114",
     "date": "2026-09-19",
     "summary": {
