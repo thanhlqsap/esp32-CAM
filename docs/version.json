@@ -1,10 +1,10 @@
 {
-  "version": "1.0.110",
+  "version": "1.0.111",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa bộ đệm TLS Telegram/Gmail & cân bằng Stack FreeRTOS (Tiết kiệm ~40KB SRAM, ngăn ngừa OOM Panic Crash khi đa tác vụ)",
+  "description": "Tùy chỉnh tốc độ khung hình Video FPS (10-20 FPS) & Chọn chế độ ghi hình linh hoạt (Theo thời gian vs Theo số lượng Frame ngắn) trên thẻ MicroSD",
   "release_date": "2026-09-18",
   "mandatory": false,
-  "changelog": "Khắc phục triệt để Software Panic khi Vừa Stream + Vừa Ghi SD + Vừa Gửi Telegram: 1. Giới hạn bộ đệm SSL client.setBufferSizes(1024, 1024) cho Telegram/Gmail giúp tiết kiệm ngay ~35KB SRAM; 2. Cân bằng Stack streamTask và asyncAlertTask về mức 8KB tối ưu; 3. Nâng dung lượng RAM nội bộ tự do lên mức an toàn tuyệt đối.",
+  "changelog": "Bổ sung tính năng tùy chọn toàn diện cho việc ghi video trên thẻ MicroSD: 1. Cho phép người dùng tùy chọn tốc độ khung hình Video FPS (10, 12, 15, 20 FPS); 2. Tùy chọn 1 trong 2 chế độ ghi hình: Giới hạn theo thời gian (20s-180s) hoặc Giới hạn theo số lượng frame ngắn (Burst 10-50 frames); 3. Đồng bộ giao diện điều khiển hiện đại, trực quan trên sd_gallery.html và lưu vĩnh viễn trong Flash NVS.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.111",
+    "date": "2026-09-18",
+    "summary": {
+      "vi": "🎬 Tùy chỉnh tốc độ khung hình Video FPS (10-20 FPS) & Chế độ ghi hình linh hoạt (Theo thời gian vs Theo số lượng Frame ngắn).",
+      "en": "🎬 Customizable Video FPS (10-20 FPS) & Flexible Recording Modes (Time-based vs Burst Frame Count-based) on MicroSD."
+    },
+    "details": {
+      "vi": [
+        "Bổ sung tùy chọn tốc độ khung hình Video FPS (10, 12, 15, 20 FPS) với cấu hình đồng bộ chuẩn xác vào AVI RIFF Header (dwMicroSecPerFrame và dwRate) giúp video phát lại mượt mà đúng tốc độ thực.",
+        "Cung cấp 2 chế độ giới hạn ghi hình thông minh: Chế độ theo Thời Gian (20s, 30s, 60s, 120s, 180s) và Chế độ theo Số Lượng Frame ngắn (Burst 10, 15, 20, 30, 50 frames).",
+        "Nâng cấp giao diện sd_gallery.html với radio pills chuyển đổi trực quan, đồng bộ Flash NVS vĩnh viễn và cập nhật tài liệu API.html đầy đủ."
+      ],
+      "en": [
+        "Added customizable Video FPS options (10, 12, 15, 20 FPS) seamlessly calibrated in AVI RIFF Header (dwMicroSecPerFrame and dwRate) for smooth, accurate playback.",
+        "Implemented dual Recording Limit Modes: Time-based (20s, 30s, 60s, 120s, 180s) and Short Burst Frame Count-based (10, 15, 20, 30, 50 frames).",
+        "Upgraded sd_gallery.html UI with intuitive radio pills and dynamic form selectors, backed by persistent Flash NVS storage and full API.html sync."
+      ]
+    }
+  },
+  {
     "version": "1.0.110",
     "date": "2026-09-18",
     "summary": {
