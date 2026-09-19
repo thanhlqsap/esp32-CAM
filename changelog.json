@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.113",
+    "date": "2026-09-19",
+    "summary": {
+      "vi": "🌐 Cơ chế Tự động Kết nối lại Wi-Fi Thông minh (Smart Dual-Mode Reconnect & Background Auto-Recovery) & Chống Treo SD Mutex.",
+      "en": "🌐 Smart Dual-Mode Wi-Fi Auto-Reconnect (Background Auto-Recovery) & Deadlock-Free SD Mutex Guard."
+    },
+    "details": {
+      "vi": [
+        "Smart Dual-Mode Wi-Fi Auto-Reconnect: Khi khởi động quá 30s không kết nối được STA hoặc bị rớt mạng trong lúc chạy, thiết bị vừa phát AP cứu hộ ESP32-CAM-Setup vừa tự động dò quét và kết nối lại Router nhà định kỳ mỗi 25-30s mà không làm gián đoạn hệ thống.",
+        "Tự động đóng AP và khôi phục mDNS (http://esp32-cam.local) cùng SNTP ngay khi kết nối lại thành công với mạng gia đình.",
+        "Bảo vệ chống treo Mutex thẻ nhớ SD (recorderMutex): Chuyển toàn bộ các lệnh chờ vô hạn portMAX_DELAY sang Bounded Timeout 1500ms, loại bỏ triệt để nguy cơ đứng WebServer khi thẻ nhớ bị lỗi vật lý."
+      ],
+      "en": [
+        "Smart Dual-Mode Wi-Fi Auto-Reconnect: When initial 30s timeout expires or connection drops at runtime, the device activates fallback AP (ESP32-CAM-Setup) while continuously probing saved home Wi-Fi networks every 25-30s in non-blocking background mode.",
+        "Automatically shuts down fallback SoftAP, restoring mDNS (http://esp32-cam.local) and SNTP time sync as soon as the home Wi-Fi reconnects successfully.",
+        "SD Mutex Deadlock Guard: Replaced all unbounded portMAX_DELAY waits with 1500ms bounded timeouts on recorderMutex, completely preventing WebServer freeze on physical SD card faults."
+      ]
+    }
+  },
+  {
     "version": "1.0.112",
     "date": "2026-09-19",
     "summary": {

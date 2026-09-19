@@ -1,10 +1,10 @@
 {
-  "version": "1.0.112",
+  "version": "1.0.113",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tách tác vụ ghi video thẻ nhớ SD sang FreeRTOS Task độc lập & Cơ chế chia sẻ khung hình Stream (Giải phóng 100% WebServer, chống nghẽn F5/Refresh khi đang quay)",
+  "description": "Cơ chế Tự động Kết nối lại Wi-Fi Thông minh (Smart Dual-Mode Reconnect & Background Auto-Recovery) và Chống Treo SD Mutex",
   "release_date": "2026-09-19",
   "mandatory": false,
-  "changelog": "Khắc phục triệt để hiện tượng nghẽn WebServer (không vào được trang Log/Dashboard khi đang quay video): 1. Tách bộ ghi thẻ SD sang FreeRTOS recordTask chạy ngầm với Queue đệm trong PSRAM; 2. Cơ chế chia sẻ khung hình Zero-Double Capture trực tiếp từ luồng Stream; 3. Giảm timeout Mutex camera xuống 25ms giúp CPU phản hồi tức thì mọi yêu cầu web.",
+  "changelog": "1. Smart Dual-Mode Wi-Fi Auto-Reconnect: Khi mất kết nối hoặc hết 30s timeout, thiết bị vừa phát AP cứu hộ ESP32-CAM-Setup vừa tự động dò quét và kết nối lại Router nhà mỗi 25-30s không làm nghẽn hệ thống; Khi kết nối thành công tự động tắt AP; 2. Bảo vệ SD Mutex: Chuyển portMAX_DELAY sang Bounded Timeout 1500ms chống treo WebServer khi thẻ nhớ bị lỗi vật lý.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
