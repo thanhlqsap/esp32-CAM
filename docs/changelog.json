@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.0.122",
+    "release_date": "2026-09-20",
+    "title": "Bổ sung & Tách bạch tính năng Tự Động Ghi Video vào thẻ nhớ khi có Chuyển Động (Auto Record on Motion)",
+    "changes": [
+      "Tách bạch hoàn toàn giữa Dò tìm chuyển động (Motion Detection) và Tự động ghi video vào thẻ nhớ (Auto Record on Motion).",
+      "Bổ sung công tắc điều khiển 'Tự động ghi video vào thẻ nhớ' độc lập trên cả Thư viện thẻ nhớ (sd_gallery.html) và Cấu hình Camera (dashboard.html).",
+      "Hỗ trợ chế độ chỉ gửi ảnh cảnh báo qua Telegram Bot / Gmail SMTP khi có chuyển động mà không ghi video vào thẻ nhớ giúp bảo vệ thẻ và tránh đầy bộ nhớ.",
+      "Toàn bộ cấu hình autoRecordOnMotion được lưu trữ vĩnh viễn vào bộ nhớ Flash NVS (Preferences namespace sd_motion) và tự động khôi phục sau reboot.",
+      "Cập nhật tài liệu API chuẩn (/motion_config) trong API.html và hoàn tất hỗ trợ đầy đủ 9 ngôn ngữ toàn cầu."
+    ]
+  },
+  {
     "version": "1.0.121",
     "release_date": "2026-09-20",
     "title": "Tối ưu hóa thao tác chạm giữ lái xe FPV trên Mobile/Tablet & Vô hiệu hóa Context Menu",

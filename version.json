@@ -1,10 +1,10 @@
 {
-  "version": "1.0.121",
+  "version": "1.0.122",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Nâng cấp giao diện buồng lái xe FPV Car: Tích hợp 2 nút tinh chỉnh bước nhỏ (+ / -) ở 2 đầu thanh trượt Cân Bằng (Trim) giúp điều chỉnh chính xác từng bước ±1",
+  "description": "Bổ sung công tắc Tự Động Ghi Video vào thẻ nhớ khi có Chuyển Động: Cho phép chỉ gửi cảnh báo Telegram/Gmail mà không ghi đè thẻ nhớ.",
   "release_date": "2026-09-20",
   "mandatory": false,
-  "changelog": "Khắc phục triệt để lỗi long-press kích hoạt menu chuột phải/ngữ cảnh khi nhấn giữ nút điều khiển xe FPV trên điện thoại và tablet.",
+  "changelog": "Tách bạch tính năng Phát hiện chuyển động & Tự động ghi video AVI vào thẻ MicroSD trên cả sd_gallery.html và dashboard.html; lưu vĩnh viễn vào NVS Flash.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
