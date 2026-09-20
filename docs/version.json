@@ -1,10 +1,10 @@
 {
-  "version": "1.0.119",
+  "version": "1.0.121",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "description": "Nâng cấp giao diện buồng lái xe FPV Car: Tích hợp 2 nút tinh chỉnh bước nhỏ (+ / -) ở 2 đầu thanh trượt Cân Bằng (Trim) giúp điều chỉnh chính xác từng bước ±1",
   "release_date": "2026-09-20",
   "mandatory": false,
-  "changelog": "1. Tích hợp 2 nút tinh chỉnh bước nhỏ (- và +) ở 2 đầu thanh trượt Cân Bằng (Trim) trên trang car_control.html giúp tăng/giảm chính xác từng bước ±1 dễ dàng trên điện thoại và máy tính; 2. Cập nhật tài liệu HDSDCar.html hướng dẫn chi tiết cách gắn cho cả 2 loại mạch cầu H L298N và L9110S.",
+  "changelog": "Khắc phục triệt để lỗi long-press kích hoạt menu chuột phải/ngữ cảnh khi nhấn giữ nút điều khiển xe FPV trên điện thoại và tablet.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

@@ -1,6 +1,6 @@
 {
   "name": "ESP32-CAM AI Multi-Sensor (v1.0.119)",
-  "version": "1.0.119",
+  "version": "1.0.121",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": true,
   "new_install_improv_wait_time": 0,
@@ -9,7 +9,7 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "build/Full_Flash_v1.0.096.bin",
+          "path": "build/Full_Flash_v1.0.121.bin",
           "offset": 0
         }
       ],
