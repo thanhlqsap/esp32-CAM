@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.119",
+    "date": "2026-09-20",
+    "summary": {
+      "vi": "🏎️ Tinh Chỉnh Bước Nhỏ (±1) Cho Thanh Trượt Cân Bằng Trim Trên Buồng Lái Xe FPV Robot Car & Bổ Sung Tài Liệu Đấu Nối L298N / L9110S.",
+      "en": "🏎️ Added Stepper Buttons (±1) to Steering Trim Slider in FPV Car Cockpit & Updated L298N / L9110S Wiring Documentation."
+    },
+    "details": {
+      "vi": [
+        "Tích hợp 2 nút tinh chỉnh bước nhỏ (− và +) ở 2 đầu thanh trượt Cân Bằng (Trim) trên trang car_control.html giúp người lái tăng/giảm chính xác từng bước ±1 nhanh chóng và mượt mà trên cả điện thoại và máy tính.",
+        "Cập nhật tài liệu HDSDCar.html độc lập với hướng dẫn đấu nối chi tiết, sơ đồ nguyên lý và bảng so sánh cho cả 2 loại mạch cầu H L298N và L9110S.",
+        "Đồng bộ bộ nhớ cấu hình NVS và phản hồi trạng thái Trim tức thời qua REST API /car_config."
+      ],
+      "en": [
+        "Integrated dual stepper buttons (− and +) at both ends of the Steering Trim slider in car_control.html for effortless ±1 micro-adjustments on mobile and desktop.",
+        "Updated standalone HDSDCar.html engineering documentation with comprehensive wiring schematics and comparisons for both L298N and L9110S motor drivers.",
+        "Synchronized NVS storage and instant Trim feedback via /car_config REST API."
+      ]
+    }
+  },
+  {
     "version": "1.0.118",
     "date": "2026-09-19",
     "summary": {
