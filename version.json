@@ -1,10 +1,10 @@
 {
-  "version": "1.0.126",
+  "version": "1.0.127",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Cải tiến giao diện Header Dashboard: Tên 'ESP32 CAM PLATFORM' ở trên, tên thiết bị căn giữa ở dòng dưới với cỡ chữ 1/2 và hỗ trợ Tooltip đa ngôn ngữ 9 thứ tiếng cho toàn bộ các nút icon.",
+  "description": "Cải tiến giao diện Header Dashboard: Hiển thị 3 dòng phân cấp (Tên nền tảng -> Tên thiết bị -> Số hiệu Firmware Version căn giữa siêu nhỏ) mang lại vẻ đẹp tinh tế, hiện đại.",
   "release_date": "2026-09-21",
   "mandatory": false,
-  "changelog": "Tối ưu hóa bố cục Header: Tên nền tảng 'ESP32 CAM PLATFORM' ở dòng trên và Tên thiết bị phụ đề căn giữa ở dòng dưới, tích hợp Tooltip đa ngôn ngữ cho các nút icon.",
+  "changelog": "Tối ưu hóa bố cục 3 tầng Header Dashboard: ESP32 CAM PLATFORM (Dòng 1) -> Tên thiết bị (Dòng 2) -> Số hiệu Version (Dòng 3 căn giữa, font 1/2).",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

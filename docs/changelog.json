@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.127",
+    "release_date": "2026-09-21",
+    "title": "Tối Ưu Bố Cục 3 Tầng Header: Tiêu Đề Nền Tảng - Tên Thiết Bị - Số Hiệu Version",
+    "changes": [
+      "Bổ sung lại dòng số hiệu phiên bản Firmware (v1.0.xxx) ngay dưới tên thiết bị, được căn giữa hoàn hảo với cỡ chữ nhỏ bằng 1/2 tên thiết bị.",
+      "Thiết kế phân cấp thông tin 3 tầng trực quan: Nền tảng (Dòng 1) -> Tên thiết bị / Hostname (Dòng 2) -> Version (Dòng 3)."
+    ]
+  },
+  {
     "version": "1.0.126",
     "release_date": "2026-09-21",
     "title": "Bố Cục 2 Dòng Tiêu Đề Header & Tooltip Đa Ngôn Ngữ Cho Các Nút Icon",
