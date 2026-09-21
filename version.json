@@ -1,10 +1,10 @@
 {
-  "version": "1.0.133",
+  "version": "1.0.134",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Rút gọn thông báo khi tải mô hình trên trang AI Vision thành chữ Loading... (Đang tải...) ngắn gọn, tinh tế và chuyên nghiệp.",
+  "description": "Bỏ phụ đề header và chuyển các khối 'Dung lượng thẻ nhớ' và 'Cài đặt Ghi hình & Motion' sang dạng thu gọn / mở rộng (mặc định thu gọn) giúp giao diện SD Gallery thoáng đãng, tập trung vào Livestream và Danh sách Video.",
   "release_date": "21/09/2026",
   "mandatory": false,
-  "changelog": "Tối giản dòng chữ trạng thái khi tải mô hình trí tuệ nhân tạo trên trang AI Vision (AI.html) thành Loading... / Đang tải... gọn gàng, tinh tế và chuyên nghiệp.",
+  "changelog": "Bỏ phụ đề 'ESP32-CAM MicroSD & Phát Hiện Chuyển Động' ở thanh tiêu đề và chuyển các khối Dung lượng thẻ nhớ, Cài Đặt Ghi Hình sang dạng mở rộng/thu gọn (mặc định thu gọn) trên trang SD Gallery.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

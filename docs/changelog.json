@@ -1,5 +1,39 @@
 [
   {
+    "version": "1.0.134",
+    "release_date": "21/09/2026",
+    "title": {
+      "vi": "Phiên bản 1.0.134 - Tinh gọn Tiêu đề & Thu gọn Khối Cài đặt trên trang Quản Lý Thẻ Nhớ (SD Gallery)",
+      "en": "Version 1.0.134 - Header Streamlining & Collapsible Cards for SD Gallery",
+      "ja": "バージョン 1.0.134 - SDカード画面のヘッダー簡素化および設定カードの折りたたみ対応",
+      "zh": "版本 1.0.134 - SD卡页面顶部精简与设置卡片折叠/展开优化"
+    },
+    "description": {
+      "vi": "Bỏ phụ đề header và chuyển các khối 'Dung lượng thẻ nhớ' và 'Cài đặt Ghi hình & Motion' sang dạng thu gọn / mở rộng (mặc định thu gọn) giúp giao diện SD Gallery thoáng đãng, tập trung vào Livestream và Danh sách Video.",
+      "en": "Streamlined header subtitle and converted 'Storage Capacity' and 'Motion Recording Settings' cards to collapsible accordions (collapsed by default) for a cleaner UI focused on stream and video list.",
+      "ja": "ヘッダーのサブタイトルを削除し、「SDカード容量」と「録画・動体検知設定」カードを折りたたみ式（デフォルト折りたたみ）に変更して動画リストを見やすく改善。",
+      "zh": "精简顶部副标题，并将「存储容量」与「录像及侦测设置」卡片改造为默认折叠/可展开面板，使界面更清爽聚焦于实时监控与视频列表。"
+    },
+    "changes": {
+      "vi": [
+        "Bỏ dòng chữ phụ đề 'ESP32-CAM MicroSD & Phát Hiện Chuyển Động' trên thanh tiêu đề sd_gallery.html giúp giao diện thanh thoát.",
+        "Thiết kế lại 2 khối 'Dung lượng thẻ nhớ' và 'Cài Đặt Ghi Hình & Motion' thành dạng Collapsible Accordion (mặc định thu gọn), dễ dàng mở ra khi cần cấu hình."
+      ],
+      "en": [
+        "Removed 'ESP32-CAM MicroSD & Phát Hiện Chuyển Động' header subtitle on sd_gallery.html for a cleaner look.",
+        "Redesigned 'Storage Capacity' and 'Motion Recording Settings' cards as collapsible accordions (collapsed by default)."
+      ],
+      "ja": [
+        "sd_gallery.htmlのヘッダーから不要なサブタイトルテキストを削除。",
+        "「SDカード容量」と「録画・動体検知設定」カードを折りたたみアコーディオン形式（デフォルト折りたたみ）に刷新。"
+      ],
+      "zh": [
+        "移除 sd_gallery.html 顶部多余副标题文本，使界面更简洁。",
+        "将「存储容量」与「录像与移动侦测设置」卡片重构为默认折叠的可展开面板。"
+      ]
+    }
+  },
+  {
     "version": "1.0.133",
     "release_date": "21/09/2026",
     "title": {
