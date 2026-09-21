@@ -1,5 +1,5 @@
 {
-  "version": "1.0.130",
+  "version": "1.0.131",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "description": "Nâng cấp cơ chế Bảo Vệ Mã Nguồn Toàn Diện (Full Client-Side Source Protection) cho tất cả các site: Chặn chuột phải (Inspect / View Page Source) và toàn bộ phím tắt DevTools (F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S).",
   "release_date": "21/09/2026",
