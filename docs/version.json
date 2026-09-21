@@ -1,10 +1,10 @@
 {
-  "version": "1.0.122",
+  "version": "1.0.123",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Bổ sung công tắc Tự Động Ghi Video vào thẻ nhớ khi có Chuyển Động: Cho phép chỉ gửi cảnh báo Telegram/Gmail mà không ghi đè thẻ nhớ.",
-  "release_date": "2026-09-20",
+  "description": "Tối ưu hóa quản lý Wi-Fi: Bật Pure AP tức thì (<2s) khi đổi địa điểm, loại bỏ nghẽn RF Channel Hopping giúp phát sóng AP ổn định 100%.",
+  "release_date": "2026-09-21",
   "mandatory": false,
-  "changelog": "Tách bạch tính năng Phát hiện chuyển động & Tự động ghi video AVI vào thẻ MicroSD trên cả sd_gallery.html và dashboard.html; lưu vĩnh viễn vào NVS Flash.",
+  "changelog": "Tối ưu hóa Wi-Fi Fast AP Fallback (<2s), loại bỏ nghẽn kênh RF Channel Hopping khi không có mạng cũ, hỗ trợ Async Passive Scan tự phục hồi khi router online lại.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

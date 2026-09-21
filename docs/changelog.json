@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.0.123",
+    "release_date": "2026-09-21",
+    "title": "Tối ưu hóa Quản Lý Wi-Fi, Fast Boot Pure AP (<2s) & Loại bỏ nghẽn kênh RF Channel Hopping",
+    "changes": [
+      "Khởi động siêu tốc (<2 giây) chuyển thẳng sang chế độ Pure AP (ESP32-CAM-Setup) khi mang thiết bị sang địa điểm Wi-Fi mới mà không cần chờ 30 giây.",
+      "Loại bỏ hoàn toàn hiện tượng nghẽn kênh RF (Channel Hopping) do gọi WiFi.begin() mù quáng, giúp sóng AP phát liên tục, căng mạnh và ổn định 100%.",
+      "Điện thoại và máy tính bảng kết nối vào AP tức thì, trang cấu hình Captive Portal (192.168.4.1) tự động bung lên trơn tru không bị ngắt quãng.",
+      "Tích hợp cơ chế Quét sóng thụ động không chặn (Async Passive Scan) mỗi 40 giây khi không có người dùng kết nối, tự động chuyển về STA khi router quen thuộc phát sóng lại.",
+      "Ưu tiên 100% tài nguyên và băng thông RF cho client khi người dùng đang kết nối vào điểm phát AP để thao tác cài đặt."
+    ]
+  },
+  {
     "version": "1.0.122",
     "release_date": "2026-09-20",
     "title": "Bổ sung & Tách bạch tính năng Tự Động Ghi Video vào thẻ nhớ khi có Chuyển Động (Auto Record on Motion)",
