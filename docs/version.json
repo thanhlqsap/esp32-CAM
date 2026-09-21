@@ -1,10 +1,10 @@
 {
-  "version": "1.0.131",
+  "version": "1.0.133",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Nâng cấp cơ chế Bảo Vệ Mã Nguồn Toàn Diện (Full Client-Side Source Protection) cho tất cả các site: Chặn chuột phải (Inspect / View Page Source) và toàn bộ phím tắt DevTools (F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S).",
+  "description": "Rút gọn thông báo khi tải mô hình trên trang AI Vision thành chữ Loading... (Đang tải...) ngắn gọn, tinh tế và chuyên nghiệp.",
   "release_date": "21/09/2026",
   "mandatory": false,
-  "changelog": "Bảo vệ mã nguồn toàn diện trên tất cả các trang web: Tích hợp chặn menu chuột phải (contextmenu) toàn cục (trừ ô nhập liệu input/textarea) và chặn triệt để phím tắt mở DevTools (F12, Ctrl+U, Ctrl+S, Ctrl+Shift+I/J/C).",
+  "changelog": "Tối giản dòng chữ trạng thái khi tải mô hình trí tuệ nhân tạo trên trang AI Vision (AI.html) thành Loading... / Đang tải... gọn gàng, tinh tế và chuyên nghiệp.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

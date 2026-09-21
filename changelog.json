@@ -1,5 +1,81 @@
 [
   {
+    "version": "1.0.133",
+    "release_date": "21/09/2026",
+    "title": {
+      "vi": "Phiên bản 1.0.133 - Tối giản giao diện Loading trang AI Vision",
+      "en": "Version 1.0.133 - Simplified Loading HUD for AI Vision Studio",
+      "ja": "バージョン 1.0.133 - AIビジョン画面のLoading表示の簡素化",
+      "zh": "版本 1.0.133 - 极简化 AI 视觉控制台加载状态提示"
+    },
+    "description": {
+      "vi": "Rút gọn thông báo khi tải mô hình trên trang AI Vision thành chữ Loading... (Đang tải...) ngắn gọn, tinh tế và chuyên nghiệp.",
+      "en": "Simplified model loading HUD on AI Vision page to a clean, elegant 'Loading...' text.",
+      "ja": "AIビジョン画面のモデル読み込み中テキストを簡潔で洗練された「Loading...（読み込み中...）」に統一。",
+      "zh": "将AI视觉页面的模型加载提示精简为简洁优雅的「Loading...（加载中...）」。"
+    },
+    "changes": {
+      "vi": [
+        "Tối giản dòng chữ trạng thái khi tải mô hình AI trên trang AI.html thành 'Đang tải...' / 'Loading...'.",
+        "Đồng bộ hóa giao diện chờ tải mô hình trên 9 ngôn ngữ quốc tế gọn gàng, tinh tế và hiện đại."
+      ],
+      "en": [
+        "Simplified AI model loading status text on AI.html to clean 'Loading...' prompt.",
+        "Synchronized loading HUD across 9 international languages for a sleek and modern look."
+      ],
+      "ja": [
+        "AI.html画面のモデル読み込みステータスをシンプルな「読み込み中... / Loading...」に変更。",
+        "9言語すべてでローディング表示を洗練されたデザインに統一。"
+      ],
+      "zh": [
+        "将 AI.html 页面中的模型加载状态提示精简为「加载中... / Loading...」。",
+        "在9种多国语言中同步优化加载状态提示，界面更加简洁专业。"
+      ]
+    }
+  },
+  {
+    "version": "1.0.132",
+    "release_date": "21/09/2026",
+    "title": {
+      "vi": "Phiên bản 1.0.132 - Bổ sung cơ chế Tự động Kết nối lại Live Stream (Auto-Reconnect) trên toàn bộ Giao diện Web",
+      "en": "Version 1.0.132 - Smart Auto-Reconnect for Live Streams across all Web Interfaces",
+      "ja": "バージョン 1.0.132 - 全Web画面におけるライブストリーム自動再接続（Auto-Reconnect）の強化",
+      "zh": "版本 1.0.132 - 全网页界面实时视频流智能自动重连（Auto-Reconnect）"
+    },
+    "description": {
+      "vi": "Tích hợp cơ chế Auto-Reconnect thông minh cho các màn hình xem video trực tiếp (SD Gallery, Chuông Cửa Thông Minh, Xe Robot FPV, Web Dashboard, AI Vision). Tự động kết nối lại khi camera bận xử lý chuyển động hoặc mạng bị gián đoạn mà không cần thao tác thủ công.",
+      "en": "Integrated intelligent Auto-Reconnect for live video stream viewports (SD Gallery, Smart Doorbell, FPV Robot Car, Web Dashboard, AI Vision). Automatically reconnects when camera is busy during motion events or network drops.",
+      "ja": "ライブストリーム表示（SDギャラリー、スマートドアベル、FPVロボットカー、Webダッシュボード、AIビジョン）にインテリジェントな自動再接続を統合。動体検知処理や一時的な切断時にも自動復旧。",
+      "zh": "为所有实时视频窗口（SD录像库、智能门铃、FPV遥控车、主控制台、AI视觉）集成智能自动重连机制。在抓拍/移动侦测繁忙或网络波动时自动重连恢复。"
+    },
+    "changes": {
+      "vi": [
+        "Bổ sung cơ chế Auto-Reconnect tự động kết nối lại luồng Stream MJPEG (:81/stream) trên trang Quản lý Thẻ nhớ & Video Gallery (sd_gallery.html).",
+        "Bổ sung cơ chế Auto-Reconnect trên trang Chuông Cửa Thông Minh (doorbell.html) và sửa lỗi kích hoạt luồng camera khi tải trang.",
+        "Nâng cấp cơ chế thử lại luồng stream FPV trên trang Xe Robot (car_control.html) chống treo socket.",
+        "Cải tiến cơ chế xử lý lỗi stream trên trang Web Dashboard chính (dashboard.html) và trang AI Vision (AI.html)."
+      ],
+      "en": [
+        "Added intelligent Auto-Reconnect for MJPEG camera stream on MicroSD Gallery page (sd_gallery.html).",
+        "Added Auto-Reconnect and fixed initial stream startup on Smart Doorbell page (doorbell.html).",
+        "Enhanced FPV stream reconnection handling on Robot Car page (car_control.html).",
+        "Improved stream error recovery on main Web Dashboard (dashboard.html) and AI Vision page (AI.html)."
+      ],
+      "ja": [
+        "SDカードギャラリー画面（sd_gallery.html）にMJPEGカメラストリームの自動再接続機能を追加。",
+        "スマートドアベル画面（doorbell.html）の自動再接続機能の追加および初期ストリーム起動の修正。",
+        "ロボットカー画面（car_control.html）のFPVストリーム再接続処理の強化。",
+        "メインダッシュボード（dashboard.html）およびAIビジョン（AI.html）のエラー復旧機構を改善。"
+      ],
+      "zh": [
+        "在SD录像库页面（sd_gallery.html）新增实时MJPEG视频流智能自动重连功能。",
+        "在智能门铃页面（doorbell.html）新增自动重连并修复初始加载视频流逻辑。",
+        "增强遥控车页面（car_control.html）FPV视频流的断线重连保护机制。",
+        "改进主控制台（dashboard.html）及AI视觉页面（AI.html）的视频流故障自愈。"
+      ]
+    }
+  },
+  {
     "version": "1.0.131",
     "date": "21/09/2026",
     "title": {
