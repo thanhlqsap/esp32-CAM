@@ -1,5 +1,45 @@
 [
   {
+    "version": "1.0.130",
+    "date": "21/09/2026",
+    "title": {
+      "vi": "Phiên bản 1.0.130 - Tối ưu hóa điều khiển Xe Robot FPV & Chống nghẽn RAM khi nhấn phím liên tục",
+      "en": "Version 1.0.130 - Optimized Robot Car Cockpit Controls & Anti-Lag Networking",
+      "ja": "バージョン 1.0.130 - ロボットカー操作の最適化と通信ラグ防止",
+      "zh": "版本 1.0.130 - 机器人小车控制深度优化与防卡死保护"
+    },
+    "changes": {
+      "vi": [
+        "Khống chế Single-Flight & AbortController: Đảm bảo tối đa 1 kết nối điều khiển trên đường truyền, tự động hủy bỏ request cũ khi nhấp nhả phím tốc độ cao.",
+        "Chặn lặp sự kiện hệ điều hành: Chặn e.repeat trên phím giữ, tối ưu nhịp Heartbeat ở 180ms duy trì Failsafe xe mượt mà.",
+        "Tự động phanh an toàn khi mất focus (blur): Xe tự động dừng nếu người dùng chuyển tab hoặc click ra ngoài cửa sổ.",
+        "Bổ sung Connection: close cho endpoint /car_cmd: Giải phóng socket TCP tức thời cho ngăn xếp lwIP của ESP32.",
+        "Bảo vệ RAM/CPU thông minh: Tạm hoãn tác vụ gửi ảnh Telegram TLS khi xe đang lăn bánh do người lái để tránh va chạm tràn bộ nhớ Heap."
+      ],
+      "en": [
+        "Single-Flight & AbortController: Ensures at most one in-flight command request, aborting stale requests on rapid keystrokes.",
+        "OS Auto-Repeat Guard: Blocks e.repeat and tunes heartbeat to 180ms for smooth failsafe operation.",
+        "Window Blur Safety Brake: Automatically stops car movement when the browser loses focus.",
+        "Connection: close header for /car_cmd: Instantly frees TCP sockets in lwIP stack.",
+        "Smart RAM/CPU Protection: Bypasses Telegram TLS alerts while the vehicle is actively moving to prevent heap exhaustion."
+      ],
+      "ja": [
+        "Single-FlightおよびAbortController制御: 同時リクエストを制限し、素早いキー入力時の古いリクエストを自動キャンセル。",
+        "OSキーリピート防止: e.repeatをブロックし、ハートビート間隔を180msに最適化。",
+        "フォーカス喪失時の安全ブレーキ: ブラウザのフォーカスが外れた際に車両を自動停止。",
+        "/car_cmdにConnection: closeヘッダーを追加: TCPソケットを即時解放。",
+        "スマートメモリ保護: 走行中のTelegram TLS警告タスクを一時休止してメモリ枯渇を防止。"
+      ],
+      "zh": [
+        "Single-Flight与AbortController并发网关: 确保同时仅有单个控制请求，快速按键时自动中止过期请求。",
+        "拦截系统按键自动重复: 过滤e.repeat事件并将心跳间隔调整为180ms。",
+        "失焦安全刹车保护: 当浏览器失去焦点（Alt-Tab或点击外部）时自动刹停小车。",
+        "/car_cmd接口追加Connection: close: 迅速释放ESP32 lwIP套接字。",
+        "智能内存保护机制: 小车主动行驶期间暂缓Telegram TLS报警任务，彻底杜绝堆内存耗尽与死机。"
+      ]
+    }
+  },
+  {
     "version": "1.0.129",
     "release_date": "2026-09-21",
     "title": "Nâng Cấp Cơ Chế Bảo Vệ Mã Nguồn Toàn Diện Cho Tất Cả Các Trang Giao Diện",
