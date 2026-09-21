@@ -1,5 +1,34 @@
 [
   {
+    "version": "1.0.126",
+    "release_date": "2026-09-21",
+    "title": "Bố Cục 2 Dòng Tiêu Đề Header & Tooltip Đa Ngôn Ngữ Cho Các Nút Icon",
+    "changes": [
+      "Thiết kế lại bố cục tiêu đề Header: Tiêu đề chính 'ESP32 CAM PLATFORM' ở dòng trên, tên thiết bị (hostname) ở dòng dưới căn giữa với cỡ chữ 1/2 nhỏ gọn, thẩm mỹ cao.",
+      "Bổ sung cơ chế cập nhật Tooltip (title) tự động theo ngôn ngữ đã chọn (9 ngôn ngữ) cho các nút Icon: Hướng dẫn sử dụng (📖), Chọn ngôn ngữ (🌐) và Khởi động lại (🔄)."
+    ]
+  },
+  {
+    "version": "1.0.125",
+    "release_date": "2026-09-21",
+    "title": "Tinh Gọn Thanh Header Dashboard & Hiển Thị Tên Thiết Bị / Hostname Trực Quan",
+    "changes": [
+      "Đổi tiêu đề thương hiệu trên Header thành 'ESP32 CAM PLATFORM - [TÊN THIẾT BỊ]' (tự động cập nhật theo tên cấu hình hoặc Hostname mạng).",
+      "Loại bỏ các badge rườm rà (version và sensor) trên thanh Header để giao diện thông thoáng, hiện đại.",
+      "Thu gọn nút Hướng dẫn sử dụng (📖), Chọn ngôn ngữ (Quốc kỳ + mã ngắn gọn) và Khởi động lại (🔄) thành các icon button tối giản, sang trọng."
+    ]
+  },
+  {
+    "version": "1.0.124",
+    "release_date": "2026-09-21",
+    "title": "Tối ưu hóa Điều Hướng Cấu Hình Cảnh Báo Telegram / Gmail sang Tab Dashboard & Hỗ Trợ Deep-link Tab",
+    "changes": [
+      "Sửa liên kết hướng dẫn cấu hình Telegram / Gmail trên Thư viện Thẻ Nhớ (sd_gallery.html) chuyển thẳng đến /dashboard#tab-cam thay vì trang chủ / tránh bị quay lại landing page mặc định.",
+      "Nâng cấp Dashboard (dashboard.html) hỗ trợ deep-link tab thông qua URL hash (#tab-cam, #tab-wifi, #tab-ota, v.v.) và URL query param (?tab=cam), tự động kích hoạt ngay tab tương ứng khi mở trang.",
+      "Đảm bảo trải nghiệm người dùng liền mạch khi thiết lập thông số cảnh báo từ mọi trang con."
+    ]
+  },
+  {
     "version": "1.0.123",
     "release_date": "2026-09-21",
     "title": "Tối ưu hóa Quản Lý Wi-Fi, Fast Boot Pure AP (<2s) & Loại bỏ nghẽn kênh RF Channel Hopping",

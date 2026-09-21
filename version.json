@@ -1,10 +1,10 @@
 {
-  "version": "1.0.123",
+  "version": "1.0.126",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa quản lý Wi-Fi: Bật Pure AP tức thì (<2s) khi đổi địa điểm, loại bỏ nghẽn RF Channel Hopping giúp phát sóng AP ổn định 100%.",
+  "description": "Cải tiến giao diện Header Dashboard: Tên 'ESP32 CAM PLATFORM' ở trên, tên thiết bị căn giữa ở dòng dưới với cỡ chữ 1/2 và hỗ trợ Tooltip đa ngôn ngữ 9 thứ tiếng cho toàn bộ các nút icon.",
   "release_date": "2026-09-21",
   "mandatory": false,
-  "changelog": "Tối ưu hóa Wi-Fi Fast AP Fallback (<2s), loại bỏ nghẽn kênh RF Channel Hopping khi không có mạng cũ, hỗ trợ Async Passive Scan tự phục hồi khi router online lại.",
+  "changelog": "Tối ưu hóa bố cục Header: Tên nền tảng 'ESP32 CAM PLATFORM' ở dòng trên và Tên thiết bị phụ đề căn giữa ở dòng dưới, tích hợp Tooltip đa ngôn ngữ cho các nút icon.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
