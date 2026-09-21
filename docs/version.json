@@ -1,10 +1,10 @@
 {
-  "version": "1.0.127",
+  "version": "1.0.129",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Cải tiến giao diện Header Dashboard: Hiển thị 3 dòng phân cấp (Tên nền tảng -> Tên thiết bị -> Số hiệu Firmware Version căn giữa siêu nhỏ) mang lại vẻ đẹp tinh tế, hiện đại.",
+  "description": "Nâng cấp cơ chế Bảo Vệ Mã Nguồn Toàn Diện (Full Client-Side Source Protection) cho tất cả các site: Chặn chuột phải (Inspect / View Page Source) và toàn bộ phím tắt DevTools (F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S).",
   "release_date": "2026-09-21",
   "mandatory": false,
-  "changelog": "Tối ưu hóa bố cục 3 tầng Header Dashboard: ESP32 CAM PLATFORM (Dòng 1) -> Tên thiết bị (Dòng 2) -> Số hiệu Version (Dòng 3 căn giữa, font 1/2).",
+  "changelog": "Bảo vệ mã nguồn toàn diện trên tất cả các trang web: Tích hợp chặn menu chuột phải (contextmenu) toàn cục (trừ ô nhập liệu input/textarea) và chặn triệt để phím tắt mở DevTools (F12, Ctrl+U, Ctrl+S, Ctrl+Shift+I/J/C).",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

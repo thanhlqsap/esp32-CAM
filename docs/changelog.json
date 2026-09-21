@@ -1,5 +1,24 @@
 [
   {
+    "version": "1.0.129",
+    "release_date": "2026-09-21",
+    "title": "Nâng Cấp Cơ Chế Bảo Vệ Mã Nguồn Toàn Diện Cho Tất Cả Các Trang Giao Diện",
+    "changes": [
+      "Tích hợp cơ chế chặn menu chuột phải (contextmenu) trên toàn bộ 8 trang giao diện (Dashboard, SD Gallery, Car Control, Doorbell, Captive Portal, Diagnostics, AI Vision, API Doc) để ngăn mở menu 'Inspect' / 'View Page Source', bảo vệ mã nguồn tối đa (vẫn đảm bảo trải nghiệm dán/nhập liệu bình thường trong các ô input/textarea).",
+      "Bổ sung chặn toàn diện các tổ hợp phím tắt DevTools & View Source (F12, Ctrl+U, Ctrl+S, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C) theo cả e.key và e.keyCode với cơ chế Capture Event ưu tiên cao nhất."
+    ]
+  },
+  {
+    "version": "1.0.128",
+    "release_date": "2026-09-21",
+    "title": "Hoàn Thiện Đồng Bộ 100% Đa Ngôn Ngữ Cho Dashboard & Thư Viện Thẻ Nhớ SD Gallery",
+    "changes": [
+      "Khắc phục triệt để lỗi hiển thị tiếng Việt trên giao diện tiếng Hàn/Anh/Nhật/Trung/Pháp/Đức/Tây Ban Nha/Nga: Bổ sung 9 ngôn ngữ cho tất cả các dropdown <select> options (Trigger Source, Độ nhạy chuyển động, Cooldown chống spam, FPS, Độ phân giải, Thời lượng clip, Số Frame Burst).",
+      "Đồng bộ toàn bộ nhãn, radio pills, liên kết điều hướng cấu hình Telegram/Gmail và các nút thao tác trên Dashboard (dashboard.html) & Thư viện Thẻ nhớ (sd_gallery.html).",
+      "Sửa lỗi lệch index trong việc cập nhật danh sách thời lượng ghi hình (Duration) trên trang Thẻ nhớ."
+    ]
+  },
+  {
     "version": "1.0.127",
     "release_date": "2026-09-21",
     "title": "Tối Ưu Bố Cục 3 Tầng Header: Tiêu Đề Nền Tảng - Tên Thiết Bị - Số Hiệu Version",
