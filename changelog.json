@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.138",
+    "date": "2026-09-22",
+    "changes": [
+      "Khắc phục triệt để lỗi cú pháp trùng biến JS trong trang AI.html khiến trang bị kẹt ở trạng thái Loading.",
+      "Tự động kết nối và tải nhanh luồng stream trực tiếp từ ESP32-CAM."
+    ]
+  },
+  {
     "version": "1.0.137",
     "release_date": "22/09/2026",
     "title": {

@@ -1,20 +1,28 @@
 {
-  "name": "ESP32-CAM AI Multi-Sensor (v1.0.119)",
-  "version": "1.0.137",
-  "home_assistant_domain": "esphome",
-  "new_install_prompt_erase": true,
-  "new_install_improv_wait_time": 0,
+  "name": "ESP32-CAM Video Recorder & AI Camera",
+  "version": "1.0.138",
+  "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "build/Full_Flash_v1.0.129.bin",
-          "offset": 0
+          "path": "bootloader.bin",
+          "offset": 4096
+        },
+        {
+          "path": "partitions.bin",
+          "offset": 32768
+        },
+        {
+          "path": "boot_app0.bin",
+          "offset": 57344
+        },
+        {
+          "path": "OTA_Update.bin",
+          "offset": 65536
         }
-      ],
-      "version": "1.0.119"
+      ]
     }
-  ],
-  "release_date": "22/09/2026"
+  ]
 }

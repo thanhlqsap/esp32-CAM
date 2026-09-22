@@ -1,10 +1,10 @@
 {
-  "version": "1.0.137",
+  "version": "1.0.138",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Mặc định tự động nhận diện và gán chính xác domain http://<hostname>:81/stream hoặc http://esp32-cam.local:81/stream cho luồng AI Vision.",
+  "description": "Khắc phục triệt để lỗi cú pháp biến khiến trang AI Vision bị đứng vòng xoay Loading.",
   "release_date": "22/09/2026",
   "mandatory": false,
-  "changelog": "Cập nhật trang AI Vision (AI.html) mặc định tự động nhận diện và kết nối trực tiếp vào domain của ESP32 (http://<hostname>:81/stream hoặc http://esp32-cam.local:81/stream).",
+  "changelog": "Sửa lỗi trùng khai báo biến JS trong AI.html giúp luồng stream AI Vision tải ngay lập tức không bị treo.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
