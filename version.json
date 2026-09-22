@@ -1,10 +1,10 @@
 {
-  "version": "1.0.136",
+  "version": "1.0.137",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Bỏ dòng chữ phụ đề header và lược bỏ menu chọn nguồn camera trên trang AI Vision (AI.html), mặc định kết nối trực tiếp vào luồng ESP32-CAM Stream chuyên dụng.",
+  "description": "Mặc định tự động nhận diện và gán chính xác domain http://<hostname>:81/stream hoặc http://esp32-cam.local:81/stream cho luồng AI Vision.",
   "release_date": "22/09/2026",
   "mandatory": false,
-  "changelog": "Bỏ dòng chữ phụ đề header và bỏ menu chọn nguồn camera (Source select) trên trang AI Vision (AI.html) giúp giao diện tinh gọn, tập trung hoàn toàn vào luồng stream ESP32-CAM.",
+  "changelog": "Cập nhật trang AI Vision (AI.html) mặc định tự động nhận diện và kết nối trực tiếp vào domain của ESP32 (http://<hostname>:81/stream hoặc http://esp32-cam.local:81/stream).",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

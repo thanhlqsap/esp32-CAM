@@ -1,5 +1,39 @@
 [
   {
+    "version": "1.0.137",
+    "release_date": "22/09/2026",
+    "title": {
+      "vi": "Phiên bản 1.0.137 - Tự động nhận diện Domain Camera (esp32-cam.local / IP) trên trang AI Vision",
+      "en": "Version 1.0.137 - Smart Domain Auto-Detection for AI Vision Studio",
+      "ja": "バージョン 1.0.137 - AIビジョン画面におけるドメイン自動検出（esp32-cam.local/IP）の最適化",
+      "zh": "版本 1.0.137 - AI视觉控制台智能域名自动识别与直连"
+    },
+    "description": {
+      "vi": "Mặc định tự động nhận diện và gán chính xác domain http://<hostname>:81/stream hoặc http://esp32-cam.local:81/stream cho luồng AI Vision.",
+      "en": "Defaulted stream source to dynamic domain http://<hostname>:81/stream or http://esp32-cam.local:81/stream on AI Vision page.",
+      "ja": "AIビジョン画面のデフォルトストリームURLをホスト名依存（http://<hostname>:81/streamまたはesp32-cam.local）に最適化。",
+      "zh": "默认自动识别并绑定当前主机域名（http://<hostname>:81/stream 或 esp32-cam.local）至AI实时流。"
+    },
+    "changes": {
+      "vi": [
+        "Tự động nhận diện và gán trực tiếp domain của ESP32 (http://esp32-cam.local:81/stream hoặc http://<IP>:81/stream) khi tải trang AI.html.",
+        "Cập nhật placeholder và cơ chế tự phục hồi stream mượt mà."
+      ],
+      "en": [
+        "Automatically detected and bound the ESP32 domain (http://esp32-cam.local:81/stream or http://<IP>:81/stream) on AI.html load.",
+        "Updated placeholder and auto-recovery fallback for stream URL."
+      ],
+      "ja": [
+        "AI.html読み込み時にESP32ドメイン（http://esp32-cam.local:81/streamまたはIP）を自動検出・適用。",
+        "プレースホルダーとストリーム自動復旧フォールバックを更新。"
+      ],
+      "zh": [
+        "加载 AI.html 时自动识别并绑定 ESP32 域名（http://esp32-cam.local:81/stream 或 IP）。",
+        "更新占位符提示及视频流故障自动回退逻辑。"
+      ]
+    }
+  },
+  {
     "version": "1.0.136",
     "release_date": "22/09/2026",
     "title": {
