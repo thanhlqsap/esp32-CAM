@@ -1,10 +1,10 @@
 {
-  "version": "1.0.134",
+  "version": "1.0.135",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Bỏ phụ đề header và chuyển các khối 'Dung lượng thẻ nhớ' và 'Cài đặt Ghi hình & Motion' sang dạng thu gọn / mở rộng (mặc định thu gọn) giúp giao diện SD Gallery thoáng đãng, tập trung vào Livestream và Danh sách Video.",
+  "description": "Khóa triệt để 100% menu chuột phải (contextmenu) trên toàn bộ mọi thành phần (kể cả ô input, textbox đường dẫn, textarea, link) và toàn bộ các trang tài liệu web, ngăn chặn hoàn toàn việc mở Inspect / View Page Source.",
   "release_date": "21/09/2026",
   "mandatory": false,
-  "changelog": "Bỏ phụ đề 'ESP32-CAM MicroSD & Phát Hiện Chuyển Động' ở thanh tiêu đề và chuyển các khối Dung lượng thẻ nhớ, Cài Đặt Ghi Hình sang dạng mở rộng/thu gọn (mặc định thu gọn) trên trang SD Gallery.",
+  "changelog": "Khóa triệt để 100% menu chuột phải (contextmenu) trên tất cả các ô nhập liệu (input, textbox, textarea) và tất cả các trang web của hệ thống, chặn hoàn toàn Inspect / View Page Source.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

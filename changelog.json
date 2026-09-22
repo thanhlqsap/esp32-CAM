@@ -1,5 +1,39 @@
 [
   {
+    "version": "1.0.135",
+    "release_date": "21/09/2026",
+    "title": {
+      "vi": "Phiên bản 1.0.135 - Khóa Chặt 100% Menu Chuột Phải trên Ô Nhập Liệu & Toàn Bộ Trang Web",
+      "en": "Version 1.0.135 - 100% Strict Right-Click ContextMenu Protection on All Elements & Inputs",
+      "ja": "バージョン 1.0.135 - 全入力欄を含む完全な右クリックメニュー（Inspect/ソース表示）の無効化",
+      "zh": "版本 1.0.135 - 全面封锁输入框及所有元素的右键菜单（审查元素/查看源码）"
+    },
+    "description": {
+      "vi": "Khóa triệt để 100% menu chuột phải (contextmenu) trên toàn bộ mọi thành phần (kể cả ô input, textbox đường dẫn, textarea, link) và toàn bộ các trang tài liệu web, ngăn chặn hoàn toàn việc mở Inspect / View Page Source.",
+      "en": "Strictly blocked 100% right-click contextmenu on all elements (including input fields, link textboxes, textareas) across all web pages and documentation to prevent Inspect/View Source access.",
+      "ja": "テキストボックスや入力欄を含む全要素において右クリックコンテキストメニュー（検証/ソース表示）を完全に無効化。",
+      "zh": "彻底封锁包括输入框、URL文本框在内的所有网页元素的右键菜单，杜绝审查元素及查看源码操作。"
+    },
+    "changes": {
+      "vi": [
+        "Khóa triệt để menu chuột phải trên ô nhập liệu (input/textbox) ở tất cả các trang web: Dashboard, SD Gallery, Car Control, Doorbell, AI Vision, Diagnostics, API Doc, Captive Portal.",
+        "Bảo vệ toàn diện cả trên các trang tài liệu (USER_GUIDE.html, HDSDCar.html, Web Flasher), ngăn chặn 100% mở DevTools hoặc View Page Source."
+      ],
+      "en": [
+        "Strictly blocked right-click menu on all input textboxes across Dashboard, SD Gallery, Car Control, Doorbell, AI Vision, Diagnostics, API Doc, and Captive Portal.",
+        "Extended comprehensive source protection to all documentation pages (USER_GUIDE.html, HDSDCar.html, Web Flasher), blocking 100% of DevTools/View Source attempts."
+      ],
+      "ja": [
+        "ダッシュボード、SDギャラリー、ロボットカー、ドアベル、AIビジョン等すべての画面のテキストボックスで右クリックを完全ブロック。",
+        "マニュアル画面（USER_GUIDE.html、HDSDCar.html、Web Flasher）にも同様の保護を適用。"
+      ],
+      "zh": [
+        "封锁主控制台、SD录像库、遥控车、门铃、AI视觉等所有页面的输入框右键菜单。",
+        "将全面源码保护机制扩展至所有说明文档页面（USER_GUIDE.html、HDSDCar.html、Web Flasher）。"
+      ]
+    }
+  },
+  {
     "version": "1.0.134",
     "release_date": "21/09/2026",
     "title": {

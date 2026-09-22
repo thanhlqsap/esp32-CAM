@@ -1281,5 +1281,32 @@
       }
     }
   </script>
+  <script>
+    // ========================================================================
+    // BẢO VỆ MÃ NGUỒN TOÀN DIỆN / FULL CLIENT-SIDE SOURCE PROTECTION
+    // ========================================================================
+    // 1. Chặn mở DevTools & View Source bằng phím tắt (F12, Ctrl+U, Ctrl+S, Ctrl+Shift+I/J/C)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || e.keyCode === 123 ||
+         (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.keyCode === 85 || e.keyCode === 83)) ||
+         (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c' || e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67))) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    }, { capture: true });
+
+    // 2. Chặn triệt để 100% menu chuột phải (Inspect / View Page Source) trên mọi thành phần (kể cả ô input, textbox, textarea)
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }, { passive: false, capture: true });
+    window.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }, { passive: false, capture: true });
+  </script>
 </body>
 </html>
