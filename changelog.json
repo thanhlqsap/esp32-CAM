@@ -1,5 +1,39 @@
 [
   {
+    "version": "1.0.136",
+    "release_date": "22/09/2026",
+    "title": {
+      "vi": "Phiên bản 1.0.136 - Tinh gọn Giao diện AI Vision (AI.html)",
+      "en": "Version 1.0.136 - Streamlined UI for AI Vision Studio",
+      "ja": "バージョン 1.0.136 - AIビジョン画面（AI.html）のヘッダーおよびソース選択の簡素化",
+      "zh": "版本 1.0.136 - AI视觉控制台顶部副标题与视频源选择器精简"
+    },
+    "description": {
+      "vi": "Bỏ dòng chữ phụ đề header và lược bỏ menu chọn nguồn camera trên trang AI Vision (AI.html), mặc định kết nối trực tiếp vào luồng ESP32-CAM Stream chuyên dụng.",
+      "en": "Removed header subtitle and simplified source selector on AI Vision page (AI.html), defaulting directly to ESP32-CAM Stream.",
+      "ja": "AIビジョン画面のヘッダーサブタイトルとソース選択ドロップダウンを削除し、ESP32-CAM専用ストリームに直結。",
+      "zh": "精简 AI 视觉页面顶部副标题与视频源切换下拉框，默认直连 ESP32-CAM 实时视频流。"
+    },
+    "changes": {
+      "vi": [
+        "Loại bỏ dòng chữ phụ đề header 'Universal Multi-Engine AI Vision Studio' trên trang AI.html.",
+        "Lược bỏ menu chọn nguồn camera phụ (Source select), mặc định tối ưu kết nối trực tiếp vào luồng stream ESP32-CAM."
+      ],
+      "en": [
+        "Removed header subtitle 'Universal Multi-Engine AI Vision Studio' on AI.html.",
+        "Removed secondary camera source dropdown, defaulting directly to ESP32-CAM video stream."
+      ],
+      "ja": [
+        "AI.htmlからヘッダーサブタイトルを削除。",
+        "カメラソース選択メニューを削除し、ESP32-CAMストリームに直結。"
+      ],
+      "zh": [
+        "移除 AI.html 顶部副标题文本。",
+        "移除辅助摄像头视频源下拉框，默认直连 ESP32-CAM 视频流。"
+      ]
+    }
+  },
+  {
     "version": "1.0.135",
     "release_date": "21/09/2026",
     "title": {

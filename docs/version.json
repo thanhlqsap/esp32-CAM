@@ -1,10 +1,10 @@
 {
-  "version": "1.0.135",
+  "version": "1.0.136",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Khóa triệt để 100% menu chuột phải (contextmenu) trên toàn bộ mọi thành phần (kể cả ô input, textbox đường dẫn, textarea, link) và toàn bộ các trang tài liệu web, ngăn chặn hoàn toàn việc mở Inspect / View Page Source.",
-  "release_date": "21/09/2026",
+  "description": "Bỏ dòng chữ phụ đề header và lược bỏ menu chọn nguồn camera trên trang AI Vision (AI.html), mặc định kết nối trực tiếp vào luồng ESP32-CAM Stream chuyên dụng.",
+  "release_date": "22/09/2026",
   "mandatory": false,
-  "changelog": "Khóa triệt để 100% menu chuột phải (contextmenu) trên tất cả các ô nhập liệu (input, textbox, textarea) và tất cả các trang web của hệ thống, chặn hoàn toàn Inspect / View Page Source.",
+  "changelog": "Bỏ dòng chữ phụ đề header và bỏ menu chọn nguồn camera (Source select) trên trang AI Vision (AI.html) giúp giao diện tinh gọn, tập trung hoàn toàn vào luồng stream ESP32-CAM.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
