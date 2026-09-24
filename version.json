@@ -1,10 +1,10 @@
 {
-  "version": "1.0.142",
+  "version": "1.0.143",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp tính năng Gửi Ảnh Cảnh Báo Trực Tiếp Qua Telegram Bot (9 Ngôn Ngữ) cho 3 Chế Độ AI Vision (Thấy người, Dấu ✌️, Ngã) và tự động đồng bộ Token từ Board.",
+  "description": "Tích hợp công nghệ Background AI Engine (Web Worker Pulse) cho phép trang AI.html chạy ngầm 24/7 khi Pin Tab / Chuyển Tab / Thu nhỏ trình duyệt.",
   "release_date": "24/09/2026",
   "mandatory": false,
-  "changelog": "Tích hợp tính năng Gửi Ảnh Cảnh Báo Trực Tiếp Qua Telegram Bot (9 Ngôn Ngữ) cho 3 Chế Độ AI Vision (Thấy người, Dấu ✌️, Ngã) và tự động đồng bộ Token từ Board.",
+  "changelog": "Tích hợp công nghệ Background AI Engine (Web Worker Pulse) cho phép trang AI.html chạy ngầm 24/7 khi Pin Tab / Chuyển Tab / Thu nhỏ trình duyệt.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

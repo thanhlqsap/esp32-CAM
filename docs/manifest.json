@@ -1,6 +1,6 @@
 {
   "name": "ESP32-CAM Video Recorder & AI Camera",
-  "version": "1.0.142",
+  "version": "1.0.143",
   "new_install_prompt_erase": false,
   "builds": [
     {

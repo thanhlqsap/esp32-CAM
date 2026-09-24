@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.143",
+    "date": "2026-09-24",
+    "changes": [
+      "Nâng cấp vòng lặp AI Engine với công nghệ Web Worker Pulse kết hợp Page Visibility API: Tự động chuyển đổi giữa requestAnimationFrame và Background Worker khi tab bị ẩn.",
+      "Đảm bảo camera và mô hình AI tiếp tục nhận diện người/ngã/cử chỉ và gửi ảnh Telegram liên tục khi người dùng Pin Tab hoặc chuyển sang các tab khác làm việc."
+    ]
+  },
+  {
     "version": "1.0.142",
     "date": "2026-09-24",
     "changes": [
