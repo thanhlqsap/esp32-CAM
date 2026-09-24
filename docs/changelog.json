@@ -1,5 +1,21 @@
 [
   {
+    "version": "1.0.149",
+    "date": "2026-09-24",
+    "changes_vi": [
+      "Tối ưu hóa độ nhạy nhận diện khuôn mặt người quen (Face ID) với ngưỡng khoảng cách Euclidean 0.60 chuẩn công nghiệp.",
+      "Hỗ trợ gom nhóm đa mẫu khuôn mặt (nhiều góc chụp/biểu cảm) cho cùng một người quen, nâng cao độ chính xác nhận dạng.",
+      "Tích hợp cơ chế ưu tiên Người Quen & triệt tiêu báo nhầm: Tự động hủy cảnh báo Người Lạ ngay khi nhận diện được thành viên gia đình.",
+      "Đính kèm tên thành viên cụ thể được nhận diện lên ảnh thông báo và tin nhắn Telegram."
+    ],
+    "changes_en": [
+      "Optimized Face ID matching precision with industry-standard 0.60 Euclidean distance threshold.",
+      "Added multi-sample descriptor grouping per registered member (multiple angles/lighting conditions).",
+      "Smart priority hierarchy: Automatically cancels pending Stranger alerts when a known member is verified.",
+      "Appends recognized member names directly to Telegram notifications and snapshot captions."
+    ]
+  },
+  {
     "version": "1.0.148",
     "date": "2026-09-24",
     "changes_vi": [
