@@ -1,5 +1,15 @@
 [
   {
+    "version": "1.0.142",
+    "date": "2026-09-24",
+    "changes": [
+      "Nâng cấp 3 cơ chế kích hoạt trong trang AI Vision (AI.html) sang tính năng Gửi Cảnh Báo Telegram (Client-Side Direct Fetch kèm ảnh Snapshot AI có vẽ sẵn khung nhận diện).",
+      "Tự động đọc và tái sử dụng cấu hình Telegram Bot Token & Chat ID đã lưu trên ESP32 qua API /alert_config.",
+      "Bổ sung Modal cảnh báo thông minh (9 ngôn ngữ): Tự động nhắc nhở và cung cấp nút chuyển hướng về Dashboard khi chưa thiết lập Telegram Token.",
+      "Tích hợp bộ đệm chống Spam (Cooldown 25s) và âm thanh báo hiệu xác nhận gửi thành công."
+    ]
+  },
+  {
     "version": "1.0.141",
     "date": "2026-09-24",
     "changes": [

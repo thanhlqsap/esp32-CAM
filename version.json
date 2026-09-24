@@ -1,10 +1,10 @@
 {
-  "version": "1.0.141",
+  "version": "1.0.142",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Căn lề nút YouTube sát cạnh khu vực chọn ngôn ngữ bên phải trên toàn bộ các trang giao diện & GitHub Web Flasher.",
+  "description": "Tích hợp tính năng Gửi Ảnh Cảnh Báo Trực Tiếp Qua Telegram Bot (9 Ngôn Ngữ) cho 3 Chế Độ AI Vision (Thấy người, Dấu ✌️, Ngã) và tự động đồng bộ Token từ Board.",
   "release_date": "24/09/2026",
   "mandatory": false,
-  "changelog": "Căn lề nút YouTube sát cạnh khu vực chọn ngôn ngữ bên phải trên toàn bộ các trang giao diện & GitHub Web Flasher.",
+  "changelog": "Tích hợp tính năng Gửi Ảnh Cảnh Báo Trực Tiếp Qua Telegram Bot (9 Ngôn Ngữ) cho 3 Chế Độ AI Vision (Thấy người, Dấu ✌️, Ngã) và tự động đồng bộ Token từ Board.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }
