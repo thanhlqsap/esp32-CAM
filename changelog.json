@@ -1,5 +1,16 @@
 [
   {
+    "version": "1.0.140",
+    "date": "2026-09-24",
+    "changes": [
+      "Tối ưu hóa kiến trúc nhúng hình ảnh: Chuyển đổi từ Base64 lặp lại sang Endpoint chung /logo.png với bộ nhớ PROGMEM, tiết kiệm ~230.5 KB bộ nhớ Flash (từ 92% xuống 81%).",
+      "Nhúng biểu tượng Robot BumBonTechLab làm Favicon & Brand Logo chuyển hướng về https://www.bumbontechlab.com trên tất cả các trang web.",
+      "Bổ sung nút Icon YouTube chính thức trên Header của toàn bộ các giao diện liên kết về https://www.youtube.com/@BumBon_Tech_Lab.",
+      "Nâng cấp Captive Portal với bộ đếm ngược 10 giây (đa ngôn ngữ) tự động chuyển hướng sang hostname mDNS http://esp32-cam.local sau khi lưu Wi-Fi thành công.",
+      "Dọn dẹp và làm sạch giao diện dashboard.html, captive_portal.html, sd_gallery.html, web_flasher.html."
+    ]
+  },
+  {
     "version": "1.0.139",
     "date": "2026-09-24",
     "changes": [
