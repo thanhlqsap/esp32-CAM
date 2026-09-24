@@ -1,6 +1,6 @@
 {
-  "name": "ESP32-CAM Firmware v1.0.144",
-  "version": "1.0.144",
+  "name": "ESP32-CAM Firmware v1.0.145",
+  "version": "1.0.145",
   "new_install_prompt_erase": false,
   "builds": [
     {
@@ -23,7 +23,7 @@
           "offset": 65536
         }
       ],
-      "version": "1.0.144"
+      "version": "1.0.145"
     }
   ],
   "release_date": "24/09/2026"

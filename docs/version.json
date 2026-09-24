@@ -1,10 +1,10 @@
 {
-  "version": "1.0.144",
+  "version": "1.0.145",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp Thuật toán Chụp Khung Hình Tối Ưu (Smart Best-Frame Capture Buffer ~750ms) cho AI Vision Telegram Alert.",
+  "description": "Tích hợp AI Dual-Engine Fusion (COCO-SSD + MediaPipe Pose Validator) cho Tab Objects gửi Telegram.",
   "release_date": "24/09/2026",
   "mandatory": false,
-  "changelog": "Tự động chọn khung hình nguyên người và rõ nét nhất gửi Telegram thay vì chụp vội ở frame đầu tiên.",
+  "changelog": "Xác thực khung xương dáng đứng nguyên người qua MediaPipe Pose trước khi gửi ảnh Telegram.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.145",
+    "date": "2026-09-24",
+    "changes": [
+      "Tích hợp kiến trúc AI kết hợp Dual-Engine Fusion (COCO-SSD + MediaPipe Pose Validator) độc quyền cho Tab Objects.",
+      "Tự động chạy MediaPipe Pose song song ngầm để xác thực giải phẫu cơ thể người (2 Vai, 2 Hông, Dáng đứng thẳng) khi COCO-SSD phát hiện đối tượng person.",
+      "Khắc phục triệt để mọi trường hợp bóng người, góc áo hay cắt nửa thân: Chỉ chụp và gửi Telegram khi đối tượng đứng trọn vẹn và rõ nét nhất trong khung hình."
+    ]
+  },
+  {
     "version": "1.0.144",
     "date": "2026-09-24",
     "changes": [
