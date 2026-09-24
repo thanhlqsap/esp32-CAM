@@ -1,10 +1,10 @@
 {
-  "version": "1.0.140",
+  "version": "1.0.141",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tối ưu hóa dung lượng Flash (~230KB) bằng Endpoint chia sẻ /logo.png & PROGMEM byte array, nhúng Favicon/Brand logo BumBonTechLab, nút YouTube và bộ đếm ngược 10s chuyển hướng mDNS trong Captive Portal.",
+  "description": "Căn lề nút YouTube sát cạnh khu vực chọn ngôn ngữ bên phải trên toàn bộ các trang giao diện & GitHub Web Flasher.",
   "release_date": "24/09/2026",
   "mandatory": false,
-  "changelog": "Tối ưu hóa dung lượng Flash (~230KB) bằng Endpoint chia sẻ /logo.png & PROGMEM byte array, nhúng Favicon/Brand logo BumBonTechLab, nút YouTube và bộ đếm ngược 10s chuyển hướng mDNS trong Captive Portal.",
+  "changelog": "Căn lề nút YouTube sát cạnh khu vực chọn ngôn ngữ bên phải trên toàn bộ các trang giao diện & GitHub Web Flasher.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

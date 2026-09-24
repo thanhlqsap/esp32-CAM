@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ESP32 CAM PLATFORM 1-Click Web Installer</title>
-  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -149,20 +149,28 @@
     
     <!-- Top Navigation Bar -->
     <div class="top-bar">
-      <a href="https://github.com/thanhlqsap/esp32-CAM" target="_blank" class="top-brand">
-        📷 <span>ESP32-CAM</span>
-      </a>
-      <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
-        <option value="vi">🇻🇳 Tiếng Việt</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="ja">🇯🇵 日本語</option>
-        <option value="zh">🇨🇳 简体中文</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="de">🇩🇪 Deutsch</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="ru">🇷🇺 Русский</option>
-        <option value="ko">🇰🇷 한국어</option>
-      </select>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="https://www.bumbontechlab.com" target="_blank" rel="noopener noreferrer" class="brand-logo-link" title="BumBon Tech Lab">
+          <img src="logo.png" alt="BumBon Tech Lab" class="brand-logo-img-sm" style="width:32px;height:32px;">
+        </a>
+        <a href="https://github.com/thanhlqsap/esp32-CAM" target="_blank" class="top-brand">
+          <span>ESP32-CAM Web Flasher</span>
+        </a>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="https://www.youtube.com/@BumBon_Tech_Lab" target="_blank" rel="noopener noreferrer" class="yt-header-btn" title="YouTube: BumBon Tech Lab" style="padding:4px 8px !important;"><svg viewBox="0 0 24 24" width="18" height="18" style="vertical-align:middle;display:inline-block;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#ff0000"/><polygon points="9.545,8.432 9.545,15.568 15.818,12" fill="#ffffff"/></svg></a>
+        <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
+          <option value="vi">🇻🇳 Tiếng Việt</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="zh">🇨🇳 简体中文</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="ko">🇰🇷 한국어</option>
+        </select>
+      </div>
     </div>
 
     <!-- Browser Incompatibility Warning -->

@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.141",
+    "date": "2026-09-24",
+    "changes": [
+      "Căn chỉnh lại layout Header/Top-bar trên toàn bộ các trang giao diện: Gom nút YouTube và Dropdown chọn ngôn ngữ thành một cụm căn lề bên phải sát cạnh nhau.",
+      "Đồng bộ hoàn thiện cấu trúc giao diện trang Web Flasher trên GitHub Pages (docs/index.html & Github/docs/index.html)."
+    ]
+  },
+  {
     "version": "1.0.140",
     "date": "2026-09-24",
     "changes": [
