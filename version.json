@@ -1,10 +1,15 @@
 {
-  "version": "1.0.145",
+  "version": "1.0.146",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "description": "Tích hợp AI Dual-Engine Fusion (COCO-SSD + MediaPipe Pose Validator) cho Tab Objects gửi Telegram.",
-  "release_date": "24/09/2026",
+  "release_date": "2026-09-24",
   "mandatory": false,
-  "changelog": "Xác thực khung xương dáng đứng nguyên người qua MediaPipe Pose trước khi gửi ảnh Telegram.",
+  "changelog": [
+    "Thêm Tab 5: Nhận diện khuôn mặt người quen / người lạ (Face ID & Member Matching) trong AI.html.",
+    "Hỗ trợ đăng ký khuôn mặt (tối đa 10 người) qua chụp trực tiếp từ ESP32-CAM hoặc tải ảnh chân dung có sẵn.",
+    "Trích xuất vector đặc trưng 128 chiều (128-D Descriptors) với @vladmandic/face-api và lưu trữ an toàn trong localStorage.",
+    "Phân biệt và cảnh báo thông minh qua Telegram: Khung xanh khi nhận diện người quen, Khung đỏ khi phát hiện người lạ (Stranger Alert)."
+  ],
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

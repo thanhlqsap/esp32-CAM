@@ -1,5 +1,21 @@
 [
   {
+    "version": "1.0.146",
+    "date": "2026-09-24",
+    "changes_vi": [
+      "Thêm Tab 5: Nhận diện khuôn mặt người quen / người lạ (Face ID & Member Matching) trong AI.html.",
+      "Hỗ trợ đăng ký khuôn mặt (tối đa 10 người) qua chụp trực tiếp từ ESP32-CAM hoặc tải ảnh chân dung có sẵn.",
+      "Trích xuất vector đặc trưng 128 chiều (128-D Descriptors) với @vladmandic/face-api và lưu trữ an toàn trong localStorage.",
+      "Phân biệt và cảnh báo thông minh qua Telegram: Khung xanh khi nhận diện người quen, Khung đỏ khi phát hiện người lạ (Stranger Alert)."
+    ],
+    "changes_en": [
+      "Added Tab 5: Face ID & Member Matching / Stranger Alert in AI.html.",
+      "Supports face enrollment (up to 10 members) via live ESP32-CAM snapshot or local photo upload.",
+      "Extracts 128-D face feature vectors with @vladmandic/face-api and safely stores descriptors in localStorage.",
+      "Smart Telegram notification and visual distinction: Green bounding box for registered members, Red bounding box for strangers."
+    ]
+  },
+  {
     "version": "1.0.145",
     "date": "2026-09-24",
     "changes": [
