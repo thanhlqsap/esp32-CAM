@@ -1,6 +1,6 @@
 {
   "name": "ESP32-CAM Firmware v1.0.145",
-  "version": "1.0.145",
+  "version": "1.0.147",
   "new_install_prompt_erase": false,
   "builds": [
     {

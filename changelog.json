@@ -1,5 +1,21 @@
 [
   {
+    "version": "1.0.147",
+    "date": "2026-09-24",
+    "changes_vi": [
+      "Khắc phục sự cố tải ảnh (Upload Photo) trong tab Nhận diện khuôn mặt người quen (Face ID) của AI.html.",
+      "Bổ sung cơ chế chuẩn hóa độ phân giải ảnh (Canvas Normalization max 960px) chống tràn bộ nhớ WebGL/RAM khi tải ảnh độ phân giải cao từ smartphone/PC.",
+      "Tự động nạp sẵn thư viện @vladmandic/face-api và nạp trọng số mô hình khi mở chọn ảnh.",
+      "Tối ưu nút kích hoạt bộ chọn tệp (File Picker) tương thích mượt mà trên tất cả trình duyệt di động và máy tính."
+    ],
+    "changes_en": [
+      "Fixed photo upload feature in Face ID / Known Members tab on AI.html.",
+      "Added smart image canvas normalization (max 960px) to prevent WebGL GPU texture / RAM overflow on high-res smartphone/PC photos.",
+      "Guaranteed lazy loading of @vladmandic/face-api library and models prior to image inference.",
+      "Optimized file picker trigger for seamless cross-browser compatibility across mobile and desktop devices."
+    ]
+  },
+  {
     "version": "1.0.146",
     "date": "2026-09-24",
     "changes_vi": [
