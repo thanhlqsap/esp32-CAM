@@ -1,10 +1,10 @@
 {
-  "version": "1.0.138",
+  "version": "1.0.139",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Khắc phục triệt để lỗi cú pháp biến khiến trang AI Vision bị đứng vòng xoay Loading.",
-  "release_date": "22/09/2026",
+  "description": "Tích hợp nhận diện thương hiệu BumBonTechLab, bổ sung icon YouTube chính thức và tính năng đếm ngược 10s tự động chuyển hướng mDNS sau khi cấu hình Wi-Fi.",
+  "release_date": "24/09/2026",
   "mandatory": false,
-  "changelog": "Sửa lỗi trùng khai báo biến JS trong AI.html giúp luồng stream AI Vision tải ngay lập tức không bị treo.",
+  "changelog": "Tích hợp thương hiệu BumBonTechLab, nút YouTube và đếm ngược 10s chuyển hướng mDNS trong captive portal.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

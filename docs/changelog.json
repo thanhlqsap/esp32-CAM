@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.139",
+    "date": "2026-09-24",
+    "changes": [
+      "Tích hợp nhận diện thương hiệu BumBonTechLab với logo Base64 nhúng thẳng vào firmware (hoạt động offline 100%) làm Favicon và Brand Logo liên kết về https://www.bumbontechlab.com trên tất cả các trang web.",
+      "Bổ sung nút Icon YouTube chính thức trên Header của toàn bộ các trang giao diện liên kết về https://www.youtube.com/@BumBon_Tech_Lab.",
+      "Nâng cấp trang Cấu hình Wi-Fi (captive_portal.html) với bộ đếm ngược 10 giây trực quan (9 ngôn ngữ) tự động chuyển hướng sang hostname mDNS http://esp32-cam.local sau khi lưu cấu hình."
+    ]
+  },
+  {
     "version": "1.0.137",
     "release_date": "22/09/2026",
     "title": {
