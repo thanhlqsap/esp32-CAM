@@ -1,10 +1,10 @@
 {
-  "version": "1.0.143",
+  "version": "1.0.144",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp công nghệ Background AI Engine (Web Worker Pulse) cho phép trang AI.html chạy ngầm 24/7 khi Pin Tab / Chuyển Tab / Thu nhỏ trình duyệt.",
+  "description": "Tích hợp Thuật toán Chụp Khung Hình Tối Ưu (Smart Best-Frame Capture Buffer ~750ms) cho AI Vision Telegram Alert.",
   "release_date": "24/09/2026",
   "mandatory": false,
-  "changelog": "Tích hợp công nghệ Background AI Engine (Web Worker Pulse) cho phép trang AI.html chạy ngầm 24/7 khi Pin Tab / Chuyển Tab / Thu nhỏ trình duyệt.",
+  "changelog": "Tự động chọn khung hình nguyên người và rõ nét nhất gửi Telegram thay vì chụp vội ở frame đầu tiên.",
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
 }

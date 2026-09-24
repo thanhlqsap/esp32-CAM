@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.144",
+    "date": "2026-09-24",
+    "changes": [
+      "Tích hợp Thuật toán Chụp Khung Hình Tối Ưu (Smart Best-Frame Capture Buffer ~750ms) trên trang AI Vision (AI.html).",
+      "Khắc phục triệt để tình trạng ảnh chụp Telegram bị mất nửa người hoặc mờ mép: Không chụp vội ở frame đầu tiên mà tự động quan sát, tính điểm chất lượng (Độ tin cậy 30% + Diện tích bao phủ 40% + Vị trí trung tâm 30%) để xuất bức ảnh nguyên người đẹp nhất.",
+      "Giữ vững độ mượt mà và khả năng chạy ngầm khi Pin Tab / Chuyển Tab."
+    ]
+  },
+  {
     "version": "1.0.143",
     "date": "2026-09-24",
     "changes": [

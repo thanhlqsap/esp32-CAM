@@ -1,6 +1,6 @@
 {
-  "name": "ESP32-CAM Video Recorder & AI Camera",
-  "version": "1.0.143",
+  "name": "ESP32-CAM Firmware v1.0.144",
+  "version": "1.0.144",
   "new_install_prompt_erase": false,
   "builds": [
     {
@@ -22,7 +22,8 @@
           "path": "OTA_Update.bin",
           "offset": 65536
         }
-      ]
+      ],
+      "version": "1.0.144"
     }
   ],
   "release_date": "24/09/2026"
