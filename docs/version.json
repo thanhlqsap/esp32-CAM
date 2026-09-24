@@ -1,14 +1,13 @@
 {
-  "version": "1.0.147",
+  "version": "1.0.148",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "description": "Tích hợp AI Dual-Engine Fusion (COCO-SSD + MediaPipe Pose Validator) cho Tab Objects gửi Telegram.",
   "release_date": "2026-09-24",
   "mandatory": false,
   "changelog": [
-    "Khắc phục sự cố tải ảnh (Upload Photo) trong tab Nhận diện khuôn mặt người quen (Face ID) của AI.html.",
-    "Bổ sung cơ chế chuẩn hóa độ phân giải ảnh (Canvas Normalization max 960px) chống tràn bộ nhớ WebGL/RAM khi tải ảnh độ phân giải cao từ smartphone/PC.",
-    "Tự động nạp sẵn thư viện @vladmandic/face-api và nạp trọng số mô hình khi mở chọn ảnh.",
-    "Tối ưu nút kích hoạt bộ chọn tệp (File Picker) tương thích mượt mà trên tất cả trình duyệt di động và máy tính."
+    "Sửa lỗi triệt để phần nạp DOM Modal Face ID giúp hiển thị đầy đủ tiến trình tải ảnh, avatar preview và mở khóa nút Lưu Người Quen.",
+    "Tái cấu trúc vị trí HTML Modal trong AI.html đảm bảo các phần tử DOM luôn sẵn sàng trước khi JavaScript thực thi.",
+    "Tự động giải mã và trích xuất vector khuôn mặt 128 chiều an toàn ngay khi chọn tệp ảnh hoặc chụp camera."
   ],
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"

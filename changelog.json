@@ -1,5 +1,19 @@
 [
   {
+    "version": "1.0.148",
+    "date": "2026-09-24",
+    "changes_vi": [
+      "Sửa lỗi triệt để phần nạp DOM Modal Face ID giúp hiển thị đầy đủ tiến trình tải ảnh, avatar preview và mở khóa nút Lưu Người Quen.",
+      "Tái cấu trúc vị trí HTML Modal trong AI.html đảm bảo các phần tử DOM luôn sẵn sàng trước khi JavaScript thực thi.",
+      "Tự động giải mã và trích xuất vector khuôn mặt 128 chiều an toàn ngay khi chọn tệp ảnh hoặc chụp camera."
+    ],
+    "changes_en": [
+      "Fixed Face ID Modal DOM lifecycle in AI.html to reliably display upload progress, avatar preview, and enable Save Member button.",
+      "Restructured HTML Modal placement ensuring DOM elements are fully initialized before JavaScript execution.",
+      "Instantly decodes and extracts 128-D face feature vectors upon photo upload or camera capture."
+    ]
+  },
+  {
     "version": "1.0.147",
     "date": "2026-09-24",
     "changes_vi": [
