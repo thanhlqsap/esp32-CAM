@@ -1,5 +1,21 @@
 [
   {
+    "version": "1.0.150",
+    "date": "2026-09-28",
+    "changes_vi": [
+      "Khắc phục triệt để lỗi video tự động ghi tiếp vô tận sau khi hết thời lượng (Duration) hoặc đủ khung hình (Burst Frames).",
+      "Chuẩn hóa quy trình kết thúc video: Đóng file AVI hoàn chỉnh, chốt bảng chỉ mục idx1 và đưa camera về trạng thái chờ (Idle) dứt khoát.",
+      "Chỉ kích hoạt ghi clip mới khi thực sự có sự kiện chuyển động thực tế phát sinh tiếp theo, loại bỏ hoàn toàn hiện tượng tạo file rác.",
+      "Tối ưu hóa quản lý hàng đợi và giải phóng bộ nhớ RAM/PSRAM cho tác vụ ghi thẻ nhớ ngầm (recordTask)."
+    ],
+    "changes_en": [
+      "Completely fixed the continuous auto-recording rollover bug when clip duration or burst frames limit was reached.",
+      "Standardized video finalization: Properly finalizes AVI file, seals idx1 index table, and cleanly transitions camera to Idle state.",
+      "Ensures new video clips are only triggered upon genuine subsequent motion events, eliminating ghost/continuous recording loops.",
+      "Optimized queue management and RAM/PSRAM memory deallocation for background SD recorder task (recordTask)."
+    ]
+  },
+  {
     "version": "1.0.149",
     "date": "2026-09-24",
     "changes_vi": [

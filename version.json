@@ -1,14 +1,14 @@
 {
-  "version": "1.0.149",
+  "version": "1.0.150",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "description": "Tích hợp AI Dual-Engine Fusion (COCO-SSD + MediaPipe Pose Validator) cho Tab Objects gửi Telegram.",
-  "release_date": "2026-09-24",
+  "release_date": "2026-09-28",
   "mandatory": false,
   "changelog": [
-    "Tối ưu hóa độ nhạy nhận diện khuôn mặt người quen (Face ID) với ngưỡng khoảng cách Euclidean 0.60 chuẩn công nghiệp.",
-    "Hỗ trợ gom nhóm đa mẫu khuôn mặt (nhiều góc chụp/biểu cảm) cho cùng một người quen, nâng cao độ chính xác nhận dạng.",
-    "Tích hợp cơ chế ưu tiên Người Quen & triệt tiêu báo nhầm: Tự động hủy cảnh báo Người Lạ ngay khi nhận diện được thành viên gia đình.",
-    "Đính kèm tên thành viên cụ thể được nhận diện lên ảnh thông báo và tin nhắn Telegram."
+    "Khắc phục triệt để lỗi video tự động ghi tiếp vô tận sau khi hết thời lượng (Duration) hoặc đủ khung hình (Burst Frames).",
+    "Chuẩn hóa quy trình kết thúc video: Đóng file AVI hoàn chỉnh, chốt bảng chỉ mục idx1 và đưa camera về trạng thái chờ (Idle) dứt khoát.",
+    "Chỉ kích hoạt ghi clip mới khi thực sự có sự kiện chuyển động thực tế phát sinh tiếp theo, loại bỏ hoàn toàn hiện tượng tạo file rác.",
+    "Tối ưu hóa quản lý hàng đợi và giải phóng bộ nhớ RAM/PSRAM cho tác vụ ghi thẻ nhớ ngầm (recordTask)."
   ],
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
