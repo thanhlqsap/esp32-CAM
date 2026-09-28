@@ -1,5 +1,37 @@
 [
   {
+    "version": "1.0.152",
+    "date": "2026-09-28",
+    "changes_vi": [
+      "Tích hợp điều khiển Servo Pan xoay Camera (GPIO 2) với thanh gạt góc 0° - 180° và 3 nút góc nhìn nhanh (45°, 90°, 135°).",
+      "Bổ sung nút Còi xe (Horn / Buzzer GPIO 3) dạng bấm giữ (Hold to Beep) và phím tắt [B] trên bàn phím.",
+      "Tối ưu cụm nút Pod Phải: Loại bỏ nút Phanh dư thừa, thay thế bằng hàng 3 nút [💡 Đèn Pha] - [📢 Còi Xe] - [📸 Chụp Ảnh FPV].",
+      "Đồng bộ API /car_cmd hỗ trợ tham số action=cam_angle&angle=... và action=buzzer&state=..."
+    ],
+    "changes_en": [
+      "Integrated Camera Pan Servo control (GPIO 2) with 0° - 180° angle slider and 3 quick presets (45°, 90°, 135°).",
+      "Added Car Horn / Buzzer control (GPIO 3) with hold-to-beep action and [B] keyboard shortcut.",
+      "Streamlined Right Action Pod: Removed redundant Brake button, replacing it with a 3-button row [💡 Headlight] - [📢 Horn] - [📸 Snapshot].",
+      "Synchronized /car_cmd API supporting action=cam_angle&angle=... and action=buzzer&state=..."
+    ]
+  },
+  {
+    "version": "1.0.151",
+    "date": "2026-09-28",
+    "changes_vi": [
+      "Tích hợp Cần điều khiển ảo 360° (Virtual Analog Touch Joystick) cho giao diện FPV Car Cockpit.",
+      "Hỗ trợ chuyển đổi mượt mà 1-chạm giữa Bàn phím D-Pad 9 nút truyền thống và Cần xoay 360 độ.",
+      "Tự động tính toán góc xoay 360°, vùng chết an toàn (Deadzone 20%) và cơ chế đàn hồi tự động (Spring-back return).",
+      "Ghi nhớ chế độ điều khiển ưa thích (D-Pad / Joystick) vào LocalStorage của trình duyệt."
+    ],
+    "changes_en": [
+      "Integrated 360° Virtual Analog Touch Joystick for FPV Car Cockpit interface.",
+      "Seamless 1-tap switching between classic 9-button D-Pad keypad and 360° analog thumbstick.",
+      "Automatic 360° angle calculation, 20% safe deadzone, and responsive spring-back auto return.",
+      "Persists user preferred control mode (D-Pad / Joystick) in browser LocalStorage."
+    ]
+  },
+  {
     "version": "1.0.150",
     "date": "2026-09-28",
     "changes_vi": [

@@ -1,14 +1,14 @@
 {
-  "version": "1.0.150",
+  "version": "1.0.152",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Tích hợp AI Dual-Engine Fusion (COCO-SSD + MediaPipe Pose Validator) cho Tab Objects gửi Telegram.",
+  "description": "Bổ sung điều khiển Servo xoay Camera (GPIO 2) và Còi xe Buzzer (GPIO 3), tối ưu cụm nút hành động buồng lái FPV.",
   "release_date": "2026-09-28",
   "mandatory": false,
   "changelog": [
-    "Khắc phục triệt để lỗi video tự động ghi tiếp vô tận sau khi hết thời lượng (Duration) hoặc đủ khung hình (Burst Frames).",
-    "Chuẩn hóa quy trình kết thúc video: Đóng file AVI hoàn chỉnh, chốt bảng chỉ mục idx1 và đưa camera về trạng thái chờ (Idle) dứt khoát.",
-    "Chỉ kích hoạt ghi clip mới khi thực sự có sự kiện chuyển động thực tế phát sinh tiếp theo, loại bỏ hoàn toàn hiện tượng tạo file rác.",
-    "Tối ưu hóa quản lý hàng đợi và giải phóng bộ nhớ RAM/PSRAM cho tác vụ ghi thẻ nhớ ngầm (recordTask)."
+    "Tích hợp điều khiển Servo Pan xoay Camera (GPIO 2) với thanh gạt góc 0° - 180° và 3 nút góc nhìn nhanh (45°, 90°, 135°).",
+    "Bổ sung nút Còi xe (Horn / Buzzer GPIO 3) dạng bấm giữ (Hold to Beep) và phím tắt [B] trên bàn phím.",
+    "Tối ưu cụm nút Pod Phải: Loại bỏ nút Phanh dư thừa, thay thế bằng hàng 3 nút [💡 Đèn Pha] - [📢 Còi Xe] - [📸 Chụp Ảnh FPV].",
+    "Đồng bộ API /car_cmd hỗ trợ tham số action=cam_angle&angle=... và action=buzzer&state=..."
   ],
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
