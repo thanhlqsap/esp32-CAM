@@ -1,5 +1,35 @@
 [
   {
+    "version": "1.0.156",
+    "date": "2026-09-28",
+    "changes_vi": [
+      "Thêm Mục 8 trong HDSDCar.html: Bảng phân tích so sánh toàn diện các loại mạch cầu H (L9110S, TB6612FNG, DRV8833, L298N, MX1508, BTS7960) và sự khác biệt giữa bản 2 kênh vs 4 kênh.",
+      "Thêm Mục 9 trong HDSDCar.html: Hướng dẫn chuyên sâu khắc phục hiện tượng ESP32-CAM bị treo / không khởi động do xung đột chân Strapping Pin GPIO 12 và dòng rò ngược từ mạch cầu.",
+      "Cung cấp sơ đồ nguyên lý mạch gắn điện trở kéo xuống mass Pull-Down 4.7kΩ - 10kΩ trên chân GPIO 12 giúp hệ thống tự khởi động đồng bộ 100%."
+    ],
+    "changes_en": [
+      "Added Section 8 in HDSDCar.html: Comprehensive H-Bridge comparison table (L9110S, TB6612FNG, DRV8833, L298N, MX1508, BTS7960) and 2-channel vs 4-channel analysis.",
+      "Added Section 9 in HDSDCar.html: In-depth engineering troubleshooting guide for ESP32-CAM bootlock / brownout caused by GPIO 12 Strapping Pin conflicts.",
+      "Provided schematic and step-by-step 4.7kΩ - 10kΩ Pull-Down resistor hardware fix."
+    ]
+  },
+  {
+    "version": "1.0.155",
+    "date": "2026-09-28",
+    "changes_vi": [
+      "Cập nhật bảng phân bổ chân GPIO bổ sung Servo Pan xoay Camera (GPIO 2) và Còi xe Buzzer (GPIO 3) trong HDSDCar.html.",
+      "Bổ sung tài liệu chi tiết các tính năng buồng lái FPV cao cấp: Cần điều khiển ảo 360°, Servo xoay camera 0°-180°, Còi xe cảnh báo và Chụp ảnh tức thì.",
+      "Thêm bảng tra cứu toàn diện phím tắt bàn phím máy tính (Cockpit Hotkeys W/A/S/D, Q/E, Z/C, F, B, P, 1..4, Space, H).",
+      "Đồng bộ danh sách REST API điều khiển xe /car_cmd, /capture và /car_enable_mode."
+    ],
+    "changes_en": [
+      "Updated HDSDCar.html documentation with GPIO 2 (Camera Servo) and GPIO 3 (Buzzer Horn).",
+      "Documented advanced cockpit features: 360° Virtual Analog Joystick, Servo angle presets, Horn hold-to-beep, and zero-latency snapshot download.",
+      "Added full computer keyboard cockpit hotkeys reference table.",
+      "Synchronized REST API specifications for /car_cmd, /capture, and /car_enable_mode."
+    ]
+  },
+  {
     "version": "1.0.154",
     "date": "2026-09-28",
     "changes_vi": [
