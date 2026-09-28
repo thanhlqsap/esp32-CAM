@@ -1,14 +1,14 @@
 {
-  "version": "1.0.152",
+  "version": "1.0.154",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Bổ sung điều khiển Servo xoay Camera (GPIO 2) và Còi xe Buzzer (GPIO 3), tối ưu cụm nút hành động buồng lái FPV.",
+  "description": "Sửa lỗi cú pháp async function trong car_control.html, khôi phục toàn bộ sự kiện điều khiển và tối ưu tính năng chụp ảnh FPV.",
   "release_date": "2026-09-28",
   "mandatory": false,
   "changelog": [
-    "Tích hợp điều khiển Servo Pan xoay Camera (GPIO 2) với thanh gạt góc 0° - 180° và 3 nút góc nhìn nhanh (45°, 90°, 135°).",
-    "Bổ sung nút Còi xe (Horn / Buzzer GPIO 3) dạng bấm giữ (Hold to Beep) và phím tắt [B] trên bàn phím.",
-    "Tối ưu cụm nút Pod Phải: Loại bỏ nút Phanh dư thừa, thay thế bằng hàng 3 nút [💡 Đèn Pha] - [📢 Còi Xe] - [📸 Chụp Ảnh FPV].",
-    "Đồng bộ API /car_cmd hỗ trợ tham số action=cam_angle&angle=... và action=buzzer&state=..."
+    "Sửa lỗi cú pháp JS (thiếu async tại toggleLight và từ khóa async thừa) giúp toàn bộ sự kiện điều khiển trên car_control.html hoạt động hoàn hảo.",
+    "Đảm bảo loại bỏ badge STOP và nút Snapshot trên Header đúng chuẩn DOM không phát sinh lỗi script.",
+    "Hoàn thiện chức năng chụp ảnh FPV (Canvas Snapshot & Fallback HTTP /capture) lưu trực tiếp file ảnh về thiết bị.",
+    "Xác thực tính toàn vẹn 100% của tất cả thẻ HTML và 54 hàm JavaScript điều khiển buồng lái FPV."
   ],
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"

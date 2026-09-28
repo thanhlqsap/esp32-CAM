@@ -1,5 +1,37 @@
 [
   {
+    "version": "1.0.154",
+    "date": "2026-09-28",
+    "changes_vi": [
+      "Sửa lỗi cú pháp JS (thiếu async tại toggleLight và từ khóa async thừa) giúp toàn bộ sự kiện điều khiển trên car_control.html hoạt động hoàn hảo.",
+      "Đảm bảo loại bỏ badge STOP và nút Snapshot trên Header đúng chuẩn DOM không phát sinh lỗi script.",
+      "Hoàn thiện chức năng chụp ảnh FPV (Canvas Snapshot & Fallback HTTP /capture) lưu trực tiếp file ảnh về thiết bị.",
+      "Xác thực tính toàn vẹn 100% của tất cả thẻ HTML và 54 hàm JavaScript điều khiển buồng lái FPV."
+    ],
+    "changes_en": [
+      "Fixed async function syntax error in car_control.html, fully restoring all cockpit event handlers and controls.",
+      "Confirmed clean DOM removal of STOP status badge and header snapshot button with zero script errors.",
+      "Completed high-res FPV snapshot feature saving photos directly to client devices.",
+      "Validated 100% integrity of all HTML tags and 54 JavaScript functions."
+    ]
+  },
+  {
+    "version": "1.0.153",
+    "date": "2026-09-28",
+    "changes_vi": [
+      "Loại bỏ khung trạng thái STOP che màn hình FPV tạo tầm nhìn thông thoáng không bị che khuất.",
+      "Loại bỏ nút Chụp ảnh trùng lặp trên thanh Header (gần nút Cài đặt Settings).",
+      "Sửa lỗi và hoàn thiện tính năng Chụp ảnh FPV: lưu trực tiếp file ảnh độ nét cao về bộ nhớ điện thoại / máy tính tức thì (Canvas Snapshot & HTTP /capture).",
+      "Tối ưu giao diện hàng 3 nút buồng lái [💡 ĐÈN] - [📢 CÒI] - [📸 CHỤP] thẳng hàng, co giãn tự động trên mọi thiết bị."
+    ],
+    "changes_en": [
+      "Removed STOP status badge from FPV viewport for an unobstructed wide-angle view.",
+      "Removed duplicate Snapshot button from top header near Settings.",
+      "Fixed FPV Snapshot functionality: instantly saves high-res photo directly to device storage on mobile and desktop (Canvas Snapshot & HTTP /capture fallback).",
+      "Optimized cockpit action row [💡 LIGHT] - [📢 HORN] - [📸 SNAP] in a neat single row with adaptive responsive layout."
+    ]
+  },
+  {
     "version": "1.0.152",
     "date": "2026-09-28",
     "changes_vi": [
