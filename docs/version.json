@@ -1,13 +1,14 @@
 {
-  "version": "1.0.156",
+  "version": "1.0.158",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Bổ sung tài liệu so sánh các loại mạch cầu H (2 kênh vs 4 kênh) và hướng dẫn khắc phục triệt để hiện tượng ESP32-CAM không khởi động vào cuối file HDSDCar.html.",
-  "release_date": "2026-09-28",
+  "description": "Khắc phục triệt để hiện tượng rớt chữ và tràn dòng của các nhãn HUD overlay trên màn hình Camera Live View khi xem trên điện thoại đứng.",
+  "release_date": "2026-10-04",
   "mandatory": false,
   "changelog": [
-    "Thêm Mục 8 trong HDSDCar.html: Bảng phân tích so sánh toàn diện các loại mạch cầu H (L9110S, TB6612FNG, DRV8833, L298N, MX1508, BTS7960) và sự khác biệt giữa bản 2 kênh vs 4 kênh.",
-    "Thêm Mục 9 trong HDSDCar.html: Hướng dẫn chuyên sâu khắc phục hiện tượng ESP32-CAM bị treo / không khởi động do xung đột chân Strapping Pin GPIO 12 và dòng rò ngược từ mạch cầu.",
-    "Cung cấp sơ đồ nguyên lý mạch gắn điện trở kéo xuống mass Pull-Down 4.7kΩ - 10kΩ trên chân GPIO 12 giúp hệ thống tự khởi động đồng bộ 100%."
+    "Khắc phục triệt để hiện tượng rớt chữ và tràn dòng của các nhãn HUD overlay trên màn hình Camera Live View khi xem trên điện thoại đứng.",
+    "Bổ sung white-space: nowrap và flex-shrink: 0 cho toàn bộ thẻ .hud-badge, ngăn chặn tình trạng chữ 'MOTION DETECTED!' bị bẻ thành 2 dòng.",
+    "Tối ưu hóa hàng hiển thị góc phải (stream-hud-right) dạng nowrap: tự động rút gọn nhãn chỉ hiển thị mức độ phần trăm (VD: 86%) và đồng hồ REC (🔴 00:03).",
+    "Đảm bảo toàn bộ các badge thông báo nằm thẳng hàng ngay ngắn trên mép trên cùng của khung hình, không bị đè che khuất video."
   ],
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"

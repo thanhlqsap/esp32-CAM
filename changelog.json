@@ -1,5 +1,37 @@
 [
   {
+    "version": "1.0.158",
+    "date": "2026-10-04",
+    "changes_vi": [
+      "Khắc phục triệt để hiện tượng rớt chữ và tràn dòng của các nhãn HUD overlay trên màn hình Camera Live View khi xem trên điện thoại đứng.",
+      "Bổ sung white-space: nowrap và flex-shrink: 0 cho toàn bộ thẻ .hud-badge, ngăn chặn tình trạng chữ 'MOTION DETECTED!' bị bẻ thành 2 dòng.",
+      "Tối ưu hóa hàng hiển thị góc phải (stream-hud-right) dạng nowrap: tự động rút gọn nhãn chỉ hiển thị mức độ phần trăm (VD: 86%) và đồng hồ REC (🔴 00:03).",
+      "Đảm bảo toàn bộ các badge thông báo nằm thẳng hàng ngay ngắn trên mép trên cùng của khung hình, không bị đè che khuất video."
+    ],
+    "changes_en": [
+      "Completely resolved HUD overlay text wrapping and badge dropping issues on mobile portrait camera viewports.",
+      "Added white-space: nowrap and flex-shrink: 0 to all .hud-badge elements, preventing 'MOTION DETECTED!' from wrapping into multiple lines.",
+      "Optimized right-hand HUD indicators (.stream-hud-right) into a compact nowrap flex row, shortening score label to percentage and REC timer.",
+      "Ensures all real-time status badges remain cleanly aligned along the top viewport edge without occluding the live camera video."
+    ]
+  },
+  {
+    "version": "1.0.157",
+    "date": "2026-10-04",
+    "changes_vi": [
+      "Tối ưu hóa giao diện trang Thư viện Thẻ nhớ (sd_gallery.html) khi sử dụng trên điện thoại màn hình đứng (Portrait / Mobile hẹp).",
+      "Tự động ẩn phần chữ của các nút Dashboard, Quét lại thẻ, Trạng thái thẻ nhớ SD và nhãn REC khi cầm điện thoại đứng, chỉ giữ lại icon trực quan và số đếm giây thời lượng quay.",
+      "Tự động ẩn text các nút công cụ Live View (Tạm dừng, Chụp ảnh, Toàn màn hình) và nút Làm mới danh sách video giúp giao diện gọn gàng tuyệt đối, không bị tràn hay rớt dòng.",
+      "Bổ sung tooltip title đầy đủ cho tất cả các nút và thẻ badge giúp thao tác chạm giữ hoặc hover vẫn hiển thị đầy đủ tên chức năng."
+    ],
+    "changes_en": [
+      "Optimized SD Card Gallery (sd_gallery.html) UI/UX layout for mobile portrait orientation.",
+      "Automatically hides text labels for Dashboard, Rescan Card, SD Status, and REC label in portrait mode, preserving clean icons and live recording timer.",
+      "Clean icon-only responsive buttons for Live View controls (Pause/Play, Snapshot, Fullscreen) and Refresh Video list to prevent UI wrapping on mobile.",
+      "Added comprehensive tooltips (title attribute) for intuitive touch and hover interactions across all buttons."
+    ]
+  },
+  {
     "version": "1.0.156",
     "date": "2026-09-28",
     "changes_vi": [
