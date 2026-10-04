@@ -1,5 +1,33 @@
 [
   {
+    "version": "1.0.160",
+    "date": "2026-10-04",
+    "changes_vi": [
+      "Khắc phục triệt để lỗi chữ trạng thái giám sát (HUD Status) và nhãn mức động trong khung Livestream không cập nhật khi người dùng chuyển đổi ngôn ngữ (EN, JA, ZH).",
+      "Loại bỏ hoàn toàn hiện tượng lộ chữ alt text ('Live Camera Stream') phía sau badge khi stream chưa kết nối hoặc tải chậm.",
+      "Đồng bộ hóa tức thời toàn bộ các nhãn thông số HUD và trạng thái thẻ nhớ theo từ điển đa ngôn ngữ khi đổi ngôn ngữ trên giao diện."
+    ],
+    "changes_en": [
+      "Thoroughly resolved issue where Livestream HUD overlay status and score labels remained in original language when switching languages (EN, JA, ZH).",
+      "Completely eliminated broken stream alt text leak ('Live Camera Stream') behind status badges during stream initialization or connection delay.",
+      "Instantaneously synchronizes all HUD status indicators and SD card badges according to active multi-language dictionary upon language selection."
+    ]
+  },
+  {
+    "version": "1.0.159",
+    "date": "2026-10-04",
+    "changes_vi": [
+      "Bổ sung icon thẻ nhớ 💾 trực quan phía trước chấm trạng thái (sd-status-badge) trên thanh Header, giúp dễ dàng nhận biết trạng thái MicroSD khi dùng điện thoại đứng.",
+      "Tự động ẩn chữ Xem, Tải về, Xóa (View, Download, Delete) trong danh sách video khi dùng điện thoại, chuyển sang hàng nút icon [👁️] [⬇️] [🗑️] siêu nhỏ gọn.",
+      "Loại bỏ hoàn toàn hiện tượng tràn khung và thanh cuộn ngang dưới danh sách file video trên thiết bị di động."
+    ],
+    "changes_en": [
+      "Added intuitive SD Card icon 💾 in front of the connection status dot on Header, making MicroSD status immediately recognizable on mobile.",
+      "Automatically hides text labels for View, Download, Delete in the video file list on mobile, collapsing them into a sleek icon-only row [👁️] [⬇️] [🗑️].",
+      "Completely eliminated horizontal scrolling and table overflowing in the video library on mobile devices."
+    ]
+  },
+  {
     "version": "1.0.158",
     "date": "2026-10-04",
     "changes_vi": [

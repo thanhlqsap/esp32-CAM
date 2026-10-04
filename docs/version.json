@@ -1,14 +1,13 @@
 {
-  "version": "1.0.158",
+  "version": "1.0.160",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Khắc phục triệt để hiện tượng rớt chữ và tràn dòng của các nhãn HUD overlay trên màn hình Camera Live View khi xem trên điện thoại đứng.",
+  "description": "Khắc phục triệt để lỗi chữ trạng thái giám sát (HUD Status) và nhãn mức động trong khung Livestream không cập nhật khi người dùng chuyển đổi ngôn ngữ (EN, JA, ZH).",
   "release_date": "2026-10-04",
   "mandatory": false,
   "changelog": [
-    "Khắc phục triệt để hiện tượng rớt chữ và tràn dòng của các nhãn HUD overlay trên màn hình Camera Live View khi xem trên điện thoại đứng.",
-    "Bổ sung white-space: nowrap và flex-shrink: 0 cho toàn bộ thẻ .hud-badge, ngăn chặn tình trạng chữ 'MOTION DETECTED!' bị bẻ thành 2 dòng.",
-    "Tối ưu hóa hàng hiển thị góc phải (stream-hud-right) dạng nowrap: tự động rút gọn nhãn chỉ hiển thị mức độ phần trăm (VD: 86%) và đồng hồ REC (🔴 00:03).",
-    "Đảm bảo toàn bộ các badge thông báo nằm thẳng hàng ngay ngắn trên mép trên cùng của khung hình, không bị đè che khuất video."
+    "Khắc phục triệt để lỗi chữ trạng thái giám sát (HUD Status) và nhãn mức động trong khung Livestream không cập nhật khi người dùng chuyển đổi ngôn ngữ (EN, JA, ZH).",
+    "Loại bỏ hoàn toàn hiện tượng lộ chữ alt text ('Live Camera Stream') phía sau badge khi stream chưa kết nối hoặc tải chậm.",
+    "Đồng bộ hóa tức thời toàn bộ các nhãn thông số HUD và trạng thái thẻ nhớ theo từ điển đa ngôn ngữ khi đổi ngôn ngữ trên giao diện."
   ],
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"
