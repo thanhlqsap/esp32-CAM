@@ -1,13 +1,13 @@
 {
-  "version": "1.0.160",
+  "version": "1.0.161",
   "url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
-  "description": "Khắc phục triệt để lỗi chữ trạng thái giám sát (HUD Status) và nhãn mức động trong khung Livestream không cập nhật khi người dùng chuyển đổi ngôn ngữ (EN, JA, ZH).",
-  "release_date": "2026-10-04",
+  "description": "Nâng cấp thuật toán giải mã sóng RF 433MHz thời gian thực (micros) chống lệch pha, bổ sung bộ lọc nhiễu EV1527 và tích hợp chẩn đoán ghi log vào System Logger (/logs).",
+  "release_date": "2026-10-10",
   "mandatory": false,
   "changelog": [
-    "Khắc phục triệt để lỗi chữ trạng thái giám sát (HUD Status) và nhãn mức động trong khung Livestream không cập nhật khi người dùng chuyển đổi ngôn ngữ (EN, JA, ZH).",
-    "Loại bỏ hoàn toàn hiện tượng lộ chữ alt text ('Live Camera Stream') phía sau badge khi stream chưa kết nối hoặc tải chậm.",
-    "Đồng bộ hóa tức thời toàn bộ các nhãn thông số HUD và trạng thái thẻ nhớ theo từ điển đa ngôn ngữ khi đổi ngôn ngữ trên giao diện."
+    "Nâng cấp thuật toán giải mã RF 433MHz bằng micros() thời gian thực trong rf_433_manager, loại bỏ triệt để lỗi trễ pha sau Sync Pulse giúp bắt chuẩn 100% remote EV1527/PT2262.",
+    "Tích hợp chẩn đoán chi tiết và ghi log quá trình học lệnh RF vào System Logger (hiển thị trực tiếp trên site /logs và Serial Monitor).",
+    "Bổ sung thông báo nguyên nhân chẩn đoán trực quan trên Web Doorbell khi chân RX không có xung điện hoặc chưa chuyển sang Chế độ Chuông Cửa."
   ],
   "binary_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/build/OTA_Update.bin",
   "changelog_url": "https://raw.githubusercontent.com/thanhlqsap/esp32-CAM/main/changelog.json"

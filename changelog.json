@@ -1,5 +1,19 @@
 [
   {
+    "version": "1.0.161",
+    "date": "2026-10-10",
+    "changes_vi": [
+      "Nâng cấp thuật toán giải mã RF 433MHz bằng micros() thời gian thực trong rf_433_manager, loại bỏ triệt để lỗi trễ pha sau Sync Pulse giúp bắt chuẩn 100% remote EV1527/PT2262.",
+      "Tích hợp chẩn đoán chi tiết và ghi log quá trình học lệnh RF vào System Logger (hiển thị trực tiếp trên site /logs và Serial Monitor).",
+      "Bổ sung thông báo nguyên nhân chẩn đoán trực quan trên Web Doorbell khi chân RX không có xung điện hoặc chưa chuyển sang Chế độ Chuông Cửa."
+    ],
+    "changes_en": [
+      "Upgraded RF 433MHz decoding algorithm with real-time micros() in rf_433_manager, completely eliminating phase shift after Sync Pulse for 100% reliable EV1527/PT2262 remote capture.",
+      "Integrated detailed diagnostics and RF learning logs into System Logger (viewable directly on /logs and Serial Monitor).",
+      "Added clear diagnostic error feedback on Doorbell Web UI when no electrical pulse is detected on RX pin or device is not in Doorbell Mode."
+    ]
+  },
+  {
     "version": "1.0.160",
     "date": "2026-10-04",
     "changes_vi": [
